@@ -1,0 +1,37 @@
+# ── GTKG-CM Pipeline 依赖 (适配 RTX PRO 6000 / Blackwell) ──
+#
+# RTX PRO 6000 = Blackwell 架构 (sm_120)
+# 最低要求: CUDA 12.8+, torch 2.7.0+
+#
+# 安装:
+#   pip install -r requirements.txt
+# GPU 环境建议先装 torch (CUDA 12.8):
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+
+# Core
+python-dotenv>=1.0.0,<2.0.0
+requests>=2.31.0,<3.0.0
+
+# ── PyTorch (Blackwell / CUDA 12.8+) ──
+# torch 2.7.0 是首个完整支持 Blackwell (sm_120) 的版本
+torch>=2.7.0
+
+# ── ChromaDB ──
+# 0.4.x 是成熟稳定版, 内部依赖 pydantic v1 (需与 openai SDK 兼容)
+chromadb>=0.4.0,<0.5.0
+
+# ── LLM & Embeddings ──
+openai>=1.0.0,<2.0.0
+# sentence-transformers 3.4+ 兼容 torch 2.7+
+sentence-transformers>=3.4.0,<4.0.0
+
+# ── PDF 处理 ──
+PyMuPDF>=1.22.0,<2.0.0
+
+# ── Data ──
+# torch 2.7+ 需要 numpy>=1.22 (兼容 v1 和 v2)
+numpy>=1.24.0
+
+# ── Dev ──
+pytest>=7.0.0,<9.0.0
+pytest-cov>=4.0.0,<6.0.0

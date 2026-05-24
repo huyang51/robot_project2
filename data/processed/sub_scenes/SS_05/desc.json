@@ -1,0 +1,525 @@
+{
+  "sub_scene_id": "SS_05",
+  "tactical_role": "room_entry",
+  "task_hint": "肃清西侧房间，监控走廊西段动向。",
+  "zones": [
+    {
+      "zone_id": "room_main",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -143,
+          -103
+        ],
+        "y": [
+          245,
+          265
+        ],
+        "z": [
+          0,
+          40
+        ]
+      },
+      "description": "F0层西侧独立房间，南北向狭长布局，主要入口在东侧与SS_03走廊连通。房间内有多层高度物体：地面层有轮胎作为临时掩体，中层(z≈5-6)有操作台面和控制面板，上层(z≈15-16)有横向桌面结构，北侧墙面(z≈28-30)有竖向百叶窗。",
+      "connected_to": [
+        "room_entry_point"
+      ],
+      "contained_cube_ids": [
+        "/lamp_cover__155085__005",
+        "/dashboard__155112__010",
+        "/_111__337936_",
+        "/_111__337939_",
+        "/tire__155097__017",
+        "/_216__4770__207",
+        "/_216__4770__211",
+        "/_216__4770__358",
+        "/_216__4770__252",
+        "/_7__14661__490",
+        "/_7__14661__675",
+        "/__4506__184",
+        "/__14544__023",
+        "/_27__123454__001",
+        "/_280__68099__003"
+      ]
+    },
+    {
+      "zone_id": "room_entry_point",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -126.5,
+          -125
+        ],
+        "y": [
+          259.6,
+          263.3
+        ],
+        "z": [
+          0,
+          16
+        ]
+      },
+      "description": "房间东侧入口区域，宽约1.2m，竖向百叶窗位于此墙面。入口正对操作台面，是进入后的首要清理区域。",
+      "connected_to": [
+        "room_main"
+      ],
+      "contained_cube_ids": [
+        "/__5863__013",
+        "/__5935__004",
+        "/__5935__013"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "entry_east",
+      "type": "door",
+      "connects": [
+        "room_entry_point",
+        "SS_03_corridor"
+      ],
+      "width": 1.2,
+      "height": 16.418,
+      "position_rel": {
+        "x": -126.338,
+        "y": 261.451,
+        "z": 0
+      },
+      "notes": "距地高度0m，落地开口可直接通过。开口连接走廊SS_03西侧，是进入本房间的唯一通道。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_111__337936_",
+      "quality": "standing",
+      "height": 0.585,
+      "coverage_direction": [
+        "north",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "操作控制台，高0.58m可掩护站立人员。位于房间中东侧，北侧可抵挡走廊方向威胁。"
+    },
+    {
+      "cube_id": "/_111__337939_",
+      "quality": "standing",
+      "height": 0.584,
+      "coverage_direction": [
+        "north",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "操作控制台，与/_111__337936_相邻排列，提供双层掩体。北侧可抵挡走廊方向火力。"
+    },
+    {
+      "cube_id": "/tire__155097__017",
+      "quality": "crouching",
+      "height": 1.995,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "center",
+          "covers_from": [
+            "all_directions"
+          ],
+          "exposed_to": [
+            "none_if_centered"
+          ]
+        }
+      ],
+      "notes": "轮胎堆叠物，高近2m可掩护蹲姿人员，位于房间北侧。提供全方位遮挡，但位置较高(0.998m)，适于蹲姿掩蔽。"
+    },
+    {
+      "cube_id": "/_27__123454__001",
+      "quality": "standing",
+      "height": 1.001,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east"
+          ]
+        },
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east"
+          ]
+        }
+      ],
+      "notes": "竖向隔离结构，高1m可掩护站立人员，位于房间中部偏东。"
+    },
+    {
+      "cube_id": "/_280__68099__003",
+      "quality": "crouching",
+      "height": 0.642,
+      "coverage_direction": [
+        "north",
+        "south",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "控制面板设备，高0.64m可掩护蹲姿人员，位于房间东侧近入口处。"
+    },
+    {
+      "cube_id": "/_216__4770__207",
+      "quality": "concealment_only",
+      "height": 0.023,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "超低桌面，仅提供视觉遮蔽，不具备防弹能力。"
+    },
+    {
+      "cube_id": "/_216__4770__211",
+      "quality": "concealment_only",
+      "height": 0.023,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "超低桌面，仅提供视觉遮蔽。"
+    },
+    {
+      "cube_id": "/_216__4770__358",
+      "quality": "concealment_only",
+      "height": 0.022,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "超低桌面，仅提供视觉遮蔽。"
+    },
+    {
+      "cube_id": "/_216__4770__252",
+      "quality": "concealment_only",
+      "height": 0.023,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "超低桌面，仅提供视觉遮蔽。"
+    },
+    {
+      "cube_id": "/_81__315761_",
+      "quality": "standing",
+      "height": 11.606,
+      "coverage_direction": [
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "南侧整面高墙结构，高约11.6m，厚0.2m，可完全阻挡南部方向火力。位置在y=263.9，靠近走廊入口。"
+    },
+    {
+      "cube_id": "/__5863__013",
+      "quality": "obstacle",
+      "height": 4.8,
+      "coverage_direction": [],
+      "effective_positions": [
+        {
+          "behind": "none",
+          "covers_from": [],
+          "exposed_to": []
+        }
+      ],
+      "notes": "东侧竖向百叶窗结构，贯穿多层，物理上阻挡通行但不具备战术掩体功能。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "ambush_position",
+      "severity": "high",
+      "location_zone": "room_entry_point",
+      "description": "入口东侧正对走廊(SS_03)，走廊向西延伸存在长视线。SS_03描述显示走廊X向延伸176m，若敌人在走廊东段埋伏，我方进入房间瞬间暴露于火力之下。建议快速通过入口，避免在门框处停留。"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "room_entry_point",
+      "description": "入口东北角存在视线死角，北侧操作台/百叶窗后可能藏人。进入后应立即向左(北)扫视并清理。"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "medium",
+      "location_zone": "room_main",
+      "description": "房间北侧虽有轮胎堆和/_27__123454__001掩体，但与走廊仅一墙之隔。走廊方向(South侧)火力可从多个角度威胁本房间。西侧房间深处存在盲区。"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "medium",
+      "location_zone": "room_entry_point",
+      "description": "房间东侧开口正对SS_03走廊西段，视野可达走廊深处。走廊X向延伸176m，存在长距离火力威胁。"
+    },
+    {
+      "type": "choke_point",
+      "severity": "medium",
+      "location_zone": "room_entry_point",
+      "description": "东侧入口宽仅1.2m，形成天然瓶颈点。多人进入时需依次通过，队列尾部在走廊暴露。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "东侧入口进入后直行扫视",
+      "进入后左转(北)扫视控制台区域",
+      "进入后右转(南)沿墙清理",
+      "沿南侧墙面推进至西侧角落"
+    ],
+    "constraints": [
+      "入口宽仅1.2m，单人依次进入",
+      "中层操作台(z≈6)分布在中东部，限制东西向穿行",
+      "上层桌面结构(z≈15)形成视线遮挡",
+      "北侧轮胎堆提供临时依托但位置偏北"
+    ],
+    "key_control_points": [
+      {
+        "id": "kp_entry",
+        "position_rel": {
+          "x": -126.3,
+          "y": 261.5,
+          "z": 5
+        },
+        "description": "入口内侧5m处控制点",
+        "controls": [
+          "入口通道",
+          "房间中东区",
+          "北侧操作台入口"
+        ],
+        "tactical_value": "进入后的首要控制点，可目视确认入口区域和操作台方向威胁"
+      },
+      {
+        "id": "kp_north_station",
+        "position_rel": {
+          "x": -133.6,
+          "y": 261.0,
+          "z": 6
+        },
+        "description": "北侧隔离结构位置",
+        "controls": [
+          "房间中北部区域",
+          "南侧入口视野"
+        ],
+        "tactical_value": "可利用/_27__123454__001掩体监控北部，操作台后方威胁"
+      },
+      {
+        "id": "kp_tire_cover",
+        "position_rel": {
+          "x": -137.5,
+          "y": 263.4,
+          "z": 2
+        },
+        "description": "轮胎堆北侧依托点",
+        "controls": [
+          "房间北角",
+          "部分入口视野"
+        ],
+        "tactical_value": "蹲姿掩体，可观察北侧深处和入口方向"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "SS_03走廊西段",
+      "to_position": "房间入口",
+      "exposed_to": [
+        "south(走廊深处)",
+        "east(入口外走廊)",
+        "potentially_north(走廊岔路)"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "入口门框处",
+      "to_position": "kp_entry(z=5m深处)",
+      "exposed_to": [
+        "east(入口外)",
+        "south(走廊方向)"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "kp_entry",
+      "to_position": "kp_north_station(北侧控制点)",
+      "exposed_to": [
+        "south(部分入口)",
+        "east(操作台区)"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "kp_north_station",
+      "to_position": "房间西侧角落",
+      "exposed_to": [
+        "east(房间中东部)",
+        "south(南侧操作台)"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "main_entry",
+        "zone_id": "room_entry_point",
+        "opening_id": "entry_east",
+        "approach_from": "SS_03走廊方向(south)"
+      }
+    ],
+    "objective_criteria": [
+      "入口区域已清除，无威胁",
+      "北侧操作台及轮胎堆区域已确认无敌人",
+      "南侧墙面区域已扫视",
+      "西侧角落已目视确认",
+      "房间内所有角落和视线死角已清理"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_03",
+        "via": "entry_east",
+        "condition": "房间清空后返回走廊，执行监控走廊西段任务"
+      }
+    ]
+  },
+  "spatial_description": "F0层西侧封闭房间，南北向狭长(X约-143至-103，Y约245至265)。房间东侧有1.2m宽开口连接SS_03走廊，为唯一进出通道。内部空间分三层：地面层有轮胎堆提供蹲姿掩体；中层(Y=262-264,Z=5-6)东西向排列两个操作控制台和设备面板；上层(Y=255-257,Z=15)有四个超低桌面结构，几乎不具掩体功能。北侧墙面(Y=259,Z=15-30)有竖向百叶窗，南侧墙面(Y=263.9,Z=1-12)有大型高墙结构。房间入口处东北角存在视线死角，需优先清理。",
+  "inferred_tags": [
+    "东向入口房间",
+    "操作控制室",
+    "多层高度布局",
+    "轮胎临时掩体",
+    "转角盲区",
+    "走廊监控点",
+    "狭长空间",
+    "入口瓶颈"
+  ]
+}

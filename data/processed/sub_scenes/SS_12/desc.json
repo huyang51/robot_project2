@@ -1,0 +1,912 @@
+{
+  "sub_scene_id": "SS_12",
+  "tactical_role": "corridor_clear",
+  "task_hint": "肃清三层走廊，注意超长直走廊形成的致命漏斗。控制走廊交汇点。",
+  "zones": [
+    {
+      "zone_id": "Z2-COR-03-North",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -89.0,
+          -60.0
+        ],
+        "y": [
+          229.9,
+          231.8
+        ],
+        "z": [
+          0.0,
+          14.2
+        ]
+      },
+      "description": "三层北侧走廊带，Y=229.9-231.8，宽约2m。走廊宽度较宽（X向约29m），可容纳编队展开。沿X方向有多根分隔柱，可作为战术分界点。",
+      "connected_to": [
+        "Z2-COR-03-Central"
+      ],
+      "contained_cube_ids": [
+        "/_216__4770__212",
+        "/_216__4770__353",
+        "/_65__317683_"
+      ]
+    },
+    {
+      "zone_id": "Z2-COR-03-Central",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -89.0,
+          -60.0
+        ],
+        "y": [
+          231.8,
+          233.5
+        ],
+        "z": [
+          0.0,
+          14.2
+        ]
+      },
+      "description": "三层中央走廊主体区，Y=231.8-233.5，宽约2m。此区域为走廊的核心通行区，空间开阔，暴露性最高。",
+      "connected_to": [
+        "Z2-COR-03-North",
+        "Z2-COR-03-South",
+        "Z2-COR-03-West",
+        "Z2-COR-03-East"
+      ],
+      "contained_cube_ids": [
+        "/_216__4770__243",
+        "/_56__167720_",
+        "/_56__167726_",
+        "/_56__167738_"
+      ]
+    },
+    {
+      "zone_id": "Z2-COR-03-South",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -89.0,
+          -60.0
+        ],
+        "y": [
+          233.5,
+          235.4
+        ],
+        "z": [
+          0.0,
+          14.2
+        ]
+      },
+      "description": "三层南侧走廊带，Y=233.5-235.4，宽约2m。走廊宽度较宽，可容纳编队展开。沿X方向有多根分隔柱。",
+      "connected_to": [
+        "Z2-COR-03-Central"
+      ],
+      "contained_cube_ids": [
+        "/_216__4770__142",
+        "/_216__4770__148",
+        "/_216__4770__349",
+        "/_216__4770__465"
+      ]
+    },
+    {
+      "zone_id": "Z2-COR-03-West",
+      "type": "corner",
+      "bounds_rel": {
+        "x": [
+          -84.0,
+          -80.0
+        ],
+        "y": [
+          229.9,
+          235.4
+        ],
+        "z": [
+          0.0,
+          14.2
+        ]
+      },
+      "description": "三层西侧走廊交汇区，接近与SS_13的连接处。此区域是控制西向通道的关键位置，可能存在视线交汇威胁。",
+      "connected_to": [
+        "Z2-COR-03-Central"
+      ],
+      "contained_cube_ids": [
+        "/_216__4770__273",
+        "/_16__318285_",
+        "/_16__318294_",
+        "/_13__122773__035"
+      ]
+    },
+    {
+      "zone_id": "Z2-COR-03-East",
+      "type": "corner",
+      "bounds_rel": {
+        "x": [
+          -65.0,
+          -62.5
+        ],
+        "y": [
+          229.9,
+          235.4
+        ],
+        "z": [
+          0.0,
+          14.2
+        ]
+      },
+      "description": "三层东侧走廊端头区，接近楼梯井SS_07入口。此区域是从楼梯井进入走廊的必经之路，需控制垂直威胁。",
+      "connected_to": [
+        "Z2-COR-03-Central"
+      ],
+      "contained_cube_ids": [
+        "/_16__318276_",
+        "/_16__318334_",
+        "/_16__318318_",
+        "/_13__122773__021"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "opening_West_to_SS13",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-West",
+        "SS_13"
+      ],
+      "width": 4.0,
+      "height": 2.1,
+      "position_rel": {
+        "x": -83.7,
+        "y": 233.0,
+        "z": 0.0
+      },
+      "notes": "三层走廊西端开口，连接SS_13西段走廊（长82.7m×宽4m）。距地高度0m，为落地门/走廊连通口，可直接通过。此处为致命漏斗入口，长直走廊形成长视线威胁。"
+    },
+    {
+      "id": "opening_East_to_SS07",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-East",
+        "SS_07"
+      ],
+      "width": 1.5,
+      "height": 2.1,
+      "position_rel": {
+        "x": -62.7,
+        "y": 233.0,
+        "z": 0.0
+      },
+      "notes": "三层走廊东端开口，连接SS_07楼梯井。距地高度0m，为落地门。楼梯井贯通全部三层，存在垂直威胁风险（来自上下层）。"
+    },
+    {
+      "id": "opening_North_to_SS14",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-North",
+        "SS_14"
+      ],
+      "width": 2.0,
+      "height": 2.1,
+      "position_rel": {
+        "x": -75.0,
+        "y": 229.9,
+        "z": 0.0
+      },
+      "notes": "北侧走廊连接SS_14房间群的主要通道，距地高度0m。SS_14包含98个房间候选，存在多方向未知威胁。"
+    },
+    {
+      "id": "opening_South_Ext",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-South",
+        "exterior"
+      ],
+      "width": 2.0,
+      "height": 2.1,
+      "position_rel": {
+        "x": -75.0,
+        "y": 235.4,
+        "z": 0.0
+      },
+      "notes": "南侧走廊端头，可能连接外部或SS_11屋顶区域。距地高度0m，为落地门。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_16__318276_",
+      "quality": "standing",
+      "height": 0.55,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west",
+            "south"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east",
+            "north"
+          ]
+        }
+      ],
+      "notes": "X方向分隔柱，位于X≈-62.7，高0.55m可提供站立掩体。位于走廊东侧，可作为东端控制点的掩护。"
+    },
+    {
+      "cube_id": "/_16__318303_",
+      "quality": "standing",
+      "height": 0.55,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west",
+            "south"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east",
+            "north"
+          ]
+        }
+      ],
+      "notes": "X方向分隔柱，位于X≈-69.8，高0.55m。走廊中段掩体，可用于分段推进时的掩护点。"
+    },
+    {
+      "cube_id": "/_16__318318_",
+      "quality": "standing",
+      "height": 0.55,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "X方向分隔柱，位于X≈-67.4，高0.55m。走廊中段掩体。"
+    },
+    {
+      "cube_id": "/_16__318327_",
+      "quality": "standing",
+      "height": 0.55,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "X方向分隔柱，位于X≈-77.0，高0.55m。走廊西侧区域掩体，可用于控制通往SS_13的通道。"
+    },
+    {
+      "cube_id": "/_16__318285_",
+      "quality": "standing",
+      "height": 0.55,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "X方向分隔柱，位于X≈-83.9，高0.55m。最西侧分隔柱，接近SS_13连接处，可作为西端控制点掩护。"
+    },
+    {
+      "cube_id": "/_16__318291_",
+      "quality": "standing",
+      "height": 0.55,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "X方向分隔柱，位于X≈-72.1，高0.55m。走廊中段掩体。"
+    },
+    {
+      "cube_id": "/_16__318294_",
+      "quality": "standing",
+      "height": 0.55,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "X方向分隔柱，位于X≈-81.5，高0.55m。走廊西侧区域掩体。"
+    },
+    {
+      "cube_id": "/_16__318306_",
+      "quality": "standing",
+      "height": 0.55,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "X方向分隔柱，位于X≈-79.2，高0.55m。走廊西侧区域掩体。"
+    },
+    {
+      "cube_id": "/_16__318334_",
+      "quality": "standing",
+      "height": 0.55,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west",
+            "south"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east",
+            "north"
+          ]
+        }
+      ],
+      "notes": "X方向分隔柱，位于X≈-65.1，高0.55m。走廊东侧区域掩体，接近楼梯井入口。"
+    },
+    {
+      "cube_id": "/_16__318340_",
+      "quality": "standing",
+      "height": 0.55,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "X方向分隔柱，位于X≈-74.5，高0.55m。走廊中段掩体，可用于走廊中央控制。"
+    },
+    {
+      "cube_id": "/_7__14661__563",
+      "quality": "crouching",
+      "height": 0.1,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        },
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "南侧扶手/玻璃栏板，高约0.1m（距天花板0.1m），仅适合蹲姿掩护或视线遮蔽。主要功能是界定走廊边界和提供心理掩护。"
+    },
+    {
+      "cube_id": "/_7__14661__605",
+      "quality": "crouching",
+      "height": 0.1,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        },
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "中央区域扶手/栏板，高约0.1m。仅提供蹲姿掩护，主要界定走廊中央通行边界。"
+    },
+    {
+      "cube_id": "/_7__14661__574",
+      "quality": "crouching",
+      "height": 0.1,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        },
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "西侧区域扶手/栏板，高约0.1m。仅提供蹲姿掩护。"
+    },
+    {
+      "cube_id": "/_216__4770__465",
+      "quality": "concealment_only",
+      "height": 1.86,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east",
+            "west"
+          ]
+        },
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "南侧墙体分割板，高1.86m可完全遮挡视线，但主要作用是分隔而非战术掩体。Y方向延伸1.81m。"
+    },
+    {
+      "cube_id": "/_65__317683_",
+      "quality": "standing",
+      "height": 6.3,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "北侧大型结构体，尺寸9.7m×3.1m×6.3m，可提供完全站立掩体。但位置偏北（Y=226-229），可能是建筑外墙或设备区。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "long_sightline",
+      "severity": "critical",
+      "location_zone": "Z2-COR-03-West",
+      "description": "西端开口连接SS_13长走廊（82.7m×4m），形成致命漏斗效应。从本子场景西端可直视SS_13走廊全长，敌方可从SS_13走廊远端（本子场景盲区外）进行火力伏击。属长视线威胁+盲角伏击组合威胁。"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "critical",
+      "location_zone": "Z2-COR-03-East",
+      "description": "东端开口连接SS_07楼梯井，楼梯井贯通全部三层。敌方可能从上层或下层经楼梯井向本走廊射击，形成垂直火力覆盖。特别威胁进入走廊的人员头顶暴露区域。"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "Z2-COR-03-West",
+      "description": "西侧开口处存在90度视线盲区。编队从东向西推进时，西侧开口处可能存在未知人员突然出现。相邻子场景SS_13走廊82.7m长，盲区范围大。"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "Z2-COR-03-East",
+      "description": "东侧开口处存在90度视线盲区。编队推进至楼梯井入口时，楼梯井内可能存在未知人员突然冲出。楼梯井8处DENS_STAIR检测确认结构复杂。"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "high",
+      "location_zone": "Z2-COR-03-North",
+      "description": "北侧走廊连接SS_14房间群（98个房间候选）。肃清过程中，侧翼暴露于房间门开启方向。每个房间门可能突然开启造成侧翼威胁。"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "medium",
+      "location_zone": "Z2-COR-03-Central",
+      "description": "走廊中央区域（X≈-75~-70）无有效垂直掩体，形成6-8m暴露段。敌方可从走廊任一端射击此处。走廊中段分隔柱可提供临时掩护，但连续推进时仍有暴露风险。"
+    },
+    {
+      "type": "choke_point",
+      "severity": "medium",
+      "location_zone": "Z2-COR-03-Early",
+      "description": "走廊东端开口（接近楼梯井）宽度约1.5m，形成天然瓶颈。编队进出楼梯井时必须集中通过此点，存在集中暴露风险。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "纵向穿越：沿Y轴方向从西端（opening_West_to_SS13）穿行至东端（opening_East_to_SS07），全程约12.5m",
+      "横向穿越：沿X轴方向穿越走廊宽度（约29m），但走廊主体宽约2m（Y向），X向移动意义有限",
+      "分支路径A：从中央走廊向北进入SS_14房间群",
+      "分支路径B：从西端开口进入SS_13走廊继续西向推进",
+      "垂直路径：从东端开口进入SS_07楼梯井，可向上或向下层机动"
+    ],
+    "constraints": [
+      "走廊宽度约2m（Y向），编队展开受限，必须保持队形紧凑",
+      "走廊长度约12.5m（Y向），全程暴露时间中等",
+      "X方向存在多个分隔柱（宽0.35m，高0.55m），可作为临时掩护点但需绕行",
+      "扶手/栏板高仅0.1m，提供蹲姿掩护有限，主要用于边界标识",
+      "南侧扶手系统（Y=235.4-235.6）界定走廊南边界"
+    ],
+    "key_control_points": [
+      {
+        "id": "KCP-01",
+        "position_rel": {
+          "x": -83.7,
+          "y": 233.0,
+          "z": 0.0
+        },
+        "description": "西端走廊交汇控制点，位于opening_West_to_SS13开口处",
+        "controls": [
+          "SS_13走廊入口",
+          "西向视线通道",
+          "西侧盲区"
+        ],
+        "tactical_value": "优先控制点。扼守此处可封锁SS_13走廊威胁方向，防止敌方从西侧走廊远端射击。需配置至少1人负责此方向警戒。"
+      },
+      {
+        "id": "KCP-02",
+        "position_rel": {
+          "x": -62.7,
+          "y": 233.0,
+          "z": 0.0
+        },
+        "description": "东端楼梯井入口控制点，位于opening_East_to_SS07开口处",
+        "controls": [
+          "SS_07楼梯井入口",
+          "垂直威胁方向",
+          "东向通道"
+        ],
+        "tactical_value": "优先控制点。扼守此处可防止敌方从楼梯井向上下层机动，同时控制垂直威胁。需警戒上下层方向。"
+      },
+      {
+        "id": "KCP-03",
+        "position_rel": {
+          "x": -69.8,
+          "y": 233.0,
+          "z": 0.0
+        },
+        "description": "走廊中段控制点，位于分隔柱/_16__318303_处",
+        "controls": [
+          "中央走廊通道",
+          "中段暴露区"
+        ],
+        "tactical_value": "中间推进控制点。利用分隔柱掩护，将走廊分为东段和西段两个战术区，便于分段肃清。"
+      },
+      {
+        "id": "KCP-04",
+        "position_rel": {
+          "x": -75.0,
+          "y": 229.9,
+          "z": 0.0
+        },
+        "description": "北侧房间群入口控制点，位于opening_North_to_SS14开口处",
+        "controls": [
+          "SS_14房间群入口",
+          "北向侧翼"
+        ],
+        "tactical_value": "侧翼控制点。封锁北侧房间威胁方向，肃清过程中需安排侧翼警戒。98个房间需逐个肃清。"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "西端开口（opening_West_to_SS13）",
+      "to_position": "走廊中段分隔柱（KCP-03，X≈-69.8）",
+      "exposed_to": [
+        "west（SS_13走廊方向，长视线威胁）",
+        "south（南侧走廊暴露）",
+        "north（北侧房间门方向）"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "走廊中段分隔柱（KCP-03）",
+      "to_position": "东端开口（opening_East_to_SS07）",
+      "exposed_to": [
+        "east（楼梯井方向，垂直威胁）",
+        "south（南侧走廊暴露）",
+        "north（北侧房间门方向）"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "西端开口（opening_West_to_SS13）",
+      "to_position": "东端开口（opening_East_to_SS07）",
+      "exposed_to": [
+        "west",
+        "east",
+        "south",
+        "north（所有方向）"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "北侧开口（opening_North_to_SS14）",
+      "to_position": "走廊中央区域",
+      "exposed_to": [
+        "north（房间内未知威胁）",
+        "east",
+        "west"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "entry_from_SS13",
+        "zone_id": "Z2-COR-03-West",
+        "opening_id": "opening_West_to_SS13",
+        "approach_from": "west"
+      },
+      {
+        "id": "entry_from_SS07",
+        "zone_id": "Z2-COR-03-East",
+        "opening_id": "opening_East_to_SS07",
+        "approach_from": "east"
+      },
+      {
+        "id": "entry_from_SS14",
+        "zone_id": "Z2-COR-03-North",
+        "opening_id": "opening_North_to_SS14",
+        "approach_from": "north"
+      }
+    ],
+    "objective_criteria": [
+      "走廊内所有区域已目视确认清除（通过覆盖走廊全长Y=229.9-235.4）",
+      "所有分隔柱/掩体后已确认无人",
+      "东端楼梯井入口（opening_East_to_SS07）已控制，无威胁",
+      "西端走廊开口（opening_West_to_SS13）已控制，无威胁",
+      "北侧房间入口（opening_North_to_SS14）已控制"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_13",
+        "via": "opening_West_to_SS13",
+        "condition": "本走廊肃清完成后，通过西端开口进入SS_13继续西段走廊肃清（SS_13走廊长82.7m，是重点漏斗区域）"
+      },
+      {
+        "to_sub_scene": "SS_07",
+        "via": "opening_East_to_SS07",
+        "condition": "本走廊肃清完成后，进入SS_07楼梯井进行垂直突入或搜索下一层走廊"
+      },
+      {
+        "to_sub_scene": "SS_14",
+        "via": "opening_North_to_SS14",
+        "condition": "走廊肃清同时或完成后，进入北侧SS_14房间群进行房间肃清（98个房间候选需逐个确认）"
+      },
+      {
+        "to_sub_scene": "SS_11",
+        "via": "opening_South_Ext",
+        "condition": "通过南侧开口进入SS_11屋顶区域（绳索突入点或外部支援位置）"
+      }
+    ]
+  },
+  "spatial_description": "本子场景为三层核心走廊区域（Z2-COR-03），位于F2顶层。走廊主体Y向延伸约12.5m（Y=229.9-235.4），X向宽约29m但实际通行宽度约2m。空间被9根垂直分隔柱分割为多个区段，形成中廊式布局。西端通过宽4m开口连接SS_13长走廊（82.7m×4m），形成致命漏斗；东端通过宽1.5m开口连接SS_07楼梯井（8处DENS_STAIR检测，垂直贯穿全部三层）。北侧连接SS_14房间群（98个房间候选），存在多方向侧翼威胁。南侧为走廊端头。走廊顶部楼板Z≈14m，层高较大，提供垂直空间但也增加暴露感。走廊两侧设有高约0.1m的扶手/栏板系统。整体构成狭长走廊空间，存在长视线威胁和垂直威胁风险。",
+  "inferred_tags": [
+    "超长走廊漏斗",
+    "长视线威胁",
+    "垂直威胁",
+    "多层分隔柱",
+    "楼梯井入口",
+    "侧翼暴露",
+    "多出口交汇"
+  ]
+}

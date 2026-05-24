@@ -1,0 +1,58 @@
+Total cubes: 31620
+Scene: X=[-257,1417] Y(ht)=[-37,265] Z=[88,483]
+Height span: 302m
+
+=== FLOOR/CEILING SLABS: 3125 total ===
+  Y= 254m:  666 slabs, vol=264m3
+  Y= 260m:  275 slabs, vol=333m3
+  Y= 252m:  236 slabs, vol=170m3
+  Y= 256m:  157 slabs, vol=22m3
+  Y= 249m:  150 slabs, vol=21m3
+  Y= 231m:  149 slabs, vol=41m3
+  Y= 234m:  140 slabs, vol=20m3
+  Y= 258m:  128 slabs, vol=90m3
+  Y= 245m:  118 slabs, vol=17m3
+  Y= 261m:  114 slabs, vol=61m3
+  Y= 242m:   78 slabs, vol=75m3
+  Y= 251m:   72 slabs, vol=36m3
+  Y= 238m:   68 slabs, vol=10m3
+  Y= 247m:   60 slabs, vol=2m3
+  Y= 257m:   58 slabs, vol=94m3
+
+=== WALLS ===
+X-walls (thin X): 2152, Z-walls (thin Z): 1376
+Top X-wall lines:
+  X= -143m:  490 frags, Y=[227,258]m
+  X= -139m:  357 frags, Y=[252,264]m
+  X=  -60m:  252 frags, Y=[227,258]m
+  X=  -38m:  114 frags, Y=[245,265]m
+  X=   37m:  104 frags, Y=[247,265]m
+  X= -124m:   95 frags, Y=[247,257]m
+  X= 1261m:   65 frags, Y=[-18,-6]m
+  X=   33m:   60 frags, Y=[251,263]m
+  X= 1242m:   55 frags, Y=[-37,-3]m
+  X=   38m:   42 frags, Y=[245,265]m
+Top Z-wall lines:
+  Z=  200m:   79 frags, Y=[247,264]m
+  Z=  180m:   68 frags, Y=[254,264]m
+  Z=  181m:   64 frags, Y=[247,264]m
+  Z=  188m:   62 frags, Y=[247,264]m
+  Z=  199m:   54 frags, Y=[245,264]m
+  Z=  198m:   54 frags, Y=[245,264]m
+  Z=  196m:   46 frags, Y=[247,264]m
+  Z=  195m:   44 frags, Y=[247,264]m
+  Z=  201m:   43 frags, Y=[250,264]m
+  Z=  203m:   36 frags, Y=[245,264]m
+
+=== STAIR DETECTION (23893 step-like cubes) ===
+Regular stair sequences (>=4 steps): 48
+  XZ=(22,175): 36 steps, Y=[247,265], rise=17.8m, step=0.51m
+  XZ=(18,175): 36 steps, Y=[247,265], rise=17.8m, step=0.51m
+  XZ=(27,175): 36 steps, Y=[247,265], rise=17.8m, step=0.51m
+  XZ=(-8,175): 23 steps, Y=[247,258], rise=11.3m, step=0.51m
+  XZ=(1,175): 23 steps, Y=[247,258], rise=11.3m, step=0.51m
+  XZ=(-12,175): 23 steps, Y=[247,258], rise=11.3m, step=0.51m
+  XZ=(9,175): 23 steps, Y=[247,258], rise=11.3m, step=0.51m
+  XZ=(-25,175): 23 steps, Y=[247,258], rise=11.3m, step=0.51m
+  XZ=(-21,175): 23 steps, Y=[247,258], rise=11.3m, step=0.51m
+  XZ=(5,175): 23 steps, Y=[247,258], rise=11.3m, step=0.51m

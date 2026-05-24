@@ -1,0 +1,927 @@
+{
+  "scene_id": "scene_usda_building_rescue",
+  "building_type": "民用住宅",
+  "spatial_clusters": [
+    {
+      "cluster_id": "building_main",
+      "cluster_type": "building_interior",
+      "bounds": {
+        "x": [
+          -179.7,
+          134.1
+        ],
+        "z": [
+          182.4,
+          246.8
+        ]
+      },
+      "description": "建筑主体聚类，包含97%的几何体。三层砖混结构住宅，有清晰的楼板层级和密集的室内墙体网络。X向和Y向墙体形成网格状分隔，内部有427个房间候选和21条走廊候选。",
+      "contained_zone_ids": [
+        "Z0-ENT-01",
+        "Z0-COR-01",
+        "Z0-RM-01",
+        "Z0-RM-02",
+        "Z0-EXT-01",
+        "Z1-ENT-02",
+        "Z1-COR-02",
+        "Z1-RM-03",
+        "Z1-EXT-02",
+        "Z2-ENT-03",
+        "Z2-COR-03",
+        "Z2-RM-04"
+      ]
+    },
+    {
+      "cluster_id": "background_cluster2",
+      "cluster_type": "exterior_open",
+      "bounds": {
+        "x": [
+          1349.4,
+          1416.8
+        ],
+        "z": [
+          147.2,
+          205.8
+        ]
+      },
+      "description": "背景聚类2，X=[1349,1417], Y=[-18,0]。433个立方体分散分布，5个楼层边界，可能是建筑附属结构或地下通道。",
+      "contained_zone_ids": [
+        "EXT-COR-01"
+      ]
+    }
+  ],
+  "building_structure": {
+    "total_floors": 3,
+    "floors": [
+      {
+        "floor_id": "F0",
+        "floor_number": 0,
+        "z_range": [
+          182.4,
+          201.7
+        ],
+        "description": "地面层/一层。楼板Z=182.4(675碎片,84%覆盖)，天花板Z=201.7(3024碎片,STRONG证据,66墙面线)。391个房间候选，Y向墙体Y=252.5和Y=262.5形成主要分隔，X向墙体X=-26.5在Z=[205,206]形成局部隔断。X=0.0处Y=[253,257]宽4.4m的间隙为主入口，X=-26.5处Y=[254,257]宽2.8m的间隙为次入口。"
+      },
+      {
+        "floor_id": "F1",
+        "floor_number": 1,
+        "z_range": [
+          201.7,
+          225.4
+        ],
+        "description": "二层/夹层。地板为F0天花板(Z=201.7)，天花板为Z=225.4(523碎片,81%覆盖)。185个房间候选。X=-60.0处Y=[237,244]宽6.6m的间隙形成走廊开口。DENS_STAIR_00_01和DENS_STAIR_00_02检测到楼梯井，面积各5m²，位置分别在(-92,263)和(-105,263)。"
+      },
+      {
+        "floor_id": "F2",
+        "floor_number": 2,
+        "z_range": [
+          225.4,
+          244.0
+        ],
+        "description": "三层/顶层。地板为Z=225.4，天花板为Z=244.0(54碎片,76%覆盖)。193个房间候选。Y=252.5和Y=262.5之间检测到长82.7m的走廊(COR_007至COR_017)，走廊宽度1.5-3.5m。在(-143~-60)区间形成连续开放走廊，可作为进攻时的主要水平通道。"
+      }
+    ],
+    "floor_boundaries": [
+      {
+        "z_min": 182.4,
+        "z_max": 201.7
+      },
+      {
+        "z_min": 201.7,
+        "z_max": 225.4
+      },
+      {
+        "z_min": 225.4,
+        "z_max": 244.0
+      }
+    ],
+    "vertical_circulation": [
+      "Z0-ST-01",
+      "Z1-ST-01"
+    ],
+    "main_entrances": [
+      "Z0-ENT-01",
+      "Z0-ENT-02"
+    ]
+  },
+  "spatial_layouts": [
+    {
+      "zone_id": "Z0-ENT-01",
+      "zone_category": "transition",
+      "zone_type": "entry",
+      "spatial_cluster_id": "building_main",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -27.0,
+          -26.0
+        ],
+        "y": [
+          254.0,
+          257.0
+        ],
+        "z": [
+          182.4,
+          201.7
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-COR-01",
+        "Z0-EXT-01"
+      ],
+      "description": "一层主入口。基于X=-26.5墙面线在Y=[254,257]处检测到的宽2.8m间隙。入口朝南开向外部开放空间。入口宽度2.8m，介于正常门宽(0.9-1.2m)和双扇门宽(1.8-2.4m)之间，可能是滑动门或宽开口。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=-26.5墙面线(Z=[205,206],Y=[252,264])，间隙Y=[254,257]宽2.8m"
+        ],
+        "supporting_floor_plane": "Z=182.4楼板面(84%覆盖)",
+        "openings": [
+          "墙面间隙Y=[254,257]宽2.8m，位置Z=[205,206]"
+        ],
+        "rationale": "X=-26.5墙面线在Y=[254,257]处无碎片覆盖形成开口，该位置接近楼板Z=182.4且朝向外部空间，符合入口特征"
+      },
+      "confidence": 0.85
+    },
+    {
+      "zone_id": "Z0-ENT-02",
+      "zone_category": "transition",
+      "zone_type": "entry",
+      "spatial_cluster_id": "building_main",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -0.5,
+          0.5
+        ],
+        "y": [
+          253.0,
+          257.0
+        ],
+        "z": [
+          182.4,
+          201.7
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-COR-01",
+        "Z0-RM-01"
+      ],
+      "description": "一层次入口。基于X=0.0墙面线在Y=[253,257]处检测到的宽4.4m间隙。入口朝南，宽4.4m，可能是主入口的辅助开口或落地窗改造的入口。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=0.0墙面线(Z=[174,188],Y=[252,263])，间隙Y=[253,257]宽4.4m"
+        ],
+        "supporting_floor_plane": "Z=182.4楼板面(84%覆盖)",
+        "openings": [
+          "墙面间隙Y=[253,257]宽4.4m"
+        ],
+        "rationale": "X=0.0墙面线在Y=[253,257]处宽4.4m的开口，面向外部开放区域，符合次入口特征"
+      },
+      "confidence": 0.8
+    },
+    {
+      "zone_id": "Z0-COR-01",
+      "zone_category": "interior",
+      "zone_type": "corridor",
+      "spatial_cluster_id": "building_main",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -35.0,
+          33.0
+        ],
+        "y": [
+          252.0,
+          264.5
+        ],
+        "z": [
+          182.4,
+          201.7
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-ENT-01",
+        "Z0-ENT-02",
+        "Z0-RM-01",
+        "Z0-RM-02",
+        "Z0-ST-01"
+      ],
+      "description": "一层主要走廊。Y=252.5和Y=262.5两条Y向墙体在Y=[252,264]区间形成水平通道走廊，走廊宽度约10m(N-S向)，东西向延伸(-35~33)。该走廊是连接一层各房间和楼梯井的核心水平通道。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Y=252.5墙体(X=[-143,33],Z=[178,246])，Y=262.5墙体(X=[-139,33],Z=[178,368])"
+        ],
+        "supporting_floor_plane": "Z=182.4楼板面(84%覆盖)",
+        "openings": [
+          "Y=252.5多处间隙(X=[-143,-124]宽19.2m等)，Y=262.5间隙(X=[-139,-27]宽112.2m等)"
+        ],
+        "rationale": "两条平行Y向墙体之间形成长条形低密度区域，密度热力图在Y=[252,264]区间显示低密度，符合走廊特征"
+      },
+      "confidence": 0.9
+    },
+    {
+      "zone_id": "Z0-RM-01",
+      "zone_category": "interior",
+      "zone_type": "room",
+      "spatial_cluster_id": "building_main",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -60.0,
+          -42.0
+        ],
+        "y": [
+          249.0,
+          251.0
+        ],
+        "z": [
+          182.4,
+          201.7
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-COR-01",
+        "Z0-ST-01"
+      ],
+      "description": "一层西北侧房间。X=[-60,-42],Y=[249,251]，面积约18m²。左✓右✓下✓上✗，3面墙体围合。可能是卧室或储藏室。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=-60.0墙体(Z=[227,246],Y=[230,258])，X=-42.0附近墙面"
+        ],
+        "supporting_floor_plane": "Z=182.4楼板面(84%覆盖)",
+        "openings": [
+          "房间候选X=[-60,-42]Y=[250,250]，3面墙体围合"
+        ],
+        "rationale": "根据房间候选检测，X=[-60,-42]Y=[250,250]区域有3面墙体覆盖，符合小房间特征"
+      },
+      "confidence": 0.75
+    },
+    {
+      "zone_id": "Z0-RM-02",
+      "zone_category": "interior",
+      "zone_type": "room",
+      "spatial_cluster_id": "building_main",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -124.0,
+          -106.0
+        ],
+        "y": [
+          249.0,
+          251.0
+        ],
+        "z": [
+          182.4,
+          201.7
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-COR-01"
+      ],
+      "description": "一层西侧房间。X=[-124,-106],Y=[249,251]，面积约17m²。左✓右✗下✓上✓，3面墙体围合。可能是厨房或卫生间。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=-143.0墙体(Z=[186,245],Y=[230,258])，X=-106.0附近墙面"
+        ],
+        "supporting_floor_plane": "Z=182.4楼板面(84%覆盖)",
+        "openings": [
+          "房间候选X=[-124,-106]Y=[250,250]，3面墙体围合"
+        ],
+        "rationale": "房间候选检测显示该区域有3面墙体覆盖，可能是小型功能房间"
+      },
+      "confidence": 0.75
+    },
+    {
+      "zone_id": "Z0-ST-01",
+      "zone_category": "interior",
+      "zone_type": "stairwell",
+      "spatial_cluster_id": "building_main",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -108.0,
+          -87.0
+        ],
+        "y": [
+          261.0,
+          265.0
+        ],
+        "z": [
+          182.4,
+          244.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-COR-01",
+        "Z1-ST-01",
+        "Z2-ST-01"
+      ],
+      "description": "一层楼梯井。跨层密度检测DENS_STAIR_00_01和DENS_STAIR_00_02分别位于(-92,263)和(-105,263)，各5m²面积。楼梯井贯通F0、F1、F2三层，置信度1.00。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Y=262.5墙体(X=[-139,33],Z=[178,368])，Y=263.5墙体(X=[-208,24],Z=[141,390])"
+        ],
+        "supporting_floor_plane": "Z=182.4楼板面(84%覆盖)，Z=201.7楼板面(STRONG证据)",
+        "openings": [
+          "DENS_STAIR_00_01:面积5m²,中心(-92,263)，DENS_STAIR_00_02:面积5m²,中心(-105,263)"
+        ],
+        "rationale": "跨层密度检测在Y=[261,265]区间检测到连接F0↔F1的密集碎片区域，置信度1.00，确认为楼梯井"
+      },
+      "confidence": 0.95
+    },
+    {
+      "zone_id": "Z0-EXT-01",
+      "zone_category": "exterior",
+      "zone_type": "exterior",
+      "spatial_cluster_id": "building_main",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -257.0,
+          1417.0
+        ],
+        "y": [
+          -37.0,
+          265.0
+        ],
+        "z": [
+          88.0,
+          182.4
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-ENT-01",
+        "Z0-ENT-02"
+      ],
+      "description": "建筑外部开放区域。面积约484919m²，中心(582,113)。包含X=[-179.7,134.1]Y=[225.3,264.8]区域外的所有空间。Y=[263,264]区间有车辆聚集，可能是停车场或集合点。人质救援时可作为进攻发起区或掩护/撤离区域。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Y=263.5墙体(X=[-208,24],Z=[141,390])，Y=264.5墙体(X=[-33,33],Z=[180,204])"
+        ],
+        "supporting_floor_plane": "Z=182.4楼板边缘",
+        "openings": [
+          "整个建筑外部区域，无封闭边界"
+        ],
+        "rationale": "XY空间聚类显示该区域属于building聚类0的外延部分，Y=[263,264]区间有车辆碎片聚集(Z=[87.1,231.13])"
+      },
+      "confidence": 0.7
+    },
+    {
+      "zone_id": "Z1-ENT-03",
+      "zone_category": "transition",
+      "zone_type": "entry",
+      "spatial_cluster_id": "building_main",
+      "floor": 1,
+      "bounds": {
+        "x": [
+          -63.0,
+          -57.0
+        ],
+        "y": [
+          237.0,
+          244.0
+        ],
+        "z": [
+          201.7,
+          225.4
+        ]
+      },
+      "adjacent_zones": [
+        "Z1-COR-02",
+        "Z0-ST-01"
+      ],
+      "description": "二层走廊入口。基于X=-60.0墙面线在Y=[237,244]处检测到的宽6.6m间隙。该开口连接一层走廊和二层走廊，是楼梯井的水平延伸部分。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=-60.0墙面线(Z=[227,246],Y=[230,258])，间隙Y=[237,244]宽6.6m"
+        ],
+        "supporting_floor_plane": "Z=201.7楼板面(STRONG证据,3024碎片)",
+        "openings": [
+          "墙面间隙Y=[237,244]宽6.6m"
+        ],
+        "rationale": "X=-60.0墙面线在Y=[237,244]处的大开口宽6.6m，接近楼板边界Z=201.7，符合走廊开口特征"
+      },
+      "confidence": 0.85
+    },
+    {
+      "zone_id": "Z1-COR-02",
+      "zone_category": "interior",
+      "zone_type": "corridor",
+      "spatial_cluster_id": "building_main",
+      "floor": 1,
+      "bounds": {
+        "x": [
+          -143.0,
+          33.0
+        ],
+        "y": [
+          230.0,
+          247.0
+        ],
+        "z": [
+          201.7,
+          225.4
+        ]
+      },
+      "adjacent_zones": [
+        "Z1-ENT-03",
+        "Z1-RM-03",
+        "Z1-ST-01"
+      ],
+      "description": "二层走廊网络。Y=252.5、Y=257.5、Y=254.5等Y向墙体形成水平通道走廊。走廊密度适中，部分区段被走廊候选覆盖(COR_007至COR_017的投影区域)。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Y=252.5墙体(X=[-143,33],Z=[178,246])，Y=257.5墙体(X=[-42,33],Z=[178,360])，Y=254.5墙体(X=[-143,33],Z=[182,246])"
+        ],
+        "supporting_floor_plane": "Z=201.7楼板面(STRONG证据)",
+        "openings": [
+          "Y=252.5间隙X=[-143,-124]宽19.2m，Y=257.5间隙X=[-40,-27]宽13.6m"
+        ],
+        "rationale": "多条平行Y向墙体在F1层形成走廊网络，低密度热力图显示Y=[230,247]区间为走廊区域"
+      },
+      "confidence": 0.88
+    },
+    {
+      "zone_id": "Z1-RM-03",
+      "zone_category": "interior",
+      "zone_type": "room",
+      "spatial_cluster_id": "building_main",
+      "floor": 1,
+      "bounds": {
+        "x": [
+          -35.0,
+          -27.0
+        ],
+        "y": [
+          253.0,
+          264.0
+        ],
+        "z": [
+          201.7,
+          225.4
+        ]
+      },
+      "adjacent_zones": [
+        "Z1-COR-02"
+      ],
+      "description": "二层中央区域房间。基于X=-26.5和X=-27.0墙体围合的区域。X=-26.5在Y=[252,264]形成墙体，X=-27.0在Y=[250,264]形成次级墙体。可能是主卧或客厅。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=-26.5墙面线(Z=[205,206],Y=[252,264])，X=-27.0墙面线(Z=[197,206],Y=[250,264])"
+        ],
+        "supporting_floor_plane": "Z=201.7楼板面(STRONG证据)",
+        "openings": [
+          "X=-26.5间隙Y=[254,257]宽2.8m和Y=[259,262]宽2.8m"
+        ],
+        "rationale": "X=-26.5和X=-27.0两条接近的平行墙体形成局部围合，Y=[253,264]区间低密度，符合房间特征"
+      },
+      "confidence": 0.82
+    },
+    {
+      "zone_id": "Z1-ST-01",
+      "zone_category": "interior",
+      "zone_type": "stairwell",
+      "spatial_cluster_id": "building_main",
+      "floor": 1,
+      "bounds": {
+        "x": [
+          -108.0,
+          -87.0
+        ],
+        "y": [
+          261.0,
+          265.0
+        ],
+        "z": [
+          201.7,
+          244.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-ST-01",
+        "Z2-ST-01",
+        "Z1-COR-02"
+      ],
+      "description": "二层楼梯井延伸。楼梯井从F0延伸至F2，在F1层与走廊网络连接。位置(-92~105, 261~265)。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Y=262.5墙体(X=[-139,33],Z=[178,368])，Y=263.5墙体(X=[-208,24],Z=[141,390])"
+        ],
+        "supporting_floor_plane": "Z=201.7楼板面(STRONG证据)，Z=225.4楼板面(MEDIUM证据)",
+        "openings": [
+          "DENS_STAIR_00_01和DENS_STAIR_00_02楼梯井贯通F0-F2"
+        ],
+        "rationale": "跨层密度检测楼梯井DENS_STAIR_00_01和DENS_STAIR_00_02确认垂直贯通结构"
+      },
+      "confidence": 0.95
+    },
+    {
+      "zone_id": "Z1-EXT-02",
+      "zone_category": "exterior",
+      "zone_type": "exterior",
+      "spatial_cluster_id": "building_main",
+      "floor": 1,
+      "bounds": {
+        "x": [
+          -143.0,
+          33.0
+        ],
+        "y": [
+          230.0,
+          250.0
+        ],
+        "z": [
+          201.7,
+          225.4
+        ]
+      },
+      "adjacent_zones": [
+        "Z1-COR-02"
+      ],
+      "description": "二层外墙开放区域。建筑西北侧外墙Y=[230,250]区间，主要是玻璃幕墙或装饰立面。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Y=252.5墙体(X=[-143,33],Z=[178,246])，Y=254.5墙体(X=[-143,33],Z=[182,246])"
+        ],
+        "supporting_floor_plane": "Z=201.7楼板面边缘",
+        "openings": [
+          "Y=[230,250]区间墙体密度较低，可能是玻璃幕墙"
+        ],
+        "rationale": "Y=[230,250]区间墙面线密度低于走廊区域，符合外墙立面特征"
+      },
+      "confidence": 0.65
+    },
+    {
+      "zone_id": "Z2-ENT-03",
+      "zone_category": "transition",
+      "zone_type": "entry",
+      "spatial_cluster_id": "building_main",
+      "floor": 2,
+      "bounds": {
+        "x": [
+          -143.0,
+          -140.0
+        ],
+        "y": [
+          252.0,
+          264.0
+        ],
+        "z": [
+          225.4,
+          244.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z2-COR-03",
+        "Z2-ST-01"
+      ],
+      "description": "三层北侧入口。基于Y=258.0墙体在X=[-143,-141]处检测到的宽1.5m间隙。该位置接近楼梯井，可能是楼梯到三层的出口。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Y=258.0墙体(X=[-143,22],Z=[175,360])，间隙X=[-143,-141]宽1.5m"
+        ],
+        "supporting_floor_plane": "Z=225.4楼板面(MEDIUM证据)",
+        "openings": [
+          "墙体间隙X=[-143,-141]宽1.5m"
+        ],
+        "rationale": "Y=258.0墙体在X=[-143,-141]处的小开口，可能是楼梯井出口或设备通道"
+      },
+      "confidence": 0.7
+    },
+    {
+      "zone_id": "Z2-COR-03",
+      "zone_category": "interior",
+      "zone_type": "corridor",
+      "spatial_cluster_id": "building_main",
+      "floor": 2,
+      "bounds": {
+        "x": [
+          -143.0,
+          -60.0
+        ],
+        "y": [
+          230.0,
+          249.0
+        ],
+        "z": [
+          225.4,
+          244.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z2-ENT-03",
+        "Z2-RM-04",
+        "Z2-ST-01"
+      ],
+      "description": "三层主要走廊。走廊候选COR_007至COR_017全部位于此区域，走廊东西向延伸(-143~-60)，长82.7m，宽1.5-3.5m。是连接三层各房间的主要水平通道。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Y=252.5墙体(X=[-143,33],Z=[178,246])，Y=254.5墙体(X=[-143,33],Z=[182,246])"
+        ],
+        "supporting_floor_plane": "Z=225.4楼板面(MEDIUM证据)",
+        "openings": [
+          "COR_007:宽1.5m长82.7m，COR_011:宽3.5m长82.7m"
+        ],
+        "rationale": "走廊候选检测在X=[-143,-60]Y=[230,249]区间识别出11条走廊，长宽比20-55，密度0.00-0.76"
+      },
+      "confidence": 0.92
+    },
+    {
+      "zone_id": "Z2-RM-04",
+      "zone_category": "interior",
+      "zone_type": "room",
+      "spatial_cluster_id": "building_main",
+      "floor": 2,
+      "bounds": {
+        "x": [
+          -60.0,
+          -42.0
+        ],
+        "y": [
+          249.0,
+          262.0
+        ],
+        "z": [
+          225.4,
+          244.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z2-COR-03"
+      ],
+      "description": "三层东南侧房间。X=[-60,-42],Y=[249,262]，面积较大。右✗下✓左✓上✓，3面墙体围合。可能是主卧或多人卧室。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=-60.0墙体(Z=[227,246],Y=[230,258])，X=-42.0附近墙面"
+        ],
+        "supporting_floor_plane": "Z=225.4楼板面(MEDIUM证据)",
+        "openings": [
+          "房间候选X=[-60,-42]Y=[250,250]，3面墙体围合"
+        ],
+        "rationale": "房间候选检测显示该区域有3面墙体覆盖，可能是较大卧室"
+      },
+      "confidence": 0.78
+    },
+    {
+      "zone_id": "Z2-ST-01",
+      "zone_category": "interior",
+      "zone_type": "stairwell",
+      "spatial_cluster_id": "building_main",
+      "floor": 2,
+      "bounds": {
+        "x": [
+          -108.0,
+          -87.0
+        ],
+        "y": [
+          261.0,
+          265.0
+        ],
+        "z": [
+          225.4,
+          244.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z1-ST-01",
+        "Z2-COR-03"
+      ],
+      "description": "三层楼梯井延伸。楼梯井在三层的位置，连接二层走廊和三层走廊。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Y=262.5墙体(X=[-139,33],Z=[178,368])，Y=263.5墙体(X=[-208,24],Z=[141,390])"
+        ],
+        "supporting_floor_plane": "Z=225.4楼板面(MEDIUM证据)，Z=244.0楼板面(MEDIUM证据)",
+        "openings": [
+          "楼梯井DENS_STAIR_00_01和DENS_STAIR_00_02延伸至F2"
+        ],
+        "rationale": "跨层密度检测楼梯井垂直贯通F0-F2三层"
+      },
+      "confidence": 0.95
+    },
+    {
+      "zone_id": "EXT-COR-01",
+      "zone_category": "exterior",
+      "zone_type": "exterior",
+      "spatial_cluster_id": "background_cluster2",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          1242.0,
+          1324.0
+        ],
+        "y": [
+          -37.0,
+          -0.2
+        ],
+        "z": [
+          183.0,
+          365.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-EXT-01"
+      ],
+      "description": "背景聚类2区域。X=[1242,1324],Y=[-37,-0.2]。可能是建筑附属连廊或地下通道入口。走廊候选COR_003至COR_006位于此区域，宽度1.0-4.5m，长13.9-16.8m。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=1241.5墙体(Z=[226,245],Y=[-34,-6])，X=1261.0墙体(Z=[186,219],Y=[-18,-6])"
+        ],
+        "supporting_floor_plane": "Z=183.2楼板面(聚类1)，Z=194.6楼板面(聚类2)",
+        "openings": [
+          "COR_003:宽4.5m长16.8m，COR_006:宽3.5m长13.9m"
+        ],
+        "rationale": "背景聚类2的走廊候选显示X=[1242,1261]区间存在走廊结构，可能是建筑附属设施"
+      },
+      "confidence": 0.6
+    }
+  ],
+  "tactical_features": [
+    {
+      "feature_type": "choke_point",
+      "location_zone": "Z0-COR-01",
+      "position": {
+        "x": -26.0,
+        "y": 256.0,
+        "z": 190.0
+      },
+      "description": "一层中央瓶颈点。X=-26.5墙面线在Y=[254,257]和Y=[259,262]形成两个2.8-3.2m宽的间隙，将一层走廊分隔为东西两个区域。",
+      "tactical_implication": "控制此瓶颈点可分割一层为两个独立控制区。东侧(X>-26.5)可直接威胁主入口Z0-ENT-01，西侧(X<-26.5)可通过走廊进入楼梯井Z0-ST-01。",
+      "geometric_basis": "X=-26.5墙面线(Z=[205,206],Y=[252,264])，间隙Y=[254,257]宽2.8m和Y=[259,262]宽3.1m"
+    },
+    {
+      "feature_type": "choke_point",
+      "location_zone": "Z2-COR-03",
+      "position": {
+        "x": -60.0,
+        "y": 245.0,
+        "z": 235.0
+      },
+      "description": "三层走廊西端瓶颈。X=-60.0墙体在Y=[237,244]形成宽6.6m的开口(实际为F1层)，但在三层Y=[246,249]区间走廊密度从0.45升至0.76，显示人流密集。",
+      "tactical_implication": "三层走廊西端(X=-60)是人员流动汇聚点，进攻时应优先占据此处形成火力优势，控制后可直接看到走廊全长(-143~-60)。",
+      "geometric_basis": "X=-60.0墙面线(Z=[227,246],Y=[230,258])，间隙Y=[237,244]宽6.6m；走廊候选COR_015密度0.45，COR_016密度0.76"
+    },
+    {
+      "feature_type": "fatal_funnel",
+      "location_zone": "Z2-COR-03",
+      "position": {
+        "x": -100.0,
+        "y": 235.0,
+        "z": 235.0
+      },
+      "description": "三层走廊致命漏斗。走廊X=[-143,-60]长82.7m，宽1.5-3.5m。当人员从西侧(X<-100)向楼梯井(Z0-ST-01方向)移动时，走廊形成单一路线的致命漏斗。",
+      "tactical_implication": "走廊全长82.7m，在走廊内移动的人员将暴露于走廊全长火力覆盖。建议沿走廊北侧(Y=[230,233])墙壁隐蔽推进，避免暴露在南侧走廊中央。",
+      "geometric_basis": "走廊候选COR_007至COR_012: X=[-143,-60],Y=[230,234],宽1.5-3.5m,长82.7m"
+    },
+    {
+      "feature_type": "cover_position",
+      "location_zone": "Z1-COR-02",
+      "position": {
+        "x": -26.5,
+        "y": 262.0,
+        "z": 215.0
+      },
+      "description": "二层西墙掩体位置。Y=262.5墙体在X=[-26,0]区间形成连续墙面，可作为垂直掩体。距走廊中央约5m。",
+      "tactical_implication": "进攻二层时，Y=262.5墙体北侧(X=-26~0,Y>262)可作为连续掩体。人员可沿墙移动而不暴露于走廊火力。建议配备防弹盾牌。",
+      "geometric_basis": "Y=262.5墙体(X=[-139,33],Z=[178,368])，墙面线密度1.39"
+    },
+    {
+      "feature_type": "cover_position",
+      "location_zone": "Z2-COR-03",
+      "position": {
+        "x": -100.0,
+        "y": 252.5,
+        "z": 235.0
+      },
+      "description": "三层西墙掩体位置。Y=252.5墙体在X=[-143,-60]区间形成连续墙面，北侧(Y<252.5)可作为垂直掩体。",
+      "tactical_implication": "沿Y=252.5墙体南侧推进(X<-60,Y<252.5)可利用墙体掩体。在进攻三层时，建议从北侧(Y<252)沿墙推进，避免暴露于南侧房间火力。",
+      "geometric_basis": "Y=252.5墙体(X=[-143,33],Z=[178,246])，墙面线密度1.43"
+    },
+    {
+      "feature_type": "keyhole",
+      "location_zone": "Z0-ENT-01",
+      "position": {
+        "x": -26.5,
+        "y": 255.5,
+        "z": 190.0
+      },
+      "description": "一层主入口观察位。X=-26.5墙面线在Y=[254,257]形成宽2.8m的入口。入口朝南，面向外部开放空间(距离约5-10m)。",
+      "tactical_implication": "该入口宽2.8m，可作为突入点。从入口向内观察，走廊Z0-COR-01在X=[-35,33]区间约68m纵深。建议通过该入口突入后快速左转(X<0方向)控制走廊。",
+      "geometric_basis": "X=-26.5墙面线间隙Y=[254,257]宽2.8m；外部开放空间Z0-EXT-01在入口南侧"
+    },
+    {
+      "feature_type": "keyhole",
+      "location_zone": "Z0-ENT-02",
+      "position": {
+        "x": 0.0,
+        "y": 255.0,
+        "z": 190.0
+      },
+      "description": "一层次入口观察位。X=0.0墙面线在Y=[253,257]形成宽4.4m的入口，是主要开口之一。",
+      "tactical_implication": "该入口宽4.4m，更适合快速突入。从入口向内观察，走廊Z0-COR-01在X=[-35,33]区间约68m纵深。适合双突击组同时进入。",
+      "geometric_basis": "X=0.0墙面线间隙Y=[253,257]宽4.4m；外部开放空间Z0-EXT-01在入口南侧"
+    },
+    {
+      "feature_type": "blind_spot",
+      "location_zone": "Z1-RM-03",
+      "position": {
+        "x": -31.0,
+        "y": 258.0,
+        "z": 215.0
+      },
+      "description": "二层中央房间盲区。X=-26.5和X=-27.0墙体围合的区域Y=[253,264]形成相对独立的房间。该房间入口(X=-26.5间隙)位于Y=[254,257]，与走廊存在视线死角。",
+      "tactical_implication": "二层中央房间Z1-RM-03可能存在视线死角。从走廊接近时，可能被房间内人员先敌开火。建议使用破门战术(CQB)而非正面接近。",
+      "geometric_basis": "X=-26.5和X=-27.0两条平行墙体围合区域，间隙位于Y=[254,257]"
+    },
+    {
+      "feature_type": "blind_spot",
+      "location_zone": "Z0-RM-01",
+      "position": {
+        "x": -51.0,
+        "y": 250.0,
+        "z": 192.0
+      },
+      "description": "一层西北房间盲区。房间X=[-60,-42],Y=[249,251]位于走廊Z0-COR-01北侧角落。入口(X=-60间隙)在Y=[237,244]方向，与走廊存在视角限制。",
+      "tactical_implication": "一层西北房间Z0-RM-01入口朝东，不直接面向走廊。接近该房间时，建议从北侧(Y<249)绕行，而非通过走廊正面接近。",
+      "geometric_basis": "房间候选X=[-60,-42]Y=[250,250]，3面墙体围合，入口朝东"
+    },
+    {
+      "feature_type": "choke_point",
+      "location_zone": "Z0-ST-01",
+      "position": {
+        "x": -92.0,
+        "y": 262.0,
+        "z": 215.0
+      },
+      "description": "一层楼梯井咽喉。楼梯井DENS_STAIR_00_01位于(-92,263)，是连接F0/F1/F2的唯一垂直通道。楼梯井面积仅5m²，呈方形布局。",
+      "tactical_implication": "楼梯井Z0-ST-01是唯一的垂直通道，控制此处即可控制整栋楼的垂直机动。建议派1-2人封锁此处，防止敌人从上层撤退或增援。楼梯井呈方形(约2.2m×2.3m)，可使用破门器封堵。",
+      "geometric_basis": "DENS_STAIR_00_01:连接F0↔F1,面积5m²,中心(-92,263),置信度1.00；DENS_STAIR_00_02:面积5m²,中心(-105,263),置信度1.00"
+    },
+    {
+      "feature_type": "cover_position",
+      "location_zone": "Z0-EXT-01",
+      "position": {
+        "x": -10.0,
+        "y": 246.0,
+        "z": 180.0
+      },
+      "description": "一层外部掩护位置。X=[-10,0],Y=[246,248]区间位于建筑南侧外部开放区域，距主入口约10m。该位置可作为进攻发起点和撤离掩护点。",
+      "tactical_implication": "该位置距主入口约10m，适合作为进攻发起阵地。掩护火力可覆盖入口Z0-ENT-01和部分走廊区域。建议配备狙击手提供火力掩护。",
+      "geometric_basis": "外部开放区域Z0-EXT-01，密度0.05的中心点(-10,246)位于此附近"
+    },
+    {
+      "feature_type": "fatal_funnel",
+      "location_zone": "Z1-ENT-03",
+      "position": {
+        "x": -60.0,
+        "y": 240.0,
+        "z": 215.0
+      },
+      "description": "二层走廊开口致命漏斗。X=-60.0墙体在Y=[237,244]形成宽6.6m的开口，连接一层楼梯井和二层走廊。该开口朝东，形成走廊开口的漏斗效应。",
+      "tactical_implication": "从一层楼梯井上二层时，经过Y=[237,244]开口将暴露于走廊长度方向(东西向)。建议快速通过该开口，避免在开口位置停留。",
+      "geometric_basis": "X=-60.0墙面线间隙Y=[237,244]宽6.6m"
+    }
+  ],
+  "environment_conditions": {
+    "lighting": "day",
+    "weather_impact": "none",
+    "visibility": "good"
+  },
+  "overall_description": "本场景为三层民用住宅建筑，位于开阔地带。建筑主体聚类building_main包含97%的几何体，水平范围X=[-179.7,134.1]，垂直范围Z=[182.4,246.8]。共3个可居住楼层(F0/F1/F2)，楼板层级4个(分别位于Z=182.4、Z=201.7、Z=225.4、Z=244.0)。室内结构包括391个F0房间候选、185个F1房间候选、193个F2房间候选，以及由Y向墙体Y=252.5和Y=262.5形成的网格状走廊网络。主入口位于X=-26.5处Y=[254,257](宽2.8m)，次入口位于X=0.0处Y=[253,257](宽4.4m)。唯一楼梯井位于(-92~105,261~265)，通过跨层密度检测确认贯通三层(置信度1.00)。三层走廊X=[-143,-60]长82.7m，宽1.5-3.5m，形成典型的致命漏斗。战术分析显示，一层X=-26.5处存在走廊瓶颈点，三层走廊为火力漏斗需隐蔽推进。楼梯井是唯一垂直通道需优先控制。建议从两个入口(Z0-ENT-01和Z0-ENT-02)双突击组同时进入，一组控制一层走廊后上楼梯井，另一组直接上二层肃清。三层走廊需沿北侧墙体推进避免暴露。背景聚类2可能为建筑附属连廊，暂不影响主攻方向。",
+  "staircase_cross_validation": {
+    "heuristic_stairs": [
+      "TENT_STAIR_001",
+      "TENT_STAIR_002",
+      "TENT_STAIR_003",
+      "TENT_STAIR_004",
+      "TENT_STAIR_005",
+      "TENT_STAIR_006",
+      "TENT_STAIR_010",
+      "TENT_STAIR_011"
+    ],
+    "density_stairs": [
+      "DENS_STAIR_00_01",
+      "DENS_STAIR_00_02",
+      "DENS_STAIR_00_08",
+      "DENS_STAIR_00_11",
+      "DENS_STAIR_00_12",
+      "DENS_STAIR_00_14",
+      "DENS_STAIR_00_16",
+      "DENS_STAIR_00_20"
+    ],
+    "llm_identified": [
+      "Z0-ST-01",
+      "Z1-ST-01",
+      "Z2-ST-01"
+    ],
+    "agreement": [
+      "Z0-ST-01与DENS_STAIR_00_01(-92,263)和DENS_STAIR_00_02(-105,263)位置一致，均为贯通三层的楼梯井"
+    ],
+    "discrepancies": [
+      "启发式检测的8处台阶序列(TENT_STAIR_001-006,010-011)位置未明确，可能为室内小型台阶而非主要楼梯；密度检测的8处楼梯井中，仅DENS_STAIR_00_01和DENS_STAIR_00_02与Z0-ST-01完全吻合，其余6处(DENS_STAIR_00_08/11/12/14/16/20)位置较分散，可能是走廊人流密集区误检"
+    ],
+    "needs_human_review": true
+  },
+  "_task": "进攻该三层建筑，解救人质"
+}

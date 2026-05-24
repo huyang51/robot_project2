@@ -1,0 +1,1371 @@
+{
+  "parent_scene_id": "scene_usda_assault_rescue",
+  "sub_scenes": [
+    {
+      "sub_scene_id": "SS_01",
+      "space_profile": {
+        "shape": "open_area",
+        "enclosure": "fully_open",
+        "vertical_position": "ground",
+        "entries_exits": [
+          {
+            "type": "opening",
+            "facing": "south",
+            "width_category": "wide",
+            "accessibility": "direct"
+          },
+          {
+            "type": "opening",
+            "facing": "east",
+            "width_category": "wide",
+            "accessibility": "direct"
+          }
+        ],
+        "key_features": [
+          "multiple_exits",
+          "open_sightlines",
+          "cover_available"
+        ],
+        "floor_surface": "ground"
+      },
+      "suggested_roles": [
+        "staging_area",
+        "insertion_point",
+        "firing_position"
+      ],
+      "primary_role": "staging_area",
+      "spatial_bounds": {
+        "x": [
+          -262.3,
+          1416.9
+        ],
+        "y": [
+          -39.1,
+          252.0
+        ],
+        "z": [
+          70.88,
+          209.44
+        ]
+      },
+      "zone_ids": [
+        "Z0-EXT-01"
+      ],
+      "floor": 0,
+      "task_hint": "建立外围阵地和火力支援位置，为突入提供掩护和支援。",
+      "priority": "high",
+      "description": "建筑南侧和东侧开阔地，密度0.2 cubes/m²，可作为战术展开和火力支援阵地。",
+      "connected_sub_scenes": [
+        "SS_02",
+        "SS_03"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -267.3,
+          1421.9
+        ],
+        "y": [
+          -44.1,
+          257.0
+        ],
+        "z": [
+          65.88,
+          214.44
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_02",
+      "space_profile": {
+        "shape": "entry_point",
+        "enclosure": "partially_open",
+        "vertical_position": "ground",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "west",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "door",
+            "facing": "west",
+            "width_category": "narrow",
+            "accessibility": "direct"
+          },
+          {
+            "type": "door",
+            "facing": "west",
+            "width_category": "standard",
+            "accessibility": "direct"
+          }
+        ],
+        "key_features": [
+          "blind_corners",
+          "fatal_funnel"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "entry_breach",
+        "observation_point",
+        "bypass"
+      ],
+      "primary_role": "entry_breach",
+      "spatial_bounds": {
+        "x": [
+          -6.0,
+          6.0
+        ],
+        "y": [
+          249.0,
+          266.0
+        ],
+        "z": [
+          174.0,
+          206.0
+        ]
+      },
+      "zone_ids": [
+        "Z0-ENT-01"
+      ],
+      "floor": 0,
+      "task_hint": "突破主入口进入建筑内部，注意致命漏斗效应。",
+      "priority": "high",
+      "description": "主入口区，X=0墙面线三处间隙(宽1.7-4.4m)，汇聚于Y=252走廊起点。突入后立即进入走廊漏斗区。",
+      "connected_sub_scenes": [
+        "SS_01",
+        "SS_03"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -11.0,
+          11.0
+        ],
+        "y": [
+          244.0,
+          271.0
+        ],
+        "z": [
+          169.0,
+          211.0
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_03",
+      "space_profile": {
+        "shape": "corridor",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "ground",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "south",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "door",
+            "facing": "north",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "opening",
+            "facing": "west",
+            "width_category": "narrow",
+            "accessibility": "breachable"
+          }
+        ],
+        "key_features": [
+          "choke_point",
+          "narrow_channel",
+          "blind_corners"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "corridor_clear",
+        "hold_and_block",
+        "room_entry"
+      ],
+      "primary_role": "corridor_clear",
+      "spatial_bounds": {
+        "x": [
+          -143.0,
+          33.0
+        ],
+        "y": [
+          251.0,
+          258.0
+        ],
+        "z": [
+          174.0,
+          206.0
+        ]
+      },
+      "zone_ids": [
+        "Z0-COR-01"
+      ],
+      "floor": 0,
+      "task_hint": "肃清主走廊，控制通往各房间和楼梯井的通道。",
+      "priority": "high",
+      "description": "地面层主走廊，Y=252-257区间，X向延伸176m(至33)，Y=252墙面线间隙19处，Y=257墙面线间隙10处。X=-60处走廊收窄形成咽喉点。",
+      "connected_sub_scenes": [
+        "SS_02",
+        "SS_04",
+        "SS_05",
+        "SS_06",
+        "SS_07"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -148.0,
+          38.0
+        ],
+        "y": [
+          246.0,
+          263.0
+        ],
+        "z": [
+          169.0,
+          211.0
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_04",
+      "space_profile": {
+        "shape": "room",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "ground",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "east",
+            "width_category": "standard",
+            "accessibility": "direct"
+          }
+        ],
+        "key_features": [
+          "cover_available",
+          "blind_corners",
+          "multiple_exits"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "room_entry",
+        "hold_position",
+        "staging_point"
+      ],
+      "primary_role": "room_entry",
+      "spatial_bounds": {
+        "x": [
+          -105.0,
+          -41.0
+        ],
+        "y": [
+          251.0,
+          258.0
+        ],
+        "z": [
+          174.0,
+          206.0
+        ]
+      },
+      "zone_ids": [
+        "Z0-RM-01"
+      ],
+      "floor": 0,
+      "task_hint": "肃清西北区房间，控制楼梯井入口附近区域。",
+      "priority": "high",
+      "description": "西北区房间群，X=-60~-41与Y=251~258区域，被X=-60墙面线和Y=252墙面线包围。墙角掩体可作为防守据点。",
+      "connected_sub_scenes": [
+        "SS_03",
+        "SS_07"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -110.0,
+          -36.0
+        ],
+        "y": [
+          246.0,
+          263.0
+        ],
+        "z": [
+          169.0,
+          211.0
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_05",
+      "space_profile": {
+        "shape": "room",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "ground",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "east",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "window",
+            "facing": "west",
+            "width_category": "narrow",
+            "accessibility": "breachable"
+          }
+        ],
+        "key_features": [
+          "cover_available",
+          "blind_corners"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "room_entry",
+        "hold_position"
+      ],
+      "primary_role": "room_entry",
+      "spatial_bounds": {
+        "x": [
+          -143.0,
+          -106.0
+        ],
+        "y": [
+          251.0,
+          264.0
+        ],
+        "z": [
+          174.0,
+          206.0
+        ]
+      },
+      "zone_ids": [
+        "Z0-RM-02"
+      ],
+      "floor": 0,
+      "task_hint": "肃清西侧房间，监控走廊西段动向。",
+      "priority": "medium",
+      "description": "西侧房间，X=-124~-106, Y=251~264，被X=-143墙面线(228碎片)和Y=252墙面线围合。",
+      "connected_sub_scenes": [
+        "SS_03"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -148.0,
+          -101.0
+        ],
+        "y": [
+          246.0,
+          269.0
+        ],
+        "z": [
+          169.0,
+          211.0
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_06",
+      "space_profile": {
+        "shape": "room",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "ground",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "west",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "window",
+            "facing": "east",
+            "width_category": "narrow",
+            "accessibility": "ground_access"
+          }
+        ],
+        "key_features": [
+          "blind_corners",
+          "multiple_exits"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "room_entry",
+        "balcony_entry"
+      ],
+      "primary_role": "room_entry",
+      "spatial_bounds": {
+        "x": [
+          -35.0,
+          33.0
+        ],
+        "y": [
+          251.0,
+          264.0
+        ],
+        "z": [
+          174.0,
+          206.0
+        ]
+      },
+      "zone_ids": [
+        "Z0-RM-03"
+      ],
+      "floor": 0,
+      "task_hint": "肃清东侧房间区，注意视觉死角区域的伏击威胁。",
+      "priority": "medium",
+      "description": "东侧房间区，X=-35~33, Y=251~264，多面X向墙面线(Z=196-206)形成密集分区，含X=21墙面线形成的视觉死角。",
+      "connected_sub_scenes": [
+        "SS_03",
+        "SS_02"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -40.0,
+          38.0
+        ],
+        "y": [
+          246.0,
+          269.0
+        ],
+        "z": [
+          169.0,
+          211.0
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_07",
+      "space_profile": {
+        "shape": "stairwell",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "ground",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "south",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "opening",
+            "facing": "east",
+            "width_category": "standard",
+            "accessibility": "direct"
+          }
+        ],
+        "key_features": [
+          "choke_point",
+          "high_ground",
+          "multiple_exits"
+        ],
+        "floor_surface": "stairs"
+      },
+      "suggested_roles": [
+        "vertical_insertion",
+        "stair_clear",
+        "hold_and_block"
+      ],
+      "primary_role": "vertical_insertion",
+      "spatial_bounds": {
+        "x": [
+          -95.0,
+          -32.0
+        ],
+        "y": [
+          257.0,
+          265.0
+        ],
+        "z": [
+          70.88,
+          289.08
+        ]
+      },
+      "zone_ids": [
+        "Z0-STW-01"
+      ],
+      "floor": 0,
+      "task_hint": "建立垂直突击通道，同时部署多层突击小组。手雷威胁贯穿多层。",
+      "priority": "high",
+      "description": "核心楼梯井，8处DENS_STAIR检测(X=-92,-105,-60,-35,-26,30)贯穿全部三层。垂直贯穿建筑高度，连接各楼层走廊和房间。",
+      "connected_sub_scenes": [
+        "SS_03",
+        "SS_04",
+        "SS_08",
+        "SS_12"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -100.0,
+          -27.0
+        ],
+        "y": [
+          252.0,
+          270.0
+        ],
+        "z": [
+          65.88,
+          294.08
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_08",
+      "space_profile": {
+        "shape": "entry_point",
+        "enclosure": "partially_open",
+        "vertical_position": "mid",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "west",
+            "width_category": "standard",
+            "accessibility": "direct"
+          }
+        ],
+        "key_features": [
+          "choke_point",
+          "vertical_access"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "entry_breach",
+        "vertical_insertion"
+      ],
+      "primary_role": "vertical_insertion",
+      "spatial_bounds": {
+        "x": [
+          -38.0,
+          -22.0
+        ],
+        "y": [
+          251.0,
+          265.0
+        ],
+        "z": [
+          209.44,
+          239.04
+        ]
+      },
+      "zone_ids": [
+        "Z1-ENT-02"
+      ],
+      "floor": 1,
+      "task_hint": "通过楼梯井到达二层，建立二层突入点。",
+      "priority": "high",
+      "description": "二层入口/过渡区，X=-35~-25墙面线间隙可从楼梯井通达二层，Y=[250,252]宽2.1m、Y=[254,255]宽0.8m。",
+      "connected_sub_scenes": [
+        "SS_07",
+        "SS_09",
+        "SS_10"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -43.0,
+          -17.0
+        ],
+        "y": [
+          246.0,
+          270.0
+        ],
+        "z": [
+          204.44,
+          244.04
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_09",
+      "space_profile": {
+        "shape": "corridor",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "mid",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "south",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "door",
+            "facing": "north",
+            "width_category": "standard",
+            "accessibility": "direct"
+          }
+        ],
+        "key_features": [
+          "fatal_funnel",
+          "narrow_channel"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "corridor_clear",
+        "hold_and_block"
+      ],
+      "primary_role": "corridor_clear",
+      "spatial_bounds": {
+        "x": [
+          -143.0,
+          -60.0
+        ],
+        "y": [
+          251.0,
+          257.0
+        ],
+        "z": [
+          209.44,
+          239.04
+        ]
+      },
+      "zone_ids": [
+        "Z1-COR-02"
+      ],
+      "floor": 1,
+      "task_hint": "肃清二层走廊西段，控制通往房间的通道。",
+      "priority": "medium",
+      "description": "二层西段走廊，Y=251-256区间，X=-143~-60，延续地面层走廊布局。Y=251墙面线间隙6处。",
+      "connected_sub_scenes": [
+        "SS_08",
+        "SS_10"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -148.0,
+          -55.0
+        ],
+        "y": [
+          246.0,
+          262.0
+        ],
+        "z": [
+          204.44,
+          244.04
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_10",
+      "space_profile": {
+        "shape": "room",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "mid",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "south",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "window",
+            "facing": "east",
+            "width_category": "narrow",
+            "accessibility": "ladder_needed"
+          }
+        ],
+        "key_features": [
+          "multiple_exits",
+          "blind_corners"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "room_entry",
+        "hold_position",
+        "ladder_entry"
+      ],
+      "primary_role": "room_entry",
+      "spatial_bounds": {
+        "x": [
+          -143.0,
+          -60.0
+        ],
+        "y": [
+          230.0,
+          251.0
+        ],
+        "z": [
+          209.44,
+          239.04
+        ]
+      },
+      "zone_ids": [
+        "Z1-RM-04"
+      ],
+      "floor": 1,
+      "task_hint": "肃清二层西部房间群，90个房间候选主要分布于此。注意窗户可作为非标准进入点。",
+      "priority": "medium",
+      "description": "二层西部房间群，X=-143~-60, Y=230~251，90个房间候选分布于此，Y=251、X=-143、Y=249墙面线交叉形成封闭房间结构。",
+      "connected_sub_scenes": [
+        "SS_09"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -148.0,
+          -55.0
+        ],
+        "y": [
+          225.0,
+          256.0
+        ],
+        "z": [
+          204.44,
+          244.04
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_11",
+      "space_profile": {
+        "shape": "roof",
+        "enclosure": "partially_open",
+        "vertical_position": "roof",
+        "entries_exits": [
+          {
+            "type": "opening",
+            "facing": "west",
+            "width_category": "wide",
+            "accessibility": "rope"
+          },
+          {
+            "type": "gap",
+            "facing": "south",
+            "width_category": "standard",
+            "accessibility": "rope"
+          }
+        ],
+        "key_features": [
+          "high_ground",
+          "open_sightlines",
+          "rope_access"
+        ],
+        "floor_surface": "roof"
+      },
+      "suggested_roles": [
+        "rope_entry",
+        "sniper_position",
+        "overwatch"
+      ],
+      "primary_role": "rope_entry",
+      "spatial_bounds": {
+        "x": [
+          -170.0,
+          40.0
+        ],
+        "y": [
+          247.0,
+          265.0
+        ],
+        "z": [
+          239.04,
+          290.0
+        ]
+      },
+      "zone_ids": [
+        "Z2-EXT-02"
+      ],
+      "floor": 2,
+      "task_hint": "建立顶层进入点，可使用绳索从屋顶垂降进入三层。也可作为狙击阵地俯控下方。",
+      "priority": "high",
+      "description": "三层外部平台/屋顶边缘区，Z=244.0和Z=246.8 MEDIUM楼板面确认结构层，水平覆盖率76-86%。Y=263墙面线间隙23处。",
+      "connected_sub_scenes": [
+        "SS_12",
+        "SS_13"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -175.0,
+          45.0
+        ],
+        "y": [
+          242.0,
+          270.0
+        ],
+        "z": [
+          234.04,
+          295.0
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_12",
+      "space_profile": {
+        "shape": "corridor",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "top",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "south",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "opening",
+            "facing": "north",
+            "width_category": "standard",
+            "accessibility": "direct"
+          }
+        ],
+        "key_features": [
+          "fatal_funnel",
+          "narrow_channel",
+          "choke_point"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "corridor_clear",
+        "hold_and_block"
+      ],
+      "primary_role": "corridor_clear",
+      "spatial_bounds": {
+        "x": [
+          -80.0,
+          33.0
+        ],
+        "y": [
+          230.0,
+          237.0
+        ],
+        "z": [
+          239.04,
+          289.08
+        ]
+      },
+      "zone_ids": [
+        "Z2-COR-03"
+      ],
+      "floor": 2,
+      "task_hint": "肃清三层走廊，注意超长直走廊形成的致命漏斗。控制走廊交汇点。",
+      "priority": "high",
+      "description": "三层走廊，Y=230-236区间，X=-80~33，含COR_011(COR_012, COR_015, COR_017)等多条走廊候选。COR_009~COR_017多条走廊在Y=231-234汇聚形成交叉口。",
+      "connected_sub_scenes": [
+        "SS_07",
+        "SS_11",
+        "SS_13",
+        "SS_14"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -85.0,
+          38.0
+        ],
+        "y": [
+          225.0,
+          242.0
+        ],
+        "z": [
+          234.04,
+          294.08
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_13",
+      "space_profile": {
+        "shape": "corridor",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "top",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "south",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "door",
+            "facing": "north",
+            "width_category": "standard",
+            "accessibility": "direct"
+          }
+        ],
+        "key_features": [
+          "fatal_funnel",
+          "narrow_channel"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "corridor_clear",
+        "hold_and_block"
+      ],
+      "primary_role": "corridor_clear",
+      "spatial_bounds": {
+        "x": [
+          -143.0,
+          -80.0
+        ],
+        "y": [
+          230.0,
+          237.0
+        ],
+        "z": [
+          239.04,
+          289.08
+        ]
+      },
+      "zone_ids": [
+        "Z2-COR-03"
+      ],
+      "floor": 2,
+      "task_hint": "肃清三层西段走廊，与东段走廊联动推进。",
+      "priority": "medium",
+      "description": "三层西段走廊，Y=230-236区间，X=-143~-80，COR_011面积330.8m²(长82.7m×宽4m)，长宽比20.7构成狭长走廊漏斗。",
+      "connected_sub_scenes": [
+        "SS_12",
+        "SS_14"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -148.0,
+          -75.0
+        ],
+        "y": [
+          225.0,
+          242.0
+        ],
+        "z": [
+          234.04,
+          294.08
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_14",
+      "space_profile": {
+        "shape": "room",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "top",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "south",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "window",
+            "facing": "west",
+            "width_category": "narrow",
+            "accessibility": "rope"
+          },
+          {
+            "type": "window",
+            "facing": "east",
+            "width_category": "narrow",
+            "accessibility": "ladder_needed"
+          }
+        ],
+        "key_features": [
+          "multiple_exits",
+          "blind_corners",
+          "high_ground"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "room_entry",
+        "hold_position",
+        "rope_entry",
+        "ladder_entry"
+      ],
+      "primary_role": "room_entry",
+      "spatial_bounds": {
+        "x": [
+          -143.0,
+          -60.0
+        ],
+        "y": [
+          230.0,
+          252.0
+        ],
+        "z": [
+          239.04,
+          289.08
+        ]
+      },
+      "zone_ids": [
+        "Z2-RM-05"
+      ],
+      "floor": 2,
+      "task_hint": "肃清三层西部房间群，98个房间候选。窗户和阳台可作为非标准进入点。",
+      "priority": "medium",
+      "description": "三层西部房间群，延续一二层房间布局，98个房间候选。Y=251、X=-143、Y=249墙面线垂直对齐确认楼层结构一致性。",
+      "connected_sub_scenes": [
+        "SS_12",
+        "SS_13",
+        "SS_07"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -148.0,
+          -55.0
+        ],
+        "y": [
+          225.0,
+          257.0
+        ],
+        "z": [
+          234.04,
+          294.08
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_15",
+      "space_profile": {
+        "shape": "room",
+        "enclosure": "fully_enclosed",
+        "vertical_position": "top",
+        "entries_exits": [
+          {
+            "type": "door",
+            "facing": "west",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "window",
+            "facing": "east",
+            "width_category": "narrow",
+            "accessibility": "ladder_needed"
+          }
+        ],
+        "key_features": [
+          "multiple_exits",
+          "blind_corners"
+        ],
+        "floor_surface": "floor_slab"
+      },
+      "suggested_roles": [
+        "room_entry",
+        "hold_position",
+        "ladder_entry"
+      ],
+      "primary_role": "room_entry",
+      "spatial_bounds": {
+        "x": [
+          -60.0,
+          33.0
+        ],
+        "y": [
+          230.0,
+          252.0
+        ],
+        "z": [
+          239.04,
+          289.08
+        ]
+      },
+      "zone_ids": [],
+      "floor": 2,
+      "task_hint": "肃清三层东部房间群，可通过窗户从外部架梯进入。",
+      "priority": "medium",
+      "description": "三层东部房间群，与地面层Z0-RM-03垂直对齐，含多个窗户可作为非标准进入点。",
+      "connected_sub_scenes": [
+        "SS_12"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -65.0,
+          38.0
+        ],
+        "y": [
+          225.0,
+          257.0
+        ],
+        "z": [
+          234.04,
+          294.08
+        ]
+      }
+    },
+    {
+      "sub_scene_id": "SS_16",
+      "space_profile": {
+        "shape": "landing",
+        "enclosure": "partially_open",
+        "vertical_position": "mid",
+        "entries_exits": [
+          {
+            "type": "opening",
+            "facing": "west",
+            "width_category": "standard",
+            "accessibility": "direct"
+          },
+          {
+            "type": "opening",
+            "facing": "east",
+            "width_category": "standard",
+            "accessibility": "direct"
+          }
+        ],
+        "key_features": [
+          "vertical_access",
+          "choke_point",
+          "multiple_exits"
+        ],
+        "floor_surface": "landing"
+      },
+      "suggested_roles": [
+        "vertical_insertion",
+        "staging_point",
+        "hold_and_block"
+      ],
+      "primary_role": "vertical_insertion",
+      "spatial_bounds": {
+        "x": [
+          -95.0,
+          -32.0
+        ],
+        "y": [
+          251.0,
+          265.0
+        ],
+        "z": [
+          209.44,
+          239.04
+        ]
+      },
+      "zone_ids": [],
+      "floor": 1,
+      "task_hint": "控制二层楼梯井平台，作为垂直突击的中继点和多层协调的关键位置。",
+      "priority": "high",
+      "description": "二层楼梯井平台/走廊过渡区，连接一层垂直通道和二层走廊，8处DENS_STAIR检测集中在X=-92~-35区域。",
+      "connected_sub_scenes": [
+        "SS_07",
+        "SS_08",
+        "SS_09"
+      ],
+      "overlap_bounds": {
+        "x": [
+          -100.0,
+          -27.0
+        ],
+        "y": [
+          246.0,
+          270.0
+        ],
+        "z": [
+          204.44,
+          244.04
+        ]
+      }
+    }
+  ],
+  "sub_scene_graph": {
+    "nodes": [
+      "SS_01",
+      "SS_02",
+      "SS_03",
+      "SS_04",
+      "SS_05",
+      "SS_06",
+      "SS_07",
+      "SS_08",
+      "SS_09",
+      "SS_10",
+      "SS_11",
+      "SS_12",
+      "SS_13",
+      "SS_14",
+      "SS_15",
+      "SS_16"
+    ],
+    "edges": [
+      {
+        "from": "SS_01",
+        "to": "SS_02",
+        "connection_type": "open_area"
+      },
+      {
+        "from": "SS_02",
+        "to": "SS_03",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_03",
+        "to": "SS_04",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_03",
+        "to": "SS_05",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_03",
+        "to": "SS_06",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_03",
+        "to": "SS_07",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_04",
+        "to": "SS_07",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_06",
+        "to": "SS_02",
+        "connection_type": "open_area"
+      },
+      {
+        "from": "SS_07",
+        "to": "SS_08",
+        "connection_type": "stair"
+      },
+      {
+        "from": "SS_07",
+        "to": "SS_12",
+        "connection_type": "stair"
+      },
+      {
+        "from": "SS_08",
+        "to": "SS_09",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_08",
+        "to": "SS_16",
+        "connection_type": "stair"
+      },
+      {
+        "from": "SS_09",
+        "to": "SS_10",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_16",
+        "to": "SS_09",
+        "connection_type": "open_area"
+      },
+      {
+        "from": "SS_11",
+        "to": "SS_12",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_11",
+        "to": "SS_13",
+        "connection_type": "open_area"
+      },
+      {
+        "from": "SS_12",
+        "to": "SS_13",
+        "connection_type": "corridor"
+      },
+      {
+        "from": "SS_12",
+        "to": "SS_14",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_12",
+        "to": "SS_15",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_13",
+        "to": "SS_14",
+        "connection_type": "door"
+      },
+      {
+        "from": "SS_14",
+        "to": "SS_07",
+        "connection_type": "stair"
+      }
+    ]
+  },
+  "entry_options": [
+    {
+      "entry_id": "ENT_01",
+      "sub_scene_id": "SS_02",
+      "floor": 0,
+      "type": "ground_door",
+      "access_means": "direct",
+      "description": "主入口，X=0墙面线三处间隙(宽4.4m、1.7m、2.7m)，汇聚于Y=252走廊。标准突入点。"
+    },
+    {
+      "entry_id": "ENT_02",
+      "sub_scene_id": "SS_07",
+      "floor": 0,
+      "type": "ground_door",
+      "access_means": "direct",
+      "description": "楼梯井地面入口，X=-92~-35, Y=258-264区域。8处DENS_STAIR检测确认，可从主入口绕行或直接突入。"
+    },
+    {
+      "entry_id": "ENT_03",
+      "sub_scene_id": "SS_06",
+      "floor": 0,
+      "type": "window",
+      "access_means": "breach",
+      "description": "东侧房间群窗户，X=19墙面线多处间隙，可爆破突入或使用破门锤。"
+    },
+    {
+      "entry_id": "ENT_04",
+      "sub_scene_id": "SS_05",
+      "floor": 0,
+      "type": "window",
+      "access_means": "breach",
+      "description": "西侧房间窗户，X=-143墙面线间隙，可从建筑西侧接近。"
+    },
+    {
+      "entry_id": "ENT_05",
+      "sub_scene_id": "SS_11",
+      "floor": 2,
+      "type": "roof",
+      "access_means": "rope",
+      "description": "三层屋顶平台，Z=246.8楼板面水平覆盖86%。可从上层索降进入三层，或通过窗户进入三层房间。"
+    },
+    {
+      "entry_id": "ENT_06",
+      "sub_scene_id": "SS_10",
+      "floor": 1,
+      "type": "window",
+      "access_means": "ladder",
+      "description": "二层西部房间窗户，Y=251墙面线间隙处，可架梯从外部窗口进入。"
+    },
+    {
+      "entry_id": "ENT_07",
+      "sub_scene_id": "SS_14",
+      "floor": 2,
+      "type": "window",
+      "access_means": "rope",
+      "description": "三层西部房间窗户，可从屋顶索降进入。Y=263墙面线间隙23处提供多个进入点。"
+    },
+    {
+      "entry_id": "ENT_08",
+      "sub_scene_id": "SS_15",
+      "floor": 2,
+      "type": "window",
+      "access_means": "ladder",
+      "description": "三层东部房间窗户，可架梯从外部窗口进入。"
+    },
+    {
+      "entry_id": "ENT_09",
+      "sub_scene_id": "SS_01",
+      "floor": 0,
+      "type": "breachable_wall",
+      "access_means": "breach_charge",
+      "description": "建筑外墙可爆破制造突破点，特别是Y=252和Y=257墙面线间隙处。"
+    }
+  ],
+  "_task": "进攻该三层建筑，解救人质"
+}

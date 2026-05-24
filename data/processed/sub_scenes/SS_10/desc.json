@@ -1,0 +1,794 @@
+{
+  "sub_scene_id": "SS_10",
+  "tactical_role": "room_entry",
+  "task_hint": "肃清二层西部房间群，90个房间候选主要分布于此。注意窗户可作为非标准进入点。",
+  "zones": [
+    {
+      "zone_id": "main_room",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -143.0,
+          -60.0
+        ],
+        "y": [
+          229.0,
+          245.0
+        ],
+        "z": [
+          0.0,
+          41.0
+        ]
+      },
+      "description": "二层西部主房间，位于楼板下方(地面层上方约41单位)。东西跨度约83米，南北跨度约16米，净高约41单位。北侧通过门洞连接走廊，南侧为大尺寸窗户系统。房间整体呈窄长矩形，可划分为西部近门区和东部深部区。",
+      "connected_to": [
+        "corridor_link"
+      ],
+      "contained_cube_ids": [
+        "/_216__4770__139",
+        "/_181__192007_",
+        "/_103__168834_",
+        "/_216__4770__682",
+        "/_216__4770__461",
+        "/_216__4770__578",
+        "/_216__4770__618",
+        "/_216__4770__232",
+        "/_216__4770__687",
+        "/_216__4770__688",
+        "/_216__4770__506",
+        "/_216__4770__586",
+        "/_216__4770__374",
+        "/_216__4770__574",
+        "/_____2__318413_",
+        "/_14__168494__010"
+      ]
+    },
+    {
+      "zone_id": "corridor_link",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -142.0,
+          -140.0
+        ],
+        "y": [
+          245.0,
+          250.0
+        ],
+        "z": [
+          0.0,
+          41.0
+        ]
+      },
+      "description": "北墙门洞区域，宽1.86米，高约2.23米。位于楼板下方空间内，是房间与相邻走廊(SS_09)的唯一标准连通点。门洞东向偏中，偏东距西墙约3米。",
+      "connected_to": [
+        "main_room"
+      ],
+      "contained_cube_ids": [
+        "/_216__4770__139",
+        "/_216__4770__232"
+      ]
+    },
+    {
+      "zone_id": "window_zone",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -143.0,
+          -60.0
+        ],
+        "y": [
+          224.7,
+          237.3
+        ],
+        "z": [
+          40.5,
+          41.2
+        ]
+      },
+      "description": "南侧窗户区域，底部距地约0.37-0.42单位(楼板下方)。窗户共17个，呈线性阵列分布，东西向间距约2-4单位。窗户高度0.55单位，可提供有限视线遮蔽但不提供进入能力。窗户区域光线充足但暴露风险高。",
+      "connected_to": [
+        "main_room"
+      ],
+      "contained_cube_ids": [
+        "/_19__317630_",
+        "/_19__317636_",
+        "/_19__317642_",
+        "/_19__317645_",
+        "/_19__317648_",
+        "/_19__317654_",
+        "/_19__317660_",
+        "/_19__317639_",
+        "/_16__317725_",
+        "/_16__317800_",
+        "/_16__317815_",
+        "/_16__317827_",
+        "/_16__317848_",
+        "/_16__317788_",
+        "/_16__317794_",
+        "/_16__317806_",
+        "/_16__317818_",
+        "/_16__317833_",
+        "/_16__317857_",
+        "/_16__317866_",
+        "/_16__317836_",
+        "/_19__318269_"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "main_entry",
+      "type": "door",
+      "connects": [
+        "corridor_link",
+        "main_room"
+      ],
+      "width": 1.86,
+      "height": 2.23,
+      "position_rel": {
+        "x": -141.435,
+        "y": 248.88,
+        "z": 0.37
+      },
+      "notes": "北墙门洞，距地高度0.37米(楼板下方净空)，可直接通过。门洞东偏(偏东约3米)，宽1.86米，高2.23米。是房间唯一标准进入点。"
+    },
+    {
+      "id": "window_01",
+      "type": "window",
+      "connects": [
+        "window_zone",
+        "exterior"
+      ],
+      "width": 0.35,
+      "height": 0.55,
+      "position_rel": {
+        "x": -119.116,
+        "y": 241.811,
+        "z": 40.598
+      },
+      "notes": "南侧窗户，距地高度约40.6米(楼板下方)，不可作为进入路径。"
+    },
+    {
+      "id": "window_02",
+      "type": "window",
+      "connects": [
+        "window_zone",
+        "exterior"
+      ],
+      "width": 0.35,
+      "height": 0.55,
+      "position_rel": {
+        "x": -116.766,
+        "y": 241.811,
+        "z": 40.601
+      },
+      "notes": "南侧窗户，距地高度约40.6米，不可作为进入路径。"
+    },
+    {
+      "id": "window_03",
+      "type": "window",
+      "connects": [
+        "window_zone",
+        "exterior"
+      ],
+      "width": 0.35,
+      "height": 0.55,
+      "position_rel": {
+        "x": -126.166,
+        "y": 241.811,
+        "z": 40.588
+      },
+      "notes": "南侧窗户，距地高度约40.6米，不可作为进入路径。"
+    },
+    {
+      "id": "window_04",
+      "type": "window",
+      "connects": [
+        "window_zone",
+        "exterior"
+      ],
+      "width": 0.35,
+      "height": 0.55,
+      "position_rel": {
+        "x": -128.516,
+        "y": 241.811,
+        "z": 40.584
+      },
+      "notes": "南侧窗户，距地高度约40.6米，不可作为进入路径。"
+    },
+    {
+      "id": "window_05",
+      "type": "window",
+      "connects": [
+        "window_zone",
+        "exterior"
+      ],
+      "width": 0.35,
+      "height": 0.55,
+      "position_rel": {
+        "x": -130.866,
+        "y": 241.811,
+        "z": 40.582
+      },
+      "notes": "南侧窗户，距地高度约40.6米，不可作为进入路径。"
+    },
+    {
+      "id": "window_06",
+      "type": "window",
+      "connects": [
+        "window_zone",
+        "exterior"
+      ],
+      "width": 0.35,
+      "height": 0.55,
+      "position_rel": {
+        "x": -135.566,
+        "y": 241.811,
+        "z": 40.576
+      },
+      "notes": "南侧窗户，距地高度约40.6米，不可作为进入路径。"
+    },
+    {
+      "id": "window_07",
+      "type": "window",
+      "connects": [
+        "window_zone",
+        "exterior"
+      ],
+      "width": 0.35,
+      "height": 0.55,
+      "position_rel": {
+        "x": -140.266,
+        "y": 241.811,
+        "z": 40.57
+      },
+      "notes": "南侧西端窗户，距地高度约40.6米，不可作为进入路径。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_____2__318413_",
+      "quality": "standing",
+      "height": 35.776,
+      "coverage_direction": [
+        "south",
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south",
+            "east"
+          ],
+          "exposed_to": [
+            "west",
+            "north"
+          ]
+        },
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "北侧承重墙，高度35.8单位(楼板下方净空高度内)，可提供完整站姿掩体。沿墙面可建立多个射击/观察阵地。"
+    },
+    {
+      "cube_id": "/_103__168834_",
+      "quality": "standing",
+      "height": 6.521,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "西侧高6.5单位隔断，可提供站姿掩体，但高度低于楼板底部，存在顶部暴露风险。位于房间西侧边界。"
+    },
+    {
+      "cube_id": "/_216__4770__139",
+      "quality": "crouching",
+      "height": 0.022,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板边缘金属装饰条，仅可提供蹲姿掩体(约0.02单位高度)，主要用于门洞区域掩护。"
+    },
+    {
+      "cube_id": "/_216__4770__232",
+      "quality": "crouching",
+      "height": 0.023,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板边缘金属装饰条，门洞东侧，约0.023单位高度，可提供蹲姿掩体。"
+    },
+    {
+      "cube_id": "/_216__4770__461",
+      "quality": "standing",
+      "height": 0.023,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板下方金属框架，高约0.023单位，位于房间东部区域。可作为轻型掩体，但仅适合蹲姿或低位利用。"
+    },
+    {
+      "cube_id": "/_216__4770__578",
+      "quality": "standing",
+      "height": 0.023,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板下方金属框架，位于房间东部。"
+    },
+    {
+      "cube_id": "/_216__4770__374",
+      "quality": "standing",
+      "height": 0.022,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板下方金属框架，位于房间中部偏东。"
+    },
+    {
+      "cube_id": "/_216__4770__574",
+      "quality": "standing",
+      "height": 0.022,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板下方金属框架，位于房间中部。"
+    },
+    {
+      "cube_id": "/_216__4770__618",
+      "quality": "standing",
+      "height": 0.023,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板下方金属框架，位于房间中西部。"
+    },
+    {
+      "cube_id": "/_216__4770__687",
+      "quality": "standing",
+      "height": 0.022,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板下方金属框架，位于房间中西部。"
+    },
+    {
+      "cube_id": "/_216__4770__688",
+      "quality": "standing",
+      "height": 0.023,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板下方金属框架，位于房间西部。"
+    },
+    {
+      "cube_id": "/_216__4770__506",
+      "quality": "standing",
+      "height": 0.023,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板下方金属框架，位于房间西部。"
+    },
+    {
+      "cube_id": "/_216__4770__586",
+      "quality": "standing",
+      "height": 0.022,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板下方金属框架，位于房间东部。"
+    },
+    {
+      "cube_id": "/_216__4770__682",
+      "quality": "standing",
+      "height": 1.86,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "金属框架立柱，高1.86单位，可提供站姿掩体，位于房间西侧。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "long_sightline",
+      "severity": "high",
+      "location_zone": "main_room",
+      "description": "房间东西跨度约83米，呈窄长矩形。沿房间纵轴存在长距离视线走廊，任何人员从东向西或从西向东移动将长时间暴露于对方视野。建议沿北墙移动并利用墙面掩体。"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "high",
+      "location_zone": "main_room",
+      "description": "南侧窗户系统共17个窗户，暴露于外部视线。虽然窗户不可进入，但外部威胁可从南侧射击点穿透窗户。房间内任何位置面向南侧时均面临侧翼暴露风险。沿北墙移动可获得北侧掩体保护。"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "medium",
+      "location_zone": "corridor_link",
+      "description": "门洞位于北墙偏东位置(距西墙约3米)，门洞东侧存在盲区。进入房间时需注意西侧盲区，可能有威胁潜伏。建议进入后先向西北方向确认清除。"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "medium",
+      "location_zone": "main_room",
+      "description": "相邻子场景SS_09为走廊，位于房间北侧偏下位置(楼板下方)。走廊区域存在6处墙面线间隙，可能有人员从走廊方向经楼板缝隙向上射击。门洞区域为主要威胁方向。"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "medium",
+      "location_zone": "main_room",
+      "description": "房间东部深部(x≈-60至-90区间)存在多个金属框架，可能为伏击位置。该区域距入口最远，光线可能较暗。建议按战术队形推进，逐段肃清。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "北墙沿线(推荐): 从门洞进入后沿北墙西向推进，利用墙面掩体，逐段肃清",
+      "房间中部纵穿(高风险): 从门洞直接向房间深部穿越，全程暴露于长视线威胁",
+      "南侧近窗移动(不推荐): 沿南侧窗户下方移动，但暴露于外部射击威胁"
+    ],
+    "constraints": [
+      "房间窄长(83×16米)，长距离移动需考虑暴露时间",
+      "掩体高度有限(北墙除外)，大部分区域仅金属框架提供有限掩体",
+      "门洞唯一，进入和撤离路线受限，需控制门洞区域作为安全退出点",
+      "西侧隔断高度约6.5单位，低于楼板底部，存在顶部暴露风险"
+    ],
+    "key_control_points": [
+      {
+        "id": "cp_01",
+        "position_rel": {
+          "x": -141.435,
+          "y": 248.88,
+          "z": 0.37
+        },
+        "description": "门洞中心位置",
+        "controls": [
+          "入口控制",
+          "撤离路线",
+          "与走廊的连接点"
+        ],
+        "tactical_value": "high"
+      },
+      {
+        "id": "cp_02",
+        "position_rel": {
+          "x": -140.0,
+          "y": 245.0,
+          "z": 0.0
+        },
+        "description": "门洞西侧角落",
+        "controls": [
+          "西侧盲区覆盖",
+          "门洞侧翼掩护"
+        ],
+        "tactical_value": "high"
+      },
+      {
+        "id": "cp_03",
+        "position_rel": {
+          "x": -120.0,
+          "y": 245.0,
+          "z": 0.0
+        },
+        "description": "北墙中段",
+        "controls": [
+          "房间中部覆盖",
+          "东向视野"
+        ],
+        "tactical_value": "medium"
+      },
+      {
+        "id": "cp_04",
+        "position_rel": {
+          "x": -90.0,
+          "y": 245.0,
+          "z": 0.0
+        },
+        "description": "北墙东段",
+        "controls": [
+          "东部区域覆盖",
+          "东侧入口警戒"
+        ],
+        "tactical_value": "medium"
+      },
+      {
+        "id": "cp_05",
+        "position_rel": {
+          "x": -65.0,
+          "y": 237.0,
+          "z": 0.0
+        },
+        "description": "房间东端角落",
+        "controls": [
+          "东部角落覆盖",
+          "东侧出口警戒"
+        ],
+        "tactical_value": "medium"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "门洞入口",
+      "to_position": "北墙西侧角落",
+      "exposed_to": [
+        "east",
+        "south",
+        "north"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "门洞入口",
+      "to_position": "房间中部北墙",
+      "exposed_to": [
+        "east",
+        "south",
+        "west"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "房间中部北墙",
+      "to_position": "房间东部北墙",
+      "exposed_to": [
+        "south",
+        "west"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "房间东部北墙",
+      "to_position": "房间东端角落",
+      "exposed_to": [
+        "south",
+        "east"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "门洞入口",
+      "to_position": "房间东端角落",
+      "exposed_to": [
+        "east",
+        "south",
+        "west"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "ep_01",
+        "zone_id": "corridor_link",
+        "opening_id": "main_entry",
+        "approach_from": "north"
+      }
+    ],
+    "objective_criteria": [
+      "所有角落已目视确认清除",
+      "所有金属框架后方已检查完毕",
+      "门洞区域已建立警戒",
+      "西侧隔断后方已确认无威胁"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_09",
+        "via": "main_entry",
+        "condition": "房间肃清完毕后，通过门洞返回走廊(SS_09)，继续西部走廊区域的肃清任务"
+      }
+    ]
+  },
+  "spatial_description": "二层西部房间，位于楼板下方空间内。房间呈窄长矩形，东西长约83米，南北宽约16米。北侧通过门洞(宽1.86米)与相邻走廊(SS_09)连通，该门洞为唯一标准进入点。南侧为连续窗户系统，共17个窗户嵌入楼板下方，窗户底部距地约0.37-0.42单位，可提供视线但不可作为进入路径。房间西侧有高隔断(6.5单位高)，北侧为承重墙(高35.8单位)。楼板下方均匀分布多个金属框架，高度约0.02-1.86单位，提供有限掩体。整体空间围合完全，战术进入路径单一，肃清时需沿北墙逐段推进。",
+  "inferred_tags": [
+    "窄长房间",
+    "北墙推进",
+    "长视线威胁",
+    "多层窗户",
+    "单一入口",
+    "金属框架掩体",
+    "肃清任务"
+  ]
+}

@@ -1,0 +1,683 @@
+{
+  "scene_id": "scene_usd",
+  "building_type": "工业建筑",
+  "spatial_clusters": [
+    {
+      "cluster_id": "SC-LEFT-MAIN",
+      "cluster_type": "building_interior",
+      "bounds": {
+        "x": [
+          -143.0,
+          35.0
+        ],
+        "z": [
+          177.0,
+          372.0
+        ]
+      },
+      "description": "主建筑主体，X方向约178米宽，Z方向约195米深。多条墙面线形成框架结构，包含2层建筑空间，以楼板面Y=256.9为分界。",
+      "contained_zone_ids": [
+        "Z0-COR-01",
+        "Z0-RM-01",
+        "Z0-RM-02",
+        "Z1-COR-01",
+        "Z1-RM-01",
+        "Z1-RM-02",
+        "Z1-RM-03",
+        "Z0-ENT-01",
+        "Z0-EXT-01"
+      ]
+    },
+    {
+      "cluster_id": "SC-RIGHT-EQUIP",
+      "cluster_type": "building_interior",
+      "bounds": {
+        "x": [
+          1260.0,
+          1416.0
+        ],
+        "z": [
+          190.0,
+          250.0
+        ]
+      },
+      "description": "右侧独立设施区，可能为变电站或配电设施。包含电线杆、金属导体等设施，呈现规则排列。",
+      "contained_zone_ids": [
+        "Z0-EQP-01"
+      ]
+    },
+    {
+      "cluster_id": "SC-OUTDOOR",
+      "cluster_type": "outdoor_terrain",
+      "bounds": {
+        "x": [
+          -262.0,
+          1416.0
+        ],
+        "z": [
+          70.0,
+          488.0
+        ]
+      },
+      "description": "户外开阔地形，覆盖整个场景范围。以低密度开放空间为主，包含少量植被元素和设施分散布置。",
+      "contained_zone_ids": [
+        "Z0-EXT-02"
+      ]
+    }
+  ],
+  "building_structure": {
+    "total_floors": 2,
+    "floors": [
+      {
+        "floor_id": "F0",
+        "floor_number": 0,
+        "z_range": [
+          -39.1,
+          229.2
+        ],
+        "description": "底层/基础层，包含地面设施和部分结构基础。几何体数量4309个，以垂直墙面为主。"
+      },
+      {
+        "floor_id": "F1",
+        "floor_number": 1,
+        "z_range": [
+          229.2,
+          265.1
+        ],
+        "description": "主要楼层，以楼板面Y=256.9为核心。包含大量楼板碎片(3233个)，代表完整楼层平面。"
+      }
+    ],
+    "floor_boundaries": [
+      {
+        "z_min": 229.2,
+        "z_max": 231.9
+      },
+      {
+        "z_min": 235.5,
+        "z_max": 242.7
+      },
+      {
+        "z_min": 256.9,
+        "z_max": 265.1
+      }
+    ],
+    "vertical_circulation": [
+      "Z1-STAIR-01"
+    ],
+    "main_entrances": [
+      "Z0-ENT-01"
+    ]
+  },
+  "spatial_layouts": [
+    {
+      "zone_id": "Z0-COR-01",
+      "zone_category": "interior",
+      "zone_type": "corridor",
+      "spatial_cluster_id": "SC-LEFT-MAIN",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -139.0,
+          35.0
+        ],
+        "y": [
+          -39.1,
+          229.2
+        ],
+        "z": [
+          200.0,
+          210.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-RM-01",
+        "Z0-RM-02",
+        "Z0-ENT-01"
+      ],
+      "description": "底层主走廊，位于Z=206墙面线东侧。南北向通道，连接多个房间。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Z=206 Z向墙面线(444碎片,Y=[-11,264])",
+          "Z=200 Z向墙面线(178碎片,Y=[251,264])"
+        ],
+        "supporting_floor_plane": "Y=229.2局部楼板面(X=[-143,-60],Z=[225,247])",
+        "openings": [
+          "Z=200处间隙X=[-125,-25]宽100.0m连接底层区域"
+        ],
+        "rationale": "两条平行Z向墙面线(Z=200和Z=206)形成走廊边界，间隙较小(仅1.8m)表明连续墙体，走廊宽度约6米。"
+      },
+      "confidence": 0.75
+    },
+    {
+      "zone_id": "Z0-RM-01",
+      "zone_category": "interior",
+      "zone_type": "room",
+      "spatial_cluster_id": "SC-LEFT-MAIN",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -139.0,
+          -60.0
+        ],
+        "y": [
+          -39.1,
+          229.2
+        ],
+        "z": [
+          225.0,
+          247.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-COR-01",
+        "Z0-RM-02"
+      ],
+      "description": "底层西侧大房间，面积约79×22米。多层楼板面(Y=229.2-242.7)表明存在夹层或平台结构。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=-139 X向墙面线(185碎片,Y=[227,262],Z=[225,369])",
+          "Z=247 Z向墙面线(86碎片,Y=[-37,251])"
+        ],
+        "supporting_floor_plane": "Y=229.2,231.9,235.5,239.1,242.7楼板面系列(X=[-143,-60],Z=[225,247])",
+        "openings": [
+          "X=-139处间隙Z=[225,228]宽2.6m,Z=[229,234]宽5.0m,Z=[237,242]宽5.0m"
+        ],
+        "rationale": "四面墙体围合区域，多层楼板面提供结构证据。间隙分布规律(约5m间隔)可能是门或通道。"
+      },
+      "confidence": 0.85
+    },
+    {
+      "zone_id": "Z0-RM-02",
+      "zone_category": "interior",
+      "zone_type": "room",
+      "spatial_cluster_id": "SC-LEFT-MAIN",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -60.0,
+          35.0
+        ],
+        "y": [
+          -39.1,
+          229.2
+        ],
+        "z": [
+          177.0,
+          200.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-COR-01",
+        "Z0-ENT-01"
+      ],
+      "description": "底层东侧房间，位于主入口北侧。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=37 X向墙面线(144碎片,Y=[254,260],Z=[265,369])东侧边界",
+          "Z=177 Z向墙面线(81碎片,Y=[-11,263])"
+        ],
+        "supporting_floor_plane": "Y=229.2楼板面(延伸覆盖此区域)",
+        "openings": [
+          "Z=177处间隙X=[-61,-36]宽24.8m,X=[-36,-32]宽4.3m,X=[-19,-15]宽4.3m"
+        ],
+        "rationale": "Z=177和Z=200墙面线形成北侧和南侧边界，X=37墙面线形成东侧边界。西侧开放连接走廊。"
+      },
+      "confidence": 0.7
+    },
+    {
+      "zone_id": "Z1-COR-01",
+      "zone_category": "interior",
+      "zone_type": "corridor",
+      "spatial_cluster_id": "SC-LEFT-MAIN",
+      "floor": 1,
+      "bounds": {
+        "x": [
+          -139.0,
+          35.0
+        ],
+        "y": [
+          229.2,
+          265.1
+        ],
+        "z": [
+          195.0,
+          210.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z1-RM-01",
+        "Z1-RM-02",
+        "Z1-RM-03",
+        "Z1-STAIR-01"
+      ],
+      "description": "二层主走廊，南北向通道连接各功能房间。以Y=256.9楼板面为基础。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Z=195 Z向墙面线(142碎片,Y=[251,264])",
+          "Z=202 Z向墙面线(174碎片,Y=[-18,264])"
+        ],
+        "supporting_floor_plane": "Y=256.9主楼板面(3233碎片,X=[-218,63],Z=[106,392])",
+        "openings": [
+          "Z=195处间隙X=[-142,-125]宽16.7m,X=[-124,-67]宽56.5m"
+        ],
+        "rationale": "Z=195和Z=202墙面线间距约7米形成走廊通道。楼板面覆盖整个区域。"
+      },
+      "confidence": 0.8
+    },
+    {
+      "zone_id": "Z1-RM-01",
+      "zone_category": "interior",
+      "zone_type": "room",
+      "spatial_cluster_id": "SC-LEFT-MAIN",
+      "floor": 1,
+      "bounds": {
+        "x": [
+          -139.0,
+          -62.0
+        ],
+        "y": [
+          229.2,
+          265.1
+        ],
+        "z": [
+          261.0,
+          372.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z1-COR-01",
+        "Z1-STAIR-01"
+      ],
+      "description": "二层北侧大房间，占据建筑北半部。X=[-139,1242],Z=[244,247]房间候选验证四面围合。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=-139 X向墙面线(185碎片,Y=[227,262],Z=[225,369])",
+          "Z=261 Z向墙面线(230碎片,Y=[254,261])",
+          "Z=372 Z向墙面线(228碎片,Y=[254,260])"
+        ],
+        "supporting_floor_plane": "Y=256.9主楼板面覆盖",
+        "openings": [
+          "Z=261处间隙X=[-135,-133]宽1.6m,X=[-128,-126]宽2.0m等21处"
+        ],
+        "rationale": "房间候选X=[37,1242],Z=[244,247]显示4面墙围合(左✓右✓下✓上✓)，面积3615平方单位。Y=256.9楼板面提供底面证据。"
+      },
+      "confidence": 0.9
+    },
+    {
+      "zone_id": "Z1-RM-02",
+      "zone_category": "interior",
+      "zone_type": "room",
+      "spatial_cluster_id": "SC-LEFT-MAIN",
+      "floor": 1,
+      "bounds": {
+        "x": [
+          -139.0,
+          -62.0
+        ],
+        "y": [
+          229.2,
+          265.1
+        ],
+        "z": [
+          225.0,
+          261.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z1-COR-01",
+        "Z1-RM-01"
+      ],
+      "description": "二层中部房间，位于主走廊北侧。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=-139 X向墙面线",
+          "Z=225 Z向墙面线(86碎片,Y=[227,262],X=[-143,-60])"
+        ],
+        "supporting_floor_plane": "Y=256.9主楼板面",
+        "openings": [
+          "X=-139处间隙Z=[237,242]宽5.0m"
+        ],
+        "rationale": "房间候选X=[37,1242],Z=[225,227]显示4面墙围合，验证此区域存在封闭房间。"
+      },
+      "confidence": 0.85
+    },
+    {
+      "zone_id": "Z1-RM-03",
+      "zone_category": "interior",
+      "zone_type": "room",
+      "spatial_cluster_id": "SC-LEFT-MAIN",
+      "floor": 1,
+      "bounds": {
+        "x": [
+          -62.0,
+          35.0
+        ],
+        "y": [
+          229.2,
+          265.1
+        ],
+        "z": [
+          178.0,
+          200.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z1-COR-01",
+        "Z0-ENT-01"
+      ],
+      "description": "二层南侧房间，位于主入口上方。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=37 X向墙面线(144碎片,Y=[254,260])",
+          "Z=177 Z向墙面线(81碎片,Y=[-11,263])"
+        ],
+        "supporting_floor_plane": "Y=256.9主楼板面",
+        "openings": [
+          "Z=177处间隙X=[-61,-36]宽24.8m等"
+        ],
+        "rationale": "墙面线Z=177和Z=200形成南北边界，X=37形成东侧边界。楼板面覆盖。"
+      },
+      "confidence": 0.75
+    },
+    {
+      "zone_id": "Z1-STAIR-01",
+      "zone_category": "interior",
+      "zone_type": "stairwell",
+      "spatial_cluster_id": "SC-LEFT-MAIN",
+      "floor": 1,
+      "bounds": {
+        "x": [
+          -34.0,
+          -29.0
+        ],
+        "y": [
+          229.2,
+          265.1
+        ],
+        "z": [
+          197.0,
+          205.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z1-COR-01",
+        "Z1-RM-01"
+      ],
+      "description": "二层楼梯井，位于建筑中部。Group_74组件密集分布表明垂直交通设施。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "X=-34 X向墙面线(141碎片,Y=[252,263],Z=[180,203])",
+          "X=-29 X向墙面线(134碎片,Y=[252,263])"
+        ],
+        "supporting_floor_plane": "Y=256.9楼板面",
+        "openings": [
+          "X=-34处间隙Z=[180,187]宽6.5m,Z=[187,195]宽8.0m,Z=[197,203]宽5.9m"
+        ],
+        "rationale": "Group_74__65362__046等组件在Z=196.364位置密集分布(Y=252.2-264.8)，形成垂直排列的楼梯单元。X=-34和X=-29间距约5米。"
+      },
+      "confidence": 0.7
+    },
+    {
+      "zone_id": "Z0-ENT-01",
+      "zone_category": "transition",
+      "zone_type": "entry",
+      "spatial_cluster_id": "SC-LEFT-MAIN",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -62.0,
+          -35.0
+        ],
+        "y": [
+          -39.1,
+          229.2
+        ],
+        "z": [
+          177.0,
+          189.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-COR-01",
+        "Z0-RM-02",
+        "Z0-EXT-01"
+      ],
+      "description": "主建筑主要入口，底层南侧。间隙Z=[177,189]宽11.4米允许大量人员通过。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Z=177 Z向墙面线(81碎片,Y=[-11,263])",
+          "Z=189 Z向墙面线(104碎片,Y=[248,263])"
+        ],
+        "supporting_floor_plane": "Y=229.2楼板面延伸覆盖",
+        "openings": [
+          "Z=177处间隙X=[-61,-36]宽24.8m,X=[-36,-32]宽4.3m,X=[-19,-15]宽4.3m"
+        ],
+        "rationale": "Z=177和Z=189墙面线之间的间隙(X=[-62,-35])构成主要入口。间隙宽度约27米，分多个开口。"
+      },
+      "confidence": 0.85
+    },
+    {
+      "zone_id": "Z0-EXT-01",
+      "zone_category": "exterior",
+      "zone_type": "exterior",
+      "spatial_cluster_id": "SC-LEFT-MAIN",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -143.0,
+          -62.0
+        ],
+        "y": [
+          -39.1,
+          229.2
+        ],
+        "z": [
+          177.0,
+          200.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-ENT-01",
+        "Z0-EXT-02"
+      ],
+      "description": "主建筑南侧外部区域，直接连接入口。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "Z=177 Z向墙面线(南侧边界)"
+        ],
+        "supporting_floor_plane": "地面层无楼板面覆盖",
+        "openings": [
+          "与Z0-ENT-01共享边界"
+        ],
+        "rationale": "Z=177墙面线以南区域为建筑外部，直接面向户外地形聚类。"
+      },
+      "confidence": 0.8
+    },
+    {
+      "zone_id": "Z0-EXT-02",
+      "zone_category": "exterior",
+      "zone_type": "exterior",
+      "spatial_cluster_id": "SC-OUTDOOR",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          -262.0,
+          1416.0
+        ],
+        "y": [
+          -39.1,
+          265.1
+        ],
+        "z": [
+          70.0,
+          488.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-EXT-01",
+        "Z0-EQP-01"
+      ],
+      "description": "户外开阔地形，覆盖整个场景范围。低密度开放空间为主。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "无显著墙面线约束"
+        ],
+        "supporting_floor_plane": "Y=-39.1地面层",
+        "openings": [
+          "整个场景范围开放"
+        ],
+        "rationale": "热力图显示大面积极低密度(·)区域，无墙面线约束，判定为户外地形。"
+      },
+      "confidence": 0.9
+    },
+    {
+      "zone_id": "Z0-EQP-01",
+      "zone_category": "exterior",
+      "zone_type": "open_area",
+      "spatial_cluster_id": "SC-RIGHT-EQUIP",
+      "floor": 0,
+      "bounds": {
+        "x": [
+          1260.0,
+          1416.0
+        ],
+        "y": [
+          -39.1,
+          265.1
+        ],
+        "z": [
+          190.0,
+          250.0
+        ]
+      },
+      "adjacent_zones": [
+        "Z0-EXT-02"
+      ],
+      "description": "右侧设施区，包含电线杆(1.943×2.0m垂直导体)和金属导体结构。可能为变电站或配电设施。",
+      "geometric_evidence": {
+        "bounding_wall_lines": [
+          "无显著建筑墙面线"
+        ],
+        "supporting_floor_plane": "Y=-39.1地面",
+        "openings": [
+          "无封闭边界"
+        ],
+        "rationale": "_1__192088_等几何体(Y=-17.824,X=1260.871,Z=204.455)为电线杆结构，呈现规则排列。材质Metal_Aluminum_Anodized等表明电气设施。"
+      },
+      "confidence": 0.75
+    }
+  ],
+  "tactical_features": [
+    {
+      "feature_type": "choke_point",
+      "location_zone": "Z0-ENT-01",
+      "position": {
+        "x": -48.5,
+        "y": 95.0,
+        "z": 183.0
+      },
+      "description": "主入口咽喉位置，Z=177和Z=189墙面线间隙汇聚处形成瓶颈。",
+      "tactical_implication": "入口宽度约27米但分为多个开口(24.8m+4.3m)，可通过火力封锁控制人员流动。",
+      "geometric_basis": "Z=177处间隙X=[-61,-36]宽24.8m与Z=189处间隙X=[-62,-35]形成交叉约束"
+    },
+    {
+      "feature_type": "cover_position",
+      "location_zone": "Z0-COR-01",
+      "position": {
+        "x": -139.0,
+        "y": 95.0,
+        "z": 203.0
+      },
+      "description": "走廊西侧墙体(X=-139)提供连续掩体，墙体厚度形成有效遮蔽。",
+      "tactical_implication": "沿X=-139墙面线布置可获得纵向连续掩体，适合防守部署。",
+      "geometric_basis": "X=-139 X向墙面线(185碎片,Y=[227,262],Z=[225,369])提供连续高密度遮挡"
+    },
+    {
+      "feature_type": "keyhole",
+      "location_zone": "Z0-RM-01",
+      "position": {
+        "x": -139.0,
+        "y": 235.0,
+        "z": 233.5
+      },
+      "description": "X=-139墙面线间隙Z=[237,242]宽5.0m开口，朝向北侧大房间(3615平方单位)。",
+      "tactical_implication": "此开口宽度5.0m适合单向观察和射击，同时保持隐蔽。",
+      "geometric_basis": "X=-139处间隙Z=[237,242]宽5.0m连接Z0-RM-01房间内部"
+    },
+    {
+      "feature_type": "fatal_funnel",
+      "location_zone": "Z1-COR-01",
+      "position": {
+        "x": -139.0,
+        "y": 250.0,
+        "z": 195.0
+      },
+      "description": "二层走廊南端，Z=195和Z=202墙面线形成狭窄通道(仅1.8m间隙X=[-124,-125])。",
+      "tactical_implication": "Z=195处间隙X=[-142,-125]宽16.7m为宽入口，但X=[-124,-125]宽1.8m形成死胡同风险。",
+      "geometric_basis": "Z=195 Z向墙面线间隙X=[-124,-125]宽1.8m与Z=202间隙形成走廊瓶颈"
+    },
+    {
+      "feature_type": "blind_spot",
+      "location_zone": "Z1-RM-01",
+      "position": {
+        "x": -60.0,
+        "y": 250.0,
+        "z": 320.0
+      },
+      "description": "北侧大房间深处，Z=261和Z=309墙面线之间区域被多面墙体遮挡。",
+      "tactical_implication": "此区域人员难以被走廊方向火力击中，适合隐蔽接近或伏击。",
+      "geometric_basis": "Z=261,309,324,372墙面线在X=[-137,35]范围内形成多重遮挡"
+    },
+    {
+      "feature_type": "choke_point",
+      "location_zone": "Z1-STAIR-01",
+      "position": {
+        "x": -31.5,
+        "y": 250.0,
+        "z": 200.0
+      },
+      "description": "楼梯井入口处，X=-34和X=-29墙面线间距约5米，但间隙较多(6.5m+8.0m+5.9m)。",
+      "tactical_implication": "楼梯井是上下层垂直交通节点，控制此处可分割建筑层间机动性。",
+      "geometric_basis": "X=-34处间隙Z=[187,195]宽8.0m和Z=[197,203]宽5.9m形成多个通过点"
+    },
+    {
+      "feature_type": "cover_position",
+      "location_zone": "Z1-RM-02",
+      "position": {
+        "x": -139.0,
+        "y": 250.0,
+        "z": 225.0
+      },
+      "description": "房间北侧墙体(X=-139)提供掩体，同时Z=225墙面线形成东西向遮挡。",
+      "tactical_implication": "西北角区域获得双向掩体掩护，适合防守据点。",
+      "geometric_basis": "X=-139和Z=225两条墙面线交汇形成L形掩体"
+    },
+    {
+      "feature_type": "blind_spot",
+      "location_zone": "Z0-RM-02",
+      "position": {
+        "x": -35.0,
+        "y": 100.0,
+        "z": 188.0
+      },
+      "description": "东侧房间南端，Z=177和Z=189墙面线在该区域间隙较大(4.3m)，视线可穿透。",
+      "tactical_implication": "此区域并非完全盲区，但南侧外部空间(Z0-EXT-01)视野开阔，隐蔽性有限。",
+      "geometric_basis": "Z=177处间隙X=[-36,-32]宽4.3m允许视线穿透"
+    }
+  ],
+  "environment_conditions": {
+    "lighting": "unknown",
+    "weather_impact": "none",
+    "visibility": "good"
+  },
+  "overall_description": "本场景包含一座大型工业建筑和独立设施区。建筑主体位于左侧(X=[-143,35],Z=[177,372])，共2层，以Y=256.9楼板面为分界。第0层(y=[-39.1,229.2])包含基础结构，第1层(y=[229.2,265.1])为完整楼层平面。建筑结构由141条X向墙面线和100条Z向墙面线构成框架，主要墙体集中在X=-139、X=37和Z=200、Z=261等位置。\n\n空间布局方面，二层以Z=195-202走廊为主轴，南北向连接各功能房间。Z1-RM-01(北侧大房间，3615平方单位)和Z1-RM-02(中部房间)获得四面墙体围合保障。楼梯井(Z1-STAIR-01)位于建筑中部，Group_74组件密集分布验证垂直交通设施存在。底层Z0-RM-01包含多层楼板面(Y=229.2-242.7)，表明存在夹层结构。\n\n主入口(Z0-ENT-01)位于南侧Z=177墙面线处，间隙宽度约27米允许大量人员通过。入口咽喉位置(X=-48.5,Z=183)是关键控制点，火力封锁可有效限制人员流动。走廊(X=[-139,35],Z=[200,210])宽约6米，两侧墙面线(Z=200,Z=206)形成连续掩体，适合防守部署。\n\n战术地物方面，X=-139墙面线在走廊和北侧大房间提供连续掩体(cover_position)。Z=195处1.8m间隙形成狭窄瓶颈(fatal_funnel)。X=-139间隙Z=[237,242]构成keyhole观察点。楼梯井为层间机动关键节点。建筑北侧深处(Z1-RM-01后方)因多重墙面线遮挡形成blind_spot。\n\n右侧设施区(X=[1260,1416])包含电线杆和金属导体，可能为变电站或配电设施，以独立聚类(SC-RIGHT-EQUIP)存在。户外开阔地形(SC-OUTDOOR)覆盖整个场景，以低密度开放空间为主。",
+  "staircase_cross_validation": {
+    "heuristic_stairs": [],
+    "llm_identified": [
+      "Z1-STAIR-01"
+    ],
+    "agreement": [],
+    "discrepanpancies": [],
+    "needs_human_review": false
+  }
+}

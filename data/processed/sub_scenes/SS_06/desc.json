@@ -1,0 +1,570 @@
+{
+  "sub_scene_id": "SS_06",
+  "tactical_role": "room_entry",
+  "task_hint": "肃清东侧房间区，注意视觉死角区域的伏击威胁。",
+  "zones": [
+    {
+      "zone_id": "Z0-RM-03-A",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -38.0,
+          38.0
+        ],
+        "y": [
+          247.0,
+          265.0
+        ],
+        "z": [
+          0.0,
+          26.0
+        ]
+      },
+      "description": "南侧主入口区，包含两扇低门框结构（距地<0.3m），可快速通过。地面为石材材质。",
+      "connected_to": [
+        "Z0-RM-03-B",
+        "Z0-RM-03-C"
+      ],
+      "contained_cube_ids": [
+        "_12__2571_",
+        "_12__2505__001",
+        "___35__11058__001",
+        "_231__194380_",
+        "_231__194380__006",
+        "_231__194380__007",
+        "_231__194380__014",
+        "_231__194380__015",
+        "_231__194377__001",
+        "_231__194377__004",
+        "_231__194395__001",
+        "_231__194395__007",
+        "_157__121677__002",
+        "_157__121680__006",
+        "_155__121659__004",
+        "_155__121659__005",
+        "_155__121659__008",
+        "_155__121659__009",
+        "_155__121947__004",
+        "_155__121947__007",
+        "_155__121947__008",
+        "_155__121947_",
+        "_231__194398_",
+        "_231__194398__010",
+        "_157__121971__005",
+        "_157__121974__008",
+        "_231__194404_",
+        "_235__129805__001",
+        "_235__129820__001"
+      ]
+    },
+    {
+      "zone_id": "Z0-RM-03-B",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -38.0,
+          -30.0
+        ],
+        "y": [
+          247.0,
+          257.0
+        ],
+        "z": [
+          0.0,
+          26.0
+        ]
+      },
+      "description": "西侧区域，分布多根结构柱（Color_007材质），形成列柱空间。西北角柱列密集，可作为战术依托点。",
+      "connected_to": [
+        "Z0-RM-03-A",
+        "Z0-RM-03-C"
+      ],
+      "contained_cube_ids": [
+        "_155__121944_",
+        "_167__122478_",
+        "_231__194380__015",
+        "_235__129820__001"
+      ]
+    },
+    {
+      "zone_id": "Z0-RM-03-C",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          30.0,
+          38.0
+        ],
+        "y": [
+          247.0,
+          257.0
+        ],
+        "z": [
+          0.0,
+          26.0
+        ]
+      },
+      "description": "东侧区域，东南角有结构柱分布。包含大型木质家具柜（__423248_）可作为掩体。",
+      "connected_to": [
+        "Z0-RM-03-A",
+        "Z0-RM-03-B"
+      ],
+      "contained_cube_ids": [
+        "_155__121944__003",
+        "_167__122442_",
+        "_231__194404_",
+        "_235__129805__001",
+        "__423248_",
+        "_188__914710_"
+      ]
+    },
+    {
+      "zone_id": "Z0-RM-03-D",
+      "type": "corner",
+      "bounds_rel": {
+        "x": [
+          -38.0,
+          38.0
+        ],
+        "y": [
+          257.0,
+          265.0
+        ],
+        "z": [
+          12.0,
+          35.0
+        ]
+      },
+      "description": "北侧高区域，包含顶部木结构横梁（__426006_）、金属装饰框架等。高窗位于此区域上方，距地25m以上不可直接利用。",
+      "connected_to": [
+        "Z0-RM-03-A"
+      ],
+      "contained_cube_ids": [
+        "__562984__004",
+        "__426006_",
+        "__29277_",
+        "__29277__001",
+        "_52__844800_",
+        "_3__771228_",
+        "___185__827095_",
+        "___134__555750__015",
+        "Group_24__31772_278",
+        "SimpleDome01_1__4958_002"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "O1",
+      "type": "door",
+      "connects": [
+        "Z0-RM-03-A",
+        "external_to_SS_03"
+      ],
+      "width": 1.5,
+      "height": 2.5,
+      "position_rel": {
+        "x": -10.0,
+        "y": 259.5,
+        "z": 0.0
+      },
+      "notes": "距地高度0.0m，落地门，可直接通过。连接走廊SS_03"
+    },
+    {
+      "id": "O2",
+      "type": "door",
+      "connects": [
+        "Z0-RM-03-A",
+        "external_to_SS_03"
+      ],
+      "width": 1.5,
+      "height": 2.5,
+      "position_rel": {
+        "x": 5.0,
+        "y": 259.5,
+        "z": 0.0
+      },
+      "notes": "距地高度0.0m，落地门，可直接通过。连接走廊SS_03"
+    },
+    {
+      "id": "O3",
+      "type": "window",
+      "connects": [
+        "Z0-RM-03-D",
+        "external"
+      ],
+      "width": 0.5,
+      "height": 1.5,
+      "position_rel": {
+        "x": -25.35,
+        "y": 259.0,
+        "z": 25.3
+      },
+      "notes": "距地高度25.3m，属于高窗（距地>1.5m），无法正常通过，需攀爬或破拆"
+    },
+    {
+      "id": "O4",
+      "type": "window",
+      "connects": [
+        "Z0-RM-03-D",
+        "external"
+      ],
+      "width": 0.5,
+      "height": 1.5,
+      "position_rel": {
+        "x": -25.35,
+        "y": 261.6,
+        "z": 25.5
+      },
+      "notes": "距地高度25.5m，属于高窗，无法正常通过"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "__423248_",
+      "quality": "standing",
+      "height": 2.5,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north",
+            "east"
+          ],
+          "exposed_to": [
+            "south",
+            "west"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west",
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "south"
+          ]
+        }
+      ],
+      "notes": "大型木质柜体（约3×0.6×2.5m），可提供站立掩体。位于房间东侧区域。"
+    },
+    {
+      "cube_id": "_188__914710_",
+      "quality": "crouching",
+      "height": 4.8,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "west"
+          ]
+        },
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east"
+          ]
+        }
+      ],
+      "notes": "大型书架结构（约3×0.7×4.8m），顶部距地18m，可用于蹲姿掩体，利用其高度差。"
+    },
+    {
+      "cube_id": "_231__194404_",
+      "quality": "standing",
+      "height": 2.15,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south"
+          ]
+        }
+      ],
+      "notes": "东南角结构柱，宽0.1m，可提供面向北方的站立掩体。"
+    },
+    {
+      "cube_id": "_231__194377__001",
+      "quality": "standing",
+      "height": 2.15,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        }
+      ],
+      "notes": "西侧结构柱，位于x≈-37.5位置，可掩护东向火力。"
+    },
+    {
+      "cube_id": "_277__916044_",
+      "quality": "crouching",
+      "height": 0.8,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south"
+          ]
+        }
+      ],
+      "notes": "低矮长条结构（宽7.6m），z=8.5-8.6，距地8.5m，可作为蹲姿掩体使用。"
+    },
+    {
+      "cube_id": "__562984__004",
+      "quality": "concealment_only",
+      "height": 0.12,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south"
+          ]
+        }
+      ],
+      "notes": "顶部横梁结构，主要用于遮蔽视线而非防弹。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "Z0-RM-03-B",
+      "description": "西北角柱列密集区域（x<-30, y<257），柱间距约2.1m形成多处视觉死角。敌人可利用柱子后方隐藏发起伏击。"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "Z0-RM-03-C",
+      "description": "东南角柱列区域，结构柱_167__122442_与_231__194404_之间形成盲区。大型家具__423248_后方也存在视线遮挡。"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "medium",
+      "location_zone": "Z0-RM-03-A",
+      "description": "房间东西跨度约76m，从西侧入口至东侧区域形成长视线走廊（_277__916044_长条结构处z=8.5m高度）。相邻子场景SS_03为长走廊，突入时走廊方向可能有火力威胁。"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "high",
+      "location_zone": "Z0-RM-03-A",
+      "description": "入口区域两扇门（O1, O2）之间距约15m，存在中间开阔地带。从SS_03走廊进入时，房间中部区域为高危伏击区域。"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "medium",
+      "location_zone": "Z0-RM-03-D",
+      "description": "顶部区域有金属装饰框架（__29277_）、圆顶装饰（SimpleDome01_1__4958_002）及大型木结构横梁（__426006_），距地7-35m。装饰物可能在交火时被震落。"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "medium",
+      "location_zone": "Z0-RM-03-A",
+      "description": "从SS_03走廊入口突入时，西侧柱列区（Z0-RM-03-B）和东侧家具区（Z0-RM-03-C）形成侧翼暴露风险。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "S形路线：从O1门进入后沿南侧墙向东移动，利用_277__916044_长条结构掩护",
+      "直线穿插：从O1至O2之间穿越，利用两门间距的中间区域快速通过",
+      "绕行路线：从O2门进入后向北绕行至Z0-RM-03-C区域，利用__423248_柜体掩护",
+      "西侧渗透：贴西侧墙移动至Z0-RM-03-B柱列区，利用柱子逐段推进"
+    ],
+    "constraints": [
+      "两门间距约15m，中间区域暴露时间长",
+      "西北角柱列区盲区多，需逐根确认",
+      "东侧大型家具后方存在视线死角",
+      "顶部横梁__562984__004高度26m，不影响地面机动但影响战术射界"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP1",
+        "position_rel": {
+          "x": -20.0,
+          "y": 255.0,
+          "z": 0.0
+        },
+        "description": "房间中部偏西位置，可监视南侧两门入口区域和西侧柱列区入口",
+        "controls": [
+          "Z0-RM-03-A至Z0-RM-03-B通道",
+          "O1门方向"
+        ],
+        "tactical_value": "控制房间主轴线，视野覆盖主要突入方向"
+      },
+      {
+        "id": "CP2",
+        "position_rel": {
+          "x": 10.0,
+          "y": 255.0,
+          "z": 0.0
+        },
+        "description": "房间中部偏东位置，紧邻大型家具__423248_北侧",
+        "controls": [
+          "Z0-RM-03-A至Z0-RM-03-C通道",
+          "O2门方向"
+        ],
+        "tactical_value": "可利用家具提供掩体，控制东侧区域"
+      },
+      {
+        "id": "CP3",
+        "position_rel": {
+          "x": -35.0,
+          "y": 252.0,
+          "z": 0.0
+        },
+        "description": "西北角首根柱子旁，距入口约20m",
+        "controls": [
+          "Z0-RM-03-B柱列区入口"
+        ],
+        "tactical_value": "扼守西侧盲区，逐根清除柱后威胁"
+      },
+      {
+        "id": "CP4",
+        "position_rel": {
+          "x": 35.0,
+          "y": 252.0,
+          "z": 0.0
+        },
+        "description": "东侧柱列旁，距东墙约3m",
+        "controls": [
+          "Z0-RM-03-C区域"
+        ],
+        "tactical_value": "控制东侧角落，清理家具后方盲区"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "O1门口（x≈-10, y=259.5）",
+      "to_position": "房间中部（x≈0, y=255.0）",
+      "exposed_to": [
+        "north（北侧柱列方向）",
+        "east（东侧方向）",
+        "south（南侧入口方向）"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "O2门口（x≈5, y=259.5）",
+      "to_position": "__423248_家具北侧（x≈11, y=259.7）",
+      "exposed_to": [
+        "west（西侧方向）",
+        "north（北侧方向）"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "房间中部（x≈0, y=255.0）",
+      "to_position": "西北角首柱（x≈-35, y=252.0）",
+      "exposed_to": [
+        "north（北侧高区）",
+        "east（东侧方向）",
+        "south（南侧方向）"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "房间中部（x≈0, y=255.0）",
+      "to_position": "东南角柱列（x≈35, y=252.0）",
+      "exposed_to": [
+        "west（西侧方向）",
+        "north（北侧方向）",
+        "south（南侧方向）"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": true
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP1",
+        "zone_id": "Z0-RM-03-A",
+        "opening_id": "O1",
+        "approach_from": "south_from_SS_03_corridor"
+      },
+      {
+        "id": "EP2",
+        "zone_id": "Z0-RM-03-A",
+        "opening_id": "O2",
+        "approach_from": "south_from_SS_03_corridor"
+      }
+    ],
+    "objective_criteria": [
+      "所有角落区域已目视确认清除（西北角Z0-RM-03-B、东南角Z0-RM-03-C）",
+      "大型家具后方（__423248_、_188__914710_）已探查无威胁",
+      "所有柱列间距已通过检查，确认无人员潜伏",
+      "高窗区域（距地25m以上）已确认无外部威胁"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_03",
+        "via": "O1或O2",
+        "condition": "房间清除完成后，封锁两门通道，按原路返回SS_03走廊继续肃清"
+      }
+    ]
+  },
+  "spatial_description": "该子场景为F0楼层大型矩形房间（X向76m，Y向18m），南北向布置。空间分为南侧主入口区（含两扇落地门，距地<0.3m）、西北角柱列密集区、东南角家具+柱列混合区、北侧高区（含顶部木结构横梁，距地>26m）四个战术区域。两扇门均位于南侧墙面，间距约15m。西北角分布9根结构柱（Color_007材质），柱间距约2.1m形成多处视觉死角。东南角有大型木质柜体（__423248_）和书架（_188__914710_）可作为掩体。顶部横梁__562984__004距地26.4m不影响地面机动。高窗（距地25m以上）不可直接利用。房间西侧与走廊SS_03相邻，东侧为建筑边界墙。",
+  "inferred_tags": [
+    "大型矩形房间",
+    "双门入口",
+    "西北柱列盲区",
+    "东侧家具掩体",
+    "高窗不可达",
+    "顶部横梁结构",
+    "长轴线空间",
+    "入口肃清"
+  ]
+}

@@ -1,0 +1,556 @@
+{
+  "sub_scene_id": "SS_13",
+  "tactical_role": "corridor_clear",
+  "task_hint": "肃清三层西段走廊，与东段走廊联动推进。",
+  "zones": [
+    {
+      "zone_id": "Z2-COR-03-main",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -143,
+          -74
+        ],
+        "y": [
+          239,
+          240.7
+        ],
+        "z": [
+          0,
+          12
+        ]
+      },
+      "description": "F2层西段主走廊，X方向延伸超过60米，南北宽度约6米，北侧有连续栏杆群，南侧通过多处开口与房间区连通。",
+      "connected_to": [
+        "Z2-COR-03-south_rooms",
+        "Z2-COR-03-east_conn"
+      ],
+      "contained_cube_ids": []
+    },
+    {
+      "zone_id": "Z2-COR-03-south_rooms",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -143,
+          -74
+        ],
+        "y": [
+          224.7,
+          229.1
+        ],
+        "z": [
+          0,
+          9.5
+        ]
+      },
+      "description": "走廊南侧房间区域，Y=224.7-229.1区间，通过多个门/窗开口与主走廊连通。",
+      "connected_to": [
+        "Z2-COR-03-main"
+      ],
+      "contained_cube_ids": [
+        "/_117__317684_/_117__317684_"
+      ]
+    },
+    {
+      "zone_id": "Z2-COR-03-east_conn",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -81,
+          -74
+        ],
+        "y": [
+          229.9,
+          240.7
+        ],
+        "z": [
+          0,
+          12
+        ]
+      },
+      "description": "走廊东端连接区域，与SS_12子场景连通，Y=229.9-235.5区间有多处开口。",
+      "connected_to": [
+        "Z2-COR-03-main"
+      ],
+      "contained_cube_ids": []
+    }
+  ],
+  "openings": [
+    {
+      "id": "COR-03-OPEN-N1",
+      "type": "window",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.103,
+      "position_rel": {
+        "x": -142.9,
+        "y": 239.13,
+        "z": 11.8
+      },
+      "notes": "西端北侧栏杆间隙，间距0.1米，可供观察但无法通过"
+    },
+    {
+      "id": "COR-03-DOOR-S1",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.103,
+      "position_rel": {
+        "x": -141.5,
+        "y": 239.13,
+        "z": 11.85
+      },
+      "notes": "西段房间入口，距地11.85米（高层开口，非常规出入口）"
+    },
+    {
+      "id": "COR-03-DOOR-S2",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.103,
+      "position_rel": {
+        "x": -139.1,
+        "y": 235.53,
+        "z": 11.86
+      },
+      "notes": "西段房间入口"
+    },
+    {
+      "id": "COR-03-DOOR-S3",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.103,
+      "position_rel": {
+        "x": -134.4,
+        "y": 235.53,
+        "z": 11.86
+      },
+      "notes": "中段西侧房间入口"
+    },
+    {
+      "id": "COR-03-WIN-S4",
+      "type": "window",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.053,
+      "position_rel": {
+        "x": -134.4,
+        "y": 234.48,
+        "z": 11.81
+      },
+      "notes": "中段西侧高窗，距地11.81米"
+    },
+    {
+      "id": "COR-03-WIN-S5",
+      "type": "window",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.103,
+      "position_rel": {
+        "x": -134.4,
+        "y": 229.2,
+        "z": 11.86
+      },
+      "notes": "南侧房间群北墙开口"
+    },
+    {
+      "id": "COR-03-WIN-S6",
+      "type": "window",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.053,
+      "position_rel": {
+        "x": -127.4,
+        "y": 230.57,
+        "z": 11.82
+      },
+      "notes": "中段东侧高窗"
+    },
+    {
+      "id": "COR-03-WIN-S7",
+      "type": "window",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.053,
+      "position_rel": {
+        "x": -122.7,
+        "y": 234.48,
+        "z": 11.83
+      },
+      "notes": "中段东侧高窗"
+    },
+    {
+      "id": "COR-03-WIN-S8",
+      "type": "window",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.053,
+      "position_rel": {
+        "x": -89.8,
+        "y": 234.48,
+        "z": 11.87
+      },
+      "notes": "东段高窗"
+    },
+    {
+      "id": "COR-03-WIN-S9",
+      "type": "window",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.053,
+      "position_rel": {
+        "x": -87.4,
+        "y": 230.88,
+        "z": 11.87
+      },
+      "notes": "东段南侧高窗"
+    },
+    {
+      "id": "COR-03-WIN-S10",
+      "type": "window",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.053,
+      "position_rel": {
+        "x": -85.1,
+        "y": 230.88,
+        "z": 11.88
+      },
+      "notes": "东段南侧高窗"
+    },
+    {
+      "id": "COR-03-WIN-S11",
+      "type": "window",
+      "connects": [
+        "Z2-COR-03-main",
+        "Z2-COR-03-south_rooms"
+      ],
+      "width": 2.0,
+      "height": 0.052,
+      "position_rel": {
+        "x": -75.7,
+        "y": 230.88,
+        "z": 11.89
+      },
+      "notes": "最东端南侧高窗"
+    },
+    {
+      "id": "COR-03-OPEN-TO-SS12",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-east_conn",
+        "Z2-COR-12"
+      ],
+      "width": 2.0,
+      "height": 0.022,
+      "position_rel": {
+        "x": -75.7,
+        "y": 230.88,
+        "z": 11.88
+      },
+      "notes": "东端连接SS_12，Y=229.9-235.5区间"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_56__167654_/_56__167654_",
+      "quality": "crouching",
+      "height": 0.8,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south"
+          ]
+        },
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north"
+          ]
+        }
+      ],
+      "notes": "扶手立柱，高0.8米，可提供蹲姿掩护但无头顶防护"
+    },
+    {
+      "cube_id": "/_56__167681_/_56__167681_",
+      "quality": "crouching",
+      "height": 0.8,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south"
+          ]
+        }
+      ],
+      "notes": "走廊中段腰墙，高0.8米，可蹲姿掩护"
+    },
+    {
+      "cube_id": "/_56__167699_/_56__167699_",
+      "quality": "crouching",
+      "height": 0.8,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south"
+          ]
+        }
+      ],
+      "notes": "东段腰墙立柱"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "long_sightline",
+      "severity": "critical",
+      "location_zone": "Z2-COR-03-main",
+      "description": "走廊东西向延伸超过60米，X=-143至X=-74区间无中间阻隔。敌方可从任一端建立火力点，形成长距离交叉射击。相邻SS_12方向为多条走廊汇聚处，威胁加剧。"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "Z2-COR-03-east_conn",
+      "description": "东端与SS_12连通处存在视线死角，Y=229.9-235.5区间开口角度复杂。SS_12描述的多条走廊汇聚增加转角威胁概率。"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "high",
+      "location_zone": "Z2-COR-03-main",
+      "description": "走廊北侧栏杆存在多处0.1米间隙（COR-03-OPEN-N1等），南侧11个门/窗开口（距地11.8米），均可提供侧向射击位置。编队沿走廊推进时易受侧翼攻击。"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "high",
+      "location_zone": "Z2-COR-03-south_rooms",
+      "description": "南侧房间群（Y=224.7-229.1）通过多个开口与走廊连通。房间内人员可埋伏等待走廊推进编队，或在编队通过后切断退路。距地11.8米的高窗设计异常，疑似预设射击位。"
+    },
+    {
+      "type": "choke_point",
+      "severity": "medium",
+      "location_zone": "Z2-COR-03-east_conn",
+      "description": "东端开口连接SS_12，Y=229.9-235.5区间是本子场景向相邻区域推进的必经之路。若此处被封锁，编队将陷入走廊两端受敌的困境。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "沿走廊X轴从西（-143）向东（-74）推进",
+      "沿走廊X轴从东向西推进",
+      "通过南侧开口进入房间群（需攀高，z=11.8米）",
+      "从东端开口转入SS_12"
+    ],
+    "constraints": [
+      "走廊宽度约6米（Y=239至Y=240.7），多人编队需考虑纵向排列",
+      "北侧栏杆间距0.1-0.4米，仅供观察无法提供有效掩体",
+      "南侧开口距地11.8米，紧急撤离需攀爬",
+      "走廊全程无横向掩体，任何横向移动均完全暴露"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP-COR03-WEST",
+        "position_rel": {
+          "x": -142.5,
+          "y": 239.5,
+          "z": 11.9
+        },
+        "description": "走廊西端尽头，X=-143附近",
+        "controls": [
+          "西端走廊入口",
+          "西侧房间区视线"
+        ],
+        "tactical_value": "肃清起点，控制西向威胁源"
+      },
+      {
+        "id": "CP-COR03-MID1",
+        "position_rel": {
+          "x": -127,
+          "y": 239.5,
+          "z": 11.9
+        },
+        "description": "走廊中段，X=-127附近",
+        "controls": [
+          "中段开口群（WIN-S6/WIN-S7）",
+          "南侧房间视线"
+        ],
+        "tactical_value": "关键节点，控制南侧房间开口威胁"
+      },
+      {
+        "id": "CP-COR03-MID2",
+        "position_rel": {
+          "x": -108,
+          "y": 239.5,
+          "z": 11.9
+        },
+        "description": "走廊中段东侧，X=-108附近",
+        "controls": [
+          "东段开口群",
+          "走廊长视线中段"
+        ],
+        "tactical_value": "分界点，东段推进起点"
+      },
+      {
+        "id": "CP-COR03-EAST",
+        "position_rel": {
+          "x": -81,
+          "y": 239.5,
+          "z": 11.9
+        },
+        "description": "走廊东端连接SS_12处",
+        "controls": [
+          "东端出口",
+          "与SS_12联动通道"
+        ],
+        "tactical_value": "联动控制点，需与SS_12协调推进"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "西端起点（X=-143, Y=239.5）",
+      "to_position": "中段CP1（X=-127, Y=239.5）",
+      "exposed_to": [
+        "north（栏杆间隙）",
+        "south（沿途南侧开口）",
+        "east（长走廊方向）"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "中段CP1（X=-127）",
+      "to_position": "中段CP2（X=-108）",
+      "exposed_to": [
+        "north（栏杆间隙）",
+        "south（WIN-S6/WIN-S7）",
+        "east/west（走廊两端）"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "中段CP2（X=-108）",
+      "to_position": "东端CP（X=-81）",
+      "exposed_to": [
+        "north（栏杆间隙）",
+        "south（WIN-S8-WIN-S11）",
+        "east（SS_12方向）"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "东端CP（X=-81）",
+      "to_position": "SS_12连通点",
+      "exposed_to": [
+        "south（SS_12方向开口）",
+        "west（走廊回程）"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP-COR03-FROM-SS12",
+        "zone_id": "Z2-COR-03-east_conn",
+        "opening_id": "COR-03-OPEN-TO-SS12",
+        "approach_from": "east（从SS_12方向进入）"
+      },
+      {
+        "id": "EP-COR03-FROM-WEST",
+        "zone_id": "Z2-COR-03-main",
+        "opening_id": null,
+        "approach_from": "west（走廊西端尽头进入，需明确上游来源）"
+      }
+    ],
+    "objective_criteria": [
+      "走廊全程目视确认无人员存在",
+      "南侧房间开口已检查或封锁",
+      "北侧栏杆间隙已标记监控",
+      "东端与SS_12协调点已建立"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_12",
+        "via": "COR-03-OPEN-TO-SS12",
+        "condition": "SS_12已建立通信协调，东端出口已封锁本方向威胁后"
+      },
+      {
+        "to_sub_scene": "SS_14",
+        "via": "南侧开口（需攀高11.8米）",
+        "condition": "若SS_14任务需要从本区域进入房间区"
+      }
+    ]
+  },
+  "spatial_description": "F2层西段走廊Z2-COR-03呈东西向狭长布局，X方向从-143延伸至-74，全长超过60米，南北宽度约6米（Y=239-240.7）。北侧为连续栏杆群（高度约0.55米），存在0.1-0.4米间距的多处间隙。南侧分布11个门/窗开口（距地11.8米），通往Y=224.7-229.1区间的房间群。东端X=-81附近通过开口与SS_12连通，走廊中段X=-127和X=-108为关键控制点。整个走廊区域掩体稀少，仅有少量扶手立柱可提供有限蹲姿掩护。",
+  "inferred_tags": [
+    "超长走廊",
+    "多层开口",
+    "侧翼暴露",
+    "长视线威胁",
+    "栏杆间隙",
+    "高空开口异常",
+    "南北通透"
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "Tactic_ID": "CQB_03",
+  "Tactic_Name": "瓶颈穿越与分层控制",
+  "Mission_Phase": "进攻",
+  "Tactic_Type": "突破与控制",
+  "Objective": "确保编队安全有序通过建筑中部多层瓶颈区域，并在关键连通点建立分层控制节点",
+  "Description": "通过多层建筑中部瓶颈区域的战术方案，包含侦察确认、批次通过、节点建立三个阶段。",
+  "Credibility": 5.0,
+  "Applicable_Environment": "多层建筑内部，包含纵贯走廊、水平瓶颈区及竖向连通井道的结构空间",
+  "Execution_Time": "中长时间，多批次通过",
+  "Parent_Tactic": null,
+  "Sub_Tactics": [],
+  "Semantic_Tags": [
+    "瓶颈控制",
+    "分层通过",
+    "垂直连通",
+    "节点建立"
+  ],
+  "Action_Sequence": [
+    {
+      "step_number": 1,
+      "Intent": "侦察确认瓶颈区态势",
+      "Instructions": [
+        "[Unit侦察节点] 移动至 {bottleneck_entrance_position}",
+        "[Unit侦察节点] 切片观察 {bottleneck_area}",
+        "[Unit侦察节点] 报告 {door_connection_and_openings} 威胁态势"
+      ],
+      "Visual_Aids": "侦察节点沿走廊贴墙前出，在入口紧邻处利用玻璃隔断边缘进行切片观察。"
+    },
+    {
+      "step_number": 2,
+      "Intent": "建立入口火力阵地",
+      "Instructions": [
+        "[Unit压制射手] 移动至 {entrance_flanking_cover}",
+        "[Unit压制射手] 利用 {glass_barrier} 建立立姿掩体",
+        "[Unit压制射手] 面向 {shaft_connection_direction} 建立射击准备"
+      ],
+      "Visual_Aids": "压制射手贴靠玻璃隔断后方，面向门洞方向据枪戒备。"
+    },
+    {
+      "step_number": 3,
+      "Intent": "先头突击手快速通过",
+      "Instructions": [
+        "[Unit突击手] 确认安全后即刻出发",
+        "[Unit突击手] 低姿快速通过 {bottleneck_width}",
+        "[Unit突击手] 抵达 {shaft_door_frame} 贴靠停驻",
+        "[Unit突击手] 利用门框形成掩体"
+      ],
+      "Visual_Aids": "突击手从入口处快速跃进低姿通过瓶颈区，抵达门洞贴靠门框形成掩护体。"
+    },
+    {
+      "step_number": 4,
+      "Intent": "警戒手通过并建立侧翼监视",
+      "Instructions": [
+        "[Unit警戒手] 紧随突击手通过 {bottleneck_area}",
+        "[Unit警戒手] 通过时持续监视 {flank_direction}",
+        "[Unit警戒手] 抵达后在 {opposite_door_frame} 建立警戒位置",
+        "[Unit警戒手] 与突击手形成交叉观察覆盖"
+      ],
+      "Visual_Aids": "警戒手与突击手保持适度间距，形成前后掩护通过。"
+    },
+    {
+      "step_number": 5,
+      "Intent": "后续批次交替跟进",
+      "Instructions": [
+        "[Unit突击手] 与 [Unit压制射手] 保持批次间隔",
+        "[Unit突击手] 采用交替掩护方式依次通过 {bottleneck_area}",
+        "[Unit压制射手] 保持射击准备直至全员通过",
+        "[Unit突击手] 保持与前方人员的视线联络"
+      ],
+      "Visual_Aids": "后续人员采用跃进方式依次通过，保持与前方人员的视线联络。"
+    },
+    {
+      "step_number": 6,
+      "Intent": "建立中层控制节点",
+      "Instructions": [
+        "[Unit突击手] 在 {shaft_connection_door} 处建立控制节点",
+        "[Unit警戒手] 利用 {door_frame_and_glass_barrier} 形成掩体",
+        "[Unit警戒手] 监视 {vertical_shaft_up_down} 动静",
+        "[Unit侦察节点] 在对侧门框建立交叉观察点"
+      ],
+      "Visual_Aids": "控制节点建立在门洞两侧，形成交叉覆盖。"
+    },
+    {
+      "step_number": 7,
+      "Intent": "建立上层控制节点",
+      "Instructions": [
+        "[Unit警戒手] 移动至 {upper_shaft_opening}",
+        "[Unit警戒手] 建立上层控制节点",
+        "[Unit警戒手] 监视 {upper_corridor_connection} 方向",
+        "[Unit警戒手] 与中层节点形成上下双层覆盖"
+      ],
+      "Visual_Aids": "人员沿竖井向上移动至另一门洞处，利用门洞建立上层控制节点。"
+    },
+    {
+      "step_number": 8,
+      "Intent": "节点留守与编队前推",
+      "Instructions": [
+        "[Unit警戒手] 在控制节点持续警戒待命",
+        "[Unit警戒手] 保持对 {approach_routes} 的监视",
+        "[Unit突击手] 继续向 {deep_interior_or_upper_corridor} 方向机动",
+        "[Unit突击手] 为后续行动提供引导"
+      ],
+      "Visual_Aids": "控制节点形成上下覆盖网络，警戒手在位值守，后续人员向前方持续推进。"
+    }
+  ],
+  "Visual_Aid_Overall": "从北侧走廊俯视多层建筑中部区域。瓶颈区为水平楼板结构，两侧连接走廊和竖井。侦察节点在入口处切片观察，压制射手在入口侧建立火力阵地。先头突击手快速通过瓶颈区抵达门洞建立节点。后续人员交替跟进形成有序通过。控制节点在上下两个门洞处建立，形成双层监视覆盖。",
+  "_metadata": {
+    "sub_scene_id": "SS_03",
+    "generation_mode": "RAG",
+    "quality_level": "H",
+    "quality_score": 9.25,
+    "m3_review_score": 9,
+    "m4_scores": {
+      "scene_adaptation": 9.5,
+      "execution_efficiency": 9.0,
+      "comprehension": 9.5,
+      "granularity_compliance": 9.5,
+      "text_visual_consistency": 9.0,
+      "military_feasibility": 9.0
+    }
+  }
+}

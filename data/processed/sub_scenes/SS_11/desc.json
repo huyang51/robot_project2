@@ -1,0 +1,501 @@
+{
+  "sub_scene_id": "SS_11",
+  "tactical_role": "rope_entry",
+  "task_hint": "建立顶层进入点，可使用绳索从屋顶垂降进入三层。也可作为狙击阵地俯控下方。",
+  "zones": [
+    {
+      "zone_id": "Z_ROOF_MAIN",
+      "type": "exterior",
+      "bounds_rel": {
+        "x": [
+          -170,
+          40
+        ],
+        "y": [
+          230,
+          265
+        ],
+        "z": [
+          47.5,
+          52.5
+        ]
+      },
+      "description": "屋顶主体区域，开阔平坦，含多条走廊/楼梯井入口节点",
+      "connected_to": [
+        "Z_ROOF_EDGE"
+      ],
+      "contained_cube_ids": [
+        "_184__193069__001"
+      ]
+    },
+    {
+      "zone_id": "Z_ROOF_EDGE",
+      "type": "exterior",
+      "bounds_rel": {
+        "x": [
+          -170,
+          40
+        ],
+        "y": [
+          257,
+          265
+        ],
+        "z": [
+          47.5,
+          52.5
+        ]
+      },
+      "description": "屋顶南侧边缘，含女儿墙/栏杆防护，走廊天窗开口",
+      "connected_to": [
+        "Z_ROOF_MAIN",
+        "Z_CORRIDOR_ACCESS"
+      ],
+      "contained_cube_ids": [
+        "__73235__167",
+        "__73235__181",
+        "_36__149553__006",
+        "_56__167654_",
+        "_56__167681_",
+        "_56__167690_",
+        "_56__167699_",
+        "_56__167720_",
+        "_56__167726_",
+        "_56__167738_"
+      ]
+    },
+    {
+      "zone_id": "Z_CORRIDOR_ACCESS",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -148,
+          -155
+        ],
+        "y": [
+          261,
+          264
+        ],
+        "z": [
+          0,
+          12
+        ]
+      },
+      "description": "走廊天窗开口区域，可从此处垂降进入下方走廊",
+      "connected_to": [
+        "Z_ROOF_EDGE"
+      ],
+      "contained_cube_ids": [
+        "_111__337837_",
+        "_111__337843_",
+        "_111__337846_",
+        "_111__337882_",
+        "_103__337855_"
+      ]
+    },
+    {
+      "zone_id": "Z_STRUCTURAL_ELEMENTS",
+      "type": "open_area",
+      "bounds_rel": {
+        "x": [
+          -90,
+          30
+        ],
+        "y": [
+          230,
+          250
+        ],
+        "z": [
+          47.5,
+          52.5
+        ]
+      },
+      "description": "屋顶中央结构区，含支撑柱、局部平台、设备基础",
+      "connected_to": [
+        "Z_ROOF_MAIN"
+      ],
+      "contained_cube_ids": [
+        "_19__318131_",
+        "_19__318140_",
+        "_19__318146_",
+        "_19__318158_",
+        "_19__318067_",
+        "_19__318170_",
+        "_19__318197_",
+        "_19__318203_",
+        "_19__318209_"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "OP_ROOF_CORRIDOR_1",
+      "type": "window",
+      "connects": [
+        "Z_ROOF_EDGE",
+        "Z_CORRIDOR_ACCESS"
+      ],
+      "width": 2.66,
+      "height": 1.04,
+      "position_rel": {
+        "x": -155,
+        "y": 262.5,
+        "z": 1.3
+      },
+      "notes": "走廊天窗开口，距地约13m，需绳索垂降；连接SS_13西段走廊"
+    },
+    {
+      "id": "OP_ROOF_CORRIDOR_2",
+      "type": "window",
+      "connects": [
+        "Z_ROOF_EDGE",
+        "Z_CORRIDOR_ACCESS"
+      ],
+      "width": 2.66,
+      "height": 1.04,
+      "position_rel": {
+        "x": -159,
+        "y": 262.5,
+        "z": 1.7
+      },
+      "notes": "走廊天窗开口，距地约15.7m；连接SS_12东段走廊"
+    },
+    {
+      "id": "OP_ROOF_CORRIDOR_3",
+      "type": "window",
+      "connects": [
+        "Z_ROOF_EDGE",
+        "Z_CORRIDOR_ACCESS"
+      ],
+      "width": 3.27,
+      "height": 1.28,
+      "position_rel": {
+        "x": -161,
+        "y": 262,
+        "z": 1.3
+      },
+      "notes": "走廊天窗开口，距地约12.3m；主要绳索进入点"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "_19__318131_",
+      "quality": "crouching",
+      "height": 0.55,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "混凝土支撑柱，高0.55m，可蹲姿隐蔽；适用于东南-西北走向走廊"
+    },
+    {
+      "cube_id": "_19__318140_",
+      "quality": "crouching",
+      "height": 0.55,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "混凝土支撑柱，高0.55m，可蹲姿隐蔽"
+    },
+    {
+      "cube_id": "_19__318146_",
+      "quality": "crouching",
+      "height": 0.55,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "混凝土支撑柱，高0.55m，可蹲姿隐蔽"
+    },
+    {
+      "cube_id": "_222_1__317424_",
+      "quality": "standing",
+      "height": 0.97,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "设备基座/平台，高约0.97m，可立姿掩体；东段屋顶"
+    },
+    {
+      "cube_id": "_222_1__317430_",
+      "quality": "standing",
+      "height": 0.97,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "设备基座/平台，高约0.97m，可立姿掩体；东段屋顶偏北"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "long_sightline",
+      "severity": "critical",
+      "location_zone": "Z_ROOF_MAIN",
+      "description": "屋顶面积约6200m²（X: -170~40，Y: 230~265），视野极度开阔，无自然遮挡；如敌方有无人机或狙击手，占据制高优势"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "high",
+      "location_zone": "Z_ROOF_EDGE",
+      "description": "屋顶下方为走廊（SS_12/SS_13），敌方可从下方走廊射击屋顶边缘人员；绳索进入时暴露时间约30-60秒，高危"
+    },
+    {
+      "type": "choke_point",
+      "severity": "medium",
+      "location_zone": "Z_CORRIDOR_ACCESS",
+      "description": "天窗开口区域狭窄（约2.7×1m），绳索下降时人员排队暴露；建议逐人进入间隔10秒以上"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "medium",
+      "location_zone": "Z_STRUCTURAL_ELEMENTS",
+      "description": "支撑柱后可能藏匿敌方人员；柱间距约2.7-3m，形成多个潜在伏击点"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "high",
+      "location_zone": "Z_ROOF_MAIN",
+      "description": "屋顶北侧边缘（Y=230附近）直接暴露于下层走廊窗户射击范围；与SS_12/SS_13相邻区域的侧翼威胁需关注"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "屋顶东西主通道（X方向，贯穿全区域）",
+      "屋顶南北向局部通道（连接天窗入口）",
+      "屋顶东段设备区通道（绕行结构柱）",
+      "西段连接SS_13通道",
+      "东段连接SS_12通道"
+    ],
+    "constraints": [
+      "女儿墙/栏杆限制（Y=257-264），需注意边缘跌落风险",
+      "支撑柱阵列造成视线遮挡，同时形成掩体",
+      "设备平台可能阻挡部分路径",
+      "开阔地无遮蔽，暴露风险高",
+      "风速可能影响绳索操作"
+    ],
+    "key_control_points": [
+      {
+        "id": "KCP_01",
+        "position_rel": {
+          "x": -160,
+          "y": 262,
+          "z": 47.5
+        },
+        "description": "西侧天窗入口，控制绳索下降点",
+        "controls": [
+          "通往SS_13的进入通道",
+          "西段屋顶区域"
+        ],
+        "tactical_value": "高-绳索进入主要操作区"
+      },
+      {
+        "id": "KCP_02",
+        "position_rel": {
+          "x": -155,
+          "y": 262,
+          "z": 47.5
+        },
+        "description": "西侧天窗入口B，控制绳索下降",
+        "controls": [
+          "通往SS_13的进入通道"
+        ],
+        "tactical_value": "中-备选下降点"
+      },
+      {
+        "id": "KCP_03",
+        "position_rel": {
+          "x": 0,
+          "y": 250,
+          "z": 47.5
+        },
+        "description": "屋顶中央制高点（设备平台），狙击/观察位",
+        "controls": [
+          "屋顶中段视野控制",
+          "东西向通道"
+        ],
+        "tactical_value": "高-狙击阵地，可俯控下方走廊"
+      },
+      {
+        "id": "KCP_04",
+        "position_rel": {
+          "x": -80,
+          "y": 262,
+          "z": 47.5
+        },
+        "description": "东段天窗区域，控制绳索下降",
+        "controls": [
+          "通往SS_12的进入通道"
+        ],
+        "tactical_value": "中-绳索进入辅助点"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "西侧女儿墙边缘（X=-168, Y=265）",
+      "to_position": "东侧女儿墙边缘（X=40, Y=265）",
+      "exposed_to": [
+        "south（下方走廊射击）",
+        "east/west（相邻屋顶区域）"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "西侧天窗入口（X=-162, Y=262）",
+      "to_position": "绳索下降至SS_13",
+      "exposed_to": [
+        "south（下层走廊）",
+        "west"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "东段设备区（X=0, Y=250）",
+      "to_position": "东段天窗入口（X=-155, Y=262）",
+      "exposed_to": [
+        "north（下方走廊窗户）",
+        "south",
+        "east/west"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "绳索下降操作中（X=-161, Y=262, Z=47→Z=11）",
+      "to_position": "抵达SS_13下方走廊",
+      "exposed_to": [
+        "south（下层走廊内部）",
+        "垂直方向（上方暴露）"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP_01",
+        "zone_id": "Z_ROOF_EDGE",
+        "opening_id": "OP_ROOF_CORRIDOR_1",
+        "approach_from": "south（从楼梯间登顶）"
+      },
+      {
+        "id": "EP_02",
+        "zone_id": "Z_ROOF_EDGE",
+        "opening_id": "OP_ROOF_CORRIDOR_2",
+        "approach_from": "south"
+      },
+      {
+        "id": "EP_03",
+        "zone_id": "Z_ROOF_EDGE",
+        "opening_id": "OP_ROOF_CORRIDOR_3",
+        "approach_from": "south"
+      }
+    ],
+    "objective_criteria": [
+      "绳索进入点已建立并确认安全",
+      "天窗开口已标记清除",
+      "狙击/观察阵地已部署到位",
+      "与SS_12/SS_13的通讯联络已建立",
+      "下方走廊无威胁确认"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_13",
+        "via": "绳索垂降",
+        "condition": "完成屋顶肃清，确认下方走廊安全后"
+      },
+      {
+        "to_sub_scene": "SS_12",
+        "via": "绳索垂降",
+        "condition": "完成屋顶肃清，确认下方走廊安全后"
+      },
+      {
+        "to_sub_scene": "SS_13",
+        "via": "西侧楼梯",
+        "condition": "作为狙击手掩护编队撤退"
+      }
+    ]
+  },
+  "spatial_description": "F2层屋顶区域，东西跨度约210m，南北宽度约35m，地面标高约47.5-52.5m。屋顶主体为开阔平坦混凝土面，含女儿墙/栏杆环绕（Y=257-264区间）。南侧边缘设有多处走廊天窗开口（宽约2.6-3.3m），可作为绳索垂降进入点通向下方三层走廊SS_12/SS_13。屋顶中央分布有支撑柱阵列（间距约2.7-3m），局部设有设备平台及基座。屋顶东段有一处大型设备基础平台可作为狙击阵地，提供良好俯视角度。整体地势高于周边建筑，但暴露面积大，需防范来自下方走廊的垂直威胁以及相邻建筑方向的侧翼威胁。",
+  "inferred_tags": [
+    "屋顶进入点",
+    "开阔地作战",
+    "绳索垂降",
+    "狙击阵地",
+    "长视线威胁",
+    "垂直威胁",
+    "天窗进入",
+    "设备平台"
+  ]
+}
