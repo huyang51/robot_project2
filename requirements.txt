@@ -30,7 +30,8 @@ PyMuPDF>=1.22.0,<2.0.0
 
 # ── Data ──
 # torch 2.7+ 需要 numpy>=1.22 (兼容 v1 和 v2)
-numpy>=1.24.0
+# 注意: chromadb 0.4.x 不兼容 numpy 2.0, 需锁定 <2.0
+numpy>=1.24.0,<2.0.0
 
 # ── Dev ──
 pytest>=7.0.0,<9.0.0
