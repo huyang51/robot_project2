@@ -25,6 +25,7 @@ from ..config import (
     MINIMAX_EMBEDDING_MODEL, MINIMAX_EMBEDDING_DIMENSION,
     MINIMAX_API_KEY, MINIMAX_BASE_URL,
     EMBEDDING_MODEL_OPENAI, EMBEDDING_DIMENSION_OPENAI,
+    EMBEDDING_MODEL_LOCAL_PATH,
 )
 
 logger = logging.getLogger(__name__)
@@ -131,12 +132,14 @@ class EmbeddingClient:
         try:
             from sentence_transformers import SentenceTransformer
             if self._local_model is None:
+                # 优先使用本地路径（离线），Fallback 到 HuggingFace 模型名
+                model_path = self._resolve_model_path()
                 self._local_model = SentenceTransformer(
-                    self.model,
+                    model_path,
                     device="cuda" if self._cuda_available() else "cpu",
                 )
                 logger.info("加载本地嵌入模型: %s (dim=%d, device=%s)",
-                            self.model, self.dimension,
+                            model_path, self.dimension,
                             "cuda" if self._cuda_available() else "cpu")
             embeddings = self._local_model.encode(
                 texts,
@@ -214,6 +217,21 @@ class EmbeddingClient:
         return [[0.0] * self.dimension for _ in texts]
 
     # ── Helpers ────────────────────────────────────────────
+
+    @staticmethod
+    def _resolve_model_path() -> str:
+        """解析模型路径: 本地目录存在则优先使用，否则回退到 HuggingFace 模型名"""
+        import os
+        local_path = EMBEDDING_MODEL_LOCAL_PATH
+        # 检查本地路径是否有效（目录存在且包含模型文件）
+        if os.path.isdir(local_path) and os.path.isfile(
+            os.path.join(local_path, "config.json")
+        ):
+            logger.info("使用本地模型路径: %s", local_path)
+            return local_path
+        logger.info("本地模型路径不可用 (%s)，回退到 HuggingFace: %s",
+                     local_path, EMBEDDING_MODEL)
+        return EMBEDDING_MODEL
 
     @staticmethod
     def _validate_openai_key(key: str) -> str:

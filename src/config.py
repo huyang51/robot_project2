@@ -40,6 +40,17 @@ LLM_JSON_TEMPERATURE = 0.3
 EMBEDDING_MODEL = "BAAI/bge-large-zh-v1.5"           # 本地中文嵌入模型（1024维, GPU）
 EMBEDDING_DIMENSION = 1024
 
+# 本地模型路径（留空则从 HuggingFace 自动下载）
+# 设置此路径指向已下载的模型目录，例如:
+#   EMBEDDING_MODEL_LOCAL_PATH = "/home/huyang/models/bge-large-zh-v1.5"
+# 下载方式:
+#   pip install huggingface_hub
+#   huggingface-cli download BAAI/bge-large-zh-v1.5 --local-dir /path/to/save
+EMBEDDING_MODEL_LOCAL_PATH = os.environ.get(
+    "BGE_LOCAL_PATH",
+    str(PROJECT_ROOT / "data" / "models" / "bge-large-zh-v1.5")
+)
+
 # 可选 API 嵌入后端（需显式切换）
 EMBEDDING_MODEL_OPENAI = "text-embedding-3-large"    # OpenAI 嵌入（1024维）
 EMBEDDING_DIMENSION_OPENAI = 1024
