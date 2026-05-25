@@ -298,6 +298,15 @@ pip install -r requirements.txt
 # 4. 首次运行时，本地嵌入模型会自动下载 (~1.3GB)
 # 模型: BAAI/bge-large-zh-v1.5
 # 缓存路径: ~/.cache/huggingface/hub/
+
+# 5. (无网络环境) 手动下载嵌入模型
+# 在有网络的机器上:
+pip install huggingface_hub
+huggingface-cli download BAAI/bge-large-zh-v1.5 --local-dir ./bge-large-zh-v1.5
+# 将下载的目录拷贝到项目 data/models/ 下:
+#   robot_project2/data/models/bge-large-zh-v1.5/
+# 或放到任意位置，通过环境变量指定:
+#   export BGE_LOCAL_PATH=/your/path/to/bge-large-zh-v1.5
 ```
 
 **配置 .env**：
@@ -676,6 +685,7 @@ data/
 | `MINIMAX_API_KEY` / `MINIMAX_MODEL` | LLM API 配置 |
 | `LLM_TEMPERATURE` / `LLM_MAX_TOKENS` | 生成参数 |
 | `EMBEDDING_MODEL` / `EMBEDDING_DIMENSION` | 嵌入模型配置 (默认本地 BGE, GPU 加速) |
+| `EMBEDDING_MODEL_LOCAL_PATH` | BGE 模型本地路径 (默认 `data/models/bge-large-zh-v1.5/`, 可通过 `BGE_LOCAL_PATH` 环境变量覆盖) |
 | `MINIMAX_EMBEDDING_MODEL` | MiniMax 嵌入备选 (需 API Key) |
 | `CHROMA_PERSISTENCE_DIR` | ChromaDB 持久化路径 |
 | `PHASE0_HEURISTIC_PARAMS` | Phase 0 分类阈值（已弃用，classifier 当前管线不调用） |
