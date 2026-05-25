@@ -51,6 +51,7 @@ class M3IterationLoop:
         mode: str = "GEN",
         reference_content: Optional[str] = None,
         mission_phase: Optional[str] = None,
+        seed_concept: Optional[Dict[str, Any]] = None,
     ) -> Tuple[Dict[str, Any], ReviewFeedback]:
         """执行完整的 M3 迭代协议
 
@@ -59,6 +60,8 @@ class M3IterationLoop:
             mode: 生成模式 "RAG"|"HYBRID"|"GEN"
             reference_content: PDF 参考资料（RAG/Hybrid 模式）
             mission_phase: 作战阶段约束，仅生成该阶段战术
+            seed_concept: 可选，穷举阶段产出的战术概念。提供后 A_gen 将基于此概念
+                          扩展生成完整双版本战术，而非从零设计。
 
         Returns:
             (final_tactic_json, last_review_feedback)
@@ -76,7 +79,22 @@ class M3IterationLoop:
 
         # 构建场景输入（保存基础版本，避免修正指令跨轮累积）
         scene_input = json.dumps(desc_json, ensure_ascii=False, indent=2)
-        base_user_prompt = f"## 子场景语义标注\n\n{scene_input}\n\n请基于以上场景信息生成通用化战术方案。"
+
+        if seed_concept:
+            seed_str = json.dumps(seed_concept, ensure_ascii=False, indent=2)
+            base_user_prompt = (
+                f"## 子场景语义标注\n\n{scene_input}\n\n"
+                f"## 战术概念种子\n\n以下是从穷举生成阶段产出的战术概念，请基于此概念扩展为"
+                f"完整的 text_version + struct_version 双版本战术方案。\n\n"
+                f"```json\n{seed_str}\n```\n\n"
+                f"请保持 Tactic_Name, objective, Tactic_Type, Semantic_Tags 不变，"
+                f"将 Description 和 Action_Sequence 扩展为符合双版本格式的完整内容。"
+            )
+        else:
+            base_user_prompt = (
+                f"## 子场景语义标注\n\n{scene_input}\n\n"
+                f"请基于以上场景信息生成通用化战术方案。"
+            )
 
         tactic_json = None
         last_review: Optional[ReviewFeedback] = None
