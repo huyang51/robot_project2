@@ -6,7 +6,11 @@ ChromaDB 向量存储封装
 
 import json
 import logging
+import os
 from typing import List, Dict, Optional, Any
+
+# 禁用 ChromaDB telemetry，避免 posthog API 兼容性报错
+os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
 
 from ..config import CHROMA_PERSISTENCE_DIR
 from ..core.exceptions import CollectionError

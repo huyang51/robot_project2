@@ -74,22 +74,22 @@ class M3IterationLoop:
             mission_phase=mission_phase,
         )
 
-        # 构建场景输入
+        # 构建场景输入（保存基础版本，避免修正指令跨轮累积）
         scene_input = json.dumps(desc_json, ensure_ascii=False, indent=2)
-        agen_user_prompt = f"## 子场景语义标注\n\n{scene_input}\n\n请基于以上场景信息生成通用化战术方案。"
+        base_user_prompt = f"## 子场景语义标注\n\n{scene_input}\n\n请基于以上场景信息生成通用化战术方案。"
 
         tactic_json = None
         last_review: Optional[ReviewFeedback] = None
-        prev_score = -1.0
+        prev_score: Optional[float] = None
 
         for round_idx in range(1, self.max_rounds + 1):
             logger.info(f"M3 第 {round_idx}/{self.max_rounds} 轮")
 
             # Step 1: 检查上一轮的通用性违规并修正
+            agen_user_prompt = base_user_prompt
             if round_idx > 1 and last_review and last_review.hard_violation_count > 0:
-                # 在 user_prompt 中附加违规修正指令
                 fix_instruction = self._build_fix_instruction(last_review)
-                agen_user_prompt = f"{agen_user_prompt}\n\n{fix_instruction}"
+                agen_user_prompt = f"{base_user_prompt}\n\n{fix_instruction}"
 
             # Step 2: A_gen 生成/修正
             # 触发条件：首轮无战术 / 审查未通过 / 审查通过但分数低于阈值需改进
@@ -100,11 +100,18 @@ class M3IterationLoop:
             )
             if needs_regeneration:
                 logger.info(f"  A_gen 生成战术 (mode={mode})")
-                tactic_json = self.client.generate_json(
+                result = self.client.generate_json(
                     system_prompt=agen_prompt,
                     user_prompt=agen_user_prompt,
                     temperature=0.7,
                 )
+                # generate_json 在 "Extra data" 修复路径中可能返回列表
+                if isinstance(result, list):
+                    tactic_json = result[0] if len(result) > 0 and isinstance(result[0], dict) else {}
+                elif isinstance(result, dict):
+                    tactic_json = result
+                else:
+                    tactic_json = None
 
             if tactic_json is None:
                 raise TacticGenerateError("A_gen 生成失败")
@@ -118,12 +125,17 @@ class M3IterationLoop:
             )
 
             logger.info(f"  A_review 审查中 (14条通用性规则 + 军事可行性)...")
-            review_result = self.client.generate_json(
+            review_raw = self.client.generate_json(
                 system_prompt=AREVIEW_SYSTEM_PROMPT,
                 user_prompt=review_input,
                 temperature=0.3,
             )
-            last_review = ReviewFeedback.from_dict(review_result, round_idx)
+            # generate_json 可能返回列表
+            if isinstance(review_raw, list):
+                review_raw = review_raw[0] if len(review_raw) > 0 and isinstance(review_raw[0], dict) else {}
+            elif not isinstance(review_raw, dict):
+                review_raw = {}
+            last_review = ReviewFeedback.from_dict(review_raw, round_idx)
 
             # Step 5: 早期丢弃检查
             if last_review.should_discard:
@@ -135,7 +147,7 @@ class M3IterationLoop:
                 if last_review.score >= self.q_pass_threshold:
                     logger.info(f"  M3 第{round_idx}轮: 审核通过 (score={last_review.score})")
                     return tactic_json, last_review
-                elif abs(last_review.score - prev_score) < self.score_convergence_delta:
+                elif prev_score is not None and abs(last_review.score - prev_score) < self.score_convergence_delta:
                     logger.info(f"  M3 第{round_idx}轮: 收敛 (delta={abs(last_review.score - prev_score):.2f} < {self.score_convergence_delta})")
                     return tactic_json, last_review
 

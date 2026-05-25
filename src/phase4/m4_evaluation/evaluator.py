@@ -120,8 +120,6 @@ def evaluate_tactic(
     if client is None:
         client = MiniMaxClient()
 
-    import json as json_module
-
     user_prompt = "\n".join([
         "## 待评估战术JSON（双版本结构）",
         "",
@@ -133,10 +131,10 @@ def evaluate_tactic(
         "- 可理解性：以 text_version 的 Intent 字段为主",
         "- 图文一致性：综合两个版本的 Visual_Aids/Instructions",
         "",
-        json_module.dumps(tactic_json, ensure_ascii=False, indent=2),
+        json.dumps(tactic_json, ensure_ascii=False, indent=2),
         "",
         "## 子场景语义标注（desc.json）",
-        json_module.dumps(desc_json, ensure_ascii=False, indent=2),
+        json.dumps(desc_json, ensure_ascii=False, indent=2),
         "",
         "## 任务",
         "请按照A_eval评估框架对以上战术进行六维度全项评分。",

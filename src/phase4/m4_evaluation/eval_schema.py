@@ -33,6 +33,13 @@ class DimensionScore:
 @dataclass
 class EvalResult:
     """A_eval 质量评估结果"""
+
+    DIMENSION_NAMES: List[str] = field(default_factory=lambda: [
+        "scene_adaptation", "execution_efficiency",
+        "comprehension", "granularity_compliance",
+        "text_visual_consistency", "military_feasibility",
+    ], init=False, repr=False)
+
     scores: Dict[str, DimensionScore] = field(default_factory=dict)
     overall_score: float = 0.0
     quality_level: str = "L"  # H/M/L
@@ -45,7 +52,12 @@ class EvalResult:
         scores_raw = data.get("scores", {})
         scores = {}
         for dim, dim_data in scores_raw.items():
-            scores[dim] = DimensionScore.from_dict(dim_data)
+            if isinstance(dim_data, dict):
+                scores[dim] = DimensionScore.from_dict(dim_data)
+            elif isinstance(dim_data, (int, float)):
+                scores[dim] = DimensionScore(score=float(dim_data))
+            else:
+                scores[dim] = DimensionScore(score=0.0)
 
         return cls(
             scores=scores,
@@ -73,11 +85,3 @@ class EvalResult:
     @property
     def is_ingestible(self) -> bool:
         return self.quality_level in ("H", "M")
-
-    @property
-    def dimension_names(self) -> List[str]:
-        return [
-            "scene_adaptation", "execution_efficiency",
-            "comprehension", "granularity_compliance",
-            "text_visual_consistency", "military_feasibility",
-        ]

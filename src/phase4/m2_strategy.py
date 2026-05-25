@@ -92,21 +92,25 @@ def run_m2(
     # 若嵌入客户端或向量存储不可用，直接返回 GEN 模式
     if embedding_client is None or vector_store is None:
         logger.info("M2: 嵌入客户端不可用，默认使用 GEN 模式")
-        return {
-            "mode": "GEN",
-            "max_similarity": 0.0,
-            "reference_chapters": [],
-            "reference_content": None,
-        }
+        return _gen_fallback()
 
     # 1. 生成 desc.json 的查询嵌入
     desc_text = _serialize_for_embedding(desc_json)
-    query_emb = embedding_client.embed(desc_text)
 
-    # 2. 检索相似 PDF 章节
-    from ..config import COLLECTION_PDF_CHAPTERS
-    results = vector_store.search(COLLECTION_PDF_CHAPTERS, query_emb, top_k=5)
-    similarities = [r.get("score", 0) for r in results]
+    try:
+        query_emb = embedding_client.embed(desc_text)
+        # 检测 stub 零向量（嵌入客户端降级到 stub 时返回全零）
+        if not query_emb or all(v == 0.0 for v in query_emb):
+            logger.info("M2: 嵌入向量为零向量（嵌入模型不可用），默认使用 GEN 模式")
+            return _gen_fallback()
+
+        # 2. 检索相似 PDF 章节
+        from ..config import COLLECTION_PDF_CHAPTERS
+        results = vector_store.search(COLLECTION_PDF_CHAPTERS, query_emb, top_k=5)
+        similarities = [r.get("score", 0) for r in results]
+    except Exception as e:
+        logger.warning("M2: 嵌入/检索失败 (%s)，回退到 GEN 模式", e)
+        return _gen_fallback()
 
     # 3. 判定模式
     mode, max_sim = determine_mode(similarities)
@@ -128,6 +132,16 @@ def run_m2(
         "max_similarity": max_sim,
         "reference_chapters": reference_chapters,
         "reference_content": reference_content,
+    }
+
+
+def _gen_fallback() -> Dict[str, Any]:
+    """M2 回退到 GEN 模式的统一返回值"""
+    return {
+        "mode": "GEN",
+        "max_similarity": 0.0,
+        "reference_chapters": [],
+        "reference_content": None,
     }
 
 

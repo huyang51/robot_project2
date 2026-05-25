@@ -100,24 +100,16 @@ def run_phase4(
     # 4. M3: 迭代精炼 (A_gen ↔ A_review)
     logger.info("  M3: 迭代精炼 (mode=%s)", mode)
     loop = M3IterationLoop(client=client)
-    try:
-        tactic_json, review_feedback = loop.run(
-            desc_json=desc_json,
-            mode=mode,
-            reference_content=reference_content,
-            mission_phase=mission_phase,
-        )
-    except Exception as e:
-        logger.error("  M3 迭代失败: %s", e)
-        raise
+    tactic_json, review_feedback = loop.run(
+        desc_json=desc_json,
+        mode=mode,
+        reference_content=reference_content,
+        mission_phase=mission_phase,
+    )
 
     # 5. M4: 质量评估
     logger.info("  M4: 质量评估")
-    try:
-        eval_result = evaluate_tactic(tactic_json, desc_json, client)
-    except Exception as e:
-        logger.error("  M4 评估失败: %s", e)
-        raise
+    eval_result = evaluate_tactic(tactic_json, desc_json, client)
     quality_level = classify_quality(eval_result)
     # 将 Python 分类器的结果写回 eval_result，确保 to_dict() 与顶层一致
     eval_result.quality_level = quality_level
@@ -141,7 +133,7 @@ def run_phase4(
         "m3_review_score": review_feedback.score if review_feedback else None,
         "m4_scores": {k: v.score for k, v in eval_result.scores.items()},
     }
-    struct_version["_metadata"] = text_version["_metadata"]
+    struct_version["_metadata"] = dict(text_version["_metadata"])
 
     tactic_id = text_version.get("Tactic_ID", sub_scene_id)
     text_path = level_dir_text / f"{tactic_id}.json"
@@ -233,17 +225,24 @@ if __name__ == "__main__":
             sys.exit(1)
 
     # 初始化嵌入客户端（M2 需要）
+    # 支持 python -m src.phase4.pipeline 和直接运行两种方式
     embedding_client = None
     vector_store = None
     try:
-        from ..kb.embedding_client import EmbeddingClient
+        try:
+            from ..kb.embedding_client import EmbeddingClient
+        except ImportError:
+            from src.kb.embedding_client import EmbeddingClient
         embedding_client = EmbeddingClient()
     except Exception as e:
         logger.warning("无法初始化嵌入客户端: %s", e)
 
     if embedding_client is not None:
         try:
-            from ..kb.vector_store import VectorStore
+            try:
+                from ..kb.vector_store import VectorStore
+            except ImportError:
+                from src.kb.vector_store import VectorStore
             vector_store = VectorStore()
             vector_store.get_or_create_collection(
                 COLLECTION_PDF_CHAPTERS

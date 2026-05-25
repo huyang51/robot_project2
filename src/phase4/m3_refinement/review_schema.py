@@ -73,8 +73,8 @@ class ReviewFeedback:
 
     @property
     def hard_violation_count(self) -> int:
-        return sum(1 for v in self.violations if v.rule_type == "hard")
+        return sum(1 for v in self.violations if getattr(v, "rule_type", None) == "hard")
 
     @property
     def soft_violation_count(self) -> int:
-        return sum(1 for v in self.violations if v.rule_type == "soft")
+        return sum(1 for v in self.violations if getattr(v, "rule_type", None) == "soft")

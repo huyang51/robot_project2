@@ -4,7 +4,7 @@ M4 质量分级器
 根据 EvalResult 判定 H/M/L 等级，检查否决条件。
 """
 
-from typing import Dict
+from typing import Dict, Any, Optional
 
 from ...config import M4_EVALUATION_PARAMS
 from .eval_schema import EvalResult
@@ -12,7 +12,7 @@ from .eval_schema import EvalResult
 
 def classify_quality(
     eval_result: EvalResult,
-    params: Dict = None,
+    params: Optional[Dict[str, Any]] = None,
 ) -> str:
     """根据评估结果判定质量等级
 

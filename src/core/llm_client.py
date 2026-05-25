@@ -209,14 +209,17 @@ class MiniMaxClient:
             except json.JSONDecodeError as e:
                 last_error_msg = str(e)
 
-                # 若因 "Extra data" 失败，包裹为数组重试
+                # 若因 "Extra data" 失败，包裹为数组，取第一个有效对象
                 if "Extra data" in last_error_msg and last_error_content:
                     wrapped = "[" + last_error_content + "]"
                     try:
                         wrapped_result = json.loads(wrapped)
-                        logger.info("JSON 解析修复：自动包裹多对象为数组（%s 个元素）",
-                                    len(wrapped_result) if isinstance(wrapped_result, list) else "?")
-                        return wrapped_result
+                        if isinstance(wrapped_result, list) and len(wrapped_result) > 0:
+                            logger.info("JSON 解析修复：自动包裹多对象为数组，取第1个（共%s个）",
+                                        len(wrapped_result))
+                            return wrapped_result[0] if isinstance(wrapped_result[0], dict) else wrapped_result
+                        logger.info("JSON 解析修复：包裹后返回非列表结果")
+                        return wrapped_result if isinstance(wrapped_result, dict) else {}
                     except json.JSONDecodeError:
                         pass
 
