@@ -34,27 +34,31 @@ def classify_quality(
         return "L"
 
     # 单项最低分检查
-    for dim_name, dim_score in eval_result.scores.items():
-        if dim_score.score < single_min:
+    for dim_name, dim_data in eval_result.scores.items():
+        dim_score = dim_data.score if isinstance(dim_data, DimensionScore) else float(dim_data)
+        if dim_score < single_min:
             return "L"
 
     # 否决阈值检查
+    def _get_score(obj) -> float:
+        return obj.score if isinstance(obj, DimensionScore) else float(obj)
+
     military = eval_result.scores.get("military_feasibility")
-    if military and military.score < vetoes.get("V1_military", 3.0):
+    if military and _get_score(military) < vetoes.get("V1_military", 3.0):
         return "L"
 
     scene = eval_result.scores.get("scene_adaptation")
-    if scene and scene.score < vetoes.get("V2_scene_adaptation", 3.0):
+    if scene and _get_score(scene) < vetoes.get("V2_scene_adaptation", 3.0):
         return "L"
 
     granularity = eval_result.scores.get("granularity_compliance")
-    if granularity and granularity.score < vetoes.get("V3_granularity", 3.0):
+    if granularity and _get_score(granularity) < vetoes.get("V3_granularity", 3.0):
         return "L"
 
     q = eval_result.overall_score
 
     if q >= thresholds["H"]:
-        if military and military.score >= military_min:
+        if military and _get_score(military) >= military_min:
             return "H"
         return "M"  # 综合分够高但军事分不够
 

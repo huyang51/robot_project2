@@ -110,11 +110,11 @@ class M3IterationLoop:
                 agen_user_prompt = f"{base_user_prompt}\n\n{fix_instruction}"
 
             # Step 2: A_gen 生成/修正
-            # 触发条件：首轮无战术 / 审查未通过 / 审查通过但分数低于阈值需改进
+            # 触发条件：首轮无战术 / 审查未通过(有硬违规)
+            # 注意: overall_pass=True 时无硬违规，无需再生（即使分数低）
             needs_regeneration = (
-                tactic_json is None
+                not tactic_json
                 or (last_review and not last_review.overall_pass)
-                or (last_review and last_review.score < self.q_pass_threshold)
             )
             if needs_regeneration:
                 logger.info(f"  A_gen 生成战术 (mode={mode})")
@@ -131,7 +131,7 @@ class M3IterationLoop:
                 else:
                     tactic_json = None
 
-            if tactic_json is None:
+            if not tactic_json:
                 raise TacticGenerateError("A_gen 生成失败")
 
             # Step 3: 提取审查上下文 → A_review 审查全部 14 条规则

@@ -68,7 +68,16 @@ class ExhaustiveTacticGenerator:
             sub_scene_id, total_batches, MAX_TACTICS,
         )
 
+        max_total_rounds = total_batches + MAX_NO_REF_ROUNDS + 2
+        round_count = 0
+
         while True:
+            round_count += 1
+
+            # 绝对轮次上限保护
+            if round_count > max_total_rounds:
+                logger.info("穷举终止: 达到绝对轮次上限 %d", max_total_rounds)
+                break
             # 确定本轮注入的参考批次
             if batches and batch_idx < total_batches:
                 batch_content = batches[batch_idx]
@@ -98,7 +107,10 @@ class ExhaustiveTacticGenerator:
             new_count = 0
             if isinstance(result, list):
                 for tactic in result:
+                    # 过滤无效概念：非 dict、空 dict、无名称
                     if not isinstance(tactic, dict):
+                        continue
+                    if not tactic.get("Tactic_Name"):
                         continue
                     if self._is_duplicate(tactic, all_tactics):
                         continue
@@ -157,27 +169,34 @@ class ExhaustiveTacticGenerator:
 
     @staticmethod
     def _jaccard(text1: str, text2: str) -> float:
-        """Jaccard 词重叠系数"""
-        for sep in [",", "。", "、", "；", ";", ".", "\n"]:
-            text1 = text1.replace(sep, " ")
-            text2 = text2.replace(sep, " ")
-        words1 = set(w for w in text1.split() if len(w) > 1)
-        words2 = set(w for w in text2.split() if len(w) > 1)
-        if not words1 or not words2:
+        """Jaccard 字符二元组重叠系数（适用于中文无空格文本）"""
+        def char_bigrams(s: str) -> set:
+            # 只保留中英文字符，忽略标点和空格
+            cleaned = ''.join(c for c in s if c.isalpha() or '\u4e00' <= c <= '\u9fff')
+            return set(cleaned[i:i+2] for i in range(len(cleaned)-1))
+        b1, b2 = char_bigrams(text1), char_bigrams(text2)
+        if not b1 or not b2:
             return 0.0
-        return len(words1 & words2) / len(words1 | words2)
+        return len(b1 & b2) / len(b1 | b2)
 
     # ── 内部工具 ──────────────────────────────────────
 
     @staticmethod
     def _split_reference(content: str) -> List[str]:
-        """将参考资料按字数分批"""
+        """将参考资料按段落边界分批（避免句子截断）"""
         if not content or not content.strip():
             return []
+        paragraphs = [p.strip() for p in content.strip().split('\n\n') if p.strip()]
         batches = []
-        ref = content.strip()
-        for i in range(0, len(ref), REF_BATCH_SIZE):
-            batches.append(ref[i:i + REF_BATCH_SIZE])
+        current = ""
+        for para in paragraphs:
+            if len(current) + len(para) > REF_BATCH_SIZE and current:
+                batches.append(current)
+                current = para
+            else:
+                current = current + "\n\n" + para if current else para
+        if current:
+            batches.append(current)
         return batches
 
     def _safe_generate(self, system_prompt: str, user_prompt: str) -> Any:

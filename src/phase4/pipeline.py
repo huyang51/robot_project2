@@ -26,6 +26,7 @@ from .m2_strategy import run_m2
 from .m3_refinement.iteration_loop import M3IterationLoop
 from .m4_evaluation.evaluator import evaluate_tactic
 from .m4_evaluation.quality_classifier import classify_quality
+from .m4_evaluation.eval_schema import EvalResult
 from .multi_tactic.exhaustive_generator import ExhaustiveTacticGenerator
 
 logger = logging.getLogger(__name__)
@@ -83,12 +84,11 @@ def run_phase4(
         logger.warning("  M1 验证未通过: %s", errors)
         if m1_result["validation"].get("cube_count", 0) == 0:
             logger.error("  M1 致命错误：子场景无几何数据，跳过")
-            from .m4_evaluation.eval_schema import EvalResult as ER
             return [{
                 "text_version": {}, "struct_version": {},
                 "m1_result": m1_result, "m2_result": {},
                 "m3_feedback": {"round": 0, "score": 0, "overall_pass": False},
-                "m4_result": ER().to_dict(),
+                "m4_result": EvalResult().to_dict(),
                 "quality_level": "L",
                 "output_paths": {"text": "", "struct": ""},
                 "error": "M1 validation failed: empty sub-scene",

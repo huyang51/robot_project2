@@ -10,7 +10,7 @@ M2: 双层自适应策略
 import logging
 from typing import Dict, Optional, List, Tuple, Any
 
-from ..config import M2_THETA_LOW, M2_THETA_HIGH
+from ..config import M2_THETA_LOW, M2_THETA_HIGH, COLLECTION_PDF_CHAPTERS
 
 logger = logging.getLogger(__name__)
 
@@ -105,9 +105,13 @@ def run_m2(
             return _gen_fallback()
 
         # 2. 检索相似 PDF 章节
-        from ..config import COLLECTION_PDF_CHAPTERS
         results = vector_store.search(COLLECTION_PDF_CHAPTERS, query_emb, top_k=5)
-        similarities = [r.get("score", 0) for r in results]
+        if not isinstance(results, list):
+            raise TypeError(f"vector_store.search 返回非列表类型: {type(results)}")
+        similarities = [
+            r.get("score", 0) if isinstance(r, dict) else 0.0
+            for r in results
+        ]
     except Exception as e:
         logger.warning("M2: 嵌入/检索失败 (%s)，回退到 GEN 模式", e)
         return _gen_fallback()

@@ -147,6 +147,13 @@ def evaluate_tactic(
         temperature=0.3,
     )
 
+    # generate_json 可能返回 list（Extra data 修复路径）
+    if isinstance(result, list):
+        result = result[0] if len(result) > 0 and isinstance(result[0], dict) else {}
+    if not isinstance(result, dict):
+        logger.warning("M4: generate_json 返回非字典类型 %s", type(result))
+        result = {}
+
     eval_result = EvalResult.from_dict(result)
 
     logger.info(
