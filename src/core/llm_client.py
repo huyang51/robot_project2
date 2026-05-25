@@ -128,7 +128,7 @@ class MiniMaxClient:
             raise LLMError(f"解析响应失败: {str(e)}")
 
     def _extract_json(self, content: str) -> str:
-        """从 LLM 输出中提取 JSON 内容"""
+        """从 LLM 输出中提取 JSON 内容并修复常见格式错误"""
         content = content.strip()
 
         # 移除 <think> 标签（DeepSeek 系列模型思维链）
@@ -144,11 +144,11 @@ class MiniMaxClient:
             if len(parts) > 1:
                 inner = parts[1].split("```")
                 if inner[0].strip():
-                    return inner[0].strip()
+                    return self._repair_json(inner[0].strip())
         elif "```" in content:
             parts = content.split("```")
             if len(parts) >= 3:
-                return parts[1].strip()
+                return self._repair_json(parts[1].strip())
 
         # 查找 JSON 边界
         for open_char, close_char in [("{", "}"), ("[", "]")]:
@@ -157,9 +157,23 @@ class MiniMaxClient:
             if first != -1 and last != -1 and last > first:
                 extracted = content[first:last + 1].strip()
                 if extracted:
-                    return extracted
+                    return self._repair_json(extracted)
 
-        return content.strip()
+        return self._repair_json(content.strip())
+
+    @staticmethod
+    def _repair_json(json_str: str) -> str:
+        """修复 LLM 输出中常见的 JSON 格式错误"""
+        # 1. 修复缺失开头引号的属性名: Step": → "Step":
+        #    匹配: 行首空白 + 字母开头单词 + ": + 冒号
+        json_str = re.sub(
+            r'(^|\n)(\s+)([A-Za-z_][A-Za-z0-9_]*")\s*:',
+            r'\1\2"\3:',
+            json_str,
+        )
+        # 2. 修复尾随逗号: ,] 或 ,}
+        json_str = re.sub(r',\s*(\]|\})', r'\1', json_str)
+        return json_str
 
     def generate_json(
         self,
