@@ -60,6 +60,11 @@ def run_phase2(
         user_prompt=user_prompt,
         temperature=0.3,
     )
+    # generate_json 可能返回 list（Extra data 修复路径）
+    if isinstance(result, list):
+        result = result[0] if len(result) > 0 and isinstance(result[0], dict) else {}
+    if not isinstance(result, dict):
+        result = {}
 
     # 将全局 task 存储到输出，确保每个子场景继承任务上下文
     if task:

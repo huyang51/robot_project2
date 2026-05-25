@@ -58,6 +58,11 @@ def annotate_sub_scene(
         user_prompt=user_prompt,
         temperature=0.3,
     )
+    # generate_json 可能返回 list（Extra data 修复路径）
+    if isinstance(result, list):
+        result = result[0] if len(result) > 0 and isinstance(result[0], dict) else {}
+    if not isinstance(result, dict):
+        result = {}
 
     # 确保 sub_scene_id 一致
     result["sub_scene_id"] = sub_scene_id

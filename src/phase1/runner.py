@@ -63,6 +63,11 @@ def run_phase1(
         user_prompt=user_prompt,
         temperature=0.3,
     )
+    # generate_json 可能返回 list（Extra data 修复路径）
+    if isinstance(result, list):
+        result = result[0] if len(result) > 0 and isinstance(result[0], dict) else {}
+    if not isinstance(result, dict):
+        result = {}
 
     # 将 task 写入输出以便追溯
     if task:
