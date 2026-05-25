@@ -243,8 +243,8 @@ if __name__ == "__main__":
 
     if embedding_client is not None:
         try:
-            from ..kb.vector_store import VectorStoreManager
-            vector_store = VectorStoreManager()
+            from ..kb.vector_store import VectorStore
+            vector_store = VectorStore()
             vector_store.get_or_create_collection(
                 COLLECTION_PDF_CHAPTERS
             )
