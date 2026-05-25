@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Any
 
 from ..core.llm_client import MiniMaxClient
-from ..config import TACTICS_TEXT_DIR, TACTICS_STRUCT_DIR
+from ..config import TACTICS_TEXT_DIR, TACTICS_STRUCT_DIR, COLLECTION_PDF_CHAPTERS
 from .m1_validator import run_m1
 from .m2_strategy import run_m2
 from .m3_refinement.iteration_loop import M3IterationLoop
@@ -232,8 +232,29 @@ if __name__ == "__main__":
             print(f"错误: 文件不存在: {p}", file=sys.stderr)
             sys.exit(1)
 
+    # 初始化嵌入客户端（M2 需要）
+    embedding_client = None
+    vector_store = None
+    try:
+        from ..kb.embedding_client import EmbeddingClient
+        embedding_client = EmbeddingClient()
+    except Exception as e:
+        logger.warning("无法初始化嵌入客户端: %s", e)
+
+    if embedding_client is not None:
+        try:
+            from ..kb.vector_store import VectorStoreManager
+            vector_store = VectorStoreManager()
+            vector_store.get_or_create_collection(
+                COLLECTION_PDF_CHAPTERS
+            )
+        except Exception as e:
+            logger.warning("ChromaDB 向量存储初始化失败 (M2 将使用 GEN 模式): %s", e)
+
     # Phase 4 内部使用默认目录，如需自定义可通过环境变量或修改 config
     result = run_phase4(args.desc_json_path, args.scene_cubes_path,
+                        embedding_client=embedding_client,
+                        vector_store=vector_store,
                         mission_phase=args.mission_phase)
     print(f"Phase 4 完成")
     print(f"  质量等级: {result['quality_level']}")
