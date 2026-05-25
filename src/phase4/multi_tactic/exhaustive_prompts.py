@@ -74,6 +74,10 @@ EXHAUSTIVE_SYSTEM_PROMPT = f"""
 
 不要包含其他说明文字或代码块标记。
 
+## JSON 格式约束
+- 字符串值内的双引号必须转义为 `\\\"`，引用原文时使用「」角括号
+- 字符串值内禁止直接换行，换行用 `\\n` 表示
+
 ## 战术概念 Schema
 {TACTIC_CONCEPT_SCHEMA}
 """
