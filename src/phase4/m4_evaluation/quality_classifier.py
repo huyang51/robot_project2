@@ -7,7 +7,7 @@ M4 质量分级器
 from typing import Dict, Any, Optional
 
 from ...config import M4_EVALUATION_PARAMS
-from .eval_schema import EvalResult
+from .eval_schema import EvalResult, DimensionScore
 
 
 def classify_quality(
