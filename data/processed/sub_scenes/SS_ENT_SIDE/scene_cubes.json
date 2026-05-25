@@ -1,0 +1,531 @@
+{
+  "sub_scene_id": "SS_ENT_SIDE",
+  "cube_count": 15,
+  "cubes": [
+    {
+      "id": "/SimpleDome01_1__4958_002/SimpleDome01_1__4958_002",
+      "parent": "/SimpleDome01_1__4958_002",
+      "bounds": {
+        "x": [
+          7.635,
+          7.667
+        ],
+        "y": [
+          257.462,
+          257.498
+        ],
+        "z": [
+          6.575,
+          6.625
+        ]
+      },
+      "center": {
+        "x": 7.651,
+        "y": 257.48,
+        "z": 6.6
+      },
+      "size": {
+        "x": 0.031,
+        "y": 0.036,
+        "z": 0.051
+      },
+      "material": "root/_materials/_4",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 216,
+        "spacing": 0.068,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/_3__771228_/_3__771228_",
+      "parent": "/_3__771228_",
+      "bounds": {
+        "x": [
+          0.029,
+          0.099
+        ],
+        "y": [
+          262.399,
+          262.409
+        ],
+        "z": [
+          12.082,
+          12.151
+        ]
+      },
+      "center": {
+        "x": 0.064,
+        "y": 262.404,
+        "z": 12.117
+      },
+      "size": {
+        "x": 0.07,
+        "y": 0.01,
+        "z": 0.069
+      },
+      "material": "root/_materials/_0010_Snow",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 3870,
+        "spacing": 0.047,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/__5__422622_004/__5__422622_004",
+      "parent": "/__5__422622_004",
+      "bounds": {
+        "x": [
+          1.341,
+          1.641
+        ],
+        "y": [
+          258.012,
+          259.18
+        ],
+        "z": [
+          6.516,
+          6.766
+        ]
+      },
+      "center": {
+        "x": 1.491,
+        "y": 258.596,
+        "z": 6.641
+      },
+      "size": {
+        "x": 0.3,
+        "y": 1.169,
+        "z": 0.249
+      },
+      "material": "root/_materials/_4",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 224,
+        "spacing": 0.003,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/_231__194401__010/_231__194401__010",
+      "parent": "/_231__194401__010",
+      "bounds": {
+        "x": [
+          -8.829,
+          -6.909
+        ],
+        "y": [
+          251.507,
+          251.557
+        ],
+        "z": [
+          3.737,
+          3.847
+        ]
+      },
+      "center": {
+        "x": -7.869,
+        "y": 251.532,
+        "z": 3.792
+      },
+      "size": {
+        "x": 1.919,
+        "y": 0.05,
+        "z": 0.11
+      },
+      "material": "root/_materials/_Color_007_1",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 580,
+        "spacing": 0.017,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/Component_3__826357_007/Component_3__826357_007",
+      "parent": "/Component_3__826357_007",
+      "bounds": {
+        "x": [
+          -5.647,
+          -5.613
+        ],
+        "y": [
+          253.888,
+          253.968
+        ],
+        "z": [
+          26.37,
+          26.404
+        ]
+      },
+      "center": {
+        "x": -5.63,
+        "y": 253.928,
+        "z": 26.387
+      },
+      "size": {
+        "x": 0.034,
+        "y": 0.08,
+        "z": 0.033
+      },
+      "material": "root/_materials/_Corrogated_2",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 509,
+        "spacing": 0.007,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/__426006_/__426006_",
+      "parent": "/__426006_",
+      "bounds": {
+        "x": [
+          1.285,
+          6.413
+        ],
+        "y": [
+          259.395,
+          259.885
+        ],
+        "z": [
+          25.342,
+          33.28
+        ]
+      },
+      "center": {
+        "x": 3.849,
+        "y": 259.64,
+        "z": 29.311
+      },
+      "size": {
+        "x": 5.129,
+        "y": 0.489,
+        "z": 7.938
+      },
+      "material": "root/_materials/mucaimian",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 109,
+        "spacing": 0.079,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/_231__194404__013/_231__194404__013",
+      "parent": "/_231__194404__013",
+      "bounds": {
+        "x": [
+          4.125,
+          6.045
+        ],
+        "y": [
+          247.007,
+          247.057
+        ],
+        "z": [
+          3.756,
+          3.867
+        ]
+      },
+      "center": {
+        "x": 5.085,
+        "y": 247.032,
+        "z": 3.811
+      },
+      "size": {
+        "x": 1.919,
+        "y": 0.05,
+        "z": 0.111
+      },
+      "material": "root/_materials/_Color_007_1",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 100,
+        "spacing": 0.033,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/_231__194389__014/_231__194389__014",
+      "parent": "/_231__194389__014",
+      "bounds": {
+        "x": [
+          -4.511,
+          -2.591
+        ],
+        "y": [
+          251.007,
+          251.057
+        ],
+        "z": [
+          3.743,
+          3.853
+        ]
+      },
+      "center": {
+        "x": -3.551,
+        "y": 251.032,
+        "z": 3.798
+      },
+      "size": {
+        "x": 1.919,
+        "y": 0.05,
+        "z": 0.111
+      },
+      "material": "root/_materials/_Color_007_1",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 178,
+        "spacing": 0.016,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/Fountain_Water_2__887625_035/Fountain_Water_2__887625_035",
+      "parent": "/Fountain_Water_2__887625_035",
+      "bounds": {
+        "x": [
+          4.181,
+          4.211
+        ],
+        "y": [
+          250.798,
+          251.115
+        ],
+        "z": [
+          34.646,
+          34.728
+        ]
+      },
+      "center": {
+        "x": 4.196,
+        "y": 250.957,
+        "z": 34.687
+      },
+      "size": {
+        "x": 0.03,
+        "y": 0.317,
+        "z": 0.082
+      },
+      "material": "root/_materials/_SkyBlue_",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 55,
+        "spacing": 0.017,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/_55__828731__001/_55__828731__001",
+      "parent": "/_55__828731__001",
+      "bounds": {
+        "x": [
+          4.101,
+          4.162
+        ],
+        "y": [
+          260.856,
+          263.447
+        ],
+        "z": [
+          5.508,
+          5.569
+        ]
+      },
+      "center": {
+        "x": 4.131,
+        "y": 262.151,
+        "z": 5.538
+      },
+      "size": {
+        "x": 0.061,
+        "y": 2.591,
+        "z": 0.061
+      },
+      "material": "root/_materials/Empty_material",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 9134,
+        "spacing": 0.012,
+        "direction": "y"
+      }
+    },
+    {
+      "id": "/_55__828731_004/_55__828731_004",
+      "parent": "/_55__828731_004",
+      "bounds": {
+        "x": [
+          4.47,
+          4.53
+        ],
+        "y": [
+          250.839,
+          253.431
+        ],
+        "z": [
+          5.508,
+          5.569
+        ]
+      },
+      "center": {
+        "x": 4.5,
+        "y": 252.135,
+        "z": 5.538
+      },
+      "size": {
+        "x": 0.061,
+        "y": 2.592,
+        "z": 0.061
+      },
+      "material": "root/_materials/Empty_material",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 18333,
+        "spacing": 0.019,
+        "direction": "y"
+      }
+    },
+    {
+      "id": "/Fountain_Water_2__887628__005/Fountain_Water_2__887628__005",
+      "parent": "/Fountain_Water_2__887628__005",
+      "bounds": {
+        "x": [
+          -1.868,
+          -1.844
+        ],
+        "y": [
+          259.526,
+          259.589
+        ],
+        "z": [
+          35.063,
+          35.178
+        ]
+      },
+      "center": {
+        "x": -1.856,
+        "y": 259.557,
+        "z": 35.12
+      },
+      "size": {
+        "x": 0.024,
+        "y": 0.063,
+        "z": 0.115
+      },
+      "material": "root/_materials/_SkyBlue_",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 83,
+        "spacing": 0.025,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/_299__11081_/_299__11081_",
+      "parent": "/_299__11081_",
+      "bounds": {
+        "x": [
+          5.611,
+          5.665
+        ],
+        "y": [
+          259.408,
+          259.447
+        ],
+        "z": [
+          0.0,
+          5.57
+        ]
+      },
+      "center": {
+        "x": 5.638,
+        "y": 259.427,
+        "z": 2.785
+      },
+      "size": {
+        "x": 0.055,
+        "y": 0.039,
+        "z": 5.57
+      },
+      "material": "root/_materials/_CoolGray8_",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 1033,
+        "spacing": 0.0,
+        "direction": "y"
+      }
+    },
+    {
+      "id": "/_164__167244_/_164__167244_",
+      "parent": "/_164__167244_",
+      "bounds": {
+        "x": [
+          -36.543,
+          14.677
+        ],
+        "y": [
+          264.557,
+          264.607
+        ],
+        "z": [
+          5.898,
+          6.028
+        ]
+      },
+      "center": {
+        "x": -10.933,
+        "y": 264.582,
+        "z": 5.963
+      },
+      "size": {
+        "x": 51.219,
+        "y": 0.05,
+        "z": 0.131
+      },
+      "material": "root/_materials/_Color_007_1",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 304,
+        "spacing": 0.023,
+        "direction": "x"
+      }
+    },
+    {
+      "id": "/_167__122460_/_167__122460_",
+      "parent": "/_167__122460_",
+      "bounds": {
+        "x": [
+          -1.174,
+          -1.126
+        ],
+        "y": [
+          245.257,
+          246.757
+        ],
+        "z": [
+          21.588,
+          21.642
+        ]
+      },
+      "center": {
+        "x": -1.15,
+        "y": 246.007,
+        "z": 21.615
+      },
+      "size": {
+        "x": 0.048,
+        "y": 1.5,
+        "z": 0.054
+      },
+      "material": "root/_materials/_Color_007_1",
+      "pattern_info": {
+        "type": "linear_array",
+        "member_count": 71,
+        "spacing": 0.002,
+        "direction": "x"
+      }
+    }
+  ]
+}

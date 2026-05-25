@@ -22,6 +22,7 @@ def annotate_sub_scene(
     client: Optional[MiniMaxClient] = None,
     global_context: str = "",
     adjacent_scenes: str = "",
+    phase2_context: str = "",
 ) -> Dict[str, Any]:
     """对单个子场景进行 LLM 语义标注
 
@@ -33,6 +34,7 @@ def annotate_sub_scene(
         client: MiniMaxClient 实例
         global_context: 全局上下文（该子场景在建筑中的位置/楼层/相邻zone）
         adjacent_scenes: 相邻子场景摘要
+        phase2_context: Phase 2 场景定义（权威开口尺寸和空间描述）
 
     Returns:
         desc.json 内容字典
@@ -46,6 +48,7 @@ def annotate_sub_scene(
         cubes_text, task_hint, tactical_role,
         global_context=global_context,
         adjacent_scenes=adjacent_scenes,
+        phase2_context=phase2_context,
     )
 
     logger.info("Phase 3c LLM 语义标注: %s (%d Cube)", sub_scene_id, len(cubes))
@@ -89,5 +92,6 @@ def batch_annotate(
             client=client,
             global_context=info.get("global_context", ""),
             adjacent_scenes=info.get("adjacent_scenes", ""),
+            phase2_context=info.get("phase2_context", ""),
         )
     return results

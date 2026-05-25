@@ -1,0 +1,241 @@
+{
+  "sub_scene_id": "SS_RM_F2_SOUTH",
+  "tactical_role": "room_entry",
+  "task_hint": "三层南侧大房间，3面围合，肃清走廊后需进入该房间搜索",
+  "zones": [
+    {
+      "zone_id": "room_main",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -60.0,
+          -42.0
+        ],
+        "y": [
+          249.0,
+          262.0
+        ],
+        "z": [
+          0.0,
+          3.0
+        ]
+      },
+      "description": "三层南侧大卧室空间，三面围合，入口朝西。内部北侧墙面有装饰性固定装置（Cube_1），南侧墙面有罗马帘装饰（Cube_2），天花板有嵌入式发光材质（Cube_8），地面有网格铺设区域（Cube_5）。",
+      "connected_to": [],
+      "contained_cube_ids": [
+        "/_216__4770__682/_216__4770__682",
+        "/__5863__017/__5863__017",
+        "/__5863__025/__5863__025",
+        "/__5935_/__5935_",
+        "/_5__14660__428/_5__14660__428",
+        "/__5941__013/__5941__013",
+        "/_216__4770__241/_216__4770__241",
+        "/_222_1__317451_/_222_1__317451_"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "door_west",
+      "type": "door",
+      "connects": [
+        "room_main",
+        "corridor_SS_COR_F2"
+      ],
+      "width": 0.9,
+      "height": 2.1,
+      "position_rel": {
+        "x": -60.0,
+        "y": 255.5,
+        "z": 0.0
+      },
+      "notes": "距地高度0m，落地门，可直接通过。朝向西侧走廊，窄门幅。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_216__4770__682/_216__4770__682",
+      "quality": "standing",
+      "height": 1.86,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "west",
+            "east"
+          ]
+        }
+      ],
+      "notes": "北墙固定装饰结构，高1.86m，可为站立人员提供有效掩体。位于房间北侧入口附近。"
+    },
+    {
+      "cube_id": "/_222_1__317451_/_222_1__317451_",
+      "quality": "crouching",
+      "height": 0.971,
+      "coverage_direction": [
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "嵌入式发光材质结构，高约1m，可供蹲姿人员利用进行视线遮蔽，位于房间东侧区域。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "room_main",
+      "description": "门后存在进入视线盲区。door位于西墙北侧（y≈255.5），进入后南侧和东侧角落存在视觉盲区，需立即扫清。"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "medium",
+      "location_zone": "room_main",
+      "description": "房间进深约18m（X从-60到-42），存在东西向长视线。进入后深处区域目视确认前存在暴露风险。"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "medium",
+      "location_zone": "room_main",
+      "description": "南侧和北侧墙面可能有窗户（据罗马帘装饰推断），虽Phase 2未标记为开口，但北侧外墙方向可能暴露于外部威胁。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "从西侧door进入房间，沿北墙或南墙向内搜索",
+      "从door进入后直穿房间中心至东墙"
+    ],
+    "constraints": [
+      "房间仅一个出入口，backstop风险存在",
+      "房间面积较大（约18m×13m），搜索时间长",
+      "内部掩体有限，仅北墙结构和东侧嵌入式结构可用"
+    ],
+    "key_control_points": [
+      {
+        "id": "kp_door_threshold",
+        "position_rel": {
+          "x": -60.0,
+          "y": 255.5,
+          "z": 0.0
+        },
+        "description": "西侧门口位置，进入房间的起点",
+        "controls": [
+          "进入通道",
+          "撤离通道"
+        ],
+        "tactical_value": "高 - 控制此点可封锁房间出入口"
+      },
+      {
+        "id": "kp_room_center",
+        "position_rel": {
+          "x": -51.0,
+          "y": 255.5,
+          "z": 0.0
+        },
+        "description": "房间中心区域",
+        "controls": [
+          "房间主视野区"
+        ],
+        "tactical_value": "中 - 进入后需快速确认此区域无威胁"
+      },
+      {
+        "id": "kp_east_wall",
+        "position_rel": {
+          "x": -42.0,
+          "y": 255.5,
+          "z": 0.0
+        },
+        "description": "东墙根部，房间最深点",
+        "controls": [
+          "东墙角落",
+          "北侧和南侧角落视野"
+        ],
+        "tactical_value": "中 - 确认此处可完成房间主体肃清"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "西侧走廊（SS_COR_F2）",
+      "to_position": "房间内部门槛",
+      "exposed_to": [
+        "west（走廊方向）",
+        "north（门口北侧盲区）",
+        "south（门口南侧盲区）"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "房间门槛",
+      "to_position": "房间中心区域",
+      "exposed_to": [
+        "north（北墙窗户方向）",
+        "south（南墙方向）",
+        "east（深处区域）"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "房间中心区域",
+      "to_position": "东墙角落",
+      "exposed_to": [
+        "south",
+        "east",
+        "north"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "ep_door_west",
+        "zone_id": "room_main",
+        "opening_id": "door_west",
+        "approach_from": "west（从SS_COR_F2走廊接近）"
+      }
+    ],
+    "objective_criteria": [
+      "房间四个角落（东北、西北、东南、西南）已目视确认清除",
+      "所有固定结构和家具后已检查",
+      "房间内无残余威胁人员"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_COR_F2",
+        "via": "door_west",
+        "condition": "房间肃清完毕，所有角落已目视确认"
+      }
+    ]
+  },
+  "spatial_description": "三层南侧大卧室空间，X方向约18m进深，Y方向约13m开间，三面围合仅西侧有门。内部北侧入口附近有装饰性固定结构，南侧墙面有罗马帘装饰（暗示可能有窗户），东侧天花板有嵌入式发光材质。地面有网格铺设。门位于西墙偏北侧，连接至走廊SS_COR_F2。房间可能是主卧或多人卧室，空间开阔但掩体有限。",
+  "inferred_tags": [
+    "南侧卧室",
+    "三面围合",
+    "单向入口",
+    "大进深房间",
+    "有限掩体",
+    "需逐角肃清"
+  ]
+}

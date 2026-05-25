@@ -98,9 +98,10 @@ def run_phase3(
         # 写入简化后的 Cube JSON
         usda_path = write_sub_scene_usda(ss_cubes, ss_id, output_dir)
 
-        # 3c: LLM 语义标注（传入全局上下文和相邻子场景信息）
+        # 3c: LLM 语义标注（传入全局上下文、Phase 2 权威数据、相邻子场景信息）
         global_ctx = _build_global_context(ss_def, sub_scenes, ss_index)
         adj_ctx = _build_adjacent_context(ss_def, ss_index)
+        phase2_ctx = _build_phase2_context(ss_def, definitions, ss_index)
         try:
             desc = annotate_sub_scene(
                 cubes=ss_cubes,
@@ -110,6 +111,7 @@ def run_phase3(
                 client=client,
                 global_context=global_ctx,
                 adjacent_scenes=adj_ctx,
+                phase2_context=phase2_ctx,
             )
         except LLMError as e:
             logger.error(f"{ss_id} LLM 标注失败: {e}，跳过此子场景")
@@ -236,6 +238,64 @@ def _build_adjacent_context(
             lines.append(f"  出入口: {', '.join(entry_strs)}")
 
     return '\n'.join(lines) if lines else "（无相邻子场景信息）"
+
+
+def _build_phase2_context(
+    ss_def: Dict,
+    definitions: Dict,
+    ss_index: Dict[str, Dict],
+) -> str:
+    """为 Phase 3c 构建 Phase 2 权威数据上下文
+
+    包含该子场景的空间描述（含开口尺寸）、space_profile 中的已知出入口、
+    以及 entry_options 中对应的入口选项。
+    这些数据是 Phase 1/2 多源几何分析的产物，标注时优先采用其尺寸。
+    """
+    lines = []
+
+    # 1. 空间描述（含开口尺寸等关键数据）
+    desc = ss_def.get("description", "")
+    if desc:
+        lines.append(f"空间描述: {desc}")
+
+    # 2. space_profile 中的已知出入口
+    sp = ss_def.get("space_profile", {})
+    entries_exits = sp.get("entries_exits", [])
+    if entries_exits:
+        lines.append(f"已知开口 ({len(entries_exits)} 个):")
+        for ee in entries_exits:
+            etype = ee.get("type", "?")
+            facing = ee.get("facing", "?")
+            width_cat = ee.get("width_category", "?")
+            access = ee.get("accessibility", "?")
+            lines.append(f"  - {etype}: 朝向{facing}, 宽度类别={width_cat}, 可达性={access}")
+
+    # 3. 与该子场景相关的 entry_options
+    entry_options = definitions.get("entry_options", [])
+    related_entries = [e for e in entry_options if e.get("sub_scene_id") == ss_def.get("sub_scene_id")]
+    if related_entries:
+        lines.append(f"入口选项 ({len(related_entries)} 个):")
+        for e in related_entries:
+            lines.append(
+                f"  - {e.get('entry_id')}: type={e.get('type')}, "
+                f"floor={e.get('floor')}, access={e.get('access_means')}, "
+                f"desc=\"{e.get('description', '')}\""
+            )
+
+    # 4. 楼层信息
+    floor = ss_def.get("floor", "?")
+    lines.append(f"楼层: F{floor}" + (
+        " (地面层，只存在向上楼梯)" if floor == 0 else
+        " (顶层，只存在向下楼梯)" if floor == 2 else
+        " (中间层，存在双向楼梯)"
+    ))
+
+    # 5. connected_sub_scenes 及连接类型
+    connected = ss_def.get("connected_sub_scenes", [])
+    if connected:
+        lines.append(f"连通子场景: {', '.join(connected)}")
+
+    return '\n'.join(lines)
 
 
 # ── CLI 入口 ────────────────────────────────────────────────

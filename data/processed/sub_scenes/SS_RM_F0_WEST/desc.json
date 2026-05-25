@@ -1,0 +1,274 @@
+{
+  "sub_scene_id": "SS_RM_F0_WEST",
+  "tactical_role": "room_entry",
+  "task_hint": "一层西侧独立房间，位于走廊北侧，3面围合需逐间肃清",
+  "zones": [
+    {
+      "zone_id": "Z_ENTRY",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -18.0,
+          0.0
+        ],
+        "y": [
+          0.8,
+          2.0
+        ],
+        "z": [
+          0.0,
+          0.55
+        ]
+      },
+      "description": "北侧入口走廊区域，宽度约2m，进深约1.2m",
+      "connected_to": [
+        "Z_CORRIDOR"
+      ],
+      "contained_cube_ids": [
+        "/_216__4770__252",
+        "/_216__4770__358"
+      ]
+    },
+    {
+      "zone_id": "Z_FUNC",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -18.0,
+          0.0
+        ],
+        "y": [
+          0.0,
+          0.8
+        ],
+        "z": [
+          0.0,
+          0.55
+        ]
+      },
+      "description": "房间主体区域，南侧功能区",
+      "connected_to": [
+        "Z_ENTRY"
+      ],
+      "contained_cube_ids": [
+        "/_7__14661__675"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "OP_NORTH",
+      "type": "door",
+      "connects": [
+        "Z_ENTRY",
+        "Z_CORRIDOR"
+      ],
+      "width": 0.9,
+      "height": 2.1,
+      "position_rel": {
+        "x": -9.0,
+        "y": 2.0,
+        "z": 0.0
+      },
+      "notes": "窄门，距地高度0m，落地门可直接通过，朝向north，连接走廊SS_COR_F0"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_134__192099_",
+      "quality": "standing",
+      "height": 2.7,
+      "coverage_direction": [
+        "west",
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "东墙段，Z=0处高度约0.55m，向上延伸形成有效站姿掩体"
+    },
+    {
+      "cube_id": "/_134__192105_",
+      "quality": "standing",
+      "height": 2.7,
+      "coverage_direction": [
+        "west",
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "东墙段，Z=0处高度约0.55m，向上延伸形成有效站姿掩体"
+    },
+    {
+      "cube_id": "/_134__192123_",
+      "quality": "standing",
+      "height": 2.7,
+      "coverage_direction": [
+        "west",
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "东墙段，Z=0处高度约0.55m，向上延伸形成有效站姿掩体"
+    },
+    {
+      "cube_id": "/_____2__318413_",
+      "quality": "obstacle",
+      "height": 36.1,
+      "coverage_direction": [],
+      "effective_positions": [],
+      "notes": "北侧外墙/楼板，高36m不可逾越，Z=0附近可作障碍物但无战术利用价值"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "blind_corner",
+      "severity": "critical",
+      "location_zone": "Z_ENTRY",
+      "description": "北侧入口形成盲角，编队进入时房间内部存在盲区，入口处人员无法直接观察到南侧区域"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "medium",
+      "location_zone": "Z_FUNC",
+      "description": "房间东西跨度约18m，若内部无隔断则形成长视线威胁区间，敌人可能在东侧或西侧角落设伏"
+    },
+    {
+      "type": "choke_point",
+      "severity": "high",
+      "location_zone": "Z_ENTRY",
+      "description": "入口门宽0.9m仅容单人通过，形成天然瓶颈点，编队进入时队形受限，易受内部火力压制"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "门入口→南侧功能区",
+      "沿东墙西侧运动"
+    ],
+    "constraints": [
+      "房间南北深度仅2m，机动空间极其有限",
+      "入口宽度0.9m限制队形展开",
+      "无窗户开口，缺乏垂直机动选项"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP_DOOR",
+        "position_rel": {
+          "x": -9.0,
+          "y": 2.0,
+          "z": 0.0
+        },
+        "description": "北侧门框处",
+        "controls": [
+          "控制进入通道",
+          "封锁向北撤退路线"
+        ],
+        "tactical_value": "入口控制点"
+      },
+      {
+        "id": "CP_EAST_WALL",
+        "position_rel": {
+          "x": -18.0,
+          "y": 1.0,
+          "z": 0.0
+        },
+        "description": "东墙沿线",
+        "controls": [
+          "掩护西侧通过人员",
+          "提供反向射击依托"
+        ],
+        "tactical_value": "侧翼掩护点"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "门框处（OP_NORTH出口）",
+      "to_position": "南侧功能区中心",
+      "exposed_to": [
+        "south",
+        "west"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "入口门洞",
+      "to_position": "东墙沿线",
+      "exposed_to": [
+        "south",
+        "east"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "Z_ENTRY",
+      "to_position": "Z_FUNC",
+      "exposed_to": [
+        "south"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP_NORTH",
+        "zone_id": "Z_ENTRY",
+        "opening_id": "OP_NORTH",
+        "approach_from": "north（从SS_COR_F0走廊方向接近）"
+      }
+    ],
+    "objective_criteria": [
+      "所有角落已目视确认清除",
+      "南侧功能区已肃清",
+      "无遗漏人员/威胁"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_COR_F0",
+        "via": "OP_NORTH",
+        "condition": "本子场景肃清完毕，人员通过北门返回走廊"
+      }
+    ]
+  },
+  "spatial_description": "西侧封闭房间，南北跨度约2m（Y=[249,251]），东西跨度约18m（X=[-124,-106]）。北侧为唯一出入口（门宽0.9m，朝向北侧走廊SS_COR_F0），其余三面由墙体围合。房间深度浅，入口后即是南侧功能区，肃清动作需快速展开覆盖全空间。室内无窗户，仅靠北门通风采光。",
+  "inferred_tags": [
+    "小型封闭房间",
+    "窄门入口",
+    "短纵深",
+    "单入口肃清",
+    "L形转角（门→南墙）"
+  ]
+}

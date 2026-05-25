@@ -19,7 +19,19 @@ PHASE3C_SYSTEM_PROMPT = """
 1. **子场景几何数据**: 简化后的 Cube 列表（id/center/size/material），坐标已 Z 归一化（地面 Z≈0）
 2. **全局上下文**: 该子场景在建筑中的位置（楼层、朝向、相邻 zones、建筑整体结构）
 3. **相邻子场景摘要**: 与该子场景有连通关系的其他子场景的简要信息（空间类型、开口位置、关键威胁）
-4. **任务信息**: tactical_role（初步建议）、task_hint（阶段目标）
+4. **Phase 2 场景定义**: **权威数据源**。包含该子场景的空间描述、已知开口列表和入口选项。
+   这些数据来自多源几何分析（USDA解析+楼板检测+墙面线分析），**其开口尺寸和空间尺度在标注时必须优先采用，不要仅凭 Cube 尺寸推断**。
+   简化后的 Cube 可能只是原始几何的碎片化表示（如门框被简化为单个小方块），不代表实际建筑尺寸。
+5. **任务信息**: tactical_role（初步建议）、task_hint（阶段目标）
+
+## 关键约束
+
+- **开口尺寸**: 如果 Phase 2 场景定义中已给出开口宽度（如"宽2.8m"），必须使用该值，
+  不要从 Cube 尺寸重新测量。Cube 经过简化，尺寸可能远小于实际建筑开口。
+- **去战术化**: openings 的 notes 字段只描述物理特征（尺寸、高度、材质、朝向），
+  不要包含战术方法建议（如"适合双组同时突入"、"需快速通过"等）。战术方法留给 Phase 4 决定。
+- **楼梯方向**: 检查楼层位置。F0（一层/地面层）的楼梯只能向上（UP），不存在向下（DOWN）的楼梯。
+  只有中间楼层（F1等）才有双向楼梯。
 
 ## 标注规范
 
@@ -188,6 +200,7 @@ def build_phase3c_user_prompt(
     tactical_role: str,
     global_context: str = "",
     adjacent_scenes: str = "",
+    phase2_context: str = "",
 ) -> str:
     """构建 Phase 3c 用户 prompt
 
@@ -197,6 +210,7 @@ def build_phase3c_user_prompt(
         tactical_role: 战术角色（建议）
         global_context: 全局上下文（来自 Phase 1，该子场景在建筑中的位置）
         adjacent_scenes: 相邻子场景摘要
+        phase2_context: Phase 2 场景定义（权威开口尺寸和空间描述）
     """
     prompt = "## 子场景几何数据 (Cube 列表，坐标已 Z 归一化)\n\n"
     prompt += sub_scene_cubes
@@ -204,6 +218,9 @@ def build_phase3c_user_prompt(
 
     if global_context:
         prompt += f"\n## 全局上下文（该子场景在建筑中的位置）\n\n{global_context}\n"
+
+    if phase2_context:
+        prompt += f"\n## Phase 2 场景定义（权威数据源——开口尺寸以此为准）\n\n{phase2_context}\n"
 
     if adjacent_scenes:
         prompt += f"\n## 相邻子场景摘要\n\n{adjacent_scenes}\n"
@@ -216,8 +233,11 @@ def build_phase3c_user_prompt(
 请基于以上全部信息，输出完整的 desc.json 语义标注。
 注意：
 1. 坐标已 Z 归一化（地面 Z≈0）。openings 的 position_rel.z 是开口距地高度。
-2. 利用全局上下文和相邻子场景信息做威胁推理。
-3. 每个掩体必须填写 effective_positions。
-4. 输出前完成自检清单确认。
+2. 开口尺寸以 Phase 2 场景定义为准，不要从 Cube 尺寸重新测量。
+3. openings 的 notes 仅描述物理特征，不包含战术方法建议。
+4. 利用全局上下文和相邻子场景信息做威胁推理。
+5. 每个掩体必须填写 effective_positions。
+6. 检查楼梯方向：F0 只有向上楼梯，F2 只有向下楼梯，F1 才有双向楼梯。
+7. 输出前完成自检清单确认。
 """
     return prompt

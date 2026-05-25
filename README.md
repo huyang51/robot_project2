@@ -635,7 +635,8 @@ robot_project2/
 data/
 ├── raw/
 │   ├── scene.usda              # 原始 Blender 导出的大场景
-│   └── task_description.txt    # 任务描述文本
+│   ├── *.pdf                   # 战术参考资料 PDF（Phase 4 M2 RAG 检索用）
+│   └── task_description.txt    # 任务描述文本（可选）
 │
 └── processed/
     ├── phase0/

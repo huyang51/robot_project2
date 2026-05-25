@@ -1,0 +1,297 @@
+{
+  "sub_scene_id": "SS_EXT_F2",
+  "tactical_role": "rope_entry",
+  "task_hint": "三层外部接近区，可通过架梯或索降从屋顶进入三层走廊",
+  "zones": [
+    {
+      "zone_id": "ZONE_EXT_F2_MAIN",
+      "type": "exterior",
+      "bounds_rel": {
+        "x": [
+          -143.0,
+          -60.0
+        ],
+        "y": [
+          224.0,
+          258.0
+        ],
+        "z": [
+          0.0,
+          22.2
+        ]
+      },
+      "description": "F2层南向外墙立面区域，为完全开放空间。西侧与SS_COR_F2走廊相邻，北侧有女儿墙边界，东侧有楼梯井结构。该区域作为主要进入点(ENT_07)所在地，是架梯进入的战术起点。",
+      "connected_to": [
+        "ZONE_EXT_F2_STAIR"
+      ],
+      "contained_cube_ids": []
+    },
+    {
+      "zone_id": "ZONE_EXT_F2_STAIR",
+      "type": "stairwell",
+      "bounds_rel": {
+        "x": [
+          -90.0,
+          -79.0
+        ],
+        "y": [
+          226.0,
+          229.2
+        ],
+        "z": [
+          0.0,
+          22.2
+        ]
+      },
+      "description": "F2层东侧楼梯井结构，为混凝土实体(Cube _65__317683_)，从Z=13.35延伸至Z=19.67，是楼梯的主体支撑结构。该楼梯井可向下通往F1层，是肃清完成后的主要转移通道。",
+      "connected_to": [
+        "ZONE_EXT_F2_MAIN"
+      ],
+      "contained_cube_ids": [
+        "/_65__317683_/_65__317683_"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "OP_EXT_F2_WINDOW_S",
+      "type": "window",
+      "connects": [
+        "ZONE_EXT_F2_MAIN",
+        "exterior"
+      ],
+      "width": 2.0,
+      "height": 2.2,
+      "position_rel": {
+        "x": -90.0,
+        "y": 240.0,
+        "z": 0.3
+      },
+      "notes": "南向外墙标准尺寸窗户，距地高度约0.3m(落地窗形式)，窗台较低可通过梯架进入。窗户位于Y=[230,250]区间偏东位置。"
+    },
+    {
+      "id": "OP_EXT_F2_STAIR_DOWN",
+      "type": "stairway",
+      "connects": [
+        "ZONE_EXT_F2_STAIR",
+        "SS_COR_F1"
+      ],
+      "width": 2.0,
+      "height": 22.0,
+      "position_rel": {
+        "x": -84.0,
+        "y": 227.5,
+        "z": 0.0
+      },
+      "notes": "F2层东侧楼梯井，可向下通往F1层。楼梯井为混凝土实体结构，顶部开放可直接目视上层。F2为顶层，该楼梯只存在向下(DOWN)路径。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_65__317683_/_65__317683_",
+      "quality": "standing",
+      "height": 6.3,
+      "coverage_direction": [
+        "west",
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west",
+            "north"
+          ],
+          "exposed_to": [
+            "south"
+          ]
+        },
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼梯井混凝土实体结构，厚约9.7m，高约6.3m，提供了良好的掩体。东侧人员可利用其西侧面作为掩体，北侧人员可利用其南侧面。楼梯井是F2层最可靠的掩体。"
+    },
+    {
+      "cube_id": "/_14__168494__002",
+      "quality": "standing",
+      "height": 2.0,
+      "coverage_direction": [
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "south"
+          ]
+        }
+      ],
+      "notes": "西侧楼梯井北端墙体(西墙)，可作为东侧方向的掩体。位于X=-142.8处，是建筑西北角结构。"
+    },
+    {
+      "cube_id": "/_19__317660_/_19__317660_",
+      "quality": "crouching",
+      "height": 0.55,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west",
+            "south"
+          ]
+        }
+      ],
+      "notes": "北侧女儿墙边缘水平板条，高度约0.55m，可提供蹲姿掩体和视线遮蔽。位于Y=241.8处，从X=-140.3延伸。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "choke_point",
+      "severity": "high",
+      "location_zone": "ZONE_EXT_F2_MAIN",
+      "description": "ENT_07入口点为瓶颈位置。架梯进入时人员必须经过窗户开口(宽约2m)，暴露时间较长(约15-30秒架梯时间)，容易成为攻击目标。"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "medium",
+      "location_zone": "ZONE_EXT_F2_STAIR",
+      "description": "楼梯井顶部向下射击的伏击位置。由于楼梯井顶部开放，若F1层有敌方人员，可能对正在进入或通过楼梯的人员构成垂直威胁。"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "medium",
+      "location_zone": "ZONE_EXT_F2_MAIN",
+      "description": "楼梯井与主外墙交界处(X=-90处)存在视线死角。从南侧入口进入后，楼梯井方向存在盲区，需谨慎清理。"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "low",
+      "location_zone": "ZONE_EXT_F2_MAIN",
+      "description": "外墙立面区域较为开阔，从入口点向西可目视较远距离。但由于是外部空间，非优先威胁方向。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "ENT_07窗口进入 → 外墙立面移动 → 楼梯井掩护点",
+      "楼梯井 → 楼梯向下转移 → F1层",
+      "外墙立面东西向移动 → 到达走廊边界(X=-60)"
+    ],
+    "constraints": [
+      "入口处需架设梯子，初始暴露时间较长",
+      "东侧楼梯井为主要掩体，但与入口存在约6m距离",
+      "外墙立面缺乏中间掩体，长距离移动需快速通过",
+      "西侧X=-60处为建筑结构边界，无法继续向西"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP_ENT_07",
+        "position_rel": {
+          "x": -90.0,
+          "y": 240.0,
+          "z": 0.3
+        },
+        "description": "ENT_07入口点，窗户位置",
+        "controls": [
+          "入口通道",
+          "进入后第一暴露区"
+        ],
+        "tactical_value": "进入本区域的唯一外部通道，必须首先建立"
+      },
+      {
+        "id": "CP_STAIR_EDGE",
+        "position_rel": {
+          "x": -85.0,
+          "y": 228.0,
+          "z": 0.5
+        },
+        "description": "楼梯井东侧边缘",
+        "controls": [
+          "楼梯通道",
+          "主外墙大部分区域"
+        ],
+        "tactical_value": "进入后应首先到达的掩体位置，可覆盖东侧楼梯和部分外墙"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "外部架梯位置(南侧)",
+      "to_position": "外墙立面(入口下方)",
+      "exposed_to": [
+        "south",
+        "east",
+        "west"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "外墙立面(入口下方)",
+      "to_position": "楼梯井边缘",
+      "exposed_to": [
+        "south",
+        "east"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "楼梯井边缘",
+      "to_position": "楼梯井内",
+      "exposed_to": [
+        "south"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "ENT_07",
+        "zone_id": "ZONE_EXT_F2_MAIN",
+        "opening_id": "OP_EXT_F2_WINDOW_S",
+        "approach_from": "south"
+      }
+    ],
+    "objective_criteria": [
+      "ENT_07入口点已建立，梯子稳固架设",
+      "楼梯井边缘已占领并确认安全",
+      "楼梯向下通道已确认无威胁"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_COR_F2",
+        "via": "建筑内部连接",
+        "condition": "楼梯井向下通过后，进入F2走廊区域"
+      }
+    ]
+  },
+  "spatial_description": "F2层南向外墙立面开放区域，属于建筑屋顶层的外部空间。区域呈东西向狭长形态(X方向约83m)，南北向较窄(约20m)。西侧(X≈-143)与SS_COR_F2走廊区域相邻，东侧(X≈-79至-90)存在混凝土楼梯井结构。南向外墙在Y=[230,250]区间有标准尺寸窗户(ENT_07)，为唯一外部进入点。区域内有垂直幕墙装饰板条和水平女儿墙边缘等建筑元素。北侧为女儿墙边界，与屋顶女儿墙相连。F2为顶层，楼梯井只存在向下通往F1的路径。",
+  "inferred_tags": [
+    "外墙立面",
+    "架梯进入",
+    "F2顶层",
+    "楼梯井转移",
+    "ENT_07入口",
+    "南向开口"
+  ]
+}

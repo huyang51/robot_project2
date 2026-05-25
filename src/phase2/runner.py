@@ -140,4 +140,4 @@ if __name__ == "__main__":
     output = run_phase2(args.global_understanding_path,
                         output_dir=args.output_dir, task=args.task)
     print(f"Phase 2 完成: {output}")
-    print(f"💡 人工审核: python -m src.phase2.reviewer \"{output}\"")
+    print(f"[提示] 人工审核: python -m src.phase2.reviewer \"{output}\"")

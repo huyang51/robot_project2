@@ -1,0 +1,347 @@
+{
+  "sub_scene_id": "SS_EXT_GROUND",
+  "tactical_role": "rally_point",
+  "task_hint": "作为进攻发起阵地和撤离掩护区域，提供火力支援覆盖两个入口方向",
+  "zones": [
+    {
+      "zone_id": "Z_EXT_SOUTH_MAIN",
+      "type": "exterior",
+      "bounds_rel": {
+        "x": [
+          -30.0,
+          10.0
+        ],
+        "y": [
+          258.0,
+          265.0
+        ],
+        "z": [
+          0.0,
+          15.0
+        ]
+      },
+      "description": "建筑南侧外部开放区域，完全开阔无遮蔽。地面为建筑外部硬质地面，可容纳多人小队集结。北侧通过宽开口与SS_COR_F0走廊连通，南侧面向外部街道。",
+      "connected_to": [
+        "Z_EXT_SOUTH_NORTH_ACCESS"
+      ],
+      "contained_cube_ids": [
+        "___35__11058__001",
+        "lamp_cover__155085__005",
+        "___44__149294_"
+      ]
+    },
+    {
+      "zone_id": "Z_EXT_SOUTH_NORTH_ACCESS",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -20.0,
+          10.0
+        ],
+        "y": [
+          259.0,
+          261.0
+        ],
+        "z": [
+          0.0,
+          8.0
+        ]
+      },
+      "description": "北侧开口区域，宽度约30m（x方向分布），为进入SS_COR_F0走廊的主通道。地面高度与内部走廊平齐，开口朝向正北，可达性为地面级。",
+      "connected_to": [
+        "Z_EXT_SOUTH_MAIN",
+        "SS_COR_F0"
+      ],
+      "contained_cube_ids": [
+        "_103__629828_",
+        "_104__422586_",
+        "_51__629823_"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "OP_NORTH_MAIN",
+      "type": "balcony_opening",
+      "connects": [
+        "Z_EXT_SOUTH_NORTH_ACCESS",
+        "SS_COR_F0"
+      ],
+      "width": 30.0,
+      "height": 6.7,
+      "position_rel": {
+        "x": -5.0,
+        "y": 259.5,
+        "z": 0.0
+      },
+      "notes": "宽开口约30m，距地高度0m（落地），高度6.7m，通往一层主走廊。无门扇限制，可直接进入建筑内部。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "___35__11058__001",
+      "quality": "crouching",
+      "height": 6.7,
+      "coverage_direction": [
+        "south",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "east",
+            "north"
+          ]
+        },
+        {
+          "behind": "west",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east"
+          ]
+        }
+      ],
+      "notes": "南侧主体墙体，高度6.7m，可提供蹲姿掩体。人员需紧贴墙体北侧，利用墙角转角位置。"
+    },
+    {
+      "cube_id": "lamp_cover__155085__005",
+      "quality": "concealment_only",
+      "height": 1.9,
+      "coverage_direction": [],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [],
+          "exposed_to": [
+            "north",
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "室外灯具底座，高度不足1.9m，仅能提供视觉遮蔽，无法阻挡火力。适合短暂隐蔽。"
+    },
+    {
+      "cube_id": "___44__149294_",
+      "quality": "crouching",
+      "height": 2.4,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "北侧低矮结构，高度2.4m，可提供蹲姿掩体。位于北侧开口附近，可作为进入建筑前的最后掩护点。"
+    },
+    {
+      "cube_id": "_112__905368_001",
+      "quality": "standing",
+      "height": 2.4,
+      "coverage_direction": [
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "西侧结构悬挑部分，高度2.4m，可提供站姿掩体。位于西侧区域，可遮挡来自南侧入口方向的视线。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "long_sightline",
+      "severity": "high",
+      "location_zone": "Z_EXT_SOUTH_MAIN",
+      "description": "北侧开口直通SS_COR_F0走廊，走廊内部可能有未知威胁。透过宽30m的开口可直接观察或被走廊内敌人观察。"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "high",
+      "location_zone": "Z_EXT_SOUTH_MAIN",
+      "description": "作为集结区域，队员面向SS_ENT_MAIN和SS_ENT_SIDE入口方向（南侧）警戒，但侧翼（东西向）完全暴露，易受外部方向威胁。"
+    },
+    {
+      "type": "choke_point",
+      "severity": "medium",
+      "location_zone": "Z_EXT_SOUTH_NORTH_ACCESS",
+      "description": "北侧开口是进入建筑的必经之路，宽度30m虽大但仍有明确边界。队员进出时需穿越此区域，暴露于开口方向。"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "medium",
+      "location_zone": "Z_EXT_SOUTH_MAIN",
+      "description": "北侧开口上方有玻璃窗结构（z≈8.3m），可能存在来自二层的垂直威胁，尤其在肃清过程中。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "南北向穿越：从北侧开口（OP_NORTH_MAIN）沿y方向向南穿越开阔地",
+      "东西向横移：在开阔地内东西方向移动寻找掩体",
+      "向心集结：从外围向SS_ENT_MAIN和SS_ENT_SIDE方向收拢"
+    ],
+    "constraints": [
+      "开阔地完全暴露，移动时无掩体保护",
+      "与SS_COR_F0连通处有约10m无遮蔽区",
+      "地面条件良好（硬质地面），但缺乏快速移动掩护"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP_NORTH_EDGE",
+        "position_rel": {
+          "x": 0.0,
+          "y": 259.5,
+          "z": 0.0
+        },
+        "description": "北侧开口边缘，距墙体约1m位置",
+        "controls": [
+          "北侧开口通道",
+          "进入SS_COR_F0的路线"
+        ],
+        "tactical_value": "控制通往建筑内部的唯一通道，可警戒北侧走廊方向"
+      },
+      {
+        "id": "CP_SOUTH_CORNER",
+        "position_rel": {
+          "x": -12.0,
+          "y": 258.0,
+          "z": 0.0
+        },
+        "description": "南侧墙角转角处",
+        "controls": [
+          "南侧开阔方向",
+          "SS_ENT_MAIN入口视线"
+        ],
+        "tactical_value": "提供双向掩体，可同时警戒南侧开阔地和西侧主入口方向"
+      },
+      {
+        "id": "CP_RALLY_CENTER",
+        "position_rel": {
+          "x": -10.0,
+          "y": 261.0,
+          "z": 0.0
+        },
+        "description": "开阔地中央偏北位置，距北侧开口约10m",
+        "controls": [
+          "全场视野覆盖",
+          "快速向各方向响应"
+        ],
+        "tactical_value": "作为主要集结区域，平衡对三个连通子场景的响应时间"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "北侧开口边缘",
+      "to_position": "开阔地中央",
+      "exposed_to": [
+        "north",
+        "west",
+        "east"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "南侧墙角",
+      "to_position": "开阔地中央",
+      "exposed_to": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "开阔地中央",
+      "to_position": "SS_COR_F0入口",
+      "exposed_to": [
+        "north"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP_FROM_COR_F0",
+        "zone_id": "Z_EXT_SOUTH_NORTH_ACCESS",
+        "opening_id": "OP_NORTH_MAIN",
+        "approach_from": "north"
+      },
+      {
+        "id": "EP_FROM_SS_ENT_MAIN",
+        "zone_id": "Z_EXT_SOUTH_MAIN",
+        "opening_id": "OP_SOUTH_ENT_MAIN",
+        "approach_from": "south"
+      },
+      {
+        "id": "EP_FROM_SS_ENT_SIDE",
+        "zone_id": "Z_EXT_SOUTH_MAIN",
+        "opening_id": "OP_SOUTH_ENT_SIDE",
+        "approach_from": "south"
+      }
+    ],
+    "objective_criteria": [
+      "所有队员完成集结并处于待命状态",
+      "北侧开口（通往SS_COR_F0）已建立警戒监视",
+      "南侧两个入口方向（SS_ENT_MAIN、SS_ENT_SIDE）保持警戒",
+      "火力支援阵地已部署到位",
+      "撤离路线已确认且畅通"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_COR_F0",
+        "via": "OP_NORTH_MAIN",
+        "condition": "编队完成集结后，通过北侧开口进入建筑内部，开始肃清任务"
+      },
+      {
+        "to_sub_scene": "SS_ENT_MAIN",
+        "via": "door",
+        "condition": "需要通过主入口突入建筑时，从南侧进入SS_ENT_MAIN"
+      },
+      {
+        "to_sub_scene": "SS_ENT_SIDE",
+        "via": "door",
+        "condition": "需要通过次入口突入建筑时，从南侧进入SS_ENT_SIDE"
+      }
+    ]
+  },
+  "spatial_description": "该子场景为建筑南侧外部开放区域，完全开阔无遮蔽。空间呈东西向狭长形态，x方向跨度约40m，y方向跨度约7m。北侧通过宽约30m、高6.7m的落地开口与SS_COR_F0走廊连通。南侧为建筑主体墙体（高度6.7m），可提供有限掩体。地面为硬质外部地面，可容纳多人站立。区域完全暴露于外部环境，缺乏高大掩体，仅有的墙体和低矮结构可提供局部掩护。作为集结待命点，队员需保持对建筑入口方向的警戒，同时注意侧翼暴露风险。楼梯方向为UP（向上），位于建筑内部非本区域。",
+  "inferred_tags": [
+    "开阔地集结",
+    "完全暴露",
+    "多向入口警戒",
+    "火力支援阵地",
+    "撤离掩护区"
+  ]
+}
