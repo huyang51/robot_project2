@@ -28,6 +28,7 @@ from .m4_evaluation.evaluator import evaluate_tactic
 from .m4_evaluation.quality_classifier import classify_quality
 from .m4_evaluation.eval_schema import EvalResult
 from .multi_tactic.exhaustive_generator import ExhaustiveTacticGenerator
+from .direction_generalizer import generalize_directions
 
 logger = logging.getLogger(__name__)
 
@@ -68,6 +69,10 @@ def run_phase4(
     # 1. 加载数据
     with open(desc_json_path, "r", encoding="utf-8") as f:
         desc_json = json.load(f)
+
+    # 1a. 方向泛化预处理：将 desc_json 中的绝对方向替换为功能/关系描述
+    desc_json = generalize_directions(desc_json)
+
     with open(scene_cubes_path, "r", encoding="utf-8") as f:
         scene_data = json.load(f)
 
