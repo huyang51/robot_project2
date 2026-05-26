@@ -1,0 +1,585 @@
+{
+  "sub_scene_id": "SS_09",
+  "tactical_role": "corridor_clear",
+  "task_hint": "二层走廊网络，连接楼梯入口和多个房间，沿Y=262.5墙体有连续掩体",
+  "zones": [
+    {
+      "zone_id": "zone_main_corridor",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -150.0,
+          40.0
+        ],
+        "y": [
+          252.0,
+          263.0
+        ],
+        "z": [
+          0.0,
+          51.0
+        ]
+      },
+      "description": "二层主走廊，Y向墙体形成水平通道，北侧Y=262.5区域有连续掩体",
+      "connected_to": [
+        "zone_west_corner",
+        "zone_stair_connection"
+      ],
+      "contained_cube_ids": [
+        "_154__321127_",
+        "_56__167657_",
+        "_56__167678_",
+        "_56__167684_",
+        "_56__167693_",
+        "_56__167717_",
+        "_56__167729_",
+        "_56__167735_"
+      ]
+    },
+    {
+      "zone_id": "zone_west_corner",
+      "type": "corner",
+      "bounds_rel": {
+        "x": [
+          -95.0,
+          -60.0
+        ],
+        "y": [
+          237.0,
+          252.0
+        ],
+        "z": [
+          0.0,
+          51.0
+        ]
+      },
+      "description": "二层西侧转角区域，与SS_08楼梯入口相邻，宽6.6m开口连接楼梯井和走廊",
+      "connected_to": [
+        "zone_main_corridor"
+      ],
+      "contained_cube_ids": [
+        "_19__317630_",
+        "_19__317636_",
+        "_19__317642_",
+        "_19__317645_",
+        "_19__317648_",
+        "_19__317654_",
+        "_19__317660_"
+      ]
+    },
+    {
+      "zone_id": "zone_stair_connection",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -145.0,
+          -120.0
+        ],
+        "y": [
+          252.0,
+          262.5
+        ],
+        "z": [
+          0.0,
+          51.0
+        ]
+      },
+      "description": "二层东侧楼梯井连接区域，与SS_11楼梯井通过door相连，楼梯井从F0延伸至F2",
+      "connected_to": [
+        "zone_main_corridor"
+      ],
+      "contained_cube_ids": [
+        "_216__4770__139",
+        "_216__4770__220",
+        "_216__4770__232",
+        "_216__4770__486",
+        "_216__4770__461",
+        "_216__4770__374",
+        "_216__4770__578",
+        "_216__4770__618",
+        "_216__4770__574",
+        "_216__4770__586",
+        "_216__4770__687",
+        "_216__4770__688",
+        "_216__4770__506"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "opening_west",
+      "type": "door",
+      "connects": [
+        "zone_main_corridor",
+        "zone_west_corner"
+      ],
+      "width": 1.0,
+      "height": 2.1,
+      "position_rel": {
+        "x": -70.0,
+        "y": 250.0,
+        "z": 0.0
+      },
+      "notes": "标准宽度门，距地高度0m，可直接通过，连接SS_08楼梯入口"
+    },
+    {
+      "id": "opening_east",
+      "type": "door",
+      "connects": [
+        "zone_main_corridor",
+        "zone_stair_connection"
+      ],
+      "width": 1.0,
+      "height": 2.1,
+      "position_rel": {
+        "x": -130.0,
+        "y": 260.0,
+        "z": 0.0
+      },
+      "notes": "标准宽度门，距地高度0m，可直接通过，连接SS_11楼梯井"
+    },
+    {
+      "id": "opening_south_window",
+      "type": "window",
+      "connects": [
+        "zone_main_corridor",
+        "SS_10"
+      ],
+      "width": 0.6,
+      "height": 1.2,
+      "position_rel": {
+        "x": -20.0,
+        "y": 253.0,
+        "z": 1.5
+      },
+      "notes": "窄窗，距地高度1.5m，需攀爬设备才能到达，可能是主卧或客厅窗户"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "_56__167657_",
+      "quality": "crouching",
+      "height": 0.8,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south"
+          ]
+        }
+      ],
+      "notes": "Y=89位置栏杆，提供中等掩护，可供下蹲使用"
+    },
+    {
+      "cube_id": "_56__167678_",
+      "quality": "standing",
+      "height": 0.8,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east"
+          ]
+        }
+      ],
+      "notes": "Y=-138位置栏杆，北侧掩体线组成部分，可站立掩护"
+    },
+    {
+      "cube_id": "_56__167684_",
+      "quality": "standing",
+      "height": 0.8,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east"
+          ]
+        }
+      ],
+      "notes": "Y=-131位置栏杆，北侧掩体线组成部分"
+    },
+    {
+      "cube_id": "_56__167693_",
+      "quality": "standing",
+      "height": 0.8,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east"
+          ]
+        }
+      ],
+      "notes": "Y=-124位置栏杆，北侧掩体线组成部分"
+    },
+    {
+      "cube_id": "_231__194404_",
+      "quality": "standing",
+      "height": 2.15,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        }
+      ],
+      "notes": "X=37.2位置栏杆柱，较高，可提供多方向掩护"
+    },
+    {
+      "cube_id": "_231__194404__004",
+      "quality": "standing",
+      "height": 2.15,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "X=-37.5位置栏杆柱，北侧连续掩体线组成部分"
+    },
+    {
+      "cube_id": "_155__121947__005",
+      "quality": "standing",
+      "height": 2.36,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        }
+      ],
+      "notes": "X=37.8位置栏杆，较高，可站立使用"
+    },
+    {
+      "cube_id": "_155__121947__007",
+      "quality": "standing",
+      "height": 2.36,
+      "coverage_direction": [
+        "north",
+        "south",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east"
+          ]
+        }
+      ],
+      "notes": "X=-38.1位置栏杆，北侧连续掩体线组成部分"
+    },
+    {
+      "cube_id": "_19__317630_",
+      "quality": "concealment_only",
+      "height": 0.55,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "any",
+          "covers_from": [
+            "east",
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "栏杆支柱，较低矮，主要提供视线阻隔而非防弹掩护"
+    },
+    {
+      "cube_id": "_173__122562_",
+      "quality": "standing",
+      "height": 0.12,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north"
+          ]
+        }
+      ],
+      "notes": "横向栏杆，地面层，低矮但可辅助定位"
+    },
+    {
+      "cube_id": "_172__1225xx_series",
+      "quality": "standing",
+      "height": 12.89,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        }
+      ],
+      "notes": "纵向栏杆柱系列，高度大，可作为主要掩体利用"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "zone_stair_connection",
+      "description": "楼梯井连接区域，从door进入后存在盲角，楼梯井方向可能有威胁"
+    },
+    {
+      "type": "choke_point",
+      "severity": "medium",
+      "location_zone": "zone_west_corner",
+      "description": "SS_08楼梯入口处，宽6.6m开口在此处形成瓶颈，多方向进入威胁"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "medium",
+      "location_zone": "zone_main_corridor",
+      "description": "南侧窗户距地1.5m，需梯子到达但仍可构成垂直方向威胁，来自SS_10房间"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "medium",
+      "location_zone": "zone_main_corridor",
+      "description": "北侧连续掩体线外侧可能暴露，走廊东段侧翼暴露于楼梯井方向"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "low",
+      "location_zone": "zone_main_corridor",
+      "description": "走廊东西向贯通，但从掩体位置可控制视线"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "沿Y=260北侧掩体线东西向移动",
+      "从SS_08经opening_west进入走廊，向东推进至opening_east",
+      "从opening_east进入SS_11楼梯井区域",
+      "从SS_10通过opening_south_window向外观察"
+    ],
+    "constraints": [
+      "走廊南侧无连续掩体，暴露于SS_10房间方向",
+      "楼梯井出口(opening_east)需确认楼梯方向和空间状态",
+      "栏杆间距约2.0m，可作为移动时参照点"
+    ],
+    "key_control_points": [
+      {
+        "id": "cp_stair_connection",
+        "position_rel": {
+          "x": -130.0,
+          "y": 260.0,
+          "z": 0.0
+        },
+        "description": "楼梯井连接处，扼守opening_east",
+        "controls": [
+          "通往SS_11楼梯井",
+          "控制走廊东段",
+          "可封锁楼梯垂直通道"
+        ],
+        "tactical_value": "high"
+      },
+      {
+        "id": "cp_north_cover_line",
+        "position_rel": {
+          "x": -80.0,
+          "y": 262.5,
+          "z": 0.0
+        },
+        "description": "北侧连续掩体线中段，Y=262.5墙体",
+        "controls": [
+          "掩护走廊北侧移动",
+          "提供向SS_10方向火力压制"
+        ],
+        "tactical_value": "high"
+      },
+      {
+        "id": "cp_west_entry",
+        "position_rel": {
+          "x": -70.0,
+          "y": 250.0,
+          "z": 0.0
+        },
+        "description": "西侧入口，连接SS_08",
+        "controls": [
+          "进入走廊的主要通道",
+          "控制通往楼梯的主要路线"
+        ],
+        "tactical_value": "medium"
+      },
+      {
+        "id": "cp_central_junction",
+        "position_rel": {
+          "x": -50.0,
+          "y": 258.0,
+          "z": 0.0
+        },
+        "description": "走廊中央节点，连接各区域",
+        "controls": [
+          "通往SS_10南侧门",
+          "观察走廊各方向",
+          "协调编队位置"
+        ],
+        "tactical_value": "medium"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "opening_west(SS_08方向)",
+      "to_position": "opening_east(SS_11方向)",
+      "exposed_to": [
+        "north",
+        "south"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "opening_east门口",
+      "to_position": "北侧掩体线",
+      "exposed_to": [
+        "south"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "opening_south_window附近",
+      "to_position": "走廊中央",
+      "exposed_to": [
+        "east",
+        "west"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "entry_from_stair_ss08",
+        "zone_id": "zone_west_corner",
+        "opening_id": "opening_west",
+        "approach_from": "west"
+      },
+      {
+        "id": "entry_from_stairwell_ss11",
+        "zone_id": "zone_stair_connection",
+        "opening_id": "opening_east",
+        "approach_from": "east"
+      }
+    ],
+    "objective_criteria": [
+      "走廊主体区域(zones_main_corridor)已清除威胁",
+      "北侧掩体线已确认安全",
+      "opening_west和opening_east已确认无威胁",
+      "南侧窗户(opening_south_window)已评估"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_11",
+        "via": "opening_east",
+        "condition": "楼梯井区域已确认无威胁，需要继续清理垂直通道时进入"
+      },
+      {
+        "to_sub_scene": "SS_08",
+        "via": "opening_west",
+        "condition": "需要回撤或从楼梯入口重新进入时使用"
+      },
+      {
+        "to_sub_scene": "SS_10",
+        "via": "opening_south_window",
+        "condition": "需要清理相邻房间时通过，但需注意窗户为高窗需特殊处理"
+      }
+    ]
+  },
+  "spatial_description": "二层走廊网络，Y方向墙体(Y=252.5、Y=257.5、Y=254.5等)形成水平通道。北侧Y=262.5区域有连续掩体线，可供人员利用。走廊西端连接SS_08楼梯入口，东端连接SS_11楼梯井，南侧有窄窗通向SS_10房间区域。西侧入口宽大(连接SS_08处有6.6m间隙)，东侧为标准门宽。栏杆柱沿走廊间隔分布，可作为移动参照和临时掩体。楼梯井从F0延伸至F2，在F1层与走廊通过门连接。",
+  "inferred_tags": [
+    "走廊肃清",
+    "连续掩体线",
+    "楼梯连接处",
+    "多出入口",
+    "栏杆掩体"
+  ]
+}

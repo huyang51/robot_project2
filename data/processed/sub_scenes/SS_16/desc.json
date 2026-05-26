@@ -1,0 +1,568 @@
+{
+  "sub_scene_id": "SS_16",
+  "tactical_role": "vertical_control",
+  "task_hint": "三层楼梯井延伸，控制此处可封锁上层垂直机动，且楼梯井顶部可能有屋顶通道",
+  "zones": [
+    {
+      "zone_id": "Z12_main_stairwell",
+      "type": "stairwell",
+      "bounds_rel": {
+        "x": [
+          -125.0,
+          -77.0
+        ],
+        "y": [
+          258.0,
+          264.0
+        ],
+        "z": [
+          0.0,
+          28.8
+        ]
+      },
+      "description": "三层楼梯井主体空间，北侧连接SS_13出口，西侧连接走廊门，南侧有采光窗，东侧有楼梯通向下方楼层。楼梯井贯通F0至F2，顶部有屋顶天窗可索降进入。",
+      "connected_to": [
+        "Z12_platform_F2"
+      ],
+      "contained_cube_ids": [
+        "_7__14661__488",
+        "_7__14661__136",
+        "_7__14661__665",
+        "_5__14660__420",
+        "___44__319260_",
+        "___44__319275_",
+        "___44__319263_",
+        "_56__167654_",
+        "_56__167699_",
+        "_56__167717_",
+        "Tree_2D_Schematic_Sparse_35__1__17136__001"
+      ]
+    },
+    {
+      "zone_id": "Z12_platform_F2",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -125.0,
+          -77.0
+        ],
+        "y": [
+          258.0,
+          264.0
+        ],
+        "z": [
+          23.4,
+          27.0
+        ]
+      },
+      "description": "三层楼梯平台区域，位于F2层，连接北侧出口、楼梯下行通道和南侧走廊门。楼梯在此处折向下层。",
+      "connected_to": [
+        "Z12_main_stairwell",
+        "SS_13"
+      ],
+      "contained_cube_ids": [
+        "__5847__029",
+        "__5863__008",
+        "__5863__009",
+        "__5863__024",
+        "__5863__029",
+        "_27__17811_",
+        "_27__17832_",
+        "__5833__029",
+        "__17188__006",
+        "__17188__009"
+      ]
+    },
+    {
+      "zone_id": "Z12_platform_F1",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -125.0,
+          -77.0
+        ],
+        "y": [
+          258.0,
+          264.0
+        ],
+        "z": [
+          15.3,
+          16.1
+        ]
+      },
+      "description": "二层楼梯平台区域，楼梯从二层继续向上至三层，向下至一层。平台有设备放置。",
+      "connected_to": [
+        "Z12_main_stairwell"
+      ],
+      "contained_cube_ids": [
+        "__5833_",
+        "_27__17796_"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "O12_stair_down",
+      "type": "door",
+      "connects": [
+        "Z12_platform_F2",
+        "Z12_platform_F1"
+      ],
+      "width": 2.0,
+      "height": 2.7,
+      "position_rel": {
+        "x": -105.0,
+        "y": 259.0,
+        "z": 0.0
+      },
+      "notes": "楼梯开口，朝向east，标准宽度，地面可达。楼梯向下连接至F1层平台。"
+    },
+    {
+      "id": "O12_door_south",
+      "type": "door",
+      "connects": [
+        "Z12_platform_F2",
+        "corridor_exterior"
+      ],
+      "width": 1.2,
+      "height": 2.2,
+      "position_rel": {
+        "x": -79.6,
+        "y": 261.45,
+        "z": 0.0
+      },
+      "notes": "走廊连接门，朝向south，距地高度0m，可直接通过。连接三层楼梯平台与南侧走廊网络。"
+    },
+    {
+      "id": "O12_roof_access",
+      "type": "balcony_opening",
+      "connects": [
+        "Z12_platform_F2",
+        "roof_exterior"
+      ],
+      "width": 2.5,
+      "height": 1.8,
+      "position_rel": {
+        "x": -101.0,
+        "y": 258.5,
+        "z": 26.3
+      },
+      "notes": "屋顶天窗开口，距地高度约26.3m（位于三层楼板上方），可通过索降进入。开口朝上，是本子场景的特殊进入方式。"
+    },
+    {
+      "id": "O12_opening_north",
+      "type": "door",
+      "connects": [
+        "Z12_platform_F2",
+        "SS_13"
+      ],
+      "width": 1.5,
+      "height": 2.2,
+      "position_rel": {
+        "x": -142.0,
+        "y": 261.0,
+        "z": 0.0
+      },
+      "notes": "北侧开口，朝向west，连接SS_13，是楼梯井至三层北侧区域的出口。"
+    },
+    {
+      "id": "O12_window_lower",
+      "type": "window",
+      "connects": [
+        "Z12_main_stairwell",
+        "exterior"
+      ],
+      "width": 4.8,
+      "height": 0.8,
+      "position_rel": {
+        "x": -93.3,
+        "y": 259.15,
+        "z": 6.7
+      },
+      "notes": "低处采光窗，距地高度6.7m，罗马帘材质，可观察但不可通过。"
+    },
+    {
+      "id": "O12_window_upper",
+      "type": "window",
+      "connects": [
+        "Z12_platform_F2",
+        "exterior"
+      ],
+      "width": 4.8,
+      "height": 0.8,
+      "position_rel": {
+        "x": -93.3,
+        "y": 259.15,
+        "z": 23.5
+      },
+      "notes": "高处采光窗，距地高度23.5m，罗马帘材质，位于三层楼梯平台位置。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "_27__17811_",
+      "quality": "crouching",
+      "height": 1.0,
+      "coverage_direction": [
+        "south",
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north",
+            "west"
+          ],
+          "exposed_to": [
+            "east",
+            "south"
+          ]
+        }
+      ],
+      "notes": "三层楼梯平台处的块状物体，高度约1m，可提供蹲姿掩护，适合在三层层平台处进行防守或观察。"
+    },
+    {
+      "cube_id": "_27__17832_",
+      "quality": "crouching",
+      "height": 1.0,
+      "coverage_direction": [
+        "south",
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north",
+            "west"
+          ],
+          "exposed_to": [
+            "east",
+            "south"
+          ]
+        }
+      ],
+      "notes": "三层楼梯平台处的块状物体，可提供蹲姿掩护，适合在三层层平台处进行防守或观察。"
+    },
+    {
+      "cube_id": "_27__17796_",
+      "quality": "crouching",
+      "height": 1.0,
+      "coverage_direction": [
+        "south",
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north",
+            "west"
+          ],
+          "exposed_to": [
+            "east",
+            "south"
+          ]
+        }
+      ],
+      "notes": "二层楼梯平台处的块状物体，可提供蹲姿掩护，适合在二层平台处进行防守或观察。"
+    },
+    {
+      "cube_id": "__17188__006",
+      "quality": "crouching",
+      "height": 1.58,
+      "coverage_direction": [
+        "south",
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼梯平台上的小型设备，高度约1.58m，可提供蹲姿掩护，位置靠近楼梯入口。"
+    },
+    {
+      "cube_id": "__17188__009",
+      "quality": "crouching",
+      "height": 1.58,
+      "coverage_direction": [
+        "south",
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼梯平台上的小型设备，高度约1.58m，可提供蹲姿掩护，位置靠近走廊门。"
+    },
+    {
+      "cube_id": "_56__167717_",
+      "quality": "standing",
+      "height": 0.8,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "楼梯井内沿Y方向延伸的结构柱，高度约0.8m，可提供站姿掩护，适合在楼梯井内进行防守位置设置。"
+    },
+    {
+      "cube_id": "_56__167654_",
+      "quality": "standing",
+      "height": 0.8,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "楼梯井内沿Y方向延伸的结构柱，高度约0.8m，可提供站姿掩护，适合在楼梯井内进行防守位置设置。"
+    },
+    {
+      "cube_id": "_56__167699_",
+      "quality": "standing",
+      "height": 0.8,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "楼梯井内沿Y方向延伸的结构柱，高度约0.8m，可提供站姿掩护，适合在楼梯井内进行防守位置设置。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "vertical_threat",
+      "severity": "critical",
+      "location_zone": "Z12_main_stairwell",
+      "description": "楼梯井是垂直通道，来自下方楼层的威胁（如F0、F1方向）可通过楼梯向上攻击。楼梯井内视线和射界垂直贯通，楼梯方向存在潜在威胁。"
+    },
+    {
+      "type": "choke_point",
+      "severity": "high",
+      "location_zone": "Z12_platform_F2",
+      "description": "三层楼梯平台是本子场景的核心控制点，各出入口（楼梯下行、走廊门、北侧出口、屋顶天窗）均在此汇聚，形成天然瓶颈。"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "medium",
+      "location_zone": "Z12_main_stairwell",
+      "description": "楼梯井内存在长视线通道，从F2层平台可望向F1层、F0层。窗户方向（south侧）可能存在外部观察或攻击风险。"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "medium",
+      "location_zone": "Z12_platform_F2",
+      "description": "楼梯井顶部（roof_access入口）是潜在伏击位置，敌人可能从屋顶天窗方向通过绳索索降进入，在楼梯口形成居高临下的伏击态势。"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "medium",
+      "location_zone": "Z12_platform_F2",
+      "description": "三层楼梯平台北侧连接SS_13出口处存在视线盲区，从楼梯下行位置难以直接观察北侧开口区域。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "从F2平台通过楼梯向下至F1平台（楼梯通道，east方向）",
+      "从F2平台通过走廊门向外至南侧走廊（south方向）",
+      "从F2平台通过北侧开口向外至SS_13（west方向）",
+      "从屋顶天窗索降进入F2平台（垂直向下）",
+      "F1平台向下至F0平台（楼梯通道）"
+    ],
+    "constraints": [
+      "楼梯宽度约2m，单次可通过人员数量有限",
+      "楼梯井内存在多处楼板边界（z=8.7, z=15.7, z=23.5），需要跨越高度差",
+      "楼梯平台上有设备（__17188__006, __17188__009）可能限制机动",
+      "屋顶天窗入口需要绳索辅助，属于特殊进入方式"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP12_platform_F2",
+        "position_rel": {
+          "x": -100.0,
+          "y": 261.0,
+          "z": 23.5
+        },
+        "description": "三层楼梯平台中心点，控制此处可封锁楼梯上下通道、走廊门和北侧出口。",
+        "controls": [
+          "楼梯上行/下行通道",
+          "南侧走廊门",
+          "北侧至SS_13开口",
+          "屋顶天窗入口"
+        ],
+        "tactical_value": "三层楼梯井核心控制点，扼守垂直机动主通道。"
+      },
+      {
+        "id": "CP12_stair_head",
+        "position_rel": {
+          "x": -105.0,
+          "y": 259.0,
+          "z": 23.5
+        },
+        "description": "楼梯口位置，控制此处可封锁从下方楼层向上的威胁。",
+        "controls": [
+          "楼梯井垂直通道"
+        ],
+        "tactical_value": "垂直封锁关键点，阻止敌方从下方楼层向上机动。"
+      },
+      {
+        "id": "CP12_roof_entry",
+        "position_rel": {
+          "x": -101.0,
+          "y": 258.5,
+          "z": 26.3
+        },
+        "description": "屋顶天窗入口处，需要监控和控制索降进入点。",
+        "controls": [
+          "屋顶索降通道"
+        ],
+        "tactical_value": "屋顶进入通道控制点，防止敌方从顶部渗透。"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "F1平台楼梯口",
+      "to_position": "F2平台楼梯口",
+      "exposed_to": [
+        "south方向窗户",
+        "east楼梯侧壁"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "F2平台楼梯口",
+      "to_position": "F2平台走廊门",
+      "exposed_to": [
+        "south方向窗户",
+        "north方向SS_13开口"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "屋顶天窗",
+      "to_position": "F2平台",
+      "exposed_to": [
+        "上方开放空间"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "走廊门进入",
+      "to_position": "F2平台",
+      "exposed_to": [
+        "south方向窗户"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP12_roof",
+        "zone_id": "Z12_platform_F2",
+        "opening_id": "O12_roof_access",
+        "approach_from": "above（从屋顶天窗索降进入）"
+      },
+      {
+        "id": "EP12_stair_up",
+        "zone_id": "Z12_platform_F2",
+        "opening_id": "O12_stair_down",
+        "approach_from": "below（从F1平台通过楼梯向上）"
+      },
+      {
+        "id": "EP12_door",
+        "zone_id": "Z12_platform_F2",
+        "opening_id": "O12_door_south",
+        "approach_from": "south（从南侧走廊进入）"
+      },
+      {
+        "id": "EP12_north",
+        "zone_id": "Z12_platform_F2",
+        "opening_id": "O12_opening_north",
+        "approach_from": "west（从SS_13方向进入）"
+      }
+    ],
+    "objective_criteria": [
+      "三层楼梯平台已清空，无敌方人员",
+      "屋顶天窗入口已建立监控，防止渗透",
+      "楼梯下行通道已封锁，垂直机动已切断",
+      "北侧出口至SS_13已建立封锁线",
+      "所有窗户方向已确认无威胁"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_13",
+        "via": "O12_opening_north",
+        "condition": "三层楼梯平台清除完毕，建立北向封锁后向SS_13推进"
+      },
+      {
+        "to_sub_scene": "SS_11",
+        "via": "O12_stair_down",
+        "condition": "垂直控制目标达成，封锁楼梯后向下清理SS_11"
+      }
+    ]
+  },
+  "spatial_description": "三层楼梯井子场景位于建筑F2顶层，是一个贯通三层（F0-F2）的垂直楼梯井空间。楼梯井在Y方向约258-264范围内延伸，X方向约-125至-77，垂直方向从地面至约28.8m（屋顶）。楼梯井内有三层楼板（z≈8.7、15.7、23.5），楼梯连接各层平台。三层平台（F2层）连接多个出入口：东侧有楼梯向下至F1层，南侧有走廊门连接南侧走廊网络，北侧开口连接SS_13。楼梯井顶部有屋顶天窗，可通过索降进入。楼梯井内分布有采光窗户（低处z≈6.7，高处z≈23.5），南侧墙壁有多条罗马帘材质的窗户。三层平台上有块状设备和结构柱，可提供局部掩体。楼梯井是垂直机动的主通道，控制此处可封锁上下层之间的垂直机动。",
+  "inferred_tags": [
+    "楼梯井垂直控制",
+    "多层贯通空间",
+    "屋顶天窗入口",
+    "楼梯平台瓶颈",
+    "垂直封锁关键点"
+  ]
+}

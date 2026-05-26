@@ -1,0 +1,408 @@
+{
+  "sub_scene_id": "SS_12",
+  "tactical_role": "alternative_entry",
+  "task_hint": "二层西侧外墙区域，可能是玻璃幕墙，可通过架梯从外部进入",
+  "zones": [
+    {
+      "zone_id": "zone_west_facade",
+      "type": "exterior",
+      "bounds_rel": {
+        "x": [
+          -143.0,
+          -116.0
+        ],
+        "y": [
+          229.0,
+          242.0
+        ],
+        "z": [
+          0.0,
+          5.2
+        ]
+      },
+      "description": "二层西侧外墙开放区域，Y=229-242区间。包含玻璃幕墙系统和横梁结构。北侧有垂直墙体边界。南端与zone_corner相接。",
+      "connected_to": [
+        "zone_corner"
+      ],
+      "contained_cube_ids": [
+        "/_216__4770__461",
+        "/_216__4770__683",
+        "/_216__4770__691",
+        "/_216__4770__486",
+        "/_216__4770__368",
+        "/_56__167678_",
+        "/_56__167684_",
+        "/_56__167693_",
+        "/_56__167702_"
+      ]
+    },
+    {
+      "zone_id": "zone_corner",
+      "type": "corner",
+      "bounds_rel": {
+        "x": [
+          -143.0,
+          -117.0
+        ],
+        "y": [
+          242.0,
+          260.0
+        ],
+        "z": [
+          0.0,
+          5.2
+        ]
+      },
+      "description": "西北角过渡区域，连接外墙与东侧走廊系统SS_09。存在垂直墙体结构界定边界。",
+      "connected_to": [
+        "zone_west_facade"
+      ],
+      "contained_cube_ids": [
+        "/_14__168494__002",
+        "/_14__168494__010"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "ENT_04",
+      "type": "window",
+      "connects": [
+        "zone_west_facade",
+        "exterior"
+      ],
+      "width": 1.5,
+      "height": 2.0,
+      "position_rel": {
+        "x": -120.0,
+        "y": 235.0,
+        "z": 1.8
+      },
+      "notes": "西侧外墙窄窗，距地高度1.8m，需架设梯子攀爬进入。玻璃幕墙结构，可能存在破碎风险。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_14__168494__002",
+      "quality": "standing",
+      "height": 2.0,
+      "coverage_direction": [
+        "north",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "north",
+            "west"
+          ],
+          "exposed_to": [
+            "south",
+            "east"
+          ]
+        }
+      ],
+      "notes": "北侧垂直混凝土墙体，高约2m，长度约4.2m。位于x=-142.8处，可提供有效站立掩体。"
+    },
+    {
+      "cube_id": "/_56__167678_",
+      "quality": "standing",
+      "height": 0.8,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "西侧横梁结构，高约0.8m，位于z=4.1-4.9m，高度较高但可提供站立掩体。"
+    },
+    {
+      "cube_id": "/_216__4770__461",
+      "quality": "crouching",
+      "height": 0.45,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "低矮玻璃面板，高约0.45m，适合蹲姿掩蔽但不提供站立防护。"
+    },
+    {
+      "cube_id": "/_216__4770__683",
+      "quality": "crouching",
+      "height": 0.42,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "玻璃面板，高约0.42m，适合蹲姿掩蔽。"
+    },
+    {
+      "cube_id": "/_216__4770__691",
+      "quality": "crouching",
+      "height": 0.44,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "玻璃面板，高约0.44m，适合蹲姿掩蔽。"
+    },
+    {
+      "cube_id": "/_216__4770__486",
+      "quality": "crouching",
+      "height": 0.41,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "玻璃面板，高约0.41m，适合蹲姿掩蔽。"
+    },
+    {
+      "cube_id": "/_216__4770__368",
+      "quality": "crouching",
+      "height": 0.42,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "玻璃面板，高约0.42m，适合蹲姿掩蔽。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "flank_exposure",
+      "severity": "high",
+      "location_zone": "zone_west_facade",
+      "description": "外墙开放区域缺乏有效侧翼掩护。编队从外部架梯进入时，暴露于西侧和南侧方向。玻璃幕墙结构无法提供防护且存在破碎风险。"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "medium",
+      "location_zone": "zone_west_facade",
+      "description": "二层外墙高度约5m，架梯进入过程中和进入后存在坠落风险。下方地面条件未知。"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "medium",
+      "location_zone": "zone_corner",
+      "description": "根据相邻子场景SS_09信息，走廊系统位于东侧Y=252.5方向。从zone_corner向东存在长直视线通道，可能暴露于走廊方向火力。"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "medium",
+      "location_zone": "zone_west_facade",
+      "description": "编队架梯进入窗口时处于垂直上升状态，无法有效还击或规避。若窗口另一侧有预设伏击火力，将处于极度不利位置。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "从地面架设梯子至ENT_04窗口进入zone_west_facade",
+      "沿外墙立面向北移动至北侧墙体处",
+      "沿外墙立面向南移动至zone_corner",
+      "从zone_corner向东移动至SS_09走廊系统"
+    ],
+    "constraints": [
+      "ENT_04窗口距地1.8m，需梯子突破，攀爬期间无法持武器戒备",
+      "zone_west_facade区域掩体有限，多为低矮玻璃面板（高约0.4m）",
+      "地面高度和条件未知，可能影响机动",
+      "外墙区域空间狭窄，y向延伸约13m",
+      "玻璃幕墙结构存在破碎风险，可能意外跌落"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP_ENT_04",
+        "position_rel": {
+          "x": -120.0,
+          "y": 235.0,
+          "z": 1.8
+        },
+        "description": "ENT_04窗口入口点",
+        "controls": [
+          "进入zone_west_facade的唯一通道",
+          "突破点控制"
+        ],
+        "tactical_value": "entry_control"
+      },
+      {
+        "id": "CP_NW_CORNER",
+        "position_rel": {
+          "x": -142.8,
+          "y": 235.0,
+          "z": 2.0
+        },
+        "description": "北侧垂直墙体处",
+        "controls": [
+          "zone_west_facade北侧区域掩护",
+          "北向火力防护"
+        ],
+        "tactical_value": "defensive_position"
+      },
+      {
+        "id": "CP_JUNCTION",
+        "position_rel": {
+          "x": -135.0,
+          "y": 242.0,
+          "z": 2.5
+        },
+        "description": "zone_west_facade与zone_corner交界处",
+        "controls": [
+          "连接区域控制",
+          "东向走廊通道警戒"
+        ],
+        "tactical_value": "transition_control"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "地面集合点（外墙下方）",
+      "to_position": "ENT_04窗口顶端",
+      "exposed_to": [
+        "west",
+        "south",
+        "window_interior"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "ENT_04窗口",
+      "to_position": "zone_west_facade内部",
+      "exposed_to": [
+        "west",
+        "south",
+        "window_frame_north"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "zone_west_facade南端",
+      "to_position": "zone_corner交界",
+      "exposed_to": [
+        "west",
+        "south"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "zone_corner",
+      "to_position": "SS_09走廊连接点",
+      "exposed_to": [
+        "east"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "entry_external",
+        "zone_id": "zone_west_facade",
+        "opening_id": "ENT_04",
+        "approach_from": "south"
+      }
+    ],
+    "objective_criteria": [
+      "ENT_04窗口已建立警戒哨",
+      "zone_west_facade区域已目视确认清除",
+      "zone_corner区域已清理",
+      "与SS_09走廊系统的连接点已封锁或建立联系"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_09",
+        "via": "zone_corner_connection",
+        "condition": "zone_corner已肃清，与SS_09走廊系统建立通讯或封锁连接点"
+      }
+    ]
+  },
+  "spatial_description": "二层西北侧外墙开放区域，沿Y轴约229-242范围延伸约13m。空间呈长条形，北侧有垂直混凝土墙体边界，西侧为玻璃幕墙系统。Phase 2识别1个西侧窄窗ENT_04，距地1.8m需梯子进入。区域内存在多个低矮玻璃面板（高约0.4m）可提供蹲姿掩蔽，以及较高横梁结构（高约0.8m）。南端连接zone_corner过渡区域，可通往SS_09走廊系统。整体掩体有限，外墙高度约5m存在坠落风险。",
+  "inferred_tags": [
+    "外墙开放区域",
+    "玻璃幕墙",
+    "梯子突入",
+    "长条空间",
+    "有限掩体",
+    "垂直突破点",
+    "西北转角"
+  ]
+}

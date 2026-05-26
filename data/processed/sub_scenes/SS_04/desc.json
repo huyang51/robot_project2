@@ -1,0 +1,234 @@
+{
+  "sub_scene_id": "SS_04",
+  "tactical_role": "room_entry",
+  "task_hint": "18m²西北房间，入口朝东不直接面向走廊，需要从北侧绕行接近避免暴露",
+  "zones": [
+    {
+      "zone_id": "Z0-RM-01-main",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -18.0,
+          0.0
+        ],
+        "y": [
+          -1.0,
+          1.0
+        ],
+        "z": [
+          0.0,
+          3.5
+        ]
+      },
+      "description": "一层西北侧主房间，约18m²，三面围合，东侧设门。房间呈东西向狭长布局，入口朝东通向走廊",
+      "connected_to": [
+        "Z0-CR-01"
+      ],
+      "contained_cube_ids": [
+        "/__166510_",
+        "/_235__129820__001"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "Z0-RM-01-door-01",
+      "type": "door",
+      "connects": [
+        "Z0-RM-01-main",
+        "Z0-CR-01"
+      ],
+      "width": 0.9,
+      "height": 2.1,
+      "position_rel": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "notes": "标准尺寸入户门，朝向东侧，距地高度0m，落地门可直接通过。连接走廊西侧开口"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/__166510_",
+      "quality": "obstacle",
+      "height": 17.7,
+      "coverage_direction": [
+        "north",
+        "south",
+        "east",
+        "west"
+      ],
+      "effective_positions": [],
+      "notes": "大型结构墙体，贯穿整个房间高度，主要起围护结构作用而非战术掩体"
+    },
+    {
+      "cube_id": "/_235__129820__001",
+      "quality": "standing",
+      "height": 5.9,
+      "coverage_direction": [
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "west"
+          ]
+        }
+      ],
+      "notes": "垂直隔断/墙体，可提供站姿掩体，位于房间内部"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "choke_point",
+      "severity": "high",
+      "location_zone": "Z0-RM-01-main",
+      "description": "入口门洞形成天然瓶颈，宽度0.9m仅容单人通过。通过门洞时编队暴露于走廊方向，需控制门廊区域"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "medium",
+      "location_zone": "Z0-RM-01-main",
+      "description": "房间北侧角落存在盲区，从入口进入后需优先清理北侧视野盲区"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "medium",
+      "location_zone": "Z0-RM-01-main",
+      "description": "房间西侧外墙无开口但南侧可能有连通相邻空间，需确认边界完整性"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "北侧绕行路径：从走廊北端向西进入房间北侧角落，缩短横向通过距离",
+      "直接东进路径：从走廊直接向西通过门洞进入（需穿越开口暴露区）",
+      "房间内部纵深：从门口向房间西侧纵深推进肃清"
+    ],
+    "constraints": [
+      "门洞宽度0.9m限制单列通过，编队需依次进入",
+      "房间内部无显著低矮掩体，主要依赖墙体角落",
+      "从走廊进入时存在短暂暴露窗口"
+    ],
+    "key_control_points": [
+      {
+        "id": "CCP-01",
+        "position_rel": {
+          "x": -1.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "description": "门洞控制点，进入房间的咽喉位置",
+        "controls": [
+          "入口通道",
+          "房间进出"
+        ],
+        "tactical_value": "控制此处可封锁房间唯一出入口"
+      },
+      {
+        "id": "CCP-02",
+        "position_rel": {
+          "x": -8.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "description": "房间纵深控制点，中部位置可覆盖前后区域",
+        "controls": [
+          "房间前后",
+          "掩体利用"
+        ],
+        "tactical_value": "占据此处可监视房间东西两端"
+      },
+      {
+        "id": "CCP-03",
+        "position_rel": {
+          "x": -16.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "description": "房间西端角落，北侧盲区交汇处",
+        "controls": [
+          "西北角",
+          "北侧盲区"
+        ],
+        "tactical_value": "此处需重点清理，消除视觉盲角"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "走廊北侧区域",
+      "to_position": "房间北侧角落",
+      "exposed_to": [
+        "south",
+        "east"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "房间北侧角落",
+      "to_position": "门洞入口",
+      "exposed_to": [
+        "east"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "门洞入口",
+      "to_position": "房间纵深控制点",
+      "exposed_to": [
+        "west"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "房间纵深控制点",
+      "to_position": "房间西端角落",
+      "exposed_to": [
+        "west",
+        "north"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP-01",
+        "zone_id": "Z0-RM-01-main",
+        "opening_id": "Z0-RM-01-door-01",
+        "approach_from": "north"
+      }
+    ],
+    "objective_criteria": [
+      "房间东侧门洞已控制",
+      "房间内所有角落已目视确认清除",
+      "北侧盲区已搜索无威胁"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_03",
+        "via": "Z0-RM-01-door-01",
+        "condition": "房间肃清完毕，所有威胁已清除，可返回走廊继续推进"
+      }
+    ]
+  },
+  "spatial_description": "一层西北侧独立房间，约18m²，三面实体墙围合，东侧设标准入户门连通走廊。房间呈东西向狭长布局，南北进深约2m。内部空间相对空旷，地面无明显低矮掩体，主要依靠墙体和角落建立战术位置。入口位于东侧中部，朝向东侧走廊方向。房间西端为封闭死角，需重点清理。北侧墙面与走廊北端相邻，可从北侧绕行进入以减少在走廊中的暴露时间。",
+  "inferred_tags": [
+    "西北房间",
+    "单门房间",
+    "狭长空间",
+    "掩体有限",
+    "入口瓶颈",
+    "北侧盲角",
+    "纵深有限"
+  ]
+}

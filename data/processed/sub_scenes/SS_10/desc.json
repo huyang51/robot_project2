@@ -1,0 +1,415 @@
+{
+  "sub_scene_id": "SS_10",
+  "tactical_role": "room_entry",
+  "task_hint": "二层中央房间，入口位于Y=[254,257]，与走廊存在视线死角，建议使用破门战术",
+  "zones": [
+    {
+      "zone_id": "Z1-RM-03_main",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -38.2,
+          -18.4
+        ],
+        "y": [
+          245.2,
+          265.1
+        ],
+        "z": [
+          0.0,
+          13.0
+        ]
+      },
+      "description": "二层中央主卧/客厅空间，由西侧(X≈-18.4)和东侧(X≈-21.3)通高墙体围合，南侧有一扇标准门开口(Y=[254,257])通向走廊。房间进深约20m，地面至天花板约13m。",
+      "connected_to": [
+        "Z1-CR-01"
+      ],
+      "contained_cube_ids": [
+        "/_172__122541_",
+        "/_172__122544_",
+        "/_172__122547_",
+        "/_231__194327__002",
+        "/_231__194327__006",
+        "/_231__194377__001",
+        "/_231__194380_",
+        "/_231__194395__007",
+        "/_231__194398__010",
+        "/_231__194404__004",
+        "/_155__121944_",
+        "/_155__121947__002",
+        "/_155__121947__007",
+        "/_157__121971__008",
+        "/_157__121974__007",
+        "/_157__121980__005",
+        "/_304__156943__003",
+        "/_304__156943__007",
+        "/___115__831170_001",
+        "/___115__831173_",
+        "/__562984__004",
+        "/_227__886399_"
+      ]
+    },
+    {
+      "zone_id": "Z1-RM-03_north_shelter",
+      "type": "corner",
+      "bounds_rel": {
+        "x": [
+          -38.2,
+          -34.5
+        ],
+        "y": [
+          260.0,
+          264.0
+        ],
+        "z": [
+          0.0,
+          13.0
+        ]
+      },
+      "description": "房间北侧区域，存在连续立柱群可提供战术掩体，Phase 2标注该区域可作为连续掩体利用。",
+      "connected_to": [
+        "Z1-RM-03_main"
+      ],
+      "contained_cube_ids": [
+        "/_231__194327__002",
+        "/_231__194327__006",
+        "/__562984__004"
+      ]
+    },
+    {
+      "zone_id": "Z1-RM-03_entry_area",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -38.2,
+          -25.3
+        ],
+        "y": [
+          254.0,
+          257.0
+        ],
+        "z": [
+          0.0,
+          3.5
+        ]
+      },
+      "description": "房间南侧入口区域，包含门开口及其周边过渡空间，与走廊直接连通。",
+      "connected_to": [
+        "Z1-RM-03_main",
+        "Z1-CR-01"
+      ],
+      "contained_cube_ids": [
+        "/___115__831170_001"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "door_south",
+      "type": "door",
+      "connects": [
+        "Z1-RM-03_entry_area",
+        "Z1-CR-01"
+      ],
+      "width": 0.9,
+      "height": 2.4,
+      "position_rel": {
+        "x": -26.5,
+        "y": 255.5,
+        "z": 0.3
+      },
+      "notes": "朝南标准门，距地高度0.3m，可直接通过。与走廊连通，入口位于Y=[254,257]区间。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_172__122541_",
+      "quality": "standing",
+      "height": 12.9,
+      "coverage_direction": [
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south",
+            "east"
+          ]
+        }
+      ],
+      "notes": "西侧通高墙体(X≈-18.4)，全楼高度，可提供站立级掩体。位于房间西侧边缘。"
+    },
+    {
+      "cube_id": "/_172__122544_",
+      "quality": "standing",
+      "height": 12.9,
+      "coverage_direction": [
+        "east"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south",
+            "west"
+          ]
+        }
+      ],
+      "notes": "东侧通高墙体(X≈-21.3)，全楼高度，可提供站立级掩体。位于房间东侧边缘。"
+    },
+    {
+      "cube_id": "/_231__194327__006",
+      "quality": "standing",
+      "height": 2.15,
+      "coverage_direction": [
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south",
+            "east"
+          ]
+        }
+      ],
+      "notes": "北侧立柱(X≈-37.5, Y≈260.1, Z≈6.4-8.6)，高度2.15m，可提供站立级掩体。"
+    },
+    {
+      "cube_id": "/_231__194404__004",
+      "quality": "standing",
+      "height": 2.15,
+      "coverage_direction": [
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south",
+            "east"
+          ]
+        }
+      ],
+      "notes": "南侧立柱(X≈-37.5, Y≈247.0)，高度2.15m，可提供站立级掩体。"
+    },
+    {
+      "cube_id": "/_155__121944_",
+      "quality": "crouching",
+      "height": 2.36,
+      "coverage_direction": [
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south",
+            "east"
+          ]
+        }
+      ],
+      "notes": "北侧栏杆/立柱群(X≈-38.1, Y≈264.6)，高度2.36m，可提供蹲姿掩体。"
+    },
+    {
+      "cube_id": "/_155__121947__002",
+      "quality": "crouching",
+      "height": 2.36,
+      "coverage_direction": [
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south",
+            "east"
+          ]
+        }
+      ],
+      "notes": "南侧栏杆/立柱群(X≈-38.1, Y≈247.3)，高度2.36m，可提供蹲姿掩体。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "Z1-RM-03_entry_area",
+      "description": "南侧门口与走廊连通处存在视线死角，Phase 2标注提示与走廊存在视线死角，需警惕走廊方向可能有伏击人员。"
+    },
+    {
+      "type": "choke_point",
+      "severity": "high",
+      "location_zone": "Z1-RM-03_entry_area",
+      "description": "入口门宽0.9m，属于标准门宽，进出通道狭窄，容易形成瓶颈。编队依次进入时首名队员暴露时间较长。"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "medium",
+      "location_zone": "Z1-RM-03_main",
+      "description": "房间进深约20m，视野开阔，进入后房间深处可能存在威胁人员，需要全面肃清。"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "medium",
+      "location_zone": "Z1-RM-03_main",
+      "description": "房间内部掩体分布有限，北侧立柱群附近可能藏匿伏击人员，房间深处(Z1-RM-03_north_shelter区域)需谨慎推进。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "从南侧门door_south进入后直线推进至房间北侧",
+      "沿东侧墙体(X≈-21.3)边缘推进",
+      "沿西侧墙体(X≈-18.4)边缘推进"
+    ],
+    "constraints": [
+      "房间仅有一个出入口(door_south)，路线选择受限",
+      "门宽0.9m，编队依次进入时通道狭窄",
+      "房间进深约20m，长距离推进暴露风险较高"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP1",
+        "position_rel": {
+          "x": -26.5,
+          "y": 255.5,
+          "z": 1.2
+        },
+        "description": "门口控制点，突破后首名队员应快速贴墙建立射击位置",
+        "controls": [
+          "door_south入口",
+          "房间内部视野"
+        ],
+        "tactical_value": "控制进出通道，掩护后续队员进入"
+      },
+      {
+        "id": "CP2",
+        "position_rel": {
+          "x": -21.3,
+          "y": 255.0,
+          "z": 1.2
+        },
+        "description": "东侧墙体控制点，沿墙推进时可提供侧向掩体",
+        "controls": [
+          "东侧区域",
+          "房间中部"
+        ],
+        "tactical_value": "建立侧翼掩护，控制房间东半部"
+      },
+      {
+        "id": "CP3",
+        "position_rel": {
+          "x": -37.5,
+          "y": 260.1,
+          "z": 1.2
+        },
+        "description": "北侧立柱群控制点，可利用立柱进行蹲姿掩体射击",
+        "controls": [
+          "北侧区域",
+          "房间深处"
+        ],
+        "tactical_value": "肃清房间深处，控制北侧盲区"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "走廊Z1-CR-01门外",
+      "to_position": "门口CP1控制点",
+      "exposed_to": [
+        "room_entry_area",
+        "north"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "门口CP1控制点",
+      "to_position": "东侧CP2控制点",
+      "exposed_to": [
+        "north",
+        "west"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "东侧CP2控制点",
+      "to_position": "北侧CP3控制点",
+      "exposed_to": [
+        "west",
+        "south"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "门口CP1控制点",
+      "to_position": "西侧墙体边缘",
+      "exposed_to": [
+        "north",
+        "east"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP1",
+        "zone_id": "Z1-CR-01",
+        "opening_id": "door_south",
+        "approach_from": "south"
+      }
+    ],
+    "objective_criteria": [
+      "门口区域已建立控制点(CP1)",
+      "房间四个角落已目视确认清除",
+      "北侧立柱群区域(CP3)已检查无威胁人员",
+      "所有掩体后方已确认无伏击"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_09",
+        "via": "door_south",
+        "condition": "房间内部肃清完毕，所有目标区域已确认无威胁"
+      }
+    ]
+  },
+  "spatial_description": "二层中央大型房间空间，由西侧(X≈-18.4)和东侧(X≈-21.3)通高混凝土墙体围合，房间进深约20m。地面Z=0，天花板Z≈13m。南侧有一扇标准门(宽0.9m，高2.4m，距地0.3m)位于Y=[254,257]区间，通向走廊。门框周边有樱桃木材质装饰线(X≈-25.35)。房间内部存在两组立柱群：北侧立柱位于Y≈260.1附近(X≈-37.5)，高度约2.15m；南侧立柱位于Y≈247附近(X≈-37.5)，高度约2.15m。另有栏杆群分布于X≈-38.1区域，提供次级掩体。房间与走廊之间存在视线死角，入口处需警惕走廊方向潜在威胁。",
+  "inferred_tags": [
+    "单门房间",
+    "深房间",
+    "视线死角",
+    "北侧掩体区",
+    "标准门宽",
+    "立柱掩体",
+    "走廊连通"
+  ]
+}

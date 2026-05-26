@@ -1,0 +1,361 @@
+{
+  "sub_scene_id": "SS_14_EAST",
+  "tactical_role": "corridor_clear",
+  "task_hint": "三层走廊东段，约45m长，连接西段和东南房间，走廊密度在X=-60处达到峰值",
+  "zones": [
+    {
+      "zone_id": "corridor_main",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -100.0,
+          -60.0
+        ],
+        "y": [
+          229.0,
+          263.5
+        ],
+        "z": [
+          0.0,
+          26.4
+        ]
+      },
+      "description": "三层走廊东段主区域，X方向约40m长，Y方向约34m宽，走廊南侧为玻璃窗墙区间(Y=246-249)，北侧为栏杆扶手",
+      "connected_to": [
+        "entry_west",
+        "entry_south"
+      ],
+      "contained_cube_ids": []
+    },
+    {
+      "zone_id": "corridor_south_wall_section",
+      "type": "corner",
+      "bounds_rel": {
+        "x": [
+          -81.0,
+          -60.0
+        ],
+        "y": [
+          246.0,
+          249.0
+        ],
+        "z": [
+          0.0,
+          26.4
+        ]
+      },
+      "description": "走廊南侧玻璃窗墙转角区域，X=-60处走廊密度显著增加，该处可能连接SS_15或存在视线变化",
+      "connected_to": [
+        "corridor_main"
+      ],
+      "contained_cube_ids": []
+    }
+  ],
+  "openings": [
+    {
+      "id": "opening_west",
+      "type": "door",
+      "connects": [
+        "SS_14_WEST",
+        "corridor_main"
+      ],
+      "width": 2.0,
+      "height": 2.2,
+      "position_rel": {
+        "x": -100.0,
+        "y": 252.5,
+        "z": 0.0
+      },
+      "notes": "向西连接SS_14_WEST，标准宽度门洞，地面可达，距地高度0m"
+    },
+    {
+      "id": "door_south",
+      "type": "door",
+      "connects": [
+        "SS_15",
+        "corridor_main"
+      ],
+      "width": 2.0,
+      "height": 2.2,
+      "position_rel": {
+        "x": -60.0,
+        "y": 246.0,
+        "z": 0.0
+      },
+      "notes": "向南连接SS_15(东南房间)，标准宽度门洞，地面可达，距地高度0m"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "railings_north_lower",
+      "quality": "standing",
+      "height": 1.2,
+      "coverage_direction": [
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "走廊北侧低层栏杆扶手，Z≈4.5m，可作站立掩体，覆盖南向火力"
+    },
+    {
+      "cube_id": "railings_north_upper",
+      "quality": "crouching",
+      "height": 0.8,
+      "coverage_direction": [
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "走廊北侧高层栏杆扶手，Z≈8.7m，适合蹲姿掩体，覆盖南向火力"
+    },
+    {
+      "cube_id": "blinds_south_high",
+      "quality": "concealment_only",
+      "height": 4.8,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "above"
+          ]
+        }
+      ],
+      "notes": "走廊南侧罗马帘，Z≈23.5m，距地较高，仅提供视线遮挡，不能阻挡射击"
+    },
+    {
+      "cube_id": "blinds_south_low",
+      "quality": "concealment_only",
+      "height": 4.8,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "above"
+          ]
+        }
+      ],
+      "notes": "走廊南侧低层罗马帘，Z≈6.7m，距地较低，仅提供视线遮挡"
+    },
+    {
+      "cube_id": "structural_rail_mid",
+      "quality": "crouching",
+      "height": 0.8,
+      "coverage_direction": [
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "中层结构栏杆，Z≈15.7m，适合蹲姿掩护南向"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "choke_point",
+      "severity": "high",
+      "location_zone": "corridor_south_wall_section",
+      "description": "X=-60处走廊密度从0.45升至0.76，走廊空间收窄形成瓶颈，可能存在人员聚集或伏击风险"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "medium",
+      "location_zone": "corridor_main",
+      "description": "走廊东西向约40m长通道，从opening_west到door_south形成长视线走廊，西端入口方向存在长距离暴露风险"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "medium",
+      "location_zone": "entry_west",
+      "description": "从SS_14_WEST进入时，opening_west东侧存在转角盲区，需警惕走廊北侧"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "medium",
+      "location_zone": "corridor_main",
+      "description": "F2为顶层(F2)，若SS_15或SS_14_WEST存在上层威胁源可俯射入走廊，且本层无向上楼梯可反击"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "从opening_west向西进入，沿走廊东向推进至door_south",
+      "从door_south向北推进，沿走廊搜索至opening_west",
+      "沿走廊中线东西向贯穿移动"
+    ],
+    "constraints": [
+      "走廊南侧(Y=246-249)玻璃窗墙不可利用，但提供视线遮蔽",
+      "北侧栏杆扶手仅覆盖南向火力，东西方向暴露",
+      "X=-60处走廾密度增加，空间可能收窄",
+      "40m长走廊无横向掩体连接点"
+    ],
+    "key_control_points": [
+      {
+        "id": "kcp_density_transition",
+        "position_rel": {
+          "x": -60.0,
+          "y": 247.5,
+          "z": 0.0
+        },
+        "description": "走廊密度突变点，X=-60处密度从0.45升至0.76",
+        "controls": [
+          "door_south通道",
+          "走廊东段控制"
+        ],
+        "tactical_value": "critical"
+      },
+      {
+        "id": "kcp_mid_corridor",
+        "position_rel": {
+          "x": -80.0,
+          "y": 252.5,
+          "z": 0.0
+        },
+        "description": "走廊中部控制点，距两侧开口各约20m",
+        "controls": [
+          "走廊中段监视",
+          "两侧火力支援"
+        ],
+        "tactical_value": "high"
+      },
+      {
+        "id": "kcp_west_entry",
+        "position_rel": {
+          "x": -98.0,
+          "y": 252.5,
+          "z": 0.0
+        },
+        "description": "西侧入口控制点，扼守opening_west",
+        "controls": [
+          "西段入口封锁",
+          "防止敌人从SS_14_WEST增援"
+        ],
+        "tactical_value": "high"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "opening_west入口",
+      "to_position": "X=-80走廊中部",
+      "exposed_to": [
+        "east",
+        "south方向窗户间隙"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "X=-80走廊中部",
+      "to_position": "X=-60密度突变点",
+      "exposed_to": [
+        "east",
+        "south方向窗户",
+        "door_south方向"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "X=-60密度突变点",
+      "to_position": "door_south入口",
+      "exposed_to": [
+        "west",
+        "north方向栏杆间隙"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "opening_west到door_south全程",
+      "to_position": "走廊东端",
+      "exposed_to": [
+        "south方向玻璃窗区间(Y=246-249)"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "entry_from_west",
+        "zone_id": "corridor_main",
+        "opening_id": "opening_west",
+        "approach_from": "west (从SS_14_WEST经opening_west进入)"
+      },
+      {
+        "id": "entry_from_south",
+        "zone_id": "corridor_main",
+        "opening_id": "door_south",
+        "approach_from": "south (从SS_15经door_south进入)"
+      }
+    ],
+    "objective_criteria": [
+      "走廊全长目视确认清除，无人员残留",
+      "opening_west和door_south两侧出口已封锁或监视",
+      "X=-60密度突变区域已确认无威胁",
+      "所有掩体后已检查"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_14_WEST",
+        "via": "opening_west",
+        "condition": "走廊西段清除完成，封锁opening_west后向西推进"
+      },
+      {
+        "to_sub_scene": "SS_15",
+        "via": "door_south",
+        "condition": "走廊肃清后，封锁door_south防止敌人增援，视任务需求决定是否进入SS_15"
+      }
+    ]
+  },
+  "spatial_description": "三层走廊东段，X方向约40m长，东端连接SS_15(东南房间)，西端通过opening连接SS_14_WEST。走廊南侧Y=246-249区间为玻璃窗墙结构，窗下有罗马帘装饰；北侧沿线分布栏杆扶手(高度Z≈4.5m和Z≈8.7m)作为移动掩体。走廊在X=-60处密度显著增加，空间可能收窄。东端Y≈252区域为连接SS_15的主入口。走廊东西向长通道特征明显，南侧窗户虽不可通过但提供一定视线遮蔽。",
+  "inferred_tags": [
+    "长走廊肃清",
+    "东西向通道",
+    "多栏杆掩体",
+    "南侧玻璃窗",
+    "密度突变点",
+    "F2顶层"
+  ]
+}

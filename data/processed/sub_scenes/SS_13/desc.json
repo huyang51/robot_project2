@@ -1,0 +1,320 @@
+{
+  "sub_scene_id": "SS_13",
+  "tactical_role": "entry_from_stair",
+  "task_hint": "三层北侧入口，从楼梯井出来的过渡区域，1.5m窄开口",
+  "zones": [
+    {
+      "zone_id": "buffer_zone",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -143.0,
+          -141.0
+        ],
+        "y": [
+          258.0,
+          263.5
+        ],
+        "z": [
+          0.0,
+          3.0
+        ]
+      },
+      "description": "楼梯井出口缓冲区，1.5m窄开口区域，从SS_16楼梯井出来后的过渡空间",
+      "connected_to": [
+        "corridor_zone"
+      ],
+      "contained_cube_ids": []
+    },
+    {
+      "zone_id": "corridor_zone",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -141.0,
+          -128.0
+        ],
+        "y": [
+          258.0,
+          263.5
+        ],
+        "z": [
+          0.0,
+          3.0
+        ]
+      },
+      "description": "北侧走廊区域，蓝百叶窗沿南侧墙体布置，向西连接SS_15房间入口",
+      "connected_to": [
+        "buffer_zone",
+        "room_entry_zone"
+      ],
+      "contained_cube_ids": [
+        "/__5847__028/__5847__028",
+        "/_27__123454_/_27__123454_",
+        "/_27__123499_/_27__123499_"
+      ]
+    },
+    {
+      "zone_id": "room_entry_zone",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -128.0,
+          -128.0
+        ],
+        "y": [
+          258.0,
+          263.5
+        ],
+        "z": [
+          0.0,
+          3.0
+        ]
+      },
+      "description": "走廊西端，朝北的门通往SS_15房间",
+      "connected_to": [
+        "corridor_zone"
+      ],
+      "contained_cube_ids": []
+    }
+  ],
+  "openings": [
+    {
+      "id": "stair_exit",
+      "type": "door",
+      "connects": [
+        "buffer_zone",
+        "SS_16_zone"
+      ],
+      "width": 1.5,
+      "height": 2.1,
+      "position_rel": {
+        "x": -142.0,
+        "y": 258.0,
+        "z": 0.0
+      },
+      "notes": "宽1.5m，距地高度0m（落地开口），朝西，连接楼梯井SS_16到三层北侧入口缓冲区"
+    },
+    {
+      "id": "room_door",
+      "type": "door",
+      "connects": [
+        "room_entry_zone",
+        "SS_15_zone"
+      ],
+      "width": 1.0,
+      "height": 2.1,
+      "position_rel": {
+        "x": -128.0,
+        "y": 261.0,
+        "z": 0.0
+      },
+      "notes": "宽约1.0m，距地高度0m，朝北，通往SS_15东南房间"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_27__123454_",
+      "quality": "concealment_only",
+      "height": 1.0,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "west"
+          ]
+        }
+      ],
+      "notes": "蓝百叶窗装置，高约1m，仅提供视线遮蔽，无弹道防护能力，材质为薄型织物"
+    },
+    {
+      "cube_id": "/_27__123499_",
+      "quality": "concealment_only",
+      "height": 1.0,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "west"
+          ]
+        }
+      ],
+      "notes": "蓝百叶窗装置，高约1m，仅提供视线遮蔽，无弹道防护能力"
+    },
+    {
+      "cube_id": "/__5847__028/__5847__028",
+      "quality": "concealment_only",
+      "height": 0.5,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "west"
+          ]
+        }
+      ],
+      "notes": "低位百叶帘，距地高度约0.5m，仅能遮挡蹲姿人员视线，无实际掩体价值"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "choke_point",
+      "severity": "high",
+      "location_zone": "buffer_zone",
+      "description": "1.5m宽楼梯出口开口形成天然瓶颈，编队通过时暴露于楼梯井方向（东侧），若楼梯井内存在威胁则难以快速通过"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "medium",
+      "location_zone": "buffer_zone",
+      "description": "从楼梯井出来后向西转角处存在盲区，楼梯井出口右侧（北侧）视野受限，需清除后才能确认安全"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "medium",
+      "location_zone": "corridor_zone",
+      "description": "走廊南侧蓝百叶窗无法提供弹道防护，走廊长度约13m暴露于北侧开口方向，西侧SS_15房间门方向也存在暴露风险"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "楼梯井(SS_16) → buffer_zone(1.5m窄口) → corridor_zone → SS_15(西北门)",
+      "楼梯井(SS_16) → buffer_zone → 走廊折返返回楼梯井"
+    ],
+    "constraints": [
+      "1.5m窄开口限制同时通过人数，编队需依次通过",
+      "走廊南侧无有效掩体，长距离暴露",
+      "蓝百叶窗仅提供视觉遮蔽，不具备弹道防护"
+    ],
+    "key_control_points": [
+      {
+        "id": "stair_exit_control",
+        "position_rel": {
+          "x": -142.5,
+          "y": 260.0,
+          "z": 0.0
+        },
+        "description": "楼梯出口门洞处，扼守楼梯井到缓冲区的关键节点",
+        "controls": [
+          "楼梯井进入路线",
+          "窄口通道"
+        ],
+        "tactical_value": "控制进入本子场景的唯一入口，掩护后续人员通过"
+      },
+      {
+        "id": "corridor_midpoint",
+        "position_rel": {
+          "x": -135.0,
+          "y": 260.5,
+          "z": 0.0
+        },
+        "description": "走廊中段，南侧有百叶窗提供部分掩护",
+        "controls": [
+          "走廊纵向通道"
+        ],
+        "tactical_value": "可作为临时集结点，观察走廊两端"
+      },
+      {
+        "id": "room_door_control",
+        "position_rel": {
+          "x": -128.0,
+          "y": 261.0,
+          "z": 0.0
+        },
+        "description": "SS_15房间门位置，走廊西端控制点",
+        "controls": [
+          "SS_15房间进入路线"
+        ],
+        "tactical_value": "封锁通往SS_15的路线，或作为肃清任务的起始点"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "SS_16楼梯井门洞",
+      "to_position": "buffer_zone中段",
+      "exposed_to": [
+        "east"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "buffer_zone",
+      "to_position": "corridor_zone西端",
+      "exposed_to": [
+        "north",
+        "west"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "corridor_zone",
+      "to_position": "SS_15房间门",
+      "exposed_to": [
+        "west",
+        "north"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "from_stairwell",
+        "zone_id": "buffer_zone",
+        "opening_id": "stair_exit",
+        "approach_from": "east"
+      }
+    ],
+    "objective_criteria": [
+      "楼梯出口门洞已控制，无威胁存在",
+      "buffer_zone转角已清除确认",
+      "corridor_zone走廊已肃清，两端开口已确认无威胁"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_15",
+        "via": "room_door",
+        "condition": "走廊西端SS_15房间门已突破或封锁，本子场景走廊已清除"
+      },
+      {
+        "to_sub_scene": "SS_16",
+        "via": "stair_exit",
+        "condition": "肃清任务中止需撤退，或本子场景战术目标变更"
+      }
+    ]
+  },
+  "spatial_description": "三层北侧入口空间，Y=258处墙体在X=[-143,-141]区间有宽1.5m的楼梯出口门洞，朝向西侧连接楼梯井SS_16。穿过窄口后进入缓冲区域，再向西为长约13m的走廊，走廊南侧布置蓝百叶窗装置（高度约1m），仅提供视觉遮蔽无弹道防护。走廊西端（X≈-128）有朝北的门通往SS_15东南房间。此区域为F2顶层，北侧为建筑外墙边界，无垂直方向上下通道（楼梯只能向下通往F1）。",
+  "inferred_tags": [
+    "楼梯出口过渡区",
+    "窄口瓶颈",
+    "走廊肃清",
+    "无有效掩体",
+    "顶层入口",
+    "栏杆边界"
+  ]
+}

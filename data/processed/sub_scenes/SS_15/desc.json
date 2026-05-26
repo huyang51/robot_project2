@@ -1,0 +1,215 @@
+{
+  "sub_scene_id": "SS_15",
+  "tactical_role": "room_entry",
+  "task_hint": "三层最大房间，约240m²，可能是主卧或多人卧室，从走廊北侧接近",
+  "zones": [
+    {
+      "zone_id": "main_room",
+      "type": "room",
+      "bounds_rel": {
+        "x": [
+          -60.0,
+          -42.0
+        ],
+        "y": [
+          249.0,
+          262.0
+        ],
+        "z": [
+          0.0,
+          22.0
+        ]
+      },
+      "description": "三层东南主卧/多人卧室，面积约240m²，包含沙发等家具，北侧与走廊连通",
+      "connected_to": [
+        "entry_zone"
+      ],
+      "contained_cube_ids": [
+        "/_222_1__317451_"
+      ]
+    },
+    {
+      "zone_id": "entry_zone",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -62.0,
+          -60.0
+        ],
+        "y": [
+          246.0,
+          249.0
+        ],
+        "z": [
+          0.0,
+          22.0
+        ]
+      },
+      "description": "房间入口区域，通过北侧门与SS_14_EAST走廊连通",
+      "connected_to": [
+        "main_room"
+      ],
+      "contained_cube_ids": [
+        "/_5__14660__428"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "north_door",
+      "type": "door",
+      "connects": [
+        "entry_zone",
+        "SS_14_EAST_corridor"
+      ],
+      "width": 2.0,
+      "height": 2.2,
+      "position_rel": {
+        "x": -60.0,
+        "y": 247.5,
+        "z": 0.0
+      },
+      "notes": "距地高度0m，落地门，standard宽度，朝向北侧走廊。连通本房间与SS_14_EAST走廊"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_222_1__317451_",
+      "quality": "crouching",
+      "height": 0.97,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west",
+            "south"
+          ]
+        }
+      ],
+      "notes": "大型沙发(L形组合，x≈-43，y=[258,264])，高0.97m，可为蹲姿人员提供掩护，位于房间东南区域"
+    },
+    {
+      "cube_id": "/__5935_",
+      "quality": "concealment_only",
+      "height": 0.001,
+      "coverage_direction": [],
+      "effective_positions": [],
+      "notes": "踢脚板/装饰条，z≈2.06，仅提供视觉遮蔽，无实际防护价值"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "ambush_position",
+      "severity": "high",
+      "location_zone": "entry_zone",
+      "description": "SS_14_EAST走廊长约40m，走廊密度在X=-60处从0.45升至0.76，表明走廊开口/变化集中区域。从走廊北侧接近本房间时存在被伏击的风险"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "high",
+      "location_zone": "entry_zone",
+      "description": "三层走廊东段(X=[-100,-60])长约40m，从走廊接近本房间入口时，编队暴露于长距离走廊视线中"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "medium",
+      "location_zone": "entry_zone",
+      "description": "北侧门框内侧存在视线盲区，进入时需警惕门后角落"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "从SS_14_EAST走廊北侧(X=-60处)经north_door进入entry_zone",
+      "从entry_zone进入main_room进行室内肃清"
+    ],
+    "constraints": [
+      "单入口设计，只有一个进入点",
+      "240m²大空间需要分区清除",
+      "长走廊接近段暴露风险高"
+    ],
+    "key_control_points": [
+      {
+        "id": "north_door_cp",
+        "position_rel": {
+          "x": -60.0,
+          "y": 247.5,
+          "z": 1.1
+        },
+        "description": "北侧门框处",
+        "controls": [
+          "唯一进入通道",
+          "房间肃清起点"
+        ],
+        "tactical_value": "扼守本房间唯一入口"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "SS_14_EAST走廊(长走廊中段)",
+      "to_position": "north_door入口",
+      "exposed_to": [
+        "south方向(走廊深处)",
+        "west方向(走廊墙壁开口)"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "north_door门框",
+      "to_position": "main_room内部",
+      "exposed_to": [
+        "north方向(走廊)",
+        "门框侧向"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "main_room入口",
+      "to_position": "房间深处/沙发掩体",
+      "exposed_to": [
+        "north"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "corridor_approach",
+        "zone_id": "entry_zone",
+        "opening_id": "north_door",
+        "approach_from": "SS_14_EAST走廊北侧方向"
+      }
+    ],
+    "objective_criteria": [
+      "主房间(main_room)所有角落已目视确认清除",
+      "沙发后方及家具底部已检查",
+      "北侧门出口已封锁控制"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_14_EAST",
+        "via": "north_door",
+        "condition": "房间肃清完成，所有目标区域已确认安全"
+      }
+    ]
+  },
+  "spatial_description": "三层东南主卧/多人卧室，X=[-60,-42]Y=[249,262]，约240m²。三面围合，北侧通过一扇standard宽度落地门(宽2m，高2.2m)与SS_14_EAST走廊连通。房间内有一组大型沙发(约2.5m×5.4m)位于东南区域，可为蹲姿人员提供掩体。天花板高约22m，室内空间开敞。唯一入口在北侧，需从长走廊接近，存在暴露风险。",
+  "inferred_tags": [
+    "大型房间肃清",
+    "单入口房间",
+    "长走廊接近",
+    "沙发掩体",
+    "三层顶层"
+  ]
+}

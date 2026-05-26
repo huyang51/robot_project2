@@ -1,0 +1,471 @@
+{
+  "sub_scene_id": "SS_03",
+  "tactical_role": "corridor_clear",
+  "task_hint": "一层核心走廊，连接两个入口和楼梯井，控制此处可分割一层为东西两个区域",
+  "zones": [
+    {
+      "zone_id": "Zone_0",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -35,
+          33
+        ],
+        "y": [
+          252,
+          264.5
+        ],
+        "z": [
+          0,
+          22.4
+        ]
+      },
+      "description": "一层主要走廊，X方向延伸约68m，Y方向宽约12.5m，地面Z=0，楼板顶面Z=22.4，净高约3.7m。完全围合结构，内部可利用掩体有限。",
+      "connected_to": [
+        "Zone_1",
+        "Zone_2",
+        "Zone_3"
+      ],
+      "contained_cube_ids": []
+    },
+    {
+      "zone_id": "Zone_1",
+      "type": "stairwell",
+      "bounds_rel": {
+        "x": [
+          -105,
+          -92
+        ],
+        "y": [
+          258,
+          268
+        ],
+        "z": [
+          0,
+          22.4
+        ]
+      },
+      "description": "一层楼梯井，包含两个楼梯单元(DENS_STAIR_00_01/02)，各约5m²。垂直贯通F0/F1/F2三层。楼梯井东墙朝东开口连接走廊北端，南侧楼梯口朝南连接SS_06。F0层楼梯只能向上。",
+      "connected_to": [
+        "Zone_0"
+      ],
+      "contained_cube_ids": []
+    },
+    {
+      "zone_id": "Zone_2",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -38,
+          -32
+        ],
+        "y": [
+          256,
+          264
+        ],
+        "z": [
+          0,
+          22.4
+        ]
+      },
+      "description": "走廊西侧入口区域，连接SS_04。门朝西，标准宽度。",
+      "connected_to": [
+        "Zone_0"
+      ],
+      "contained_cube_ids": []
+    },
+    {
+      "zone_id": "Zone_3",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          28,
+          38
+        ],
+        "y": [
+          256,
+          264
+        ],
+        "z": [
+          0,
+          22.4
+        ]
+      },
+      "description": "走廊东侧门区域，标准宽度门，朝向东。",
+      "connected_to": [
+        "Zone_0"
+      ],
+      "contained_cube_ids": []
+    }
+  ],
+  "openings": [
+    {
+      "id": "Opening_West",
+      "type": "door",
+      "connects": [
+        "Zone_0",
+        "Zone_2"
+      ],
+      "width": 0.9,
+      "height": 2.1,
+      "position_rel": {
+        "x": -35,
+        "y": 258,
+        "z": 0
+      },
+      "notes": "距地高度0m，落地门，可直接通过。标准宽度门，朝西连接SS_04房间。"
+    },
+    {
+      "id": "Opening_East",
+      "type": "door",
+      "connects": [
+        "Zone_0",
+        "Zone_3"
+      ],
+      "width": 0.9,
+      "height": 2.1,
+      "position_rel": {
+        "x": 33,
+        "y": 261,
+        "z": 0
+      },
+      "notes": "距地高度0m，落地门，可直接通过。标准宽度门，朝向东。"
+    },
+    {
+      "id": "Opening_North",
+      "type": "stair",
+      "connects": [
+        "Zone_0",
+        "Zone_1"
+      ],
+      "width": 1.2,
+      "height": 2.2,
+      "position_rel": {
+        "x": -92,
+        "y": 263,
+        "z": 0
+      },
+      "notes": "楼梯井东墙开口朝东，距地高度0m。楼梯井位于走廊北端偏西位置，通过此开口与走廊连通。楼梯可向上至F1/F2层。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "_173__122550_",
+      "quality": "standing",
+      "height": 22.4,
+      "coverage_direction": [
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "楼板边缘(Y≈245-252)可作为站立掩体，高度足以掩护站立人员。位于走廊南侧边界附近。"
+    },
+    {
+      "cube_id": "_231__194380__002",
+      "quality": "crouching",
+      "height": 0.11,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north"
+          ]
+        }
+      ],
+      "notes": "南侧墙体线段群(Z≈4.5m)，高度较低，可提供蹲姿掩体或视线遮蔽。主要分布在Y=247-249区域。"
+    },
+    {
+      "cube_id": "_231__194377__001",
+      "quality": "concealment_only",
+      "height": 2.15,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "西墙立柱群，可提供视线遮蔽，但无法阻挡有效火力。"
+    },
+    {
+      "cube_id": "_231__194404_",
+      "quality": "concealment_only",
+      "height": 2.15,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "东墙立柱群，可提供视线遮蔽。"
+    },
+    {
+      "cube_id": "_52__844800_",
+      "quality": "concealment_only",
+      "height": 0.062,
+      "coverage_direction": [
+        "all"
+      ],
+      "effective_positions": [],
+      "notes": "小型装饰物体，仅提供视线遮蔽，无战术价值。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "long_sightline",
+      "severity": "high",
+      "location_zone": "Zone_0",
+      "description": "走廊南北贯通约68m，视线遮挡有限。走廊中段移动时容易暴露于两侧开口方向，是主要的火力威胁通道。"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "high",
+      "location_zone": "Zone_1",
+      "description": "楼梯井(Zone_1)贯通F0/F1/F2三层。敌人可能从F1/F2层通过楼梯向下射击，对走廊北段(Y>263)和中段人员构成垂直威胁。楼梯井开口朝东，与走廊北端形成直角交汇，增加侧翼风险。"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "medium",
+      "location_zone": "Zone_1",
+      "description": "楼梯井开口位于走廊北端偏西位置(X=-92)，与走廊主轴线形成侧向交汇。楼梯井入口处存在盲区，转角控制困难。"
+    },
+    {
+      "type": "choke_point",
+      "severity": "medium",
+      "location_zone": "Zone_0",
+      "description": "三个开口(西侧门、北侧楼梯井、东侧门)均位于走廊端部或侧向，中段相对空旷。编队在走廊中段活动时缺乏掩体，一旦暴露将面临多点交叉威胁。"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "medium",
+      "location_zone": "Zone_0",
+      "description": "走廊东西两端各有一个房间开口(SS_04和东侧门)，敌人可能埋伏于相邻房间，在编队通过时从侧向突然射击。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "走廊主体通道: X=[-35,33], Y=[252,264.5]，东西向贯穿全走廊",
+      "楼梯井连接通道: Y=[263,264]处向西至楼梯井(X=-92)",
+      "西侧门通道: X=[-38,-32]处向西至SS_04",
+      "东侧门通道: X=[28,38]处向东离开本区域"
+    ],
+    "constraints": [
+      "走廊宽度约12.5m，编队展开空间有限",
+      "内部掩体稀少，主要依赖楼板边缘和墙体立柱",
+      "楼梯井方向(X=-92)偏离走廊主轴线约57m，需沿走廊北端绕行",
+      "楼板高度22.4m，净高3.7m，垂直射击风险高"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP_0",
+        "position_rel": {
+          "x": -92,
+          "y": 263,
+          "z": 1.5
+        },
+        "description": "楼梯井入口",
+        "controls": [
+          "控制进入楼梯井的通道",
+          "封锁垂直威胁来源",
+          "掩护走廊北段"
+        ],
+        "tactical_value": "critical"
+      },
+      {
+        "id": "CP_1",
+        "position_rel": {
+          "x": -35,
+          "y": 260,
+          "z": 1.5
+        },
+        "description": "西侧门区域",
+        "controls": [
+          "控制SS_04房间出口",
+          "掩护走廊西段"
+        ],
+        "tactical_value": "high"
+      },
+      {
+        "id": "CP_2",
+        "position_rel": {
+          "x": 0,
+          "y": 258,
+          "z": 1.5
+        },
+        "description": "走廊中段",
+        "controls": [
+          "控制走廊核心区域",
+          "连接南北两端"
+        ],
+        "tactical_value": "high"
+      },
+      {
+        "id": "CP_3",
+        "position_rel": {
+          "x": 33,
+          "y": 260,
+          "z": 1.5
+        },
+        "description": "东侧门区域",
+        "controls": [
+          "控制东侧出口",
+          "掩护走廊东段"
+        ],
+        "tactical_value": "medium"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "Opening_West(西侧门)",
+      "to_position": "Opening_North(楼梯井)",
+      "exposed_to": [
+        "east方向开口",
+        "楼梯井垂直方向"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "Opening_North(楼梯井)",
+      "to_position": "Opening_West(西侧门)",
+      "exposed_to": [
+        "west方向开口",
+        "走廊中段"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "Opening_North(楼梯井)",
+      "to_position": "Opening_East(东侧门)",
+      "exposed_to": [
+        "east方向开口",
+        "SS_01方向"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "Opening_East(东侧门)",
+      "to_position": "Opening_West(西侧门)",
+      "exposed_to": [
+        "楼梯井方向",
+        "走廊中段盲区"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "Opening_South(SS_01方向)",
+      "to_position": "Opening_North(楼梯井)",
+      "exposed_to": [
+        "楼梯井垂直方向",
+        "走廊中段"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP_0",
+        "zone_id": "Zone_1",
+        "opening_id": "Opening_North",
+        "approach_from": "north_from_stairwell"
+      },
+      {
+        "id": "EP_1",
+        "zone_id": "Zone_2",
+        "opening_id": "Opening_West",
+        "approach_from": "west_from_ss04"
+      },
+      {
+        "id": "EP_2",
+        "zone_id": "Zone_3",
+        "opening_id": "Opening_East",
+        "approach_from": "east"
+      },
+      {
+        "id": "EP_3",
+        "zone_id": "Zone_0",
+        "opening_id": "Opening_South",
+        "approach_from": "south_from_ss01"
+      }
+    ],
+    "objective_criteria": [
+      "走廊中段(X=[-10,15])已完全肃清，目视确认无威胁",
+      "楼梯井入口(CP_0)已建立控制点，垂直威胁已压制",
+      "三个开口(西侧门、东侧门、北侧楼梯井)已封锁或建立警戒",
+      "所有角落和视线盲区已检查完毕"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_04",
+        "via": "Opening_West",
+        "condition": "西侧门方向威胁已清除，SS_04入口已封锁"
+      },
+      {
+        "to_sub_scene": "SS_06",
+        "via": "Opening_North",
+        "condition": "楼梯井垂直威胁已压制，楼梯口已控制"
+      },
+      {
+        "to_sub_scene": "SS_01",
+        "via": "Opening_South",
+        "condition": "主入口方向已确认安全"
+      },
+      {
+        "to_sub_scene": "Exterior_East",
+        "via": "Opening_East",
+        "condition": "东侧门方向已确认安全"
+      }
+    ]
+  },
+  "spatial_description": "一层核心走廊呈东西向延伸约68m，南北向宽约12.5m。地面Z=0，楼板顶面Z=22.4，净高约3.7m。北侧端部(X≈-92)在Y=263处通过楼梯井东墙开口连接垂直通道，楼梯井可向上至F1/F2层。西侧(X≈-35处)通过标准门连接SS_04房间。南侧端部连接SS_01主入口。东侧(X≈33处)另有一扇标准门。走廊完全围合，内部仅有楼板边缘(Z=22.4)和少量墙体立柱(Z≈4.5m)可作为掩体，利用率低。楼梯井位置偏离走廊主轴线约57m，增加了垂直威胁的复杂性。",
+  "inferred_tags": [
+    "长走廊肃清",
+    "垂直威胁控制",
+    "多开口交汇",
+    "侧翼暴露风险",
+    "楼梯井封锁",
+    "L形转角",
+    "窄长空间"
+  ]
+}

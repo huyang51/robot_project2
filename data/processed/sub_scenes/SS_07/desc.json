@@ -1,0 +1,395 @@
+{
+  "sub_scene_id": "SS_07",
+  "tactical_role": "staging_area",
+  "task_hint": "建筑南侧外部区域，距主入口约10m，适合作为进攻发起阵地和掩护火力点",
+  "zones": [
+    {
+      "zone_id": "EXT-MAIN",
+      "type": "exterior",
+      "bounds_rel": {
+        "x": [
+          -35.0,
+          15.0
+        ],
+        "y": [
+          244.0,
+          265.0
+        ],
+        "z": [
+          0.0,
+          15.0
+        ]
+      },
+      "description": "建筑外部开放区域，Y=263-264区间有车辆聚集区域，可能是停车场或集结点。空间开阔，缺乏天然掩体，但可利用车辆和建筑凸出结构作为临时掩护",
+      "connected_to": [
+        "EXT-COVER-01"
+      ],
+      "contained_cube_ids": [
+        "/__563093_028",
+        "/___336__815873_003",
+        "/_152__915827_002",
+        "/_275__916052_002",
+        "/__423248_003",
+        "/_103__629828_002"
+      ]
+    },
+    {
+      "zone_id": "EXT-COVER-01",
+      "type": "exterior",
+      "bounds_rel": {
+        "x": [
+          8.0,
+          14.0
+        ],
+        "y": [
+          248.0,
+          255.0
+        ],
+        "z": [
+          0.0,
+          5.0
+        ]
+      },
+      "description": "建筑北侧凸出结构下方区域，可提供部分遮蔽。包含垂直结构柱和中等高度平台",
+      "connected_to": [
+        "EXT-MAIN"
+      ],
+      "contained_cube_ids": [
+        "/__779184_011",
+        "/__562095_020",
+        "/__25__156433_008"
+      ]
+    },
+    {
+      "zone_id": "ENTRY-APPROACH",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -30.0,
+          -24.0
+        ],
+        "y": [
+          244.0,
+          252.0
+        ],
+        "z": [
+          0.0,
+          15.0
+        ]
+      },
+      "description": "主入口外部接近区域，距主入口约10m。根据ENT_03描述，此处可作为进攻发起点和掩护阵地",
+      "connected_to": [
+        "EXT-MAIN",
+        "SS_01"
+      ],
+      "contained_cube_ids": [
+        "/_231__194401__010",
+        "/_155__121656_",
+        "/_231__194395__001",
+        "/_157__121683__001"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "OP_NORTH",
+      "type": "door",
+      "connects": [
+        "EXT-MAIN",
+        "SS_01"
+      ],
+      "width": 10.0,
+      "height": 3.5,
+      "position_rel": {
+        "x": -26.5,
+        "y": 252.0,
+        "z": 0.0
+      },
+      "notes": "宽10m，开口朝北，是进入SS_01主入口的主要通道。距地高度0m，完全落地可直接通过。向北通往建筑外部开放区域"
+    },
+    {
+      "id": "OP_WEST_APPROACH",
+      "type": "door",
+      "connects": [
+        "ENTRY-APPROACH",
+        "SS_01"
+      ],
+      "width": 2.8,
+      "height": 2.5,
+      "position_rel": {
+        "x": -26.5,
+        "y": 251.5,
+        "z": 0.0
+      },
+      "notes": "2.8m宽主入口，朝向南侧。距地高度0m，落地门设计。面向外部开放区域，是主要突入点"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/__563093_028",
+      "quality": "standing",
+      "height": 0.314,
+      "coverage_direction": [
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "建筑西侧垂直结构，高度约0.3m，可提供站立级掩体。位于x=-26.4处"
+    },
+    {
+      "cube_id": "/__779184_011",
+      "quality": "crouching",
+      "height": 0.452,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        },
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "建筑凸出垂直柱，x=-11.72，高度0.45m，提供蹲姿掩体。可作为短距离掩护使用"
+    },
+    {
+      "cube_id": "/_275__916052_002",
+      "quality": "standing",
+      "height": 0.074,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "中层平台边缘条带，x=-15.335至-10.972，长度约8.7m。可作为低位掩体利用"
+    },
+    {
+      "cube_id": "/__423248_003",
+      "quality": "concealment_only",
+      "height": 2.504,
+      "coverage_direction": [
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "建筑凸出结构，x=11.348，高2.5m，可阻隔视线但高度不足以提供可靠防弹掩体"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "long_sightline",
+      "severity": "high",
+      "location_zone": "EXT-MAIN",
+      "description": "外部开放区域空间开阔，从SS_01主入口向北可直接观察到整个开阔地带。车辆聚集区Y=263-264方向缺乏有效掩体暴露风险高"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "medium",
+      "location_zone": "ENTRY-APPROACH",
+      "description": "主入口上方存在中层平台(/_275__916052_002)，Z=4.701处有结构。如敌在下层或入口上方窗口，可能对ENTRY-APPROACH区域构成垂直火力威胁"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "medium",
+      "location_zone": "EXT-COVER-01",
+      "description": "EXT-COVER-01区域(x=8-14,y=248-255)两侧开放，西侧和东侧缺乏掩体掩护，从SS_01方向可被侧向火力威胁"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "low",
+      "location_zone": "EXT-COVER-01",
+      "description": "__423248_003结构形成x≈11处凸出，可能造成北侧小范围盲区，但该区域本身较为开阔影响有限"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "从OP_NORTH向南穿越EXT-MAIN主区域至ENTRY-APPROACH",
+      "从ENT_03(西侧破墙点)向东进入ENTRY-APPROACH区域",
+      "利用车辆聚集区(Y=263-264)之间间隙进行掩护移动"
+    ],
+    "constraints": [
+      "开阔地带缺乏自然掩体，需利用车辆或临时结构",
+      "车辆位置不固定，可能需要实时评估可利用掩体",
+      "OP_WEST_APPROACH宽度2.8m，通行能力有限",
+      "中层平台下方空间开阔，无垂直掩体"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP_ENT_03",
+        "position_rel": {
+          "x": -30.0,
+          "y": 248.0,
+          "z": 0.0
+        },
+        "description": "ENT_03破墙进入点，距主入口OP_WEST_APPROACH约10m",
+        "controls": [
+          "主入口突入路线",
+          "ENTRY-APPROACH区域进入"
+        ],
+        "tactical_value": "作为进攻发起点，可在此建立掩护阵地后向主入口推进"
+      },
+      {
+        "id": "CP_VEHICLE_CLUSTER",
+        "position_rel": {
+          "x": 0.0,
+          "y": 263.5,
+          "z": 0.0
+        },
+        "description": "车辆聚集区中心位置",
+        "controls": [
+          "北部开阔区域掩护利用"
+        ],
+        "tactical_value": "可作为机动过程中的临时掩体，减少暴露时间"
+      },
+      {
+        "id": "CP_STRUCTURE_COVER",
+        "position_rel": {
+          "x": 11.0,
+          "y": 250.0,
+          "z": 3.0
+        },
+        "description": "__423248_003建筑凸出结构位置",
+        "controls": [
+          "EXT-COVER-01区域遮蔽"
+        ],
+        "tactical_value": "可提供视觉遮蔽，但高度不足以防弹，需评估威胁等级"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "ENT_03破墙进入点",
+      "to_position": "OP_NORTH主通道位置",
+      "exposed_to": [
+        "south(主入口方向)",
+        "east(建筑侧面)",
+        "west(建筑侧面)"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "OP_NORTH通道",
+      "to_position": "ENTRY-APPROACH区域",
+      "exposed_to": [
+        "north(开阔区域)",
+        "east(EXT-COVER-01方向)",
+        "west(西侧开放)"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "车辆聚集区北缘",
+      "to_position": "OP_NORTH",
+      "exposed_to": [
+        "south(主入口方向)",
+        "east(侧面)",
+        "west(侧面)"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "ENTRY-APPROACH区域",
+      "to_position": "OP_WEST_APPROACH主入口",
+      "exposed_to": [
+        "north(入口内)",
+        "south(开阔)"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP_ENT_03",
+        "zone_id": "ENTRY-APPROACH",
+        "opening_id": "OP_NORTH",
+        "approach_from": "west"
+      },
+      {
+        "id": "EP_VEHICLE_APPROACH",
+        "zone_id": "EXT-MAIN",
+        "opening_id": "OP_NORTH",
+        "approach_from": "north"
+      }
+    ],
+    "objective_criteria": [
+      "编队在ENT_03区域完成集结，建立掩护阵地",
+      "所有进入路线已确认无威胁",
+      "掩护火力点已就位，可支援主入口突入",
+      "车辆聚集区已清理或确认安全"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_01",
+        "via": "OP_WEST_APPROACH",
+        "condition": "掩护火力已建立，突破组准备就绪，从主入口发起突入"
+      },
+      {
+        "to_sub_scene": "SS_01",
+        "via": "OP_NORTH",
+        "condition": "从北侧迂回组已到达OP_NORTH，配合主入口方向发起协同突击"
+      }
+    ]
+  },
+  "spatial_description": "该子场景为建筑外部开放区域(Z0-EXT-01)，位于F0地面层。空间呈东西走向延伸，北侧Y=263-264区间有车辆聚集形成临时掩体区。建筑主体结构在y≈251.5处有水平分隔线，可能代表不同功能区域的边界。主入口OP_WEST_APPROACH位于西侧(x=-26.5)，2.8m宽朝南开启，是进入相邻子场景SS_01的主要通道。朝北开口OP_NORTH宽10m，通往建筑外部开阔地带。空间内存在多处建筑凸出结构(__423248_003高2.5m、__779184_011柱状结构)，可作为有限掩体利用。ENT_03破墙进入点距主入口约10m，适合建立进攻发起点和掩护火力阵地。整体空间开阔，缺乏天然高大掩体，需依托车辆和建筑结构进行掩护部署。",
+  "inferred_tags": [
+    "外部开阔区域",
+    "车辆聚集区",
+    "多点进入可选",
+    "进攻发起点",
+    "掩护火力阵地",
+    "缺乏天然掩体",
+    "长视线暴露风险"
+  ]
+}

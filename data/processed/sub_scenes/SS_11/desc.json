@@ -1,0 +1,410 @@
+{
+  "sub_scene_id": "SS_11",
+  "tactical_role": "vertical_control",
+  "task_hint": "二层楼梯井延伸，与一层楼梯井贯通，是上下楼的唯一通道",
+  "zones": [
+    {
+      "zone_id": "Z1-ST-01-main",
+      "type": "stairwell",
+      "bounds_rel": {
+        "x": [
+          -120.9,
+          -74.1
+        ],
+        "y": [
+          229.6,
+          264.0
+        ],
+        "z": [
+          0.0,
+          46.3
+        ]
+      },
+      "description": "F1层楼梯井核心区域，空间贯通F0-F2三层，在F1层与走廊网络连接",
+      "connected_to": [
+        "Z1-ST-01-stair_approach",
+        "Z1-ST-01-corridor_approach"
+      ],
+      "contained_cube_ids": [
+        "/__5863__008/__5863__008",
+        "/__5863__009/__5863__009",
+        "/__5863__010/__5863__010",
+        "/__5863__023/__5863__023",
+        "/__5863__024/__5863__024",
+        "/__5863__029/__5863__029",
+        "/_27__17796_/_27__17796_",
+        "/_27__17811_/_27__17811_",
+        "/_27__17832_/_27__17832_",
+        "/Tree_2D_Schematic_Sparse_35__1__17136__001/Tree_2D_Schematic_Sparse_35__1__17136__001"
+      ]
+    },
+    {
+      "zone_id": "Z1-ST-01-stair_approach",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -90.0,
+          -88.9
+        ],
+        "y": [
+          258.7,
+          264.0
+        ],
+        "z": [
+          0.0,
+          24.7
+        ]
+      },
+      "description": "楼梯入口过渡区，楼梯位于east侧",
+      "connected_to": [
+        "Z1-ST-01-main"
+      ],
+      "contained_cube_ids": [
+        "/_56__167654_/_56__167654_",
+        "/_27__17796_/_27__17796_"
+      ]
+    },
+    {
+      "zone_id": "Z1-ST-01-corridor_approach",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -117.8,
+          -106.4
+        ],
+        "y": [
+          263.4,
+          264.0
+        ],
+        "z": [
+          0.0,
+          1.0
+        ]
+      },
+      "description": "走廊连接区，door位于south侧",
+      "connected_to": [
+        "Z1-ST-01-main"
+      ],
+      "contained_cube_ids": [
+        "/_247__11329__017/_247__11329__017"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "stair-east",
+      "type": "door",
+      "connects": [
+        "Z1-ST-01-stair_approach",
+        "Z1-ST-01-main"
+      ],
+      "width": 2.8,
+      "height": 2.2,
+      "position_rel": {
+        "x": -89.0,
+        "y": 261.0,
+        "z": 0.0
+      },
+      "notes": "楼梯口朝向东，标准宽度，距地高度0m，落地式可直接通过，连通SS_06(F0)和SS_16(F2)"
+    },
+    {
+      "id": "door-south",
+      "type": "door",
+      "connects": [
+        "Z1-ST-01-corridor_approach",
+        "Z1-ST-01-main"
+      ],
+      "width": 0.9,
+      "height": 2.1,
+      "position_rel": {
+        "x": -106.4,
+        "y": 263.8,
+        "z": 0.0
+      },
+      "notes": "木门框朝向南，标准宽度，距地高度0.03m，落门式可直接通过，连通SS_09(F1走廊)"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "/_56__167654_/_56__167654_",
+      "quality": "standing",
+      "height": 0.8,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "西侧墙壁段，贯穿楼梯井南北方向，高度0.8m，提供站立掩体"
+    },
+    {
+      "cube_id": "/_56__167699_/_56__167699_",
+      "quality": "standing",
+      "height": 0.8,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "东侧墙壁段，贯穿楼梯井南北方向，高度0.8m，提供站立掩体"
+    },
+    {
+      "cube_id": "/_56__167717_/_56__167717_",
+      "quality": "standing",
+      "height": 0.8,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "west",
+          "covers_from": [
+            "east"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        },
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "north",
+            "south"
+          ]
+        }
+      ],
+      "notes": "中部墙壁段，位于楼梯井中部，高度0.8m，提供站立掩体"
+    },
+    {
+      "cube_id": "/_247__11329__017/_247__11329__017",
+      "quality": "concealment_only",
+      "height": 0.031,
+      "coverage_direction": [
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east"
+          ]
+        }
+      ],
+      "notes": "木门框，高度极低，仅提供视线遮蔽"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "choke_point",
+      "severity": "critical",
+      "location_zone": "Z1-ST-01-stair_approach",
+      "description": "楼梯口是F0-F1-F2垂直方向的唯一咽喉，F1层楼梯井是上下楼的必经通道"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "high",
+      "location_zone": "Z1-ST-01-main",
+      "description": "楼梯井贯通F0-F2三层，相邻子场景SS_06和SS_16分别位于一层和三层的同位置楼梯井，存在垂直方向火力威胁"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "Z1-ST-01-stair_approach",
+      "description": "楼梯口east侧存在视线盲区，从楼梯上行方向进入时无法观察F1层走廊连接区"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "medium",
+      "location_zone": "Z1-ST-01-corridor_approach",
+      "description": "door-south开口朝向south，连接SS_09走廊，走廊方向可能存在侧翼威胁"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "medium",
+      "location_zone": "Z1-ST-01-stair_approach",
+      "description": "楼梯井空间狭长，x方向约33m长，存在长距离伏击风险"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "从door-south进入后向西直行至stair-east",
+      "从stair-east进入后向东直行至door-south",
+      "楼梯内垂直移动：上行至F2，下行至F0"
+    ],
+    "constraints": [
+      "楼梯井空间狭长，y方向宽度仅约5m",
+      "楼梯口标准宽度2.8m，一次仅容单组通过",
+      "门道宽度0.9m，通行能力有限"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP-01",
+        "position_rel": {
+          "x": -106.4,
+          "y": 263.8,
+          "z": 0.0
+        },
+        "description": "door-south门道位置，扼守走廊连接点",
+        "controls": [
+          "Z1-ST-01-corridor_approach",
+          "SS_09连通"
+        ],
+        "tactical_value": "走廊方向进入楼梯井的唯一入口"
+      },
+      {
+        "id": "CP-02",
+        "position_rel": {
+          "x": -89.0,
+          "y": 261.0,
+          "z": 0.0
+        },
+        "description": "stair-east楼梯口位置，扼守垂直通道",
+        "controls": [
+          "Z1-ST-01-stair_approach",
+          "SS_06/SS_16连通"
+        ],
+        "tactical_value": "上下楼层的咽喉点"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "door-south门道",
+      "to_position": "stair-east楼梯口",
+      "exposed_to": [
+        "east楼梯方向",
+        "west墙壁方向"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "楼梯上行至F2",
+      "to_position": "F2层楼梯口",
+      "exposed_to": [
+        "downward垂直方向",
+        "F2层楼梯口方向"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "楼梯下行至F0",
+      "to_position": "F0层楼梯口",
+      "exposed_to": [
+        "upward垂直方向",
+        "F0层楼梯口方向"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "stair-east楼梯口",
+      "to_position": "door-south门道",
+      "exposed_to": [
+        "west走廊连接区",
+        "south门道方向"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": true
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP-01",
+        "zone_id": "Z1-ST-01-stair_approach",
+        "opening_id": "stair-east",
+        "approach_from": "west（从楼梯上行方向进入，或从F2下行）"
+      },
+      {
+        "id": "EP-02",
+        "zone_id": "Z1-ST-01-corridor_approach",
+        "opening_id": "door-south",
+        "approach_from": "north（从SS_09走廊北侧进入）"
+      }
+    ],
+    "objective_criteria": [
+      "楼梯井内F1层已肃清，无人员隐藏",
+      "上下楼梯方向已确认安全，无伏击威胁",
+      "door-south门道已控制，连通SS_09走廊安全"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_16",
+        "via": "stair-east",
+        "condition": "F1层肃清完毕，楼梯上行至F2继续垂直控制"
+      },
+      {
+        "to_sub_scene": "SS_06",
+        "via": "stair-east",
+        "condition": "F1层肃清完毕，楼梯下行至F0继续垂直控制"
+      },
+      {
+        "to_sub_scene": "SS_09",
+        "via": "door-south",
+        "condition": "楼梯井控制完毕，向南进入走廊继续肃清"
+      }
+    ]
+  },
+  "spatial_description": "F1层楼梯井空间呈东西向狭长布局，y方向约33.78m、x方向约5m。楼梯井贯通F0-F2三层，在F1层通过两处开口与外部连通：east侧stair口连通上下楼层（连接SS_06和SS_16），south侧door口连通走廊网络（连接SS_09）。楼梯井内墙壁贯穿南北提供掩体，楼梯位于east侧，通行宽度2.8m。门道位于south侧，宽度0.9m。空间完全封闭，无直接对外窗户。",
+  "inferred_tags": [
+    "楼梯井垂直通道",
+    "三层贯通楼梯",
+    "双向楼梯F1层",
+    "咽喉要道",
+    "狭长空间",
+    "双开口连通",
+    "无直接对外"
+  ]
+}

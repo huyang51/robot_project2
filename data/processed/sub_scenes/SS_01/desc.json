@@ -1,0 +1,349 @@
+{
+  "sub_scene_id": "SS_01",
+  "tactical_role": "primary_entry",
+  "task_hint": "从南侧接近并突入主入口，控制入口后快速向左转进入走廊主通道",
+  "zones": [
+    {
+      "zone_id": "entry_porch",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -26.5,
+          37.0
+        ],
+        "y": [
+          263.0,
+          264.0
+        ],
+        "z": [
+          0.0,
+          4.0
+        ]
+      },
+      "description": "主入口门廊区域，宽2.8m门朝南开向外部开放区域SS_07，北侧通过开口连接走廊",
+      "connected_to": [
+        "corridor_main"
+      ],
+      "contained_cube_ids": [
+        "___115__831170_001",
+        "___115__831173_"
+      ]
+    },
+    {
+      "zone_id": "corridor_main",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -37.5,
+          37.0
+        ],
+        "y": [
+          247.0,
+          263.0
+        ],
+        "z": [
+          0.0,
+          4.0
+        ]
+      },
+      "description": "主要走廊通道，宽度约10.5m，南北向延伸约16m，向西连接SS_03主走廊",
+      "connected_to": [
+        "entry_porch",
+        "exterior_zone"
+      ],
+      "contained_cube_ids": [
+        "_277__916044_",
+        "_275__916051_",
+        "_167__122478_",
+        "_167__122481_"
+      ]
+    },
+    {
+      "zone_id": "north_wall",
+      "type": "corner",
+      "bounds_rel": {
+        "x": [
+          -37.5,
+          -26.5
+        ],
+        "y": [
+          247.0,
+          248.0
+        ],
+        "z": [
+          0.0,
+          4.0
+        ]
+      },
+      "description": "北侧边界墙区域，实墙高度约2.15m，提供良好掩体",
+      "connected_to": [
+        "corridor_main"
+      ],
+      "contained_cube_ids": [
+        "_231__194377__001",
+        "_231__194327__002",
+        "_231__194327__006",
+        "_231__194380_"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "main_door",
+      "type": "door",
+      "connects": [
+        "entry_porch",
+        "exterior_zone"
+      ],
+      "width": 2.8,
+      "height": 2.1,
+      "position_rel": {
+        "x": -26.5,
+        "y": 263.5,
+        "z": 0.0
+      },
+      "notes": "距地高度0m，可直接通过。朝向south，连接入口门廊与外部开放区域SS_07"
+    },
+    {
+      "id": "corridor_connection",
+      "type": "opening",
+      "connects": [
+        "entry_porch",
+        "corridor_main"
+      ],
+      "width": 63.5,
+      "height": 4.0,
+      "position_rel": {
+        "x": -26.5,
+        "y": 263.0,
+        "z": 0.0
+      },
+      "notes": "入口与走廊之间的连通开口，宽约63.5m，entry向左转进入corridor"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "_277__916044_",
+      "quality": "crouching",
+      "height": 0.074,
+      "coverage_direction": [
+        "north",
+        "south"
+      ],
+      "effective_positions": [
+        {
+          "behind": "north",
+          "covers_from": [
+            "south"
+          ],
+          "exposed_to": [
+            "north",
+            "east"
+          ]
+        },
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "west"
+          ]
+        }
+      ],
+      "notes": "走廊内低矮长桌，高度0.074m，可蹲姿掩护并阻挡南北方向火力"
+    },
+    {
+      "cube_id": "_231__194377__001",
+      "quality": "standing",
+      "height": 2.15,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east",
+            "north"
+          ]
+        }
+      ],
+      "notes": "北侧实体墙，高2.15m，可站姿掩护，完全阻挡东西方向火力"
+    },
+    {
+      "cube_id": "_231__194327__002",
+      "quality": "standing",
+      "height": 2.149,
+      "coverage_direction": [
+        "east",
+        "west"
+      ],
+      "effective_positions": [
+        {
+          "behind": "east",
+          "covers_from": [
+            "west"
+          ],
+          "exposed_to": [
+            "east",
+            "north"
+          ]
+        }
+      ],
+      "notes": "北侧墙面延伸段，高2.15m，提供良好站姿掩体"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "corridor_main",
+      "description": "entry与corridor连接处存在90度转角，部队从南侧进入后左转向西时存在盲区，需警惕转角后方的威胁"
+    },
+    {
+      "type": "ambush_position",
+      "severity": "critical",
+      "location_zone": "entry_porch",
+      "description": "主入口门宽2.8m且距地0m可直接通过，暴露于南侧开放区域SS_07，外部威胁可直接射击进入人员"
+    },
+    {
+      "type": "long_sightline",
+      "severity": "medium",
+      "location_zone": "corridor_main",
+      "description": "走廊向西延伸超过10m至SS_03，x=-37.5处为北墙尽头，向西无掩体形成长视线暴露"
+    },
+    {
+      "type": "choke_point",
+      "severity": "medium",
+      "location_zone": "entry_porch",
+      "description": "2.8m宽门洞形成天然瓶颈，突入时编队集中暴露于门框范围，易受集中火力"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "SS_07外部开放区域 → main_door → entry_porch → corridor_connection → corridor_main → SS_03主走廊",
+      "SS_07外部开放区域 → main_door → entry_porch → 原地展开肃清"
+    ],
+    "constraints": [
+      "北侧x=-37.5处为实体墙边界，限制向西以外的移动选项",
+      "2.8m宽门洞限制同时进入人数，需依次通过",
+      "entry与corridor间90度转角需减速观察"
+    ],
+    "key_control_points": [
+      {
+        "id": "entry_threshold",
+        "position_rel": {
+          "x": -26.5,
+          "y": 263.0,
+          "z": 0.0
+        },
+        "description": "主入口门洞位置，突入后第一个控制点",
+        "controls": [
+          "进入entry的通道",
+          "向北进入corridor的路线",
+          "向外部SS_07的退路"
+        ],
+        "tactical_value": "控制此处可封锁entry区域，阻止外部威胁进入"
+      },
+      {
+        "id": "corner_taking_point",
+        "position_rel": {
+          "x": -26.5,
+          "y": 247.0,
+          "z": 0.0
+        },
+        "description": "entry与corridor连接处的转角点，部队左转向西的位置",
+        "controls": [
+          "向西进入SS_03的路线",
+          "向北进入corridor纵深的路线"
+        ],
+        "tactical_value": "优先控制此点可确保走廊肃清的安全起点"
+      },
+      {
+        "id": "north_wall_cover",
+        "position_rel": {
+          "x": -37.5,
+          "y": 250.0,
+          "z": 0.0
+        },
+        "description": "北墙沿线掩体位置，可用于肃清时提供掩护",
+        "controls": [
+          "走廊西段",
+          "corridor_main北侧区域"
+        ],
+        "tactical_value": "沿墙推进时提供北侧掩体，减少暴露"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "SS_07外部开放区域（南侧）",
+      "to_position": "main_door入口门洞",
+      "exposed_to": [
+        "south",
+        "southeast",
+        "southwest"
+      ],
+      "exposure_time_category": "brief",
+      "cover_available_during_movement": false
+    },
+    {
+      "from_position": "main_door入口门洞",
+      "to_position": "corridor_main转角处",
+      "exposed_to": [
+        "north",
+        "west"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "corridor_main转角处",
+      "to_position": "SS_03走廊西端",
+      "exposed_to": [
+        "west"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": true
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "south_approach",
+        "zone_id": "entry_porch",
+        "opening_id": "main_door",
+        "approach_from": "south"
+      }
+    ],
+    "objective_criteria": [
+      "入口门洞main_door已控制，无外部威胁直接射击角度",
+      "entry_porch区域已目视确认清除",
+      "corridor_main转角处已控制，盲区已肃清",
+      "北墙沿线掩体位置已建立监视"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_03",
+        "via": "corridor_connection",
+        "condition": "走廊西端已目视确认清除，门洞main_door已关闭或建立警戒"
+      }
+    ]
+  },
+  "spatial_description": "一层主入口区域呈L形布局，南侧为2.8m宽门廊空间（y=263-264），门朝南开向外部开放区域SS_07，可直接通过无门槛。北侧为约10.5m宽、16m长的走廊通道（y=247-263），向西延伸连接SS_03主走廊。门廊与走廊之间通过约63.5m宽开口连通，形成90度转角。走廊内有低矮长桌可作蹲姿掩体，北侧x=-37.5处为实墙边界，提供良好站姿掩体。整体空间简洁，无复杂分隔，适合快速突入和转角控制。",
+  "inferred_tags": [
+    "主入口",
+    "L形空间",
+    "向南开口",
+    "门廊走廊",
+    "多掩体",
+    "转角控制点",
+    "短距离暴露"
+  ]
+}

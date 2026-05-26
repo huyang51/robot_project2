@@ -1,124 +1,110 @@
 {
   "sub_scenes": [
     {
-      "sub_scene_id": "SS_EXT_GROUND",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_EXT_GROUND\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_EXT_GROUND\\desc.json",
+      "sub_scene_id": "SS_12",
+      "usda_path": "data\\processed\\sub_scenes\\SS_12\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_12\\desc.json",
+      "validation_passed": true,
+      "cube_count": 26
+    },
+    {
+      "sub_scene_id": "SS_09",
+      "usda_path": "data\\processed\\sub_scenes\\SS_09\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_09\\desc.json",
+      "validation_passed": true,
+      "cube_count": 97
+    },
+    {
+      "sub_scene_id": "SS_13",
+      "usda_path": "data\\processed\\sub_scenes\\SS_13\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_13\\desc.json",
+      "validation_passed": true,
+      "cube_count": 26
+    },
+    {
+      "sub_scene_id": "SS_15",
+      "usda_path": "data\\processed\\sub_scenes\\SS_15\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_15\\desc.json",
+      "validation_passed": true,
+      "cube_count": 14
+    },
+    {
+      "sub_scene_id": "SS_14_EAST",
+      "usda_path": "data\\processed\\sub_scenes\\SS_14_EAST\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_14_EAST\\desc.json",
+      "validation_passed": true,
+      "cube_count": 41
+    },
+    {
+      "sub_scene_id": "SS_03",
+      "usda_path": "data\\processed\\sub_scenes\\SS_03\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_03\\desc.json",
       "validation_passed": true,
       "cube_count": 47
     },
     {
-      "sub_scene_id": "SS_ENT_MAIN",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_ENT_MAIN\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_ENT_MAIN\\desc.json",
+      "sub_scene_id": "SS_11",
+      "usda_path": "data\\processed\\sub_scenes\\SS_11\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_11\\desc.json",
       "validation_passed": true,
-      "cube_count": 13
+      "cube_count": 23
     },
     {
-      "sub_scene_id": "SS_ENT_SIDE",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_ENT_SIDE\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_ENT_SIDE\\desc.json",
+      "sub_scene_id": "SS_04",
+      "usda_path": "data\\processed\\sub_scenes\\SS_04\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_04\\desc.json",
       "validation_passed": true,
-      "cube_count": 15
+      "cube_count": 19
     },
     {
-      "sub_scene_id": "SS_COR_F0",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_COR_F0\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_COR_F0\\desc.json",
+      "sub_scene_id": "SS_01",
+      "usda_path": "data\\processed\\sub_scenes\\SS_01\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_01\\desc.json",
       "validation_passed": true,
-      "cube_count": 47
+      "cube_count": 32
     },
     {
-      "sub_scene_id": "SS_RM_F0_EAST",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_RM_F0_EAST\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_RM_F0_EAST\\desc.json",
+      "sub_scene_id": "SS_10",
+      "usda_path": "data\\processed\\sub_scenes\\SS_10\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_10\\desc.json",
       "validation_passed": true,
-      "cube_count": 16
+      "cube_count": 23
     },
     {
-      "sub_scene_id": "SS_RM_F0_WEST",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_RM_F0_WEST\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_RM_F0_WEST\\desc.json",
+      "sub_scene_id": "SS_06",
+      "usda_path": "data\\processed\\sub_scenes\\SS_06\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_06\\desc.json",
       "validation_passed": true,
-      "cube_count": 12
+      "cube_count": 24
     },
     {
-      "sub_scene_id": "SS_STAIR_F0",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_STAIR_F0\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_STAIR_F0\\desc.json",
+      "sub_scene_id": "SS_14_WEST",
+      "usda_path": "data\\processed\\sub_scenes\\SS_14_WEST\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_14_WEST\\desc.json",
       "validation_passed": true,
-      "cube_count": 27
+      "cube_count": 50
     },
     {
-      "sub_scene_id": "SS_ENT_F1",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_ENT_F1\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_ENT_F1\\desc.json",
+      "sub_scene_id": "SS_08",
+      "usda_path": "data\\processed\\sub_scenes\\SS_08\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_08\\desc.json",
       "validation_passed": true,
-      "cube_count": 11
+      "cube_count": 14
     },
     {
-      "sub_scene_id": "SS_COR_F1",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_COR_F1\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_COR_F1\\desc.json",
+      "sub_scene_id": "SS_07",
+      "usda_path": "data\\processed\\sub_scenes\\SS_07\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_07\\desc.json",
       "validation_passed": true,
-      "cube_count": 98
+      "cube_count": 24
     },
     {
-      "sub_scene_id": "SS_RM_F1_CENTER",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_RM_F1_CENTER\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_RM_F1_CENTER\\desc.json",
+      "sub_scene_id": "SS_16",
+      "usda_path": "data\\processed\\sub_scenes\\SS_16\\scene_cubes.json",
+      "desc_path": "data\\processed\\sub_scenes\\SS_16\\desc.json",
       "validation_passed": true,
-      "cube_count": 22
-    },
-    {
-      "sub_scene_id": "SS_STAIR_F1",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_STAIR_F1\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_STAIR_F1\\desc.json",
-      "validation_passed": true,
-      "cube_count": 25
-    },
-    {
-      "sub_scene_id": "SS_ENT_F2",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_ENT_F2\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_ENT_F2\\desc.json",
-      "validation_passed": true,
-      "cube_count": 20
-    },
-    {
-      "sub_scene_id": "SS_COR_F2",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_COR_F2\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_COR_F2\\desc.json",
-      "validation_passed": true,
-      "cube_count": 84
-    },
-    {
-      "sub_scene_id": "SS_RM_F2_SOUTH",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_RM_F2_SOUTH\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_RM_F2_SOUTH\\desc.json",
-      "validation_passed": true,
-      "cube_count": 8
-    },
-    {
-      "sub_scene_id": "SS_STAIR_F2",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_STAIR_F2\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_STAIR_F2\\desc.json",
-      "validation_passed": true,
-      "cube_count": 27
-    },
-    {
-      "sub_scene_id": "SS_EXT_F1",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_EXT_F1\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_EXT_F1\\desc.json",
-      "validation_passed": true,
-      "cube_count": 56
-    },
-    {
-      "sub_scene_id": "SS_EXT_F2",
-      "usda_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_EXT_F2\\scene_cubes.json",
-      "desc_path": "D:\\claude__code\\robot_project2\\data\\processed\\sub_scenes\\SS_EXT_F2\\desc.json",
-      "validation_passed": true,
-      "cube_count": 64
+      "cube_count": 28
     }
   ],
-  "total": 17
+  "total": 15
 }

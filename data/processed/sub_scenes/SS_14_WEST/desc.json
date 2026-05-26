@@ -1,0 +1,294 @@
+{
+  "sub_scene_id": "SS_14_WEST",
+  "tactical_role": "corridor_clear",
+  "task_hint": "三层走廊西段，约45m长，是从楼梯井进入后的主要通道，需要隐蔽推进避免暴露在82.7m全长火力下",
+  "zones": [
+    {
+      "zone_id": "Z2-COR-03-WEST",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -143,
+          -100
+        ],
+        "y": [
+          224.7,
+          263.4
+        ],
+        "z": [
+          0,
+          29.3
+        ]
+      },
+      "description": "三层走廊西段，全长约43m，宽约38.7m。走廊北侧有连续窗户（Y≈259），南侧为楼梯井SS_16，北侧墙体（Y≈252.5）可作为垂直掩体推进路线。西端连接SS_13楼梯入口，东端连接SS_14_EAST走廊。",
+      "connected_to": [
+        "Z2-COR-03-EAST"
+      ],
+      "contained_cube_ids": []
+    },
+    {
+      "zone_id": "Z2-COR-03-ENTRY",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -143,
+          -141
+        ],
+        "y": [
+          258,
+          259.5
+        ],
+        "z": [
+          0,
+          7.5
+        ]
+      },
+      "description": "走廊西端入口区域，与SS_13楼梯出口相连，是编队从楼梯进入三层的主要入口点。",
+      "connected_to": [
+        "Z2-COR-03-WEST"
+      ],
+      "contained_cube_ids": []
+    }
+  ],
+  "openings": [
+    {
+      "id": "opening_W",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-ENTRY",
+        "Z2-COR-03-WEST"
+      ],
+      "width": 1.5,
+      "height": 2.1,
+      "position_rel": {
+        "x": -142,
+        "y": 258.5,
+        "z": 0
+      },
+      "notes": "标准门宽，距地高度0m（落地门），可直接通过。连接SS_13楼梯出口至走廊西段。"
+    },
+    {
+      "id": "opening_E",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-WEST",
+        "Z2-COR-03-EAST"
+      ],
+      "width": 2.0,
+      "height": 2.1,
+      "position_rel": {
+        "x": -100,
+        "y": 252.5,
+        "z": 0
+      },
+      "notes": "标准门宽，距地高度0m（落地门），可直接通过。连接走廊西段与东段。"
+    },
+    {
+      "id": "door_N",
+      "type": "door",
+      "connects": [
+        "Z2-COR-03-WEST",
+        "Z2-STR-03"
+      ],
+      "width": 1.2,
+      "height": 2.1,
+      "position_rel": {
+        "x": -120,
+        "y": 224.7,
+        "z": 0
+      },
+      "notes": "标准门宽，距地高度0m（落地门），可直接通过。连向北侧SS_16楼梯井。"
+    }
+  ],
+  "cover_assessment": [
+    {
+      "cube_id": "wall_N",
+      "quality": "standing",
+      "height": 2.5,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "北侧墙体（Y≈252.5附近），高度足以提供站姿掩体。沿墙体南侧可利用为垂直推进路线，但需注意东西两端的侧翼暴露。"
+    },
+    {
+      "cube_id": "window_blinds",
+      "quality": "concealment_only",
+      "height": 1.2,
+      "coverage_direction": [
+        "north"
+      ],
+      "effective_positions": [
+        {
+          "behind": "south",
+          "covers_from": [
+            "north"
+          ],
+          "exposed_to": [
+            "south",
+            "east",
+            "west"
+          ]
+        }
+      ],
+      "notes": "Y≈259处罗马帘，高度约1.2m，仅能遮蔽视线，无法阻挡火力。适合蹲姿隐蔽但不宜作为战斗掩体。"
+    },
+    {
+      "cube_id": "slab_lower",
+      "quality": "obstacle",
+      "height": 0.55,
+      "coverage_direction": [],
+      "effective_positions": [],
+      "notes": "楼板下沿（Z≈7.2-7.8），高度0.55m，仅能阻挡移动，不提供掩体功能。"
+    }
+  ],
+  "inferred_threats": [
+    {
+      "type": "long_sightline",
+      "severity": "critical",
+      "location_zone": "Z2-COR-03-WEST",
+      "description": "走廊全长约43m，与SS_14_EAST走廊连通后形成约82.7m的连续视线走廊。任何在走廊中暴露的人员都可能被走廊两端或沿途窗户观察到的敌方火力覆盖。"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "high",
+      "location_zone": "Z2-COR-03-WEST",
+      "description": "走廊西端（接近SS_13入口）和东端（接近SS_14_EAST连接处）存在转角。推进至转角处时存在盲区，需警惕转角后方可能存在的伏击位置。"
+    },
+    {
+      "type": "vertical_threat",
+      "severity": "medium",
+      "location_zone": "Z2-COR-03-ENTRY",
+      "description": "从SS_13（楼梯间）进入走廊时，楼梯上方区域可能存在垂直向下的观察/射击角度。楼梯口位置存在视线暴露风险。"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "medium",
+      "location_zone": "Z2-COR-03-WEST",
+      "description": "北侧窗户（Y≈259）面向走廊推进路线。窗户未完全封闭时，走廊内人员可能暴露于来自北侧的观察或火力。"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "沿北侧墙体（Y≈252.5）东西向推进至走廊东端",
+      "穿越走廊中央向SS_14_EAST移动",
+      "从SS_13入口向西端进入后南北向穿越至北侧掩体位置"
+    ],
+    "constraints": [
+      "走廊长度约43m，全程暴露于长视线威胁下",
+      "北侧窗户区域存在侧翼暴露风险",
+      "走廊东端转角后视线未明"
+    ],
+    "key_control_points": [
+      {
+        "id": "CP1",
+        "position_rel": {
+          "x": -125,
+          "y": 252.5,
+          "z": 0
+        },
+        "description": "走廊中部北侧墙体转角处",
+        "controls": [
+          "走廊中段视野"
+        ],
+        "tactical_value": "可扼守走廊中段，监控东西两端动态，但存在来自窗户的侧翼风险"
+      },
+      {
+        "id": "CP2",
+        "position_rel": {
+          "x": -100,
+          "y": 252.5,
+          "z": 0
+        },
+        "description": "走廊东端连接处",
+        "controls": [
+          "通往SS_14_EAST通道"
+        ],
+        "tactical_value": "完成肃清后进入东段走廊的关键控制点"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "SS_13楼梯出口（西端入口）",
+      "to_position": "走廊东端SS_14_EAST连接处",
+      "exposed_to": [
+        "north",
+        "east",
+        "west"
+      ],
+      "exposure_time_category": "prolonged",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "走廊西端入口",
+      "to_position": "走廊中部北侧掩体位置",
+      "exposed_to": [
+        "north",
+        "east"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    },
+    {
+      "from_position": "走廊中部北侧掩体",
+      "to_position": "走廊东端",
+      "exposed_to": [
+        "north",
+        "east",
+        "west"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": true
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "EP1",
+        "zone_id": "Z2-COR-03-ENTRY",
+        "opening_id": "opening_W",
+        "approach_from": "west (从SS_13楼梯进入)"
+      }
+    ],
+    "objective_criteria": [
+      "走廊西段全长（约43m）已肃清，无残余人员",
+      "所有转角和视野死角已目视确认",
+      "北侧窗户方向已检查，无威胁",
+      "东端连接处已建立封锁或过渡准备"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_14_EAST",
+        "via": "opening_E",
+        "condition": "走廊西段肃清完毕后，通过东端开口向东推进进入SS_14_EAST走廊"
+      },
+      {
+        "to_sub_scene": "SS_16",
+        "via": "door_N",
+        "condition": "如需支援或撤退，可通过北侧门返回SS_16楼梯井"
+      }
+    ]
+  },
+  "spatial_description": "三层走廊西段，全长约43m（X=[-143,-100]），宽约38.7m，走廊北侧有连续窗户（Y≈259）和可作为垂直掩体的墙体（Y≈252.5）。走廊西端通过1.5m宽开口连接SS_13楼梯入口，东端连接SS_14_EAST走廊（2m宽开口），北侧有门通向SS_16楼梯井。走廊整体呈东西向长条形，地坪Z=0，层高约29m至屋顶。走廊长度大，与东段连通后形成约82.7m的连续走廊，存在长视线威胁。",
+  "inferred_tags": [
+    "长走廊肃清",
+    "82.7m视线威胁",
+    "垂直掩体推进",
+    "北侧窗户侧翼风险",
+    "西端入口区域",
+    "转角盲区",
+    "楼梯连接"
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "sub_scene_id": "SS_08",
+  "tactical_role": "entry_from_stair",
+  "task_hint": "二层走廊入口，从楼梯井进入二层的过渡区域，宽6.6m开口",
+  "zones": [
+    {
+      "zone_id": "entry_zone",
+      "type": "entry",
+      "bounds_rel": {
+        "x": [
+          -74.7,
+          -60.0
+        ],
+        "y": [
+          237,
+          252
+        ],
+        "z": [
+          0,
+          0.6
+        ]
+      },
+      "description": "连接楼梯井和二层走廊的过渡区域，北侧宽6.6m开口通向楼梯井",
+      "connected_to": [
+        "corridor_zone"
+      ],
+      "contained_cube_ids": [
+        "/_5__14660__436",
+        "/_5__14660__561",
+        "/_216__4770__688"
+      ]
+    },
+    {
+      "zone_id": "corridor_zone",
+      "type": "corridor",
+      "bounds_rel": {
+        "x": [
+          -74.7,
+          -60.0
+        ],
+        "y": [
+          252,
+          265
+        ],
+        "z": [
+          0,
+          5.0
+        ]
+      },
+      "description": "二层走廊肃清区，与SS_09肃清走廊相邻",
+      "connected_to": [
+        "entry_zone"
+      ],
+      "contained_cube_ids": [
+        "/_5__14660__428",
+        "/_5__14660__449",
+        "/_17__317899_"
+      ]
+    }
+  ],
+  "openings": [
+    {
+      "id": "opening_to_stair",
+      "type": "door",
+      "connects": [
+        "entry_zone",
+        "SS_06"
+      ],
+      "width": 6.6,
+      "height": 2.8,
+      "position_rel": {
+        "x": -60.0,
+        "y": 240.5,
+        "z": 0.3
+      },
+      "notes": "楼梯井东墙开口，朝向西，宽6.6m，距地高度0.3m，落地门可直接通过"
+    }
+  ],
+  "cover_assessment": [],
+  "inferred_threats": [
+    {
+      "type": "vertical_threat",
+      "severity": "high",
+      "location_zone": "entry_zone",
+      "description": "楼梯井贯通F0/F1/F2三层，存在垂直方向的射击或人员移动威胁，来自上方或下层的火力覆盖风险"
+    },
+    {
+      "type": "flank_exposure",
+      "severity": "medium",
+      "location_zone": "entry_zone",
+      "description": "6.6m宽开口缺乏掩体保护，编队通过时侧翼暴露于楼梯井方向"
+    },
+    {
+      "type": "blind_corner",
+      "severity": "medium",
+      "location_zone": "entry_zone",
+      "description": "楼梯转角处存在盲区，楼梯方向可能存在潜伏威胁"
+    }
+  ],
+  "movement_analysis": {
+    "available_paths": [
+      "从楼梯井（SS_06）通过宽开口向东进入二层走廊肃清区",
+      "沿y轴方向在entry_zone和corridor_zone之间移动"
+    ],
+    "constraints": [
+      "单一路径：仅能从楼梯井向东进入走廊",
+      "掩体有限：过渡区域缺乏有效战术掩体",
+      "开口宽阔：6.6m开口增加通过时的暴露风险"
+    ],
+    "key_control_points": [
+      {
+        "id": "kcp_1",
+        "position_rel": {
+          "x": -60.0,
+          "y": 240.5,
+          "z": 0.0
+        },
+        "description": "宽开口位置",
+        "controls": [
+          "楼梯井方向",
+          "走廊通道"
+        ],
+        "tactical_value": "控制从楼梯井进入二层走廊的咽喉点"
+      }
+    ]
+  },
+  "exposure_assessment": [
+    {
+      "from_position": "楼梯井（SS_06）",
+      "to_position": "corridor_zone二层走廊",
+      "exposed_to": [
+        "north（楼梯井方向）"
+      ],
+      "exposure_time_category": "medium",
+      "cover_available_during_movement": false
+    }
+  ],
+  "tactical_boundary": {
+    "entry_points": [
+      {
+        "id": "entry_from_stair",
+        "zone_id": "entry_zone",
+        "opening_id": "opening_to_stair",
+        "approach_from": "SS_06楼梯井"
+      }
+    ],
+    "objective_criteria": [
+      "过渡区域（entry_zone）已目视确认清除",
+      "宽开口两侧角落已检查",
+      "通往corridor_zone的通道已建立"
+    ],
+    "completion_transitions": [
+      {
+        "to_sub_scene": "SS_09",
+        "via": "corridor_zone东向延伸",
+        "condition": "过渡区域肃清完成，编队向东进入肃清走廊"
+      }
+    ]
+  },
+  "spatial_description": "二层走廊入口过渡区域，南北向延伸约15m。X=-60墙面线上有宽6.6m开口，北通楼梯井（SS_06），南侧与二层走廊（SS_09）相连。楼梯井贯通F0/F1/F2三层，存在垂直威胁。过渡区域地形开阔，地面有零散物体但无有效战术掩体。开口宽阔导致侧翼暴露，楼梯转角存在盲区。编队从楼梯井进入后需快速通过暴露区域，建立走廊控制后向肃清走廊推进。",
+  "inferred_tags": [
+    "楼梯转换点",
+    "过渡肃清",
+    "垂直威胁",
+    "有限掩体",
+    "宽阔开口",
+    "受控进入"
+  ]
+}
