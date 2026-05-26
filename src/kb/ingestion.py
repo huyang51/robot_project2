@@ -38,37 +38,35 @@ def ingest_tactic(
     metadata = tactic_json.pop("_metadata", {})
 
     try:
-        # 检查是否已存在（避免重复入库）
-        existing = vector_store.collection_count(collection)
-        if existing > 0:
-            existing_results = vector_store.search(collection, [0.0] * 1024, top_k=1)
-            # 简单去重：检查最近入库的 ID
-            # ChromaDB 0.4.x 不支持直接按 ID 查询，通过 metadata 过滤需要额外索引
-            # 当前策略：依赖 upsert 语义（若 ChromaDB 支持）或接受可能存在重复
-            pass
-
         # 序列化战术为文本
         tactic_text = json.dumps(tactic_json, ensure_ascii=False)
 
         # 生成嵌入
         embedding = embedding_client.embed(tactic_text)
 
-        # 入 ChromaDB（使用 add；若需去重可在调用前由上层控制）
-        vector_store.add(
-            collection_name=collection,
-            ids=[tactic_id],
-            embeddings=[embedding],
-            metadatas=[{
-                "tactic_id": tactic_id,
-                "tactic_name": tactic_json.get("Tactic_Name", ""),
-                "mission_phase": tactic_json.get("Mission_Phase", ""),
-                "tactic_type": tactic_json.get("Tactic_Type", ""),
-                "quality_level": metadata.get("quality_level", "L"),
-                "sub_scene_id": metadata.get("sub_scene_id", ""),
-                "generation_mode": metadata.get("generation_mode", ""),
-            }],
-            documents=[tactic_text],
-        )
+        # 入 ChromaDB
+        try:
+            vector_store.add(
+                collection_name=collection,
+                ids=[tactic_id],
+                embeddings=[embedding],
+                metadatas=[{
+                    "tactic_id": tactic_id,
+                    "tactic_name": tactic_json.get("Tactic_Name", ""),
+                    "mission_phase": tactic_json.get("Mission_Phase", ""),
+                    "tactic_type": tactic_json.get("Tactic_Type", ""),
+                    "quality_level": metadata.get("quality_level", "L"),
+                    "sub_scene_id": metadata.get("sub_scene_id", ""),
+                    "generation_mode": metadata.get("generation_mode", ""),
+                }],
+                documents=[tactic_text],
+            )
+        except Exception as add_err:
+            error_msg = str(add_err).lower()
+            if "duplicate" in error_msg or "already exists" in error_msg:
+                logger.warning("战术 ID 重复，跳过入库: %s (%s)", tactic_id, version)
+                return False
+            raise
     finally:
         # 始终恢复 _metadata，避免调用方字典被不可逆修改
         tactic_json["_metadata"] = metadata

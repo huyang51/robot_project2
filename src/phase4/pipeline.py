@@ -176,7 +176,14 @@ def run_phase4(
         }
         struct_version["_metadata"] = dict(text_version["_metadata"])
 
-        tactic_id = text_version.get("Tactic_ID", f"{sub_scene_id}_{idx + 1:03d}")
+        # 统一覆写 Tactic_ID：Python 侧生成，保证全局唯一
+        # 格式: {sub_scene_id}_T{idx:03d}
+        # LLM 自由生成的 ID 不可靠——多个概念可能产出相同 ID，
+        # 跨子场景时更会静默覆盖文件或导致 ChromaDB 入库崩溃。
+        tactic_id = f"{sub_scene_id}_T{idx + 1:03d}"
+        text_version["Tactic_ID"] = tactic_id
+        struct_version["Tactic_ID"] = tactic_id
+
         text_path = level_dir_text / f"{tactic_id}.json"
         struct_path = level_dir_struct / f"{tactic_id}.json"
 

@@ -15,6 +15,7 @@ from typing import Dict, List, Optional, Any
 from ..core.llm_client import MiniMaxClient
 from ..core.exceptions import LLMError
 from ..config import SUB_SCENES_DIR, PHASE3B_AGGREGATION_PARAMS
+from ..phase2.dedup_scenes import deduplicate_sub_scenes
 from .phase3a_cropper import crop_cubes, expand_bounds, write_sub_scene_usda
 from .phase3b_simplifier import simplify_sub_scene
 from .phase3c_annotator import annotate_sub_scene
@@ -53,10 +54,15 @@ def run_phase3(
     if client is None:
         client = MiniMaxClient()
 
-    # 2. 构建 scene_cubes 索引（用于校验）
+    # 去重：移除战术等价的冗余子场景（安全网，Phase 2 通常已完成去重）
+    if len(sub_scenes) > 1:
+        sub_scenes = deduplicate_sub_scenes(sub_scenes, client)
+        definitions["sub_scenes"] = sub_scenes
+
+    # 2b. 构建 scene_cubes 索引（用于校验）
     scene_cubes_index = {c["id"]: c for c in cubes}
 
-    # 2b. 构建子场景索引（用于生成相邻场景上下文）
+    # 构建子场景索引（用于生成相邻场景上下文）
     ss_index = {ss.get("sub_scene_id"): ss for ss in sub_scenes}
 
     results = []

@@ -155,7 +155,7 @@ AGEN_BASE_SYSTEM_PROMPT = f"""
 ```json
 {{
   "text_version": {{
-    "Tactic_ID": "CQB_XX",
+    "Tactic_ID": "由系统自动分配（勿自行填写）",
     "Tactic_Name": "string",
     "Mission_Phase": "侦察阶段|进攻阶段|防御阶段|撤退与脱离阶段",
     "Tactic_Type": "string",
@@ -177,7 +177,7 @@ AGEN_BASE_SYSTEM_PROMPT = f"""
     "Visual_Aid_Overall": ["生成图片: 整体战术示意图描述，展示人员配置和执行流程"]
   }},
   "struct_version": {{
-    "Tactic_ID": "CQB_XX",
+    "Tactic_ID": "由系统自动分配（勿自行填写）",
     "Tactic_Name": "string",
     "Mission_Phase": "string",
     "Tactic_Type": "string",
@@ -213,7 +213,7 @@ AGEN_BASE_SYSTEM_PROMPT = f"""
 ```json
 {{
   "text_version": {{
-    "Tactic_ID": "CQB_01",
+    "Tactic_ID": "SS_XX_T001",
     "Tactic_Name": "房间突入",
     "Mission_Phase": "进攻阶段",
     "Tactic_Type": "室内作战/班组级",
@@ -240,7 +240,7 @@ AGEN_BASE_SYSTEM_PROMPT = f"""
     "Visual_Aid_Overall": ["生成图片: 房间俯视示意图，标注门框侦察位、突入路径、近角贴靠位、交叉火力扇区。"]
   }},
   "struct_version": {{
-    "Tactic_ID": "CQB_01",
+    "Tactic_ID": "SS_XX_T001",
     "Tactic_Name": "房间突入",
     "Mission_Phase": "进攻阶段",
     "Tactic_Type": "室内作战/班组级",

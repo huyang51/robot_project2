@@ -11,6 +11,7 @@ from typing import Optional
 
 from ..core.llm_client import MiniMaxClient
 from ..config import PHASE2_DIR
+from .dedup_scenes import deduplicate_sub_scenes, cleanup_definitions
 from .prompts import PHASE2_SYSTEM_PROMPT, build_phase2_user_prompt
 
 logger = logging.getLogger(__name__)
@@ -81,10 +82,18 @@ def run_phase2(
             suggested = ss.get("suggested_roles", [])
             ss["primary_role"] = suggested[0] if suggested else "unknown"
 
-    # 3. 后处理：为每个子场景计算 overlap_bounds（spatial_bounds 每侧 +5m）
+    # 3. LLM 去重：移除战术等价的冗余子场景
+    sub_scenes = result.get("sub_scenes", [])
+    if len(sub_scenes) > 1:
+        sub_scenes = deduplicate_sub_scenes(sub_scenes, client)
+        result["sub_scenes"] = sub_scenes
+        kept_ids = {ss.get("sub_scene_id") for ss in sub_scenes}
+        cleanup_definitions(result, kept_ids)
+
+    # 4. 后处理：为每个子场景计算 overlap_bounds（spatial_bounds 每侧 +5m）
     _add_overlap_bounds(result)
 
-    # 4. 输出
+    # 5. 输出
     output_path = output_dir / "sub_scene_definitions.json"
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
