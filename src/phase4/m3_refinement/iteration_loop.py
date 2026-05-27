@@ -88,12 +88,15 @@ class M3IterationLoop:
                 f"完整的 text_version + struct_version 双版本战术方案。\n\n"
                 f"```json\n{seed_str}\n```\n\n"
                 f"请保持 Tactic_Name, objective, Tactic_Type, Semantic_Tags 不变，"
-                f"将 Description 和 Action_Sequence 扩展为符合双版本格式的完整内容。"
+                f"将 Description 和 Action_Sequence 扩展为符合双版本格式的完整内容。\n\n"
+                f"请从以上场景实例中抽象出通用战术模式——描述空间关系与战术动作的模式，"
+                f"而非复述场景标注信息。"
             )
         else:
             base_user_prompt = (
                 f"## 子场景语义标注\n\n{scene_input}\n\n"
-                f"请基于以上场景信息生成通用化战术方案。"
+                f"请从以上场景实例中抽象出通用战术模式——描述空间关系与战术动作的模式，"
+                f"而非复述场景标注信息。"
             )
 
         tactic_json = None
