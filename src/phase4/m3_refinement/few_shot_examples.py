@@ -191,15 +191,39 @@ EX_06: FewShotExample = {
     ],
 }
 
+EX_07: FewShotExample = {
+    "example_id": "EX-07",
+    "scene_type": "走廊肃清",
+    "phase": "进攻—肃清",
+    "primary_conversion_types": ["编队规模泛化", "角色化"],
+    "scene_context": (
+        "狭长走廊，编队从入口向远端推进肃清。"
+        "任务：沿走廊推进，肃清沿途威胁。"
+    ),
+    "violation_version": (
+        "双人编队沿走廊推进，前方掩护手贴靠走廊一侧墙壁前进，"
+        "后方掩护手保持对入口方向警戒。两人交替掩护至走廊中段。"
+    ),
+    "corrected_version": (
+        "编队沿走廊推进，前方掩护手贴靠走廊一侧墙壁前进，"
+        "后方掩护手保持对入口方向警戒。编队交替掩护至走廊中段。"
+    ),
+    "conversion_table": [
+        {"violation": "双人编队", "correction": "编队", "conversion_type": "编队规模泛化"},
+        {"violation": "两人交替掩护", "correction": "编队交替掩护", "conversion_type": "编队规模泛化"},
+    ],
+}
+
 FIXED_EXAMPLES: Dict[str, FewShotExample] = {
     "EX-01": EX_01, "EX-02": EX_02, "EX-03": EX_03,
     "EX-04": EX_04, "EX-05": EX_05, "EX-06": EX_06,
+    "EX-07": EX_07,
 }
 
 EXAMPLES_BY_MODE: Dict[str, List[str]] = {
-    "RAG": ["EX-01", "EX-03", "EX-06"],
-    "HYBRID": ["EX-01", "EX-02", "EX-03", "EX-06"],
-    "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05", "EX-06"],
+    "RAG": ["EX-01", "EX-03", "EX-06", "EX-07"],
+    "HYBRID": ["EX-01", "EX-02", "EX-03", "EX-06", "EX-07"],
+    "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05", "EX-06", "EX-07"],
 }
 
 

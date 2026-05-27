@@ -28,7 +28,7 @@ from .m4_evaluation.evaluator import evaluate_tactic
 from .m4_evaluation.quality_classifier import classify_quality
 from .m4_evaluation.eval_schema import EvalResult
 from .multi_tactic.exhaustive_generator import ExhaustiveTacticGenerator
-from .direction_generalizer import generalize_directions, generalize_objects
+from .direction_generalizer import generalize_directions, generalize_objects, generalize_team_size
 
 logger = logging.getLogger(__name__)
 
@@ -70,9 +70,10 @@ def run_phase4(
     with open(desc_json_path, "r", encoding="utf-8") as f:
         desc_json = json.load(f)
 
-    # 1a. 双重泛化预处理：方向泛化 + 物体身份泛化（安全网）
+    # 1a. 三重泛化预处理：方向泛化 + 物体身份泛化 + 编队规模泛化（安全网）
     desc_json = generalize_directions(desc_json)
     desc_json = generalize_objects(desc_json)
+    desc_json = generalize_team_size(desc_json)
 
     with open(scene_cubes_path, "r", encoding="utf-8") as f:
         scene_data = json.load(f)

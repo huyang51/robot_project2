@@ -215,6 +215,36 @@ OBJECT_IDENTITY_MAP: Dict[str, str] = {
     "窗帘": "无战术价值物体",
 }
 
+# ============================================================
+# 编队规模→编队/角色描述映射表（安全网）
+# ============================================================
+
+# 将编队规模限定词替换为编队/角色通用描述。
+# 核心原则：战术描述角色交互模式，而非兵力组成。
+# 此映射表与 TEAM_SIZE_VOCABULARY（agen_prompts.py 中的 LLM 教学）对齐。
+
+TEAM_SIZE_MAP: Dict[str, str] = {
+    "双人编队": "编队",
+    "两人编队": "编队",
+    "三人编队": "编队",
+    "四人编队": "编队",
+    "两名突击手": "突击手",
+    "两名掩护手": "掩护手",
+    "三名突击手": "突击手",
+    "两名警戒手": "警戒手",
+    "三人战斗小组": "战斗编组",
+    "双组协同": "多组协同",
+    "两人交替掩护": "编队交替掩护",
+    "1名掩护手": "掩护手",
+    "1名突击手": "突击手",
+    "2名突击手": "突击手",
+    "2名掩护手": "掩护手",
+    "3单元": "编队各单元",
+    "双组": "多组",
+    "双人": "编队",
+    "两人": "编队",
+}
+
 
 # ============================================================
 # 物体泛化辅助函数
@@ -256,6 +286,50 @@ def _generalize_objects_in_string(text: str) -> str:
     sorted_keys = sorted(OBJECT_IDENTITY_MAP.keys(), key=len, reverse=True)
     for identity in sorted_keys:
         replacement = OBJECT_IDENTITY_MAP[identity]
+        result = result.replace(identity, replacement)
+    return result
+
+
+# ============================================================
+# 编队规模泛化辅助函数
+# ============================================================
+
+def generalize_team_size(desc: Dict[str, Any]) -> Dict[str, Any]:
+    """将 desc.json 中所有编队规模限定词替换为编队/角色通用描述。
+
+    作为安全网运行（与 generalize_directions/generalize_objects 相同定位），
+    提供强信号但不求完美 NLP。核心防线是 A_gen 的编队规模不变性哲学教学。
+
+    Args:
+        desc: 已通过 generalize_objects 处理后的 desc.json dict
+
+    Returns:
+        编队规模泛化后的 desc.json dict（深拷贝，不修改原始数据）
+    """
+    result = deepcopy(desc)
+    result = _generalize_team_size_in_dict(result)
+    return result
+
+
+def _generalize_team_size_in_dict(obj: Any) -> Any:
+    """递归遍历 dict/list/str，替换所有字符串中的编队规模限定词。"""
+    if isinstance(obj, dict):
+        return {k: _generalize_team_size_in_dict(v) for k, v in obj.items()}
+    elif isinstance(obj, list):
+        return [_generalize_team_size_in_dict(item) for item in obj]
+    elif isinstance(obj, str):
+        return _generalize_team_size_in_string(obj)
+    else:
+        return obj
+
+
+def _generalize_team_size_in_string(text: str) -> str:
+    """对单个字符串执行编队规模限定词→编队/角色描述替换。"""
+    result = text
+    # 按映射表键的长度降序排列，优先匹配长串（"双人编队"先于"双人"）
+    sorted_keys = sorted(TEAM_SIZE_MAP.keys(), key=len, reverse=True)
+    for identity in sorted_keys:
+        replacement = TEAM_SIZE_MAP[identity]
         result = result.replace(identity, replacement)
     return result
 
