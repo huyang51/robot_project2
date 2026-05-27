@@ -48,7 +48,13 @@ PHASE3C_SYSTEM_PROMPT = """
 - 标注连接的区域对
 
 ### 3. Cover Assessment（掩体评估）— 必须按有效位置标注
-不做"这个物体是什么等级"的泛泛之谈。需要标注**具体的有效利用位置**：
+
+标注要求：
+- **战术属性要具体**：标注具体的有效利用位置（behind/covers_from/exposed_to）、高度等级
+- **物体身份要通用**：在 notes 字段中使用战术功能类别（"低矮掩体"、"大型遮挡物"），
+  而非具体物体身份（"桌子"、"沙发"）。Phase 4 需要通用战术模式，而非针对特定家具的脚本。
+
+具体标注项：
 
 - `quality`: standing(>1.5m) / crouching(0.7-1.5m) / concealment_only(仅阻隔视线) / obstacle(只挡路) / none
 - `coverage_direction`: 物体物理上能阻挡哪些方向的火力 [north/south/east/west]

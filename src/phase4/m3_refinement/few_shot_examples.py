@@ -163,15 +163,43 @@ EX_05: FewShotExample = {
     ],
 }
 
+EX_06: FewShotExample = {
+    "example_id": "EX-06",
+    "scene_type": "房间肃清",
+    "phase": "进攻—肃清",
+    "primary_conversion_types": ["方位泛化", "物体泛化", "角色化", "空间泛化"],
+    "scene_context": (
+        "室内房间，散布低矮木质长桌和大型L形沙发。"
+        "任务：从走廊进入房间，肃清室内威胁。"
+    ),
+    "violation_version": (
+        "突击手沿走廊北侧贴墙机动至木门框处，执行切片侦察确认门后死角无威胁。"
+        "利用走廊内低矮长桌作为掩护，逐段推进至大型L形沙发后方。"
+        "枪口指向混凝土立柱方向，防止柱后伏击。"
+    ),
+    "corrected_version": (
+        "突击手沿走廊入口侧贴墙机动至门框处，执行切片侦察确认门后死角无威胁。"
+        "利用走廊内低矮掩体作为掩护，逐段推进至近侧大型遮挡物后方。"
+        "枪口指向柱状掩体方向，防止掩体后伏击。"
+    ),
+    "conversion_table": [
+        {"violation": "走廊北侧", "correction": "走廊入口侧", "conversion_type": "方位泛化"},
+        {"violation": "木门框", "correction": "门框", "conversion_type": "物体泛化"},
+        {"violation": "低矮长桌", "correction": "低矮掩体", "conversion_type": "物体泛化"},
+        {"violation": "大型L形沙发", "correction": "近侧大型遮挡物", "conversion_type": "物体泛化"},
+        {"violation": "混凝土立柱", "correction": "柱状掩体", "conversion_type": "物体泛化"},
+    ],
+}
+
 FIXED_EXAMPLES: Dict[str, FewShotExample] = {
     "EX-01": EX_01, "EX-02": EX_02, "EX-03": EX_03,
-    "EX-04": EX_04, "EX-05": EX_05,
+    "EX-04": EX_04, "EX-05": EX_05, "EX-06": EX_06,
 }
 
 EXAMPLES_BY_MODE: Dict[str, List[str]] = {
-    "RAG": ["EX-01", "EX-03"],
-    "HYBRID": ["EX-01", "EX-02", "EX-03"],
-    "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05"],
+    "RAG": ["EX-01", "EX-03", "EX-06"],
+    "HYBRID": ["EX-01", "EX-02", "EX-03", "EX-06"],
+    "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05", "EX-06"],
 }
 
 
