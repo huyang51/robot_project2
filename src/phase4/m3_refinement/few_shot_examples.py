@@ -47,6 +47,7 @@ EX_01: FewShotExample = {
         {"violation": "人形机器人1号", "correction": "突击手", "conversion_type": "角色化"},
         {"violation": "3秒内", "correction": "（删除）", "conversion_type": "时间泛化"},
         {"violation": "走廊北侧墙壁", "correction": "走廊一侧", "conversion_type": "方位泛化"},
+        {"violation": "沿北墙", "correction": "沿走廊一侧墙壁", "conversion_type": "方位泛化"},
         {"violation": "距L形转角2米处", "correction": "转角紧邻处", "conversion_type": "空间泛化"},
         {"violation": "5发短点射", "correction": "短点射", "conversion_type": "火力泛化"},
         {"violation": "无人机2号", "correction": "侦察节点", "conversion_type": "角色化"},
