@@ -2,7 +2,7 @@
 正向 Few-Shot 示例库
 
 从 robot_project core/few_shot_examples.py 直接迁移。
-5条固定对比示例，用于 A_gen 的 system prompt 注入。
+8条固定对比示例，用于 A_gen 的 system prompt 注入。
 """
 
 from typing import Dict, List, TypedDict
@@ -31,7 +31,7 @@ EX_01: FewShotExample = {
     "phase": "进攻—肃清",
     "primary_conversion_types": ["角色化", "方位泛化", "空间泛化", "火力泛化"],
     "scene_context": (
-        "狭长走廊，北端呈 L 形向东转角。任务：沿走廊向北推进，肃清转角。"
+        "狭长走廊，远端呈 L 形转角。任务：沿走廊向远端推进，肃清转角。"
     ),
     "violation_version": (
         "人形机器人1号在3秒内沿走廊北侧墙壁机动至距L形转角2米处，"
@@ -39,12 +39,12 @@ EX_01: FewShotExample = {
         "以俯视视角确认转角后方敌情。"
     ),
     "corrected_version": (
-        "突击手沿走廊一侧贴墙机动至转角紧邻处，对转角后方实施短点射试探性"
+        "突击组沿走廊一侧贴墙机动至转角紧邻处，对转角后方实施短点射试探性"
         "压制。侦察节点同步前出至转角上方高位观察点，利用俯视视角确认转角"
-        "后方态势。确认安全后，突击手低姿跃进至转角后方就近掩体。"
+        "后方态势。确认安全后，突击组低姿跃进至转角后方就近掩体。"
     ),
     "conversion_table": [
-        {"violation": "人形机器人1号", "correction": "突击手", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "角色化"},
         {"violation": "3秒内", "correction": "（删除）", "conversion_type": "时间泛化"},
         {"violation": "走廊北侧墙壁", "correction": "走廊一侧", "conversion_type": "方位泛化"},
         {"violation": "沿北墙", "correction": "沿走廊一侧墙壁", "conversion_type": "方位泛化"},
@@ -60,8 +60,8 @@ EX_02: FewShotExample = {
     "phase": "进攻—接近",
     "primary_conversion_types": ["物体泛化", "距离泛化", "时间泛化"],
     "scene_context": (
-        "建筑东侧为开阔草地，分布有废弃车辆和灌木丛。"
-        "任务：从东侧树林边缘出发，穿越开阔地接近建筑正门。"
+        "建筑一侧为开阔草地，分布有废弃车辆和灌木丛。"
+        "任务：从外场树林边缘出发，穿越开阔地接近建筑正门。"
     ),
     "violation_version": (
         "人形机器人1号从东侧树林边缘出发，以15km/h速度沿废弃白色厢式货车方向"
@@ -69,16 +69,16 @@ EX_02: FewShotExample = {
         "跃进至第二辆红色轿车后方。"
     ),
     "corrected_version": (
-        "突击手从外场植被遮蔽线出发，沿车辆掩体连线方向分段跃进，"
-        "依次占据距建筑入口最近的大型车辆掩体。警戒手同步从侧翼植被遮蔽线"
-        "跃进至相邻车辆掩体后方，与突击手形成对建筑正面的交叉掩护扇区。"
+        "突击组从外场植被遮蔽线出发，沿车辆掩体连线方向分段跃进，"
+        "依次占据距建筑入口最近的大型车辆掩体。侧翼警戒组同步从侧翼植被遮蔽线"
+        "跃进至相邻车辆掩体后方，与突击组形成对建筑正面的交叉掩护扇区。"
     ),
     "conversion_table": [
-        {"violation": "人形机器人1号", "correction": "突击手", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "角色化"},
         {"violation": "15km/h速度", "correction": "（删除）", "conversion_type": "数值泛化"},
         {"violation": "白色厢式货车", "correction": "车辆掩体", "conversion_type": "物体泛化"},
         {"violation": "距建筑正门10米处", "correction": "距建筑入口最近处", "conversion_type": "距离泛化"},
-        {"violation": "机器狗", "correction": "警戒手", "conversion_type": "角色化"},
+        {"violation": "机器狗", "correction": "侧翼警戒组", "conversion_type": "角色化"},
         {"violation": "红色轿车后方", "correction": "相邻车辆掩体后方", "conversion_type": "物体泛化"},
     ],
 }
@@ -89,7 +89,7 @@ EX_03: FewShotExample = {
     "phase": "进攻—清剿",
     "primary_conversion_types": ["角色化", "空间泛化", "战术动作泛化"],
     "scene_context": (
-        "走廊西侧有一扇门通往房间R102。任务：从走廊进入房间，肃清室内威胁。"
+        "走廊一侧有一扇门通往房间。任务：从走廊进入房间，肃清室内威胁。"
     ),
     "violation_version": (
         "人形机器人1号在3秒内完成门框切片侦察——利用门框边缘以最小暴露面"
@@ -97,13 +97,13 @@ EX_03: FewShotExample = {
         "全程耗时不超过8秒。"
     ),
     "corrected_version": (
-        "突击手在门框处执行切片侦察——利用门框边缘以最小暴露面逐象限扫描"
+        "突击组在门框处执行切片侦察——利用门框边缘以最小暴露面逐象限扫描"
         "室内，优先确认门后死角及大型掩体后方区域。侦察节点在门框对侧提供"
-        "交叉观察。确认可见区域安全后，突击手与警戒手以动态突入方式进入。"
+        "交叉观察。确认可见区域安全后，突击组与侧翼警戒组以动态突入方式进入。"
     ),
     "conversion_table": [
-        {"violation": "人形机器人1号", "correction": "突击手", "conversion_type": "角色化"},
-        {"violation": "机器人2号", "correction": "警戒手", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "角色化"},
+        {"violation": "机器人2号", "correction": "侧翼警戒组", "conversion_type": "角色化"},
         {"violation": "3秒内完成", "correction": "（删除）", "conversion_type": "时间泛化"},
         {"violation": "全程耗时不超过8秒", "correction": "突入节奏以侦察确认速度为准", "conversion_type": "时间泛化"},
     ],
@@ -122,13 +122,13 @@ EX_04: FewShotExample = {
         "随后1号向二层方向发射3发短点射试探压制，以20km/h冲刺速度占领二层楼梯口。"
     ),
     "corrected_version": (
-        "突击手低姿沿楼梯扶手一侧推进，枪口指向楼梯上方。"
+        "突击组低姿沿楼梯扶手一侧推进，枪口指向楼梯上方。"
         "侦察节点悬停于楼梯井高位，利用垂直视线提供楼梯上方态势感知。"
-        "突击手推进至台阶中段时短暂停顿，对楼梯上段实施短点射试探性压制。"
-        "确认无反击后，突击手以可控节奏占领上层楼梯口。"
+        "突击组推进至台阶中段时短暂停顿，对楼梯上段实施短点射试探性压制。"
+        "确认无反击后，突击组以可控节奏占领上层楼梯口。"
     ),
     "conversion_table": [
-        {"violation": "人形机器人1号", "correction": "突击手", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "角色化"},
         {"violation": "无人机2号", "correction": "侦察节点", "conversion_type": "角色化"},
         {"violation": "距一层地面4米高度", "correction": "楼梯井高位", "conversion_type": "空间泛化"},
         {"violation": "3发短点射", "correction": "短点射", "conversion_type": "火力泛化"},
@@ -150,13 +150,13 @@ EX_05: FewShotExample = {
         "护送人质沿楼梯以每秒2米速度下撤。撤至30米外的白色货车后方集结。"
     ),
     "corrected_version": (
-        "断后掩护手在撤离起始层楼梯口建立火力封锁，压制追兵可能出现的"
-        "方向。护卫手护送人质沿楼梯以可控速度下撤。两角色交替掩护撤出建筑入口，"
+        "断后掩护组在撤离起始层楼梯口建立火力封锁，压制追兵可能出现的方向。"
+        "护卫组护送人质沿楼梯以可控速度下撤。编队交替掩护撤出建筑入口，"
         "逐段跃进至外场车辆撤离点。"
     ),
     "conversion_table": [
-        {"violation": "人形机器人1号", "correction": "断后掩护手", "conversion_type": "角色化"},
-        {"violation": "人形机器人2号", "correction": "护卫手", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "断后掩护组", "conversion_type": "角色化"},
+        {"violation": "人形机器人2号", "correction": "护卫组", "conversion_type": "角色化"},
         {"violation": "3发短点射", "correction": "火力封锁", "conversion_type": "火力泛化"},
         {"violation": "每秒2米速度", "correction": "可控速度", "conversion_type": "数值泛化"},
         {"violation": "30米外的白色货车后方", "correction": "外场车辆撤离点", "conversion_type": "物体泛化"},
@@ -178,7 +178,7 @@ EX_06: FewShotExample = {
         "枪口指向混凝土立柱方向，防止柱后伏击。"
     ),
     "corrected_version": (
-        "突击手沿走廊入口侧贴墙机动至门框处，执行切片侦察确认门后死角无威胁。"
+        "突击组沿走廊入口侧贴墙机动至门框处，执行切片侦察确认门后死角无威胁。"
         "利用走廊内低矮掩体作为掩护，逐段推进至近侧大型遮挡物后方。"
         "枪口指向柱状掩体方向，防止掩体后伏击。"
     ),
@@ -201,12 +201,12 @@ EX_07: FewShotExample = {
         "任务：沿走廊推进，肃清沿途威胁。"
     ),
     "violation_version": (
-        "双人编队沿走廊推进，前方掩护手贴靠走廊一侧墙壁前进，"
-        "后方掩护手保持对入口方向警戒。两人交替掩护至走廊中段。"
+        "双人编队沿走廊推进，前方掩护组贴靠走廊一侧墙壁前进，"
+        "后方掩护组保持对入口方向警戒。两人交替掩护至走廊中段。"
     ),
     "corrected_version": (
-        "编队沿走廊推进，前方掩护手贴靠走廊一侧墙壁前进，"
-        "后方掩护手保持对入口方向警戒。编队交替掩护至走廊中段。"
+        "编队沿走廊推进，前方掩护组贴靠走廊一侧墙壁前进，"
+        "后方掩护组保持对入口方向警戒。编队交替掩护至走廊中段。"
     ),
     "conversion_table": [
         {"violation": "双人编队", "correction": "编队", "conversion_type": "编队规模泛化"},
@@ -214,16 +214,49 @@ EX_07: FewShotExample = {
     ],
 }
 
+EX_08: FewShotExample = {
+    "example_id": "EX-08",
+    "scene_type": "建筑外围两翼包抄",
+    "phase": "进攻—接近",
+    "primary_conversion_types": ["角色化", "方位泛化", "编队规模泛化", "空间泛化"],
+    "scene_context": (
+        "独立建筑位于开放区域，四周有低矮围墙。"
+        "任务：从外围安全距离接近建筑，形成控制态势后突入。"
+    ),
+    "violation_version": (
+        "无人机2号升空侦察确认建筑外围无威胁后，人形机器人1号沿建筑东侧围墙"
+        "接近正门，人形机器人3号从建筑西侧围墙迂回至建筑北面进行包抄。"
+        "两台机器人在距建筑正门10米处汇合，准备突入。"
+    ),
+    "corrected_version": (
+        "侦察节点升空对建筑外围进行全向侦察，确认态势后编队展开。"
+        "突击组沿建筑正面方向控制接近，利用沿途掩体分段跃进至入口紧邻处。"
+        "侧翼警戒组同步从建筑一侧外围迂回至对侧方向——"
+        "与突击组形成两翼包抄的控制态势。"
+        "编队在建筑入口紧邻处汇合，确认突入条件后发起协同突入。"
+    ),
+    "conversion_table": [
+        {"violation": "无人机2号", "correction": "侦察节点", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "角色化"},
+        {"violation": "人形机器人3号", "correction": "侧翼警戒组", "conversion_type": "角色化"},
+        {"violation": "沿建筑东侧围墙接近正门", "correction": "沿建筑正面方向控制接近", "conversion_type": "方位泛化"},
+        {"violation": "从建筑西侧围墙迂回至建筑北面进行包抄", "correction": "从建筑一侧外围迂回至对侧方向", "conversion_type": "方位泛化"},
+        {"violation": "两台机器人", "correction": "编队", "conversion_type": "编队规模泛化"},
+        {"violation": "距建筑正门10米处", "correction": "建筑入口紧邻处", "conversion_type": "空间泛化"},
+    ],
+}
+
+
 FIXED_EXAMPLES: Dict[str, FewShotExample] = {
     "EX-01": EX_01, "EX-02": EX_02, "EX-03": EX_03,
     "EX-04": EX_04, "EX-05": EX_05, "EX-06": EX_06,
-    "EX-07": EX_07,
+    "EX-07": EX_07, "EX-08": EX_08,
 }
 
 EXAMPLES_BY_MODE: Dict[str, List[str]] = {
-    "RAG": ["EX-01", "EX-03", "EX-06", "EX-07"],
-    "HYBRID": ["EX-01", "EX-02", "EX-03", "EX-06", "EX-07"],
-    "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05", "EX-06", "EX-07"],
+    "RAG": ["EX-01", "EX-03", "EX-06", "EX-07", "EX-08"],
+    "HYBRID": ["EX-01", "EX-02", "EX-03", "EX-06", "EX-07", "EX-08"],
+    "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05", "EX-06", "EX-07", "EX-08"],
 }
 
 

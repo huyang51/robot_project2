@@ -3,13 +3,13 @@ M3 辩论式迭代协议
 
 A_gen ↔ A_review 迭代循环（最多 3 轮）：
 1. A_gen 生成初始战术
-2. 提取审查上下文 → A_review 执行全部 14 条通用性审查 + 军事可行性审查
+2. 提取审查上下文 → A_review 执行全部 16 条通用性审查 + 军事可行性审查
 3. 若有硬约束违规 → A_gen 修正 → 回到 2
 4. 若通过通用性审查 → A_review 执行军事可行性审查
 5. 军事可行性 >= 阈值 → 输出最终战术
 6. 军事可行性 < 3.0 → 早期丢弃
 
-注意：全部 14 条通用性规则 (G-T1~G-T9, G-S1~G-S5) 由 A_review LLM 语义审查，
+注意：全部 16 条通用性规则 (G-T1~G-T11, G-S1~G-S5) 由 A_review LLM 语义审查，
 不依赖前置正则预检。正则已被废弃——中文文本的语义判断（区分"步骤1"与"1米"、
 区分方向用字"一侧"与数量用字"三名"）无法用正则可靠完成。
 """
@@ -137,7 +137,12 @@ class M3IterationLoop:
             if not tactic_json:
                 raise TacticGenerateError("A_gen 生成失败")
 
-            # Step 3: 提取审查上下文 → A_review 审查全部 14 条规则
+            # 若 A_gen 生成了新战术（非修正），旧 prev_score 属于旧战术，
+            # 必须重置以避免跨战术虚假收敛
+            if needs_regeneration:
+                prev_score = None
+
+            # Step 3: 提取审查上下文 → A_review 审查全部 16 条规则
             precheck_context = extract_review_context(tactic_json)
             review_input = build_areview_input(
                 tactic_json=tactic_json,
@@ -145,7 +150,7 @@ class M3IterationLoop:
                 round_number=round_idx,
             )
 
-            logger.info(f"  A_review 审查中 (14条通用性规则 + 军事可行性)...")
+            logger.info(f"  A_review 审查中 (16条通用性规则 + 军事可行性)...")
             review_raw = self.client.generate_json(
                 system_prompt=AREVIEW_SYSTEM_PROMPT,
                 user_prompt=review_input,

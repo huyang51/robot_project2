@@ -13,13 +13,17 @@ class DimensionScore:
     score: float
     checks: Dict[str, bool] = field(default_factory=dict)
     deductions: List[Dict] = field(default_factory=list)
+    sub_scores: Dict[str, float] = field(default_factory=dict)
 
     def to_dict(self) -> Dict:
-        return {
+        result = {
             "score": self.score,
             "checks": self.checks,
             "deductions": self.deductions,
         }
+        if self.sub_scores:
+            result["sub_scores"] = self.sub_scores
+        return result
 
     @classmethod
     def from_dict(cls, data: Dict) -> "DimensionScore":
@@ -27,6 +31,7 @@ class DimensionScore:
             score=data.get("score", 0.0),
             checks=data.get("checks", {}),
             deductions=data.get("deductions", []),
+            sub_scores=data.get("sub_scores", {}),
         )
 
 
