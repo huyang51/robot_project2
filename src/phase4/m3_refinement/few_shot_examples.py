@@ -29,7 +29,7 @@ EX_01: FewShotExample = {
     "example_id": "EX-01",
     "scene_type": "走廊转角",
     "phase": "进攻—肃清",
-    "primary_conversion_types": ["角色化", "方位泛化", "空间泛化", "火力泛化"],
+    "primary_conversion_types": ["编组化", "方位泛化", "空间泛化", "火力泛化"],
     "scene_context": (
         "狭长走廊，远端呈 L 形转角。任务：沿走廊向远端推进，肃清转角。"
     ),
@@ -39,18 +39,17 @@ EX_01: FewShotExample = {
         "以俯视视角确认转角后方敌情。"
     ),
     "corrected_version": (
-        "突击组沿走廊一侧贴墙机动至转角紧邻处，对转角后方实施短点射试探性"
-        "压制。侦察节点同步前出至转角上方高位观察点，利用俯视视角确认转角"
+        "突击组沿走廊一侧贴墙机动至L形转角紧邻处，对转角后方实施短点射试探性"
+        "压制。侦察组同步前出至转角上方高位观察点，利用俯视视角确认转角"
         "后方态势。确认安全后，突击组低姿跃进至转角后方就近掩体。"
     ),
     "conversion_table": [
-        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "编组化"},
         {"violation": "3秒内", "correction": "（删除）", "conversion_type": "时间泛化"},
         {"violation": "走廊北侧墙壁", "correction": "走廊一侧", "conversion_type": "方位泛化"},
-        {"violation": "沿北墙", "correction": "沿走廊一侧墙壁", "conversion_type": "方位泛化"},
-        {"violation": "距L形转角2米处", "correction": "转角紧邻处", "conversion_type": "空间泛化"},
+        {"violation": "距L形转角2米处", "correction": "L形转角紧邻处", "conversion_type": "空间泛化"},
         {"violation": "5发短点射", "correction": "短点射", "conversion_type": "火力泛化"},
-        {"violation": "无人机2号", "correction": "侦察节点", "conversion_type": "角色化"},
+        {"violation": "无人机2号", "correction": "侦察组", "conversion_type": "编组化"},
     ],
 }
 
@@ -74,11 +73,11 @@ EX_02: FewShotExample = {
         "跃进至相邻车辆掩体后方，与突击组形成对建筑正面的交叉掩护扇区。"
     ),
     "conversion_table": [
-        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "编组化"},
         {"violation": "15km/h速度", "correction": "（删除）", "conversion_type": "数值泛化"},
         {"violation": "白色厢式货车", "correction": "车辆掩体", "conversion_type": "物体泛化"},
         {"violation": "距建筑正门10米处", "correction": "距建筑入口最近处", "conversion_type": "距离泛化"},
-        {"violation": "机器狗", "correction": "侧翼警戒组", "conversion_type": "角色化"},
+        {"violation": "机器狗", "correction": "侧翼警戒组", "conversion_type": "编组化"},
         {"violation": "红色轿车后方", "correction": "相邻车辆掩体后方", "conversion_type": "物体泛化"},
     ],
 }
@@ -87,7 +86,7 @@ EX_03: FewShotExample = {
     "example_id": "EX-03",
     "scene_type": "房间突入",
     "phase": "进攻—清剿",
-    "primary_conversion_types": ["角色化", "空间泛化", "战术动作泛化"],
+    "primary_conversion_types": ["编组化", "空间泛化", "战术动作泛化"],
     "scene_context": (
         "走廊一侧有一扇门通往房间。任务：从走廊进入房间，肃清室内威胁。"
     ),
@@ -98,12 +97,12 @@ EX_03: FewShotExample = {
     ),
     "corrected_version": (
         "突击组在门框处执行切片侦察——利用门框边缘以最小暴露面逐象限扫描"
-        "室内，优先确认门后死角及大型掩体后方区域。侦察节点在门框对侧提供"
+        "室内，优先确认门后死角及大型掩体后方区域。侦察组在门框对侧提供"
         "交叉观察。确认可见区域安全后，突击组与侧翼警戒组以动态突入方式进入。"
     ),
     "conversion_table": [
-        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "角色化"},
-        {"violation": "机器人2号", "correction": "侧翼警戒组", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "编组化"},
+        {"violation": "机器人2号", "correction": "侧翼警戒组", "conversion_type": "编组化"},
         {"violation": "3秒内完成", "correction": "（删除）", "conversion_type": "时间泛化"},
         {"violation": "全程耗时不超过8秒", "correction": "突入节奏以侦察确认速度为准", "conversion_type": "时间泛化"},
     ],
@@ -123,13 +122,13 @@ EX_04: FewShotExample = {
     ),
     "corrected_version": (
         "突击组低姿沿楼梯扶手一侧推进，枪口指向楼梯上方。"
-        "侦察节点悬停于楼梯井高位，利用垂直视线提供楼梯上方态势感知。"
+        "侦察组悬停于楼梯井高位，利用垂直视线提供楼梯上方态势感知。"
         "突击组推进至台阶中段时短暂停顿，对楼梯上段实施短点射试探性压制。"
         "确认无反击后，突击组以可控节奏占领上层楼梯口。"
     ),
     "conversion_table": [
-        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "角色化"},
-        {"violation": "无人机2号", "correction": "侦察节点", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "编组化"},
+        {"violation": "无人机2号", "correction": "侦察组", "conversion_type": "编组化"},
         {"violation": "距一层地面4米高度", "correction": "楼梯井高位", "conversion_type": "空间泛化"},
         {"violation": "3发短点射", "correction": "短点射", "conversion_type": "火力泛化"},
         {"violation": "20km/h冲刺速度", "correction": "可控节奏", "conversion_type": "数值泛化"},
@@ -140,7 +139,7 @@ EX_05: FewShotExample = {
     "example_id": "EX-05",
     "scene_type": "撤退掩护",
     "phase": "撤离",
-    "primary_conversion_types": ["角色化", "物体泛化", "距离泛化", "时间泛化"],
+    "primary_conversion_types": ["编组化", "物体泛化", "距离泛化", "时间泛化"],
     "scene_context": (
         "完成人质解救后需从建筑二层经楼梯撤至一层并退出建筑。"
         "任务：掩护人质从二层撤至建筑外车辆撤离点。"
@@ -155,8 +154,8 @@ EX_05: FewShotExample = {
         "逐段跃进至外场车辆撤离点。"
     ),
     "conversion_table": [
-        {"violation": "人形机器人1号", "correction": "断后掩护组", "conversion_type": "角色化"},
-        {"violation": "人形机器人2号", "correction": "护卫组", "conversion_type": "角色化"},
+        {"violation": "人形机器人1号", "correction": "断后掩护组", "conversion_type": "编组化"},
+        {"violation": "人形机器人2号", "correction": "护卫组", "conversion_type": "编组化"},
         {"violation": "3发短点射", "correction": "火力封锁", "conversion_type": "火力泛化"},
         {"violation": "每秒2米速度", "correction": "可控速度", "conversion_type": "数值泛化"},
         {"violation": "30米外的白色货车后方", "correction": "外场车辆撤离点", "conversion_type": "物体泛化"},
@@ -167,7 +166,7 @@ EX_06: FewShotExample = {
     "example_id": "EX-06",
     "scene_type": "房间肃清",
     "phase": "进攻—肃清",
-    "primary_conversion_types": ["方位泛化", "物体泛化", "角色化", "空间泛化"],
+    "primary_conversion_types": ["方位泛化", "物体泛化", "编组化", "空间泛化"],
     "scene_context": (
         "室内房间，散布低矮木质长桌和大型L形沙发。"
         "任务：从走廊进入房间，肃清室内威胁。"
@@ -183,6 +182,7 @@ EX_06: FewShotExample = {
         "枪口指向柱状掩体方向，防止掩体后伏击。"
     ),
     "conversion_table": [
+        {"violation": "突击手", "correction": "突击组", "conversion_type": "编组化"},
         {"violation": "走廊北侧", "correction": "走廊入口侧", "conversion_type": "方位泛化"},
         {"violation": "木门框", "correction": "门框", "conversion_type": "物体泛化"},
         {"violation": "低矮长桌", "correction": "低矮掩体", "conversion_type": "物体泛化"},
@@ -195,7 +195,7 @@ EX_07: FewShotExample = {
     "example_id": "EX-07",
     "scene_type": "走廊肃清",
     "phase": "进攻—肃清",
-    "primary_conversion_types": ["编队规模泛化", "角色化"],
+    "primary_conversion_types": ["编队规模泛化", "编组化"],
     "scene_context": (
         "狭长走廊，编队从入口向远端推进肃清。"
         "任务：沿走廊推进，肃清沿途威胁。"
@@ -218,7 +218,7 @@ EX_08: FewShotExample = {
     "example_id": "EX-08",
     "scene_type": "建筑外围两翼包抄",
     "phase": "进攻—接近",
-    "primary_conversion_types": ["角色化", "方位泛化", "编队规模泛化", "空间泛化"],
+    "primary_conversion_types": ["编组化", "方位泛化", "编队规模泛化", "空间泛化"],
     "scene_context": (
         "独立建筑位于开放区域，四周有低矮围墙。"
         "任务：从外围安全距离接近建筑，形成控制态势后突入。"
@@ -229,16 +229,16 @@ EX_08: FewShotExample = {
         "两台机器人在距建筑正门10米处汇合，准备突入。"
     ),
     "corrected_version": (
-        "侦察节点升空对建筑外围进行全向侦察，确认态势后编队展开。"
+        "侦察组升空对建筑外围进行全向侦察，确认态势后编队展开。"
         "突击组沿建筑正面方向控制接近，利用沿途掩体分段跃进至入口紧邻处。"
         "侧翼警戒组同步从建筑一侧外围迂回至对侧方向——"
         "与突击组形成两翼包抄的控制态势。"
         "编队在建筑入口紧邻处汇合，确认突入条件后发起协同突入。"
     ),
     "conversion_table": [
-        {"violation": "无人机2号", "correction": "侦察节点", "conversion_type": "角色化"},
-        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "角色化"},
-        {"violation": "人形机器人3号", "correction": "侧翼警戒组", "conversion_type": "角色化"},
+        {"violation": "无人机2号", "correction": "侦察组", "conversion_type": "编组化"},
+        {"violation": "人形机器人1号", "correction": "突击组", "conversion_type": "编组化"},
+        {"violation": "人形机器人3号", "correction": "侧翼警戒组", "conversion_type": "编组化"},
         {"violation": "沿建筑东侧围墙接近正门", "correction": "沿建筑正面方向控制接近", "conversion_type": "方位泛化"},
         {"violation": "从建筑西侧围墙迂回至建筑北面进行包抄", "correction": "从建筑一侧外围迂回至对侧方向", "conversion_type": "方位泛化"},
         {"violation": "两台机器人", "correction": "编队", "conversion_type": "编队规模泛化"},
@@ -247,16 +247,62 @@ EX_08: FewShotExample = {
 }
 
 
+EX_09: FewShotExample = {
+    "example_id": "EX-09",
+    "scene_type": "房间突入（struct_version 多编组协同）",
+    "phase": "进攻—突入",
+    "primary_conversion_types": ["多编组协同", "触发条件", "交接逻辑"],
+    "scene_context": (
+        "走廊中部一侧有门通往目标房间。侦察组已确认门后为开阔房间，散布有低矮掩体。"
+        "任务：编队从走廊突入房间，肃清后控制出口。"
+    ),
+    "violation_version": (
+        "struct_version Instructions 单一编组版（违规）：\n"
+        "Step 1:\n"
+        "  [Unit突击组] → 切片侦察门后区域\n"
+        "  [Unit突击组] → 突入房间至近角\n"
+        "Step 2:\n"
+        "  [Unit突击组] → 逐掩体推进至房间远角\n"
+        "  [Unit突击组] → 确认出口方向安全\n"
+        "\n"
+        "问题：全部步骤由单一编组执行，这不是战术——是单个编组的行动清单。"
+        "缺少侦察组的态势支撑和掩护组的火力覆盖。"
+    ),
+    "corrected_version": (
+        "struct_version Instructions 多编组协同版（正确）：\n"
+        "Step 1:\n"
+        "  [Unit侦察组] → [动作: 高位侦察], [目标: {{门后扇区}}],"
+        " [报告: 掩体分布+威胁位置]\n"
+        "  [Unit突击组] → [动作: 门框切片侦察],"
+        " [触发条件: 侦察组报告无威胁后], [确认: 门后死角安全]\n"
+        "  [Unit掩护组] → [就位: {{门框对侧}}], [武器姿态: 枪口指向室内远角]\n"
+        "Step 2:\n"
+        "  [Unit突击组] → [触发条件: 掩护组就位+侦察组持续监视],"
+        " [动作: 穿过门框], [路径: 沿最近墙壁至{{房间近角}}]\n"
+        "  [Unit掩护组] → [同步跟进: 门框内侧],"
+        " [武器姿态: 覆盖远角+突击组未覆盖扇区]\n"
+        "  [Unit侦察组] → [持续监视: {{门后区域}}],"
+        " [交接信号: 报告掩护组已覆盖全部扇区]\n"
+        "  [编队确认] → [房间安全]"
+    ),
+    "conversion_table": [
+        {"violation": "全部步骤由单一编组执行", "correction": "三个不同编组协同：侦察组态势支撑→突击组突入→掩护组火力覆盖", "conversion_type": "多编组协同"},
+        {"violation": "缺少触发条件", "correction": "侦察组报告无威胁后→突击组行动；掩护组就位后→突击组突入", "conversion_type": "触发条件"},
+        {"violation": "编组间无交接逻辑", "correction": "侦察组监视→确认掩护组覆盖→报告安全→编队确认", "conversion_type": "交接逻辑"},
+    ],
+}
+
+
 FIXED_EXAMPLES: Dict[str, FewShotExample] = {
     "EX-01": EX_01, "EX-02": EX_02, "EX-03": EX_03,
     "EX-04": EX_04, "EX-05": EX_05, "EX-06": EX_06,
-    "EX-07": EX_07, "EX-08": EX_08,
+    "EX-07": EX_07, "EX-08": EX_08, "EX-09": EX_09,
 }
 
 EXAMPLES_BY_MODE: Dict[str, List[str]] = {
-    "RAG": ["EX-01", "EX-03", "EX-06", "EX-07", "EX-08"],
-    "HYBRID": ["EX-01", "EX-02", "EX-03", "EX-06", "EX-07", "EX-08"],
-    "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05", "EX-06", "EX-07", "EX-08"],
+    "RAG": ["EX-01", "EX-03", "EX-06", "EX-07", "EX-08", "EX-09"],
+    "HYBRID": ["EX-01", "EX-02", "EX-03", "EX-06", "EX-07", "EX-08", "EX-09"],
+    "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05", "EX-06", "EX-07", "EX-08", "EX-09"],
 }
 
 

@@ -28,7 +28,7 @@ from .m4_evaluation.evaluator import evaluate_tactic
 from .m4_evaluation.quality_classifier import classify_quality
 from .m4_evaluation.eval_schema import EvalResult
 from .multi_tactic.exhaustive_generator import ExhaustiveTacticGenerator
-from .direction_generalizer import generalize_directions, generalize_objects, generalize_team_size
+from .direction_generalizer import sanitize_desc
 
 logger = logging.getLogger(__name__)
 
@@ -70,10 +70,8 @@ def run_phase4(
     with open(desc_json_path, "r", encoding="utf-8") as f:
         desc_json = json.load(f)
 
-    # 1a. 三重泛化预处理：方向泛化 + 物体身份泛化 + 编队规模泛化（安全网）
-    desc_json = generalize_directions(desc_json)
-    desc_json = generalize_objects(desc_json)
-    desc_json = generalize_team_size(desc_json)
+    # 1a. 系统枚举值消毒（英文枚举字段值 → 中文）
+    desc_json = sanitize_desc(desc_json)
 
     with open(scene_cubes_path, "r", encoding="utf-8") as f:
         scene_data = json.load(f)
@@ -83,23 +81,21 @@ def run_phase4(
 
     logger.info("Phase 4 开始: %s", sub_scene_id)
 
-    # 2. M1: 一致性验证 + 战术标注
+    # 2. M1: 一致性验证
     logger.info("  M1: 一致性验证")
     m1_result = run_m1(desc_json, scene_cubes)
     if not m1_result["ready_for_phase4"]:
         errors = m1_result["validation"].get("errors", [])
-        logger.warning("  M1 验证未通过: %s", errors)
-        if m1_result["validation"].get("cube_count", 0) == 0:
-            logger.error("  M1 致命错误：子场景无几何数据，跳过")
-            return [{
-                "text_version": {}, "struct_version": {},
-                "m1_result": m1_result, "m2_result": {},
-                "m3_feedback": {"round": 0, "score": 0, "overall_pass": False},
-                "m4_result": EvalResult().to_dict(),
-                "quality_level": "L",
-                "output_paths": {"text": "", "struct": ""},
-                "error": "M1 validation failed: empty sub-scene",
-            }]
+        logger.error("  M1 验证未通过，跳过: %s", errors)
+        return [{
+            "text_version": {}, "struct_version": {},
+            "m1_result": m1_result, "m2_result": {},
+            "m3_feedback": {"round": 0, "score": 0, "overall_pass": False},
+            "m4_result": EvalResult().to_dict(),
+            "quality_level": "L",
+            "output_paths": {"text": "", "struct": ""},
+            "error": f"M1 validation failed: {errors}",
+        }]
 
     # 3. M2: 自适应策略
     logger.info("  M2: 策略判定")

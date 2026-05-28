@@ -47,33 +47,6 @@ def determine_mode(
     return mode, max_sim
 
 
-def compute_similarity(
-    query_embedding: List[float],
-    doc_embeddings: Dict[str, List[float]],
-) -> List[float]:
-    """计算查询嵌入与文档嵌入的余弦相似度
-
-    Args:
-        query_embedding: 子场景 desc.json 的嵌入向量
-        doc_embeddings: {chapter_id: embedding} PDF 章节嵌入
-
-    Returns:
-        与各章节的相似度列表
-    """
-    if not query_embedding or not doc_embeddings:
-        return []
-
-    def _cosine(a: List[float], b: List[float]) -> float:
-        dot = sum(x * y for x, y in zip(a, b))
-        norm_a = (sum(x ** 2 for x in a)) ** 0.5
-        norm_b = (sum(x ** 2 for x in b)) ** 0.5
-        if norm_a == 0 or norm_b == 0:
-            return 0.0
-        return dot / (norm_a * norm_b)
-
-    return [_cosine(query_embedding, emb) for emb in doc_embeddings.values()]
-
-
 def run_m2(
     desc_json: Dict[str, Any],
     embedding_client=None,

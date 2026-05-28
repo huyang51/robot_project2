@@ -60,7 +60,7 @@ AEVAL_FULL_SYSTEM_PROMPT = f"""
 ```
 
 > **sub_scores 说明**：military_feasibility 的 sub_scores 包含 5 个子维度评分，分别对应：
-> - mutual_support_relations（角色互助关系，M1-M3）
+> - mutual_support_relations（编组互助关系，M1-M3）
 > - spatial_control（空间控制，M4-M7）
 > - tempo_timing（时间与节奏，M8-M10）
 > - adversarial_realism（对抗合理性，M11-M13）
