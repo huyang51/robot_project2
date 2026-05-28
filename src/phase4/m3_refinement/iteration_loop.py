@@ -142,6 +142,14 @@ class M3IterationLoop:
             if needs_regeneration:
                 prev_score = None
 
+            # 强制 struct_version 的顶层描述字段与 text_version 一致
+            # Description/objective 是战术的整体描述，不因版本而异
+            text_v = tactic_json.get("text_version", {})
+            struct_v = tactic_json.get("struct_version", {})
+            for field in ("Description", "objective"):
+                if text_v.get(field):
+                    struct_v[field] = text_v[field]
+
             # Step 3: 提取审查上下文 → A_review 审查全部 16 条规则
             precheck_context = extract_review_context(tactic_json)
             review_input = build_areview_input(

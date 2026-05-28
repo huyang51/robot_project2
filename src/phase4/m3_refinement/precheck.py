@@ -79,8 +79,12 @@ def _extract_text_fields(version: Dict) -> List[Tuple[str, str]]:
 
 
 def _extract_instruction_fields(version: Dict) -> List[Tuple[str, str]]:
-    """提取 struct_version 中的 Instructions 文本"""
+    """提取 struct_version 中的 Instructions 文本及顶层描述字段"""
     fields = []
+    if "Description" in version:
+        fields.append(("struct_version.Description", version["Description"]))
+    if "objective" in version:
+        fields.append(("struct_version.objective", version["objective"]))
     for action in version.get("Action_Sequence", []):
         step = action.get("Step", "?")
         if "Intent" in action:
