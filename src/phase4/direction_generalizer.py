@@ -15,12 +15,18 @@ from typing import Any, Callable, Dict, List
 # ============================================================
 
 _SYSTEM_ENUM_ZH: Dict[str, str] = {
+    # zone type 枚举
     "corridor": "走廊",
     "entry": "入口",
     "room": "房间",
     "stairwell": "楼梯井",
     "open_area": "开阔地",
     "exterior": "外部",
+    # opening type 枚举
+    "door": "门",
+    "window": "窗",
+    "opening": "开口",
+    "hatch": "舱口",
 }
 
 

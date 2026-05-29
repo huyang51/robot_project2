@@ -3,13 +3,13 @@ M3 辩论式迭代协议
 
 A_gen ↔ A_review 迭代循环（最多 3 轮）：
 1. A_gen 生成初始战术
-2. 提取审查上下文 → A_review 执行全部 16 条通用性审查 + 军事可行性审查
+2. 提取审查上下文 → A_review 执行全部 19 条通用性审查 + 军事可行性审查
 3. 若有硬约束违规 → A_gen 修正 → 回到 2
 4. 若通过通用性审查 → A_review 执行军事可行性审查
 5. 军事可行性 >= 阈值 → 输出最终战术
 6. 军事可行性 < 3.0 → 早期丢弃
 
-注意：全部 16 条通用性规则 (G-T1~G-T11, G-S1~G-S5) 由 A_review LLM 语义审查，
+注意：全部 19 条通用性规则 (G-T1~G-T12, G-S1~G-S6, G-PHASE) 由 A_review LLM 语义审查，
 不依赖前置正则预检。正则已被废弃——中文文本的语义判断（区分"步骤1"与"1米"、
 区分方向用字"一侧"与数量用字"三名"）无法用正则可靠完成。
 """
@@ -67,7 +67,7 @@ class M3IterationLoop:
             (final_tactic_json, last_review_feedback)
         """
         # 准备 Few-Shot 示例
-        few_shot_text = format_examples_for_prompt(mode)
+        few_shot_text = format_examples_for_prompt(mode, mission_phase)
 
         # 准备 A_gen system prompt
         agen_prompt = get_agen_prompt_for_mode(
@@ -87,8 +87,16 @@ class M3IterationLoop:
                 f"## 战术概念种子\n\n以下是从穷举生成阶段产出的战术概念，请基于此概念扩展为"
                 f"完整的 text_version + struct_version 双版本战术方案。\n\n"
                 f"```json\n{seed_str}\n```\n\n"
-                f"请保持 Tactic_Name, objective, Tactic_Type, Semantic_Tags 不变，"
-                f"将 Description 和 Action_Sequence 扩展为符合双版本格式的完整内容。\n\n"
+                f"请保持 Semantic_Tags 的核心战术要素不变。"
+            )
+            if mission_phase:
+                base_user_prompt += (
+                    f"如果种子概念的 Tactic_Name、objective 或 Tactic_Type 与当前作战阶段"
+                    f"（{mission_phase}）不相符，你必须修正它们以符合阶段要求。"
+                    f"例如：进攻阶段的「突入」类命名在撤退阶段应改为「脱离」类命名。"
+                )
+            base_user_prompt += (
+                f"\n\n将 Description 和 Action_Sequence 扩展为符合双版本格式的完整内容。\n\n"
                 f"请从以上场景实例中抽象出通用战术模式——描述空间关系与战术动作的模式，"
                 f"而非复述场景标注信息。"
             )
@@ -97,6 +105,13 @@ class M3IterationLoop:
                 f"## 子场景语义标注\n\n{scene_input}\n\n"
                 f"请从以上场景实例中抽象出通用战术模式——描述空间关系与战术动作的模式，"
                 f"而非复述场景标注信息。"
+            )
+
+        # 在 user prompt 末尾注入 mission_phase 提醒
+        if mission_phase:
+            base_user_prompt += (
+                f"\n\n**当前作战阶段：{mission_phase}**。"
+                f"所有战术动作的最终目的必须与此阶段一致。"
             )
 
         tactic_json = None
@@ -109,7 +124,7 @@ class M3IterationLoop:
             # Step 1: 检查上一轮的通用性违规并修正
             agen_user_prompt = base_user_prompt
             if round_idx > 1 and last_review and last_review.hard_violation_count > 0:
-                fix_instruction = self._build_fix_instruction(last_review)
+                fix_instruction = self._build_fix_instruction(last_review, mission_phase)
                 agen_user_prompt = f"{base_user_prompt}\n\n{fix_instruction}"
 
             # Step 2: A_gen 生成/修正
@@ -150,15 +165,25 @@ class M3IterationLoop:
                 if text_v.get(field):
                     struct_v[field] = text_v[field]
 
-            # Step 3: 提取审查上下文 → A_review 审查全部 16 条规则
+            # 若当前轮次未触发再生且上一轮已通过通用性审查，
+            # 则对未修改的战术重审不会产生新结果——提前收敛，避免冗余 LLM 调用。
+            if round_idx > 1 and not needs_regeneration and last_review and last_review.overall_pass:
+                logger.info(
+                    "  M3 第%d轮: 通用性已通过且战术未修改，提前收敛 (score=%.1f)",
+                    round_idx, last_review.score,
+                )
+                return tactic_json, last_review
+
+            # Step 3: 提取审查上下文 → A_review 审查全部 19 条规则
             precheck_context = extract_review_context(tactic_json)
             review_input = build_areview_input(
                 tactic_json=tactic_json,
                 precheck_context=precheck_context,
                 round_number=round_idx,
+                mission_phase=mission_phase or "",
             )
 
-            logger.info(f"  A_review 审查中 (16条通用性规则 + 军事可行性)...")
+            logger.info(f"  A_review 审查中 (19条通用性规则 + 军事可行性)...")
             review_raw = self.client.generate_json(
                 system_prompt=AREVIEW_SYSTEM_PROMPT,
                 user_prompt=review_input,
@@ -195,7 +220,7 @@ class M3IterationLoop:
             round=self.max_rounds, overall_pass=False, score=0.0
         )
 
-    def _build_fix_instruction(self, review: ReviewFeedback) -> str:
+    def _build_fix_instruction(self, review: ReviewFeedback, mission_phase: Optional[str] = None) -> str:
         """构建修正指令（仅包含硬约束违规）"""
         hard_violations = [v for v in review.violations if v.rule_type == "hard"]
         if not hard_violations:
@@ -213,4 +238,11 @@ class M3IterationLoop:
 
         lines.append("")
         lines.append("请修正以上违规后重新生成战术JSON。")
+
+        if mission_phase:
+            lines.append(
+                f"**注意：当前作战阶段为 {mission_phase}，"
+                f"修正时确保所有动作的战术意图与本阶段一致。**"
+            )
+
         return "\n".join(lines)

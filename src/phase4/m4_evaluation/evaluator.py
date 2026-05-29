@@ -33,7 +33,7 @@ AEVAL_FULL_SYSTEM_PROMPT = f"""
 ```json
 {{
   "scores": {{
-    "scene_adaptation": {{"score": <float>, "checks": {{"S1": <bool>, ..., "S8": <bool>}}, "deductions": []}},
+    "scene_adaptation": {{"score": <float>, "checks": {{"S1": <bool>, ..., "S9": <bool>}}, "deductions": []}},
     "execution_efficiency": {{"score": <float>, "checks": {{"E1": <bool>, ..., "E6": <bool>}}, "deductions": []}},
     "comprehension": {{"score": <float>, "checks": {{"C1": <bool>, ..., "C7": <bool>}}, "deductions": []}},
     "granularity_compliance": {{"score": <float>, "checks": {{"G1": <bool>, ..., "G8": <bool>}}, "deductions": []}},
@@ -93,6 +93,7 @@ def evaluate_tactic(
     tactic_json: Dict[str, Any],
     desc_json: Dict[str, Any],
     client: Optional[MiniMaxClient] = None,
+    mission_phase: Optional[str] = None,
 ) -> EvalResult:
     """对战术进行六维度全项评分
 
@@ -100,12 +101,26 @@ def evaluate_tactic(
         tactic_json: 待评估的战术JSON
         desc_json: 对应的子场景语义标注
         client: MiniMaxClient
+        mission_phase: 作战阶段约束，用于阶段一致性 (S9) 检查
 
     Returns:
         EvalResult
     """
     if client is None:
         client = MiniMaxClient()
+
+    # 阶段约束说明
+    phase_context = ""
+    if mission_phase:
+        phase_context = (
+            f"\n**当前作战阶段：{mission_phase}**\n"
+            f"请在维度一（Scene Adaptation）中额外检查 S9 阶段一致性：\n"
+            f"战术的 Mission_Phase 字段和整体战术意图是否与指定阶段一致？\n"
+            f"- 侦察阶段 = 获取情报\n"
+            f"- 进攻阶段 = 夺取地形/歼灭\n"
+            f"- 防御阶段 = 固守地形\n"
+            f"- 撤退与脱离阶段 = 安全转移兵力\n"
+        )
 
     user_prompt = "\n".join([
         "## 待评估战术JSON（双版本结构）",
@@ -122,6 +137,7 @@ def evaluate_tactic(
         "",
         "## 子场景语义标注（desc.json）",
         json.dumps(desc_json, ensure_ascii=False, indent=2),
+        phase_context,
         "",
         "## 任务",
         "请按照A_eval评估框架对以上战术进行六维度全项评分。",
@@ -174,10 +190,18 @@ def batch_evaluate(
     tactic_pairs: Dict[str, Dict[str, Any]],
     desc_jsons: Dict[str, Dict[str, Any]],
     client: Optional[MiniMaxClient] = None,
+    mission_phase: Optional[str] = None,
 ) -> Dict[str, EvalResult]:
-    """批量评估多个战术"""
+    """批量评估多个战术
+
+    Args:
+        tactic_pairs: ss_id -> tactic_json
+        desc_jsons: ss_id -> desc_json
+        client: MiniMaxClient
+        mission_phase: 作战阶段约束，透传至 evaluate_tactic 用于 S9 检查
+    """
     results = {}
     for ss_id, tactic_json in tactic_pairs.items():
         desc = desc_jsons.get(ss_id, {})
-        results[ss_id] = evaluate_tactic(tactic_json, desc, client)
+        results[ss_id] = evaluate_tactic(tactic_json, desc, client, mission_phase)
     return results

@@ -20,7 +20,7 @@ _AREVIEW_RULES_SECTION = """
 
 ## Profile
 - language: 中文
-- description: 专为战术方案质量审查设计的军事审查专家。对战术JSON进行通用性审查（18条规则）和军事可行性审查，输出结构化反馈。
+- description: 专为战术方案质量审查设计的军事审查专家。对战术JSON进行通用性审查（19条规则）和军事可行性审查，输出结构化反馈。
 - background: 精通军事战术条令、班组级战术行动规范、机器人编队协同作战原则。
 - personality: 严格、精确、公正。只报告可验证的违规，不做主观审美评判。
 
@@ -47,6 +47,7 @@ _AREVIEW_RULES_SECTION = """
 | G-T10 | 硬约束 | 禁止绝对方向指代 | 禁止东/南/西/北+侧/端/段/翼/面/墙/角/缘/头/区/部/方/方向等绝对方向描述（如"走廊西端"、"北侧开口"、"东段"、"北墙"）；必须替换为功能/关系描述（如"走廊远端"、"走廊一侧的开口"、"入口方向段"、"走廊一侧墙壁"）；方向作为编组名中不可分割的一部分时除外（如"侧翼警戒组"、"断后"中的方位词不视为违规）；关注Visual_Aids中同样适用此规则 |
 | G-T11 | 硬约束 | 禁止英文词汇 | 战术文本全文为中文，审查所有字段（Description / objective / Action_Sequence / Visual_Aids）。任何英文词汇——无论是否含下划线、是否来自desc.json字段值——均视为违规，包括但不限于：corridor、entry、south、corridor_main、SS_07。 |
 | G-T12 | 硬约束 | 禁止个体级称谓 | 执行主体不得出现个体人员称谓：队员、操作手、射手、领队、尖兵等。战术描述的是编组协同，不对应到单个人员。执行主体必须使用"组"后缀的编组名。集体行动使用"编队"。 |
+| G-PHASE | 硬约束 | 阶段一致性 | Mission_Phase 字段值必须与指定阶段一致。战术的动作链（Action_Sequence）的最终战术目的必须与该阶段的核心意图一致（如撤退阶段不可出现"歼灭""固守""突入"；侦察阶段不可出现"歼灭""固守""脱离"；防御阶段不可出现"主动推进""脱离阵地"；进攻阶段不可出现"固守待援""安全转移"）。参见阶段定义：侦察=获取情报、进攻=夺取地形/歼灭、防御=固守地形、撤退=安全转移兵力。 |
 
 ### 结构化描述版规则（检查 struct_version 的 Action_Sequence Instructions 字段）
 
@@ -66,11 +67,12 @@ _AREVIEW_POSTAMBLE = """
 
 ## Workflows
 
-1. 接收战术JSON（text_version + struct_version）+ 提取的文本字段上下文
+1. 接收战术JSON（text_version + struct_version）+ 提取的文本字段上下文 + 作战阶段约束
 2. 执行通用性审查：
    a. 逐条检查 G-T1~G-T12（文字描述版），对每个文本字段逐一审查
    b. 逐条检查 G-S1~G-S6（结构化描述版），对每条 Instruction 逐一审查
-   c. 对每条违规记录：规则ID、违规原文、修正建议、违规理由
+   c. 检查 G-PHASE：确认 Mission_Phase 字段和战术意图与指定阶段一致
+   d. 对每条违规记录：规则ID、违规原文、修正建议、违规理由
 3. 判定通用性是否通过：零硬约束违规 = 通过
 4. 若通用性通过，执行军事可行性审查
 5. 给出综合评分（维度四 + 维度六）
@@ -137,6 +139,7 @@ def build_areview_input(
     tactic_json: Dict,
     precheck_context: Dict,
     round_number: int,
+    mission_phase: str = "",
 ) -> str:
     """构建 A_review 的完整输入
 
@@ -144,6 +147,7 @@ def build_areview_input(
         tactic_json: 待审查的战术JSON
         precheck_context: extract_review_context 的输出（文本字段提取结果）
         round_number: 当前审查轮次
+        mission_phase: 作战阶段约束，用于 G-PHASE 审查
     """
     import json as json_module
 
@@ -158,8 +162,23 @@ def build_areview_input(
         f"- [{f['location']}] {f['text']}" for f in struct_fields
     )
 
+    # 阶段约束说明
+    phase_section = ""
+    if mission_phase:
+        phase_section = (
+            f"\n## 作战阶段约束\n\n"
+            f"当前指定的作战阶段为：**{mission_phase}**\n\n"
+            f"请检查 G-PHASE 规则：战术的 Mission_Phase 字段和动作链的最终战术目的"
+            f"是否与此阶段一致。\n"
+            f"- 侦察阶段 = 获取情报\n"
+            f"- 进攻阶段 = 夺取地形/歼灭\n"
+            f"- 防御阶段 = 固守地形\n"
+            f"- 撤退与脱离阶段 = 安全转移兵力\n"
+        )
+
     sections = [
         f"## 审查轮次：第{round_number}轮",
+        phase_section,
         "",
         "## 文字描述版需审查的文本字段",
         text_fields_fmt or "(无)",
@@ -171,7 +190,7 @@ def build_areview_input(
         json_module.dumps(tactic_json, ensure_ascii=False, indent=2),
         "",
         "## 任务",
-        "1. 对上方的每个文本字段，逐条执行 G-T1~G-T12 审查（文字描述版）和 G-S1~G-S6 审查（结构化描述版）",
+        "1. 对上方的每个文本字段，逐条执行 G-T1~G-T12 审查（文字描述版）、G-S1~G-S6 审查（结构化描述版）以及 G-PHASE 审查",
         "2. 每条违规记录完整的 rule_id / rule_type / version / location / original / suggestion / reason",
         "3. 若通用性审查通过（零硬约束违规），执行军事可行性审查（参见上方军事可行性审查清单中的 M1-M18 核查项）",
         "4. 给出综合评分和结构化反馈JSON",

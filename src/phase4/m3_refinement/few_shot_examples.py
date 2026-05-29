@@ -5,7 +5,7 @@
 8条固定对比示例，用于 A_gen 的 system prompt 注入。
 """
 
-from typing import Dict, List, TypedDict
+from typing import Dict, List, Optional, TypedDict
 
 
 class ConversionPair(TypedDict):
@@ -305,6 +305,33 @@ EXAMPLES_BY_MODE: Dict[str, List[str]] = {
     "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05", "EX-06", "EX-07", "EX-08", "EX-09"],
 }
 
+# 按作战阶段将示例分类，用于阶段感知排序
+# 阶段匹配的示例前置（利用 primacy effect），不删除其他示例
+EXAMPLES_BY_PHASE: Dict[str, List[str]] = {
+    "侦察阶段": [],
+    "进攻阶段": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-06", "EX-07", "EX-08", "EX-09"],
+    "防御阶段": [],
+    "撤退与脱离阶段": ["EX-05"],
+}
+
+# 阶段关键词 → 标准阶段名（用于模糊匹配）
+_PHASE_KEYWORDS: Dict[str, str] = {
+    "侦察": "侦察阶段",
+    "进攻": "进攻阶段",
+    "突击": "进攻阶段",
+    "肃清": "进攻阶段",
+    "清剿": "进攻阶段",
+    "突入": "进攻阶段",
+    "接近": "进攻阶段",
+    "防御": "防御阶段",
+    "固守": "防御阶段",
+    "撤退": "撤退与脱离阶段",
+    "脱离": "撤退与脱离阶段",
+    "撤离": "撤退与脱离阶段",
+    "断后": "撤退与脱离阶段",
+    "掩护撤退": "撤退与脱离阶段",
+}
+
 
 def format_example_for_prompt(example: FewShotExample) -> str:
     lines = [
@@ -328,6 +355,32 @@ def get_examples_by_mode(mode: str) -> List[FewShotExample]:
     return [FIXED_EXAMPLES[eid] for eid in example_ids]
 
 
-def format_examples_for_prompt(mode: str) -> str:
+def format_examples_for_prompt(mode: str, mission_phase: Optional[str] = None) -> str:
+    """格式化 Few-Shot 示例为 prompt 文本
+
+    将阶段匹配的示例前置（利用 primacy effect），不删除其他示例。
+    当指定阶段无专属示例时，注入跨阶段引导说明。
+    """
     examples = get_examples_by_mode(mode)
-    return "\n\n".join(format_example_for_prompt(ex) for ex in examples)
+    if mission_phase and mission_phase in EXAMPLES_BY_PHASE:
+        phase_example_ids = EXAMPLES_BY_PHASE[mission_phase]
+        # 将阶段匹配的示例前置
+        phase_matched = [e for e in examples if e["example_id"] in phase_example_ids]
+        other = [e for e in examples if e["example_id"] not in phase_example_ids]
+        examples = phase_matched + other
+
+    parts = []
+    for ex in examples:
+        parts.append(format_example_for_prompt(ex))
+
+    # 当指定阶段无专属示例时，注入跨阶段引导说明
+    if mission_phase and mission_phase in EXAMPLES_BY_PHASE and not EXAMPLES_BY_PHASE[mission_phase]:
+        cross_phase_note = (
+            f"注意：当前作战阶段为「{mission_phase}」，该阶段暂无专属示例。"
+            f"以下示例来自其他作战阶段，请将示例中的进攻/防御意图替换为当前"
+            f"{mission_phase}的对应意图。重点关注编组化、通用化、动作粒度等"
+            f"格式模式，而非模仿示例的具体战术目的。"
+        )
+        parts.insert(0, cross_phase_note)
+
+    return "\n\n".join(parts)

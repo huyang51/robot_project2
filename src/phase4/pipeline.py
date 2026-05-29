@@ -144,7 +144,7 @@ def run_phase4(
         # M4: 质量评估
         logger.info("  [%d/%d] M4: 质量评估", idx + 1, len(concepts))
         try:
-            eval_result = evaluate_tactic(tactic_json, desc_json, client)
+            eval_result = evaluate_tactic(tactic_json, desc_json, client, mission_phase=mission_phase)
         except Exception as e:
             logger.error("  [%d/%d] M4 评估失败: %s", idx + 1, len(concepts), e)
             continue
