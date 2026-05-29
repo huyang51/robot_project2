@@ -10,20 +10,20 @@ import json
 # ── 战术 JSON Schema（简化版，只要求核心字段的 concept）──
 
 TACTIC_CONCEPT_SCHEMA = """```json
-{
+{{
   "Tactic_Name": "string - 战术名称，简洁有区分度",
   "Tactic_Type": "string - 如 室内作战/班组级、走廊推进/班组级",
   "objective": "string - 战术核心目的，一句话概括",
   "Description": "string - 80-200字战术执行方式完整描述",
   "Action_Sequence": [
-    {
+    {{
       "Step": 1,
       "Intent": "该步骤的战术意图，编组化描述",
       "key_roles": ["突击组", "掩护组"]
-    }
+    }}
   ],
   "Semantic_Tags": ["标签1", "标签2"]
-}
+}}
 ```
 """
 
