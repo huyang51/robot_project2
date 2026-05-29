@@ -186,6 +186,7 @@ M4_EVALUATION_PARAMS = {
         "M": 6.0,
     },
     "military_min_for_H": 7.0,
+    "granularity_min_for_H": 7.0,
     "single_dimension_min": 4.0,
     "veto_thresholds": {
         "V1_military": 3.0,

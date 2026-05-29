@@ -19,13 +19,14 @@ def classify_quality(
     规则:
     1. 先检查否决条件 → L
     2. 任何单一维度 < 4.0 → L
-    3. H: Q >= 8.0 且 军事可行性 >= 7.0
+    3. H: Q >= 8.0 且 军事可行性 >= 7.0 且 粒度合规性 >= 7.0
     4. M: 6.0 <= Q < 8.0
     5. L: Q < 6.0
     """
     params = params or M4_EVALUATION_PARAMS
     thresholds = params.get("quality_thresholds", {"H": 8.0, "M": 6.0})
     military_min = params.get("military_min_for_H", 7.0)
+    granularity_min = params.get("granularity_min_for_H", 7.0)
     single_min = params.get("single_dimension_min", 4.0)
     vetoes = params.get("veto_thresholds", {})
 
@@ -59,7 +60,9 @@ def classify_quality(
 
     if q >= thresholds["H"]:
         if military and _get_score(military) >= military_min:
-            return "H"
+            if granularity and _get_score(granularity) >= granularity_min:
+                return "H"
+            return "M"  # 综合分/军事分够高但粒度合规不达标
         return "M"  # 综合分够高但军事分不够
 
     if q >= thresholds["M"]:

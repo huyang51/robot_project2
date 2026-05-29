@@ -87,7 +87,9 @@ class M3IterationLoop:
                 f"## 战术概念种子\n\n以下是从穷举生成阶段产出的战术概念，请基于此概念扩展为"
                 f"完整的 text_version + struct_version 双版本战术方案。\n\n"
                 f"```json\n{seed_str}\n```\n\n"
-                f"请保持 Semantic_Tags 的核心战术要素不变。"
+                f"**重要**: 种子概念可能尚未完全通用化（可能包含绝对方向、具体物体名、数值等违规）。"
+                f"你必须修正这些违规——将具体描述替换为通用战术模式——"
+                f"同时保持战术意图和 Semantic_Tags 的核心要素不变。"
             )
             if mission_phase:
                 base_user_prompt += (
