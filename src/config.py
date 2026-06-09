@@ -202,11 +202,11 @@ M4_EVALUATION_PARAMS = {
 # 的 EXAMPLES_BY_MODE 中定义。此配置供未来统一管理。
 # ============================================================
 FEW_SHOT_CONFIG = {
-    "fixed_example_count": 8,
+    "fixed_example_count": 9,
     "examples_by_mode": {
-        "RAG": ["EX-01", "EX-03", "EX-06", "EX-07", "EX-08"],
-        "HYBRID": ["EX-01", "EX-02", "EX-03", "EX-06", "EX-07", "EX-08"],
-        "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05", "EX-06", "EX-07", "EX-08"],
+        "RAG": ["EX-01", "EX-03", "EX-06", "EX-07", "EX-08", "EX-09"],
+        "HYBRID": ["EX-01", "EX-02", "EX-03", "EX-06", "EX-07", "EX-08", "EX-09"],
+        "GEN": ["EX-01", "EX-02", "EX-03", "EX-04", "EX-05", "EX-06", "EX-07", "EX-08", "EX-09"],
     },
     "max_example_tokens_estimate": 8000,
     "position_in_prompt": "before_scene_input",
